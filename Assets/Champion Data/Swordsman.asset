@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Swordsman
   m_EditorClassIdentifier: 
   name: Swordsman
-  health: 140
+  health: 130
   damage: 110
+  range: 10
   cooldownTime: 0.9
   tier: 1
   weight: 160

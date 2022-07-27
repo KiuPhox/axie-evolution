@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy
   m_EditorClassIdentifier: 
   name: Enemy
-  health: 50
+  health: 100
   damage: 50
   range: 10
   cooldownTime: 1

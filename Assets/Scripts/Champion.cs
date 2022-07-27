@@ -7,14 +7,6 @@ public class Champion : LivingEntity, IFollowable
 {
     public float speed;
     public float spaceBetween = 0.5f;
-    public ChampionData championData;
-    SpriteRenderer championSR;
-
-    void Awake()
-    {
-        startingHealth = championData.health;
-        championSR = GetComponent<SpriteRenderer>();
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -39,15 +31,5 @@ public class Champion : LivingEntity, IFollowable
     public void FollowTarget(Vector3 targetPos)
     {
         transform.position += (targetPos - transform.position).normalized * speed * Time.fixedDeltaTime;
-    }
-
-    void FlipBaseOnTargetPos(Vector3 targetPos)
-    {
-        if (targetPos.x > transform.position.x)
-        {
-            championSR.flipX = true;
-        }
-        else
-            championSR.flipX = false;
     }
 }

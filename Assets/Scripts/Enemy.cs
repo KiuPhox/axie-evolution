@@ -4,32 +4,33 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using DG.Tweening;
 
-public class Enemy : MonoBehaviour, IFollowable
+public class Enemy : LivingEntity, IFollowable
 {
-    public ChampionData enemyData;
-    PlayerChampions playerChampions;
     public float speed;
-    SpriteRenderer enemySR;
 
     LivingEntity targetEntity;
 
     float attackCooldownTime;
-    float timeCount = 0f;
+    float timeActtackCount = 0f;
 
     float closestDis = 100f;
     GameObject closestChampion;
 
-    void Start()
+    public override void Start()
     {
-        enemySR = GetComponent<SpriteRenderer>();
-        playerChampions = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
-        attackCooldownTime = enemyData.cooldownTime;
+        base.Start();
+        attackCooldownTime = championData.cooldownTime;
         playerChampions.AddBlobShadowForChampion(this.gameObject);
     }
 
     private void Update()
     {
-        timeCount += Time.deltaTime;
+        timeActtackCount += Time.deltaTime;
+        ChaseClosestChampion();
+    }
+
+    private void ChaseClosestChampion()
+    {
         if (playerChampions.championsCount > 0)
         {
             closestDis = 100f;
@@ -54,42 +55,16 @@ public class Enemy : MonoBehaviour, IFollowable
         transform.position += (targetPos - transform.position).normalized * speed * Time.deltaTime;
     }
 
-    void FlipBaseOnTargetPos(Vector3 targetPos)
-    {
-        if (targetPos.x > transform.position.x)
-        {
-            enemySR.flipX = true;
-        }
-        else
-            enemySR.flipX = false;
-    }
-
-
-    public void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Champion"))
-        {
-            if (timeCount > attackCooldownTime)
-            {
-                timeCount = 0f;
-                targetEntity = collision.GetComponent<LivingEntity>();
-                targetEntity.TakeDamage(enemyData.damage);
-            }
-
-        }
-    }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Champion"))
         {
-            if (timeCount > attackCooldownTime)
+            if (timeActtackCount > attackCooldownTime)
             {
-                timeCount = 0f;
+                timeActtackCount = 0f;
                 targetEntity = collision.gameObject.GetComponent<Champion>();
-                targetEntity.TakeDamage(enemyData.damage);
+                targetEntity.TakeDamage(championData.damage);
             }
-
         }
     }
 }

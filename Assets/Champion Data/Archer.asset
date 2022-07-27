@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Archer
   health: 100
   damage: 120
+  range: 0
   cooldownTime: 1.5
   tier: 1
   weight: 80

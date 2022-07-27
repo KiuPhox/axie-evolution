@@ -6,7 +6,7 @@ using UnityEngine;
 public class ChampionData : ScriptableObject
 {
     public new string name;
-    public int health;
+    public float health;
     public int damage;
     public int range;
     public float cooldownTime;

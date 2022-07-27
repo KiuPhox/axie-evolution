@@ -7,9 +7,9 @@ public class PlayerChampions : MonoBehaviour
     [HideInInspector] public GameObject choosedChampion;
     [HideInInspector] public List<GameObject> champions = new List<GameObject>();
 
-    GameObject blobShadow;
     public int championsCount;
-    
+
+    GameObject blobShadow;
     Vector3 offset = new Vector3(-0.75f, 0f, 0f);
     Vector3 shadowOffset = new Vector3(0, -0.6f, 0f);
 

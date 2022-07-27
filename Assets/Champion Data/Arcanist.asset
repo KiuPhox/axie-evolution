@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Arcanist
   health: 80
   damage: 130
+  range: 0
   cooldownTime: 1
   tier: 1
   weight: 320
