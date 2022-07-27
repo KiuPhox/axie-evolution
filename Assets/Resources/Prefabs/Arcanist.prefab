@@ -48,11 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08281d5d59a78ea4381cde953e92c007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerChampions: {fileID: 0}
+  championData: {fileID: 11400000, guid: 68dc3a4fe7f65b34e99a090a82fedb30, type: 2}
   startingHealth: 0
   immortalTime: 1
   speed: 3
   spaceBetween: 0.2
-  championData: {fileID: 11400000, guid: 68dc3a4fe7f65b34e99a090a82fedb30, type: 2}
 --- !u!212 &9115612116787840765
 SpriteRenderer:
   m_ObjectHideFlags: 0

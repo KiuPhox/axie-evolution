@@ -8,7 +8,15 @@ public class Champion : LivingEntity, IFollowable
     public float speed;
     public float spaceBetween = 0.5f;
 
-    // Update is called once per frame
+    private void Update()
+    {
+        timeCount += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+    }
+
     void FixedUpdate()
     {
         Vector3 screenPosition = Input.mousePosition;
@@ -31,5 +39,14 @@ public class Champion : LivingEntity, IFollowable
     public void FollowTarget(Vector3 targetPos)
     {
         transform.position += (targetPos - transform.position).normalized * speed * Time.fixedDeltaTime;
+    }
+
+    private void Shoot()
+    {
+        GameObject i_projectile = Instantiate(projectile, transform.position, Quaternion.identity);
+
+        if (i_projectile != null) { 
+            i_projectile.GetComponent<Projectile>().damage = damage;
+        }
     }
 }

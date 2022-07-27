@@ -11,5 +11,6 @@ public class ChampionData : ScriptableObject
     public int range;
     public float cooldownTime;
     public int tier;
+    public GameObject projectile;
     [HideInInspector] public float weight;
 }

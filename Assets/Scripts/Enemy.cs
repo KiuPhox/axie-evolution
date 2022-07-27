@@ -19,7 +19,7 @@ public class Enemy : LivingEntity, IFollowable
     public override void Start()
     {
         base.Start();
-        attackCooldownTime = championData.cooldownTime;
+        attackCooldownTime = cooldownTime;
         playerChampions.AddBlobShadowForChampion(this.gameObject);
     }
 
@@ -62,7 +62,7 @@ public class Enemy : LivingEntity, IFollowable
             if (timeActtackCount > attackCooldownTime)
             {
                 timeActtackCount = 0f;
-                targetEntity = collision.gameObject.GetComponent<Champion>();
+                targetEntity = collision.gameObject.GetComponent<LivingEntity>();
                 targetEntity.TakeDamage(championData.damage);
             }
         }

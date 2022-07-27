@@ -12,22 +12,35 @@ public class LivingEntity : MonoBehaviour, IDamageable
     public float immortalTime = 1f;
 
     protected float health;
-    protected bool dead;
+    protected float damage;
+    protected GameObject projectile;
+    protected float cooldownTime;
 
+
+    protected bool dead;
     
     FlashEffect flashEffect;
     SpriteRenderer SR;
 
-    float timeCount = 0;
+    [HideInInspector] public float timeCount = 0;
 
     public event System.Action OnDeath;
 
     public virtual void Start()
     {
         SR = GetComponent<SpriteRenderer>();
-        startingHealth = health = championData.health;
         flashEffect = GetComponent<FlashEffect>();
         playerChampions = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
+        
+        SetCharacteristics();
+    }
+
+    private void SetCharacteristics()
+    {
+        startingHealth = health = championData.health;
+        damage = championData.damage;
+        projectile = championData.projectile;
+        cooldownTime = championData.cooldownTime;
     }
 
     public virtual void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
@@ -74,10 +87,5 @@ public class LivingEntity : MonoBehaviour, IDamageable
     protected void FlashOnDamaged()
     {
         flashEffect.Flash();
-    }
-
-    private void Update()
-    {
-        timeCount += Time.deltaTime;
     }
 }
