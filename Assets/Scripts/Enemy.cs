@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using DG.Tweening;
 
 public class Enemy : MonoBehaviour, IFollowable
 {
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour, IFollowable
         enemySR = GetComponent<SpriteRenderer>();
         playerChampions = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
         attackCooldownTime = enemyData.cooldownTime;
+        playerChampions.AddBlobShadowForChampion(this.gameObject);
     }
 
     private void Update()
