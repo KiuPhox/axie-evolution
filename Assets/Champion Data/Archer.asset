@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Archer
   m_EditorClassIdentifier: 
   name: Archer
+  description: Shoot an arrow deals 120 damage
   health: 100
   damage: 120
   range: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9115612116787840764
+--- !u!1 &1712103883538681380
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,59 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9115612116787840766}
-  - component: {fileID: 4668068747576217227}
-  - component: {fileID: 9115612116787840765}
-  - component: {fileID: 9115612116787840760}
-  - component: {fileID: -5461738605902480789}
-  - component: {fileID: 453100247}
-  - component: {fileID: -4339726839111372942}
+  - component: {fileID: 1712103883538681382}
+  - component: {fileID: 1712103883538681383}
+  - component: {fileID: -7651690825230879707}
+  - component: {fileID: 3683085142651299811}
+  - component: {fileID: 6655687989303688197}
   m_Layer: 0
-  m_Name: Scout
-  m_TagString: Champion
+  m_Name: Blue Orb
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9115612116787840766
+--- !u!4 &1712103883538681382
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
+  m_GameObject: {fileID: 1712103883538681380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.18446216, y: 0.18446216, z: 1}
+  m_LocalPosition: {x: -2.2, y: 1.36, z: 0}
+  m_LocalScale: {x: 0.44383755, y: 0.44383755, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4668068747576217227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08281d5d59a78ea4381cde953e92c007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerChampions: {fileID: 0}
-  championData: {fileID: 11400000, guid: 5bfdb17118a1efc44a67f85b3790c50e, type: 2}
-  startingHealth: 0
-  immortalTime: 1
-  speed: 3
-  spaceBetween: 0.2
---- !u!212 &9115612116787840765
+--- !u!212 &1712103883538681383
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
+  m_GameObject: {fileID: 1712103883538681380}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -90,28 +70,28 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 610585833
+  m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f3c08b8b40e407248944c4edb4504d98, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1be47b78b7cabd4c83b3853290fda71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 8.94, y: 8.94}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &9115612116787840760
+--- !u!50 &-7651690825230879707
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
+  m_GameObject: {fileID: 1712103883538681380}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -124,49 +104,38 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!114 &-5461738605902480789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f26051ac64ffae944950d71cd2e5ddb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cd: {fileID: 11400000, guid: 5bfdb17118a1efc44a67f85b3790c50e, type: 2}
-  championName: 
-  tier: 0
---- !u!58 &453100247
+  m_Constraints: 0
+--- !u!58 &3683085142651299811
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
+  m_GameObject: {fileID: 1712103883538681380}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.2}
   serializedVersion: 2
-  m_Radius: 3
---- !u!114 &-4339726839111372942
+  m_Radius: 2.6
+--- !u!114 &6655687989303688197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
+  m_GameObject: {fileID: 1712103883538681380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ebaa085a30cb5543b3a9f4516b36cc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 549748fc4ce9dbf4da4661eccf6166ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashMaterial: {fileID: 2100000, guid: de53d22dde5d79c48b06003d387f9792, type: 2}
-  duration: 0.13
+  damage: 0
+  target: {fileID: 0}
+  speed: 1
+  lifeTime: 6
+  effectTime: 0.6
+  effectRadius: 2

@@ -51,7 +51,6 @@ MonoBehaviour:
   championData: {fileID: 11400000, guid: 1e3ebc4da49b49247ac99cc1d3986174, type: 2}
   startingHealth: 0
   immortalTime: 0
-  timeCount: 0
   speed: 2
 --- !u!212 &9115612116787840765
 SpriteRenderer:
@@ -153,4 +152,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: de53d22dde5d79c48b06003d387f9792, type: 2}
-  duration: 0.2
+  duration: 0.13

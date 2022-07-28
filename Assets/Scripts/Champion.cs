@@ -53,7 +53,7 @@ public class Champion : LivingEntity, IFollowable
         if (i_projectile != null) {
 
             //Please Fix
-            i_projectile.GetComponent<Bullet>().target = GetClosestTargetInList(targets);
+            i_projectile.GetComponent<Projectile>().target = GetClosestTargetInList(targets);
             i_projectile.GetComponent<Projectile>().damage = damage;
         }
     }

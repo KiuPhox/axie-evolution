@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            for (int i = 0; i < currentWaveNumber; i++)
+            for (int i = 0; i < currentWaveNumber && i < spawners.Length; i++)
             {
                 SpawnEnemies(spawners[i]);
             }

@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : Projectile
+public class Orb : Projectile
 {
     public float speed;
     public float lifeTime;
+    public float effectTime;
+    public float effectRadius;
 
     Vector3 targetPos;
     Vector3 direction;
-    float angle;
 
     LivingEntity targetEntity;
+    float nextEffectTime;
 
     void Start()
     {
@@ -33,16 +35,18 @@ public class Bullet : Projectile
     void Update()
     {
         transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
-    }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
+        if (Time.time >= nextEffectTime)
         {
-            targetEntity = collision.gameObject.GetComponent<LivingEntity>();
-            targetEntity.TakeDamage(damage);
-            Destroy(this.gameObject);
+            nextEffectTime = Time.time + effectTime;
+            foreach (GameObject t in targets)
+            {
+                if (Vector2.Distance(t.transform.position, transform.position) <= effectRadius)
+                {
+                    t.GetComponent<LivingEntity>().TakeDamage(damage);
+                }
+            }
         }
     }
 }

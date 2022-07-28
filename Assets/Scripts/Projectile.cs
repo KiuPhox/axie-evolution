@@ -5,4 +5,5 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [HideInInspector] public float damage;
+    [HideInInspector] public GameObject target;
 }
