@@ -11,9 +11,10 @@ public class Enemy : LivingEntity, IFollowable
     LivingEntity targetEntity;
 
     float attackCooldownTime;
-    float timeActtackCount = 0f;
+    float nextAttackTime;
 
-    float closestDis = 100f;
+    
+    // float closestDis = 100f;
     GameObject closestChampion;
 
     public override void Start()
@@ -25,28 +26,11 @@ public class Enemy : LivingEntity, IFollowable
 
     private void Update()
     {
-        timeActtackCount += Time.deltaTime;
-        ChaseClosestChampion();
-    }
-
-    private void ChaseClosestChampion()
-    {
-        if (playerChampions.championsCount > 0)
+        closestChampion = GetClosestTargetInList(playerChampions.champions);
+        if (closestChampion != null)
         {
-            closestDis = 100f;
-            foreach (GameObject champion in playerChampions.champions)
-            {
-                if (Vector3.Distance(champion.transform.position, transform.position) < closestDis)
-                {
-                    closestDis = Vector3.Distance(champion.transform.position, transform.position);
-                    closestChampion = champion;
-                }
-            }
-            if (closestChampion != null)
-            {
-                FollowTarget(closestChampion.transform.position);
-                FlipBaseOnTargetPos(closestChampion.transform.position);
-            }
+            FollowTarget(closestChampion.transform.position);
+            FlipBaseOnTargetPos(closestChampion.transform.position);
         }
     }
 
@@ -59,9 +43,9 @@ public class Enemy : LivingEntity, IFollowable
     {
         if (collision.gameObject.CompareTag("Champion"))
         {
-            if (timeActtackCount > attackCooldownTime)
+            if (Time.time > nextAttackTime)
             {
-                timeActtackCount = 0f;
+                nextAttackTime = Time.time + attackCooldownTime;
                 targetEntity = collision.gameObject.GetComponent<LivingEntity>();
                 targetEntity.TakeDamage(championData.damage);
             }

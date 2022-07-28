@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Enemy
   m_EditorClassIdentifier: 
   name: Enemy
-  health: 100
+  health: 200
   damage: 50
   range: 10
   cooldownTime: 1
   tier: 0
+  projectile: {fileID: 0}
   weight: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-
+using DG.Tweening;
 public class LivingEntity : MonoBehaviour, IDamageable
 {
     [HideInInspector] public PlayerChampions playerChampions;
@@ -22,9 +22,13 @@ public class LivingEntity : MonoBehaviour, IDamageable
     FlashEffect flashEffect;
     SpriteRenderer SR;
 
-    [HideInInspector] public float timeCount = 0;
+    // Time Management
+    float nextImmortalTime;
+
+    
 
     public event System.Action OnDeath;
+    
 
     public virtual void Start()
     {
@@ -50,9 +54,9 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public virtual void TakeDamage(float damage)
     {
-        if (timeCount > immortalTime)
+        if (Time.time >= nextImmortalTime)
         {
-            timeCount = 0;
+            nextImmortalTime = Time.time + immortalTime;
             FlashOnDamaged();
             health -= damage;
         }
@@ -60,6 +64,45 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             Die();
         }
+    }
+
+    float closestDis;
+    GameObject closestTarget;
+
+    public GameObject GetClosestTargetInList(List<GameObject> targets)
+    {
+        if (targets.Count > 0)
+        {
+            closestDis = 100f;
+            foreach (GameObject target in targets)
+            {
+                if (Vector3.Distance(target.transform.position, transform.position) < closestDis)
+                {
+                    closestDis = Vector3.Distance(target.transform.position, transform.position);
+                    closestTarget = target;
+                }
+            }
+            return closestTarget;
+        }
+        return null;
+    }
+
+    public GameObject GetClosestTargetInList(GameObject[] targets)
+    {
+        if (targets.Length > 0)
+        {
+            closestDis = 100f;
+            foreach (GameObject target in targets)
+            {
+                if (Vector3.Distance(target.transform.position, transform.position) < closestDis)
+                {
+                    closestDis = Vector3.Distance(target.transform.position, transform.position);
+                    closestTarget = target;
+                }
+            }
+            return closestTarget;
+        }
+        return null;
     }
 
     public virtual void FlipBaseOnTargetPos(Vector3 targetPos)
@@ -80,12 +123,20 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             OnDeath();
         }
-        playerChampions.RemoveChampion(gameObject);
+        if (gameObject.CompareTag("Champion"))
+        {
+            playerChampions.RemoveChampion(gameObject);
+        }
         GameObject.Destroy(gameObject);
     }
 
     protected void FlashOnDamaged()
-    {
+    { 
         flashEffect.Flash();
+    }
+
+    private void OnDestroy()
+    {
+        transform.DOKill();
     }
 }

@@ -8,11 +8,13 @@ public class Champion : LivingEntity, IFollowable
     public float speed;
     public float spaceBetween = 0.5f;
 
+    float nextAttackTime;
+
     private void Update()
     {
-        timeCount += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Time.time > nextAttackTime)
         {
+            nextAttackTime = Time.time + cooldownTime;
             Shoot();
         }
     }
@@ -41,11 +43,17 @@ public class Champion : LivingEntity, IFollowable
         transform.position += (targetPos - transform.position).normalized * speed * Time.fixedDeltaTime;
     }
 
+    
+
     private void Shoot()
     {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject i_projectile = Instantiate(projectile, transform.position, Quaternion.identity);
 
-        if (i_projectile != null) { 
+        if (i_projectile != null) {
+
+            //Please Fix
+            i_projectile.GetComponent<Bullet>().target = GetClosestTargetInList(targets);
             i_projectile.GetComponent<Projectile>().damage = damage;
         }
     }

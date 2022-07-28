@@ -7,14 +7,15 @@ public class Bullet : Projectile
     public float speed;
     public float lifeTime;
 
-    GameObject target;
+    [HideInInspector] public GameObject target;
     Vector3 targetPos;
     Vector3 direction;
     float angle;
 
+    LivingEntity targetEntity;
+
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Enemy");
         if (target != null)
         {
             targetPos = target.transform.position;
@@ -36,6 +37,8 @@ public class Bullet : Projectile
     {
         if (collision.CompareTag("Enemy"))
         {
+            targetEntity = collision.gameObject.GetComponent<LivingEntity>();
+            targetEntity.TakeDamage(damage);
             Destroy(this.gameObject);
         }
     }
