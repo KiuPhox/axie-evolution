@@ -47,11 +47,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
         cooldownTime = championData.cooldownTime;
     }
 
-    public virtual void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
-    {
-        TakeDamage(damage);
-    }
-
     public virtual void TakeDamage(float damage)
     {
         if (Time.time >= nextImmortalTime)
