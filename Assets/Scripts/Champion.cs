@@ -10,10 +10,16 @@ public class Champion : LivingEntity, IFollowable
 
     float nextAttackTime;
 
+    public override void Start()
+    {
+        base.Start();
+        nextAttackTime = Random.Range(Time.time, Time.time + cooldownTime);
+    }
+
     private void Update()
     {
-        if (Time.time > nextAttackTime)
-        {
+        if (Time.time >= nextAttackTime)
+        {    
             nextAttackTime = Time.time + cooldownTime;
             Shoot();
         }
@@ -21,9 +27,7 @@ public class Champion : LivingEntity, IFollowable
 
     void FixedUpdate()
     {
-        Vector3 screenPosition = Input.mousePosition;
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-        Vector3 targetPos = new Vector3(worldPosition.x, worldPosition.y, 0);
+        Vector3 targetPos = Utility.GetMouseWorldPosition();
 
         FlipBaseOnTargetPos(targetPos);
 
@@ -51,7 +55,6 @@ public class Champion : LivingEntity, IFollowable
         GameObject i_projectile = Instantiate(projectile, transform.position, Quaternion.identity);
 
         if (i_projectile != null) {
-
             //Please Fix
             i_projectile.GetComponent<Projectile>().target = GetClosestTargetInList(targets);
             i_projectile.GetComponent<Projectile>().damage = damage;

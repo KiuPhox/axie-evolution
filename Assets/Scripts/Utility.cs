@@ -30,4 +30,13 @@ public static class Utility
         return array;
     }
 
+    static Vector3 worldBoundary = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+
+    public static Vector3 GetMouseWorldPosition()
+    {
+        Vector3 screenPosition = Input.mousePosition;
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+        return new Vector3(worldPosition.x, worldPosition.y, 0f);
+    }
+
 }

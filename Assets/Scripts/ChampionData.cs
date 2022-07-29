@@ -8,7 +8,8 @@ public class ChampionData : ScriptableObject
     public new string name;
     public string description;
     public float health;
-    public int damage;
+    public float damage;
+    public float defense;
     public int range;
     public float cooldownTime;
     public int tier;

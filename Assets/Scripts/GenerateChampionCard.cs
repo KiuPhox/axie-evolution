@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 public class GenerateChampionCard : MonoBehaviour
 {
-    public ChampionData[] champions;
+    [HideInInspector] public ChampionData[] champions;
     public float[] tierChances;
 
-    public TMP_Text[] cardNames;
+    public CardHandler[] cards;
  
     float accumlateWeights;
+    ChampionData randomChampion;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        champions = Resources.LoadAll("Champion Data", typeof(ChampionData)).Cast<ChampionData>().ToArray();
+    }
+
     void Start()
     {
         CalculateWeights();
@@ -22,9 +30,11 @@ public class GenerateChampionCard : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            for (int i = 0; i < cardNames.Length; i++)
+            for (int i = 0; i < cards.Length; i++)
             {
-                cardNames[i].SetText(champions[GetRandomChampionIndex()].name);
+                randomChampion = champions[GetRandomChampionIndex()];
+                Debug.Log(randomChampion.name);
+                cards[i].SetCardData(randomChampion);
             }
         }
     }

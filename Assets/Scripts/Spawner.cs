@@ -57,14 +57,21 @@ public class Spawner : MonoBehaviour
         enemiesReaminingAlive--;
         if (enemiesReaminingAlive == 0)
         {
+            GameManager.Instance.UpdateGameState(GameState.ChooseCard);
             NextWave();
         }
     }
 
     private void SpawnEnemies(GameObject spawner)
     {
+        // Instantiate Spawn Cross
         GameObject i_cross = Instantiate(crossSpawn, spawner.transform);
-        i_cross.GetComponent<SpriteRenderer>().DOFade(0, 0.2f).SetLoops(7, LoopType.Yoyo).OnComplete(() =>
+        Color spawnCrossColor = i_cross.GetComponent<SpriteRenderer>().color;
+        spawnCrossColor.a = 0f;
+        i_cross.GetComponent<SpriteRenderer>().color = spawnCrossColor;
+
+        // Spawn Enemy
+        i_cross.GetComponent<SpriteRenderer>().DOFade(1f, 0.2f).SetLoops(8, LoopType.Yoyo).SetDelay(0.5f).OnComplete(() =>
         {
             Destroy(i_cross);
             for (int i = 0; i < enemiesPerSpawner; i++)

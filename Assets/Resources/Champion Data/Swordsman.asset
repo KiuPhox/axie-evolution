@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
-  m_Name: Archer
+  m_Name: Swordsman
   m_EditorClassIdentifier: 
-  name: Archer
-  description: Shoot an arrow deals 120 damage
-  health: 100
-  damage: 120
-  range: 0
-  cooldownTime: 1.5
+  name: Swordsman
+  description: Attack with sword
+  health: 130
+  damage: 110
+  defense: 0
+  range: 10
+  cooldownTime: 0.9
   tier: 1
-  projectile: {fileID: 897866155811430675, guid: f4a72729ca7b1044e96f68b748b8f09b,
-    type: 3}
-  weight: 80
+  projectile: {fileID: 0}
+  weight: 380

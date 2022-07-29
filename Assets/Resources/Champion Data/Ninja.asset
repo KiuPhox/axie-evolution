@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
-  m_Name: Swordsman
+  m_Name: Ninja
   m_EditorClassIdentifier: 
-  name: Swordsman
+  name: Ninja
+  description: Throw suriken
   health: 130
-  damage: 110
+  damage: 100
   range: 10
   cooldownTime: 0.9
-  tier: 1
+  tier: 2
+  projectile: {fileID: 0}
   weight: 160
