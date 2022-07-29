@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Arcanist
   description: 
   health: 80
-  damage: 30
+  damage: 50
   range: 0
   cooldownTime: 3
   tier: 1

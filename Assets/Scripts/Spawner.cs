@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Rendering;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject[] spawners;
+    public GameObject crossSpawn;
     public float spawnRadius;
     public GameObject enemy;
     public Wave[] waves;
 
+    
+
     Wave currentWave;
-    int currentWaveNumber;
+    [HideInInspector] public int currentWaveNumber;
     int enemiesPerSpawner;
     int enemiesReaminingAlive;
 
@@ -26,58 +30,57 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            for (int i = 0; i < currentWaveNumber && i < spawners.Length - 1; i++)
-            {
-                SpawnEnemies(spawners[i]);
-            }
-            NextWave();
-        }
+
     }
 
     void NextWave()
     {
         currentWaveNumber++;
+
         if (currentWaveNumber - 1 < waves.Length)
         {
             currentWave = waves[currentWaveNumber - 1];
             enemiesReaminingAlive = currentWave.enemyCount;
             enemiesPerSpawner = currentWave.enemyCount / currentWaveNumber;
-            Debug.Log(enemiesPerSpawner);
         }
+
         Utility.ShuffleArray(spawners);
-        /*
-        if (OnNewWave != null)
+
+        for (int i = 0; i < currentWaveNumber && i < spawners.Length - 1; i++)
         {
-            OnNewWave(currentWaveNumber);
+            SpawnEnemies(spawners[i]);
         }
-        ResetPlayerPosition();
-        */
     }
 
-    void OnEnemyDeath()
+    private void OnEnemyDeath()
     {
         enemiesReaminingAlive--;
         if (enemiesReaminingAlive == 0)
         {
-            //NextWave();
+            NextWave();
         }
     }
 
     private void SpawnEnemies(GameObject spawner)
     {
-        for (int i = 0; i < enemiesPerSpawner; i++) {
+        GameObject i_cross = Instantiate(crossSpawn, spawner.transform);
+        i_cross.GetComponent<SpriteRenderer>().DOFade(0, 0.2f).SetLoops(7, LoopType.Yoyo).OnComplete(() =>
+        {
+            Destroy(i_cross);
+            for (int i = 0; i < enemiesPerSpawner; i++)
+            {
+                float x = Random.Range(-spawnRadius, spawnRadius);
+                float y = Random.Range(-spawnRadius, spawnRadius);
+                Vector3 offsetSpawn = new Vector3(x, y, 0);
 
-            float x = Random.Range(-spawnRadius, spawnRadius);
-            float y = Random.Range(-spawnRadius, spawnRadius);
-            Vector3 offsetSpawn = new Vector3(x, y, 0);
+                GameObject i_enemy = Instantiate(enemy, spawner.transform);
 
-            GameObject i_enemy = Instantiate(enemy, spawner.transform);
-
-            i_enemy.transform.DOLocalMove(offsetSpawn, 0.2f);
-        }
+                i_enemy.transform.DOLocalMove(offsetSpawn, 0.2f);
+                i_enemy.GetComponent<Enemy>().OnDeath += OnEnemyDeath;
+            }
+        });
     }
+
 
     [System.Serializable]
     public class Wave

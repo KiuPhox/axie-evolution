@@ -25,7 +25,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
     // Time Management
     float nextImmortalTime;
 
-    
 
     public event System.Action OnDeath;
     
