@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
+
 public class CardHandler : MonoBehaviour
 {
     public PlayerChampions pc;
@@ -12,6 +14,8 @@ public class CardHandler : MonoBehaviour
     public TMP_Text _damage;
     public TMP_Text _defense;
     public TMP_Text _tier;
+
+    RectTransform cardTransform;
 
     public void SelectChampion()
     {   
@@ -32,5 +36,23 @@ public class CardHandler : MonoBehaviour
     public void DoneSelected()
     {
         GameManager.Instance.UpdateGameState(GameState.GameStart);
+    }
+
+    private void Start()
+    {
+        cardTransform = GetComponent<RectTransform>();
+    }
+
+    private void Update()
+    {
+
+    }
+    public void ScaleBiggerCard()
+    {
+        transform.DOScale(1.2f, 0.2f).SetEase(Ease.OutCubic);
+    }
+    public void ScaleSmallerCard()
+    {
+        transform.DOScale(1f, 0.2f).SetEase(Ease.OutCubic);
     }
 }

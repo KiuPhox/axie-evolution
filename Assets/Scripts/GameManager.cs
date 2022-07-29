@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleIdle()
     {
-        HandleChooseCard();
+        
     }
 
     private void HandleGameStart()
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
     
     private void HandleChooseCard()
     {
-        Time.timeScale = 0f;
+
     }
 }
 

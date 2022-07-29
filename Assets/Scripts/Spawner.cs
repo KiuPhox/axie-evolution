@@ -19,36 +19,43 @@ public class Spawner : MonoBehaviour
     int enemiesPerSpawner;
     int enemiesReaminingAlive;
 
+    bool isStarted = false;
 
     // Start is called before the first frame update
     void Start()
     {
         Utility.ShuffleArray(spawners);
-        NextWave();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (GameManager.Instance.State == GameState.GameStart && !isStarted)
+        {
+            isStarted = true;
+            NextWave();
+        }
     }
-
     void NextWave()
     {
-        currentWaveNumber++;
-
-        if (currentWaveNumber - 1 < waves.Length)
+        if (GameManager.Instance.State == GameState.GameStart)
         {
-            currentWave = waves[currentWaveNumber - 1];
-            enemiesReaminingAlive = currentWave.enemyCount;
-            enemiesPerSpawner = currentWave.enemyCount / currentWaveNumber;
-        }
+            currentWaveNumber++;
 
-        Utility.ShuffleArray(spawners);
+            if (currentWaveNumber - 1 < waves.Length)
+            {
+                currentWave = waves[currentWaveNumber - 1];
+                enemiesReaminingAlive = currentWave.enemyCount;
+                enemiesPerSpawner = currentWave.enemyCount / currentWaveNumber;
+            }
 
-        for (int i = 0; i < currentWaveNumber && i < spawners.Length - 1; i++)
-        {
-            SpawnEnemies(spawners[i]);
+            Utility.ShuffleArray(spawners);
+
+            for (int i = 0; i < currentWaveNumber && i < spawners.Length - 1; i++)
+            {
+                SpawnEnemies(spawners[i]);
+            }
         }
     }
 
@@ -58,7 +65,7 @@ public class Spawner : MonoBehaviour
         if (enemiesReaminingAlive == 0)
         {
             GameManager.Instance.UpdateGameState(GameState.ChooseCard);
-            NextWave();
+            isStarted = false;
         }
     }
 

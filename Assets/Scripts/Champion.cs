@@ -27,13 +27,17 @@ public class Champion : LivingEntity, IFollowable
 
     void FixedUpdate()
     {
+        
         Vector3 targetPos = Utility.GetMouseWorldPosition();
 
         FlipBaseOnTargetPos(targetPos);
 
-        if (Vector3.Distance(targetPos, transform.position) > spaceBetween)
+        if (GameManager.Instance.State == GameState.GameStart)
         {
-            FollowTarget(targetPos);
+            if (Vector3.Distance(targetPos, transform.position) > spaceBetween)
+            {
+                FollowTarget(targetPos);
+            }
         }
     }
 
