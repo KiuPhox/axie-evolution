@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Boomerang : Projectile
 {
+    //ga
     public float speed;
     public float lifeTime;
 
