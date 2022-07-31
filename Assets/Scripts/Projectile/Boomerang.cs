@@ -12,7 +12,7 @@ public class Boomerang : Projectile
     Vector3 direction;
 
     LivingEntity targetEntity;
-
+    //A
     void Start()
     {
 
