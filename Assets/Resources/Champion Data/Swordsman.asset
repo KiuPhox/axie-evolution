@@ -15,10 +15,11 @@ MonoBehaviour:
   name: Swordsman
   description: Attack with sword
   health: 130
-  damage: 110
+  damage: 50
   defense: 0
-  range: 10
-  cooldownTime: 0.9
+  range: 3.5
+  cooldownTime: 1
   tier: 1
-  projectile: {fileID: 0}
+  projectile: {fileID: 3611118393586328161, guid: a88fa408447e7b04d80917b8aba9d063,
+    type: 3}
   weight: 380

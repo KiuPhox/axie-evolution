@@ -17,7 +17,7 @@ MonoBehaviour:
   health: 80
   damage: 35
   defense: 0
-  range: 0
+  range: 10
   cooldownTime: 3
   tier: 1
   projectile: {fileID: 1712103883538681380, guid: f25696c96a135e34bb6a45d09c1871b7,

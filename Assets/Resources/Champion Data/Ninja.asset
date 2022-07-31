@@ -16,8 +16,10 @@ MonoBehaviour:
   description: Throw suriken
   health: 130
   damage: 100
+  defense: 0
   range: 10
   cooldownTime: 0.9
   tier: 2
-  projectile: {fileID: 0}
-  weight: 160
+  projectile: {fileID: 1768310633749735082, guid: 9828e5022db81194e81930e4ff1195e7,
+    type: 3}
+  weight: 220

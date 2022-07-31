@@ -121,7 +121,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             playerChampions.RemoveChampion(gameObject);
         }
-        GameObject.Destroy(gameObject);
+        GameObject.Destroy(gameObject, 0.12f);
     }
 
     protected void FlashOnDamaged()

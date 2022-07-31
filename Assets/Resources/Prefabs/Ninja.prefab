@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerChampions: {fileID: 0}
-  championData: {fileID: 11400000, guid: e23fbe77179360849ade41d4dd3ed5f5, type: 2}
+  championData: {fileID: 11400000, guid: 746bff35e58784046915eb72255691e9, type: 2}
   startingHealth: 0
   immortalTime: 1
   speed: 3

@@ -59,6 +59,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
+
     private void OnEnemyDeath()
     {
         enemiesReaminingAlive--;
@@ -92,7 +93,7 @@ public class Spawner : MonoBehaviour
                 i_enemy.transform.DOLocalMove(offsetSpawn, 0.2f);
                 i_enemy.GetComponent<Enemy>().OnDeath += OnEnemyDeath;
             }
-        });
+        });  
     }
 
 

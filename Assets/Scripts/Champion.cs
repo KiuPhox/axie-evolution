@@ -10,6 +10,10 @@ public class Champion : LivingEntity, IFollowable
 
     float nextAttackTime;
 
+    GameObject[] targets;
+    GameObject closestTarget;
+    float closestDistance = 100f;
+
     public override void Start()
     {
         base.Start();
@@ -18,10 +22,21 @@ public class Champion : LivingEntity, IFollowable
 
     private void Update()
     {
+        targets = GameObject.FindGameObjectsWithTag("Enemy");
+        closestTarget = GetClosestTargetInList(targets);
+
+        if (closestTarget != null)
+        {
+            closestDistance = Vector2.Distance(transform.position, closestTarget.transform.position);
+        }
+
         if (Time.time >= nextAttackTime)
         {    
             nextAttackTime = Time.time + cooldownTime;
-            Shoot();
+            if (closestDistance <= championData.range)
+            {
+                Shoot();
+            }
         }
     }
 
@@ -55,12 +70,12 @@ public class Champion : LivingEntity, IFollowable
 
     private void Shoot()
     {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
+
         GameObject i_projectile = Instantiate(projectile, transform.position, Quaternion.identity);
 
         if (i_projectile != null) {
             //Please Fix
-            i_projectile.GetComponent<Projectile>().target = GetClosestTargetInList(targets);
+            i_projectile.GetComponent<Projectile>().target = closestTarget;
             i_projectile.GetComponent<Projectile>().damage = damage;
         }
     }

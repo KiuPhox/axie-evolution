@@ -10,7 +10,7 @@ public class ChampionData : ScriptableObject
     public float health;
     public float damage;
     public float defense;
-    public int range;
+    public float range;
     public float cooldownTime;
     public int tier;
     public GameObject projectile;

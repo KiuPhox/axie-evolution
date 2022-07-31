@@ -26,6 +26,7 @@ public class CardHandler : MonoBehaviour
     public void SetCardData(ChampionData champion)
     {
         _image.sprite = Resources.Load<Sprite>("Sprite/" + champion.name);
+        LoadChampionImage(_image);
         _name.text = champion.name;
         _description.text = champion.description;
         _defense.text = champion.defense.ToString();
@@ -36,6 +37,14 @@ public class CardHandler : MonoBehaviour
     public void DoneSelected()
     {
         GameManager.Instance.UpdateGameState(GameState.GameStart);
+    }
+
+    private void LoadChampionImage(Image image)
+    {
+        image.SetNativeSize();
+        RectTransform imageRT = image.GetComponent<RectTransform>();
+        Vector2 originalSize = imageRT.sizeDelta;
+        imageRT.sizeDelta = new Vector2(100 * originalSize.x / originalSize.y, 100);
     }
 
     private void Start()
