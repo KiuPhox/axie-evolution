@@ -130,28 +130,6 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 880, y: 975}
-  - name: Cost Box
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 596
-      y: 1377
-      width: 138
-      height: 138
-    spriteID: c19410df4a9346441a52c73007b494ee
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 502, y: 693}
   - name: Name Box
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -240,6 +218,28 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -65, y: 4}
+  - name: Cost Box
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 596
+      y: 1377
+      width: 138
+      height: 138
+    spriteID: d38d710eed55f424fadb141112747722
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 502, y: 693}
   rigSpriteImportData:
   - name: Damage Box
     originalName: 
@@ -431,8 +431,8 @@ ScriptedImporter:
     spriteName: Cost Box
     isGroup: 0
     parentIndex: -1
-    spriteID: c19410df4a9346441a52c73007b494ee
-    layerID: 8
+    spriteID: d38d710eed55f424fadb141112747722
+    layerID: 19
     mosaicPosition: {x: 596, y: 1377}
   - name: Name Box
     spriteName: Name Box

@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Linq;
 public class GenerateChampionCard : MonoBehaviour
 {
@@ -13,6 +11,10 @@ public class GenerateChampionCard : MonoBehaviour
  
     float accumlateWeights;
     ChampionData randomChampion;
+    AudioSource flipSound;
+
+    public MoneyUI moneyUI;
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -23,6 +25,8 @@ public class GenerateChampionCard : MonoBehaviour
     void Start()
     {
         CalculateWeights();
+        flipSound = GetComponent<AudioSource>();
+        Invoke("GenerateCard", 0f);
     }
 
     // Update is called once per frame
@@ -30,12 +34,32 @@ public class GenerateChampionCard : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            for (int i = 0; i < cards.Length; i++)
-            {
-                randomChampion = champions[GetRandomChampionIndex()];
-                Debug.Log(randomChampion.name);
-                cards[i].SetCardData(randomChampion);
-            }
+            GenerateCard();
+        }
+    }
+
+    public void GenerateCard()
+    {
+        flipSound.Play();
+        
+
+        for (int i = 0; i < cards.Length; i++)
+        {
+            randomChampion = champions[GetRandomChampionIndex()];
+            Debug.Log(randomChampion.name);
+            cards[i].gameObject.SetActive(true);
+            cards[i].transform.localScale = new Vector2(1f, 1f);
+            cards[i].SetCardData(randomChampion);
+        }
+    }
+
+    public void Reroll()
+    {
+        if (moneyUI.startingMoney >= 2)
+        {
+            moneyUI.startingMoney -= 2;
+            moneyUI.isChanged = true;
+            GenerateCard();
         }
     }
 

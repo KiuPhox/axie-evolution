@@ -25,7 +25,6 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         Utility.ShuffleArray(spawners);
-        
     }
 
     // Update is called once per frame

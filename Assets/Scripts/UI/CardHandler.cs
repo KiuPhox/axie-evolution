@@ -14,21 +14,27 @@ public class CardHandler : MonoBehaviour
     public TMP_Text _defense;
     public TMP_Text _tier;
 
-    Image[] images;
-    
-    RectTransform cardTransform;
+    public MoneyUI moneyUI;
 
+    Image[] images;
     private void Start()
     {
-        cardTransform = GetComponent<RectTransform>();
-
         images = GetComponentsInChildren<Image>();
     }
 
     public void SelectChampion()
     {   
         GameObject choosedChampion = Resources.Load("Prefabs/" + _name.text) as GameObject;
-        pc.AddChampion(choosedChampion);
+
+        if (moneyUI.startingMoney >= int.Parse(_tier.text))
+        {
+            pc.AddChampion(choosedChampion);
+            moneyUI.startingMoney -= int.Parse(_tier.text);
+            moneyUI.isChanged = true;
+
+
+            gameObject.SetActive(false);   
+        }
     }
 
     public void SetCardData(ChampionData champion)

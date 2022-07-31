@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public GameState State { get; private set; }
     public static event Action<GameState> OnGameStateChanged;
 
+    public GenerateChampionCard generateChampionCard;
+
     private void Awake()
     {
         Instance = this;
@@ -57,7 +59,6 @@ public class GameManager : MonoBehaviour
 
     private void HandleIdle()
     {
-        
     }
 
     private void HandleGameStart()
@@ -77,7 +78,7 @@ public class GameManager : MonoBehaviour
     
     private void HandleChooseCard()
     {
-
+        generateChampionCard.GenerateCard();
     }
 }
 

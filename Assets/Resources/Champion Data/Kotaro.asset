@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Kotaro
   description: Attack with sword
   health: 130
-  damage: 30
+  damage: 50
   defense: 0
   range: 3.5
   cooldownTime: 0.5
@@ -23,4 +23,4 @@ MonoBehaviour:
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 3611118393586328161, guid: a88fa408447e7b04d80917b8aba9d063,
     type: 3}
-  weight: 170
+  weight: 130
