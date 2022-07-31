@@ -20,5 +20,6 @@ MonoBehaviour:
   range: 10
   cooldownTime: 1.1
   tier: 1
+  cardColor: {fileID: 11400000, guid: 0a3f7a685d2c01b4da8801c8e4c1ed4d, type: 2}
   projectile: {fileID: 0}
   weight: 300

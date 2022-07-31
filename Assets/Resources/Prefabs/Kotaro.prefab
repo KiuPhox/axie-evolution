@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 60428825}
   - component: {fileID: 6106132229767211532}
   m_Layer: 0
-  m_Name: Swordsman
+  m_Name: Kotaro
   m_TagString: Champion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

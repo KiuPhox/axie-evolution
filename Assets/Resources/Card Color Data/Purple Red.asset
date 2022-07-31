@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eff5c0500052ac4ebd40445e0c3f6fb, type: 3}
+  m_Name: Purple Red
+  m_EditorClassIdentifier: 
+  color: {r: 0.3254902, g: 0.24313727, b: 0.36078432, a: 1}
+  championBoxColor: {r: 0.5372549, g: 0.27058825, b: 0.36078432, a: 1}
+  nameBoxColor: {r: 0.60784316, g: 0.36078432, b: 0.8000001, a: 1}
+  descriptionBoxColor: {r: 0.27450982, g: 0.20784315, b: 0.30980393, a: 1}

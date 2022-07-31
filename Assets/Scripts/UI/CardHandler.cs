@@ -8,14 +8,22 @@ using DG.Tweening;
 public class CardHandler : MonoBehaviour
 {
     public PlayerChampions pc;
-    public Image _image;
     public TMP_Text _name;
     public TMP_Text _description;
     public TMP_Text _damage;
     public TMP_Text _defense;
     public TMP_Text _tier;
 
+    Image[] images;
+    
     RectTransform cardTransform;
+
+    private void Start()
+    {
+        cardTransform = GetComponent<RectTransform>();
+
+        images = GetComponentsInChildren<Image>();
+    }
 
     public void SelectChampion()
     {   
@@ -25,8 +33,17 @@ public class CardHandler : MonoBehaviour
 
     public void SetCardData(ChampionData champion)
     {
-        _image.sprite = Resources.Load<Sprite>("Sprite/" + champion.name);
-        LoadChampionImage(_image);
+        CardColorData cardColorData = champion.cardColor;
+
+        // Load Card Color Data
+        images[0].color = cardColorData.color; // Body's color
+        images[1].color = cardColorData.championBoxColor; // Champion Box's color
+        images[2].sprite = Resources.Load<Sprite>("Sprite/" + champion.name); // Champion's image
+        LoadChampionImage(images[2]);
+        images[3].color = cardColorData.nameBoxColor; // Name Box's color
+        images[4].color = cardColorData.descriptionBoxColor; // Name Box's color
+
+        // Load Champion Data
         _name.text = champion.name;
         _description.text = champion.description;
         _defense.text = champion.defense.ToString();
@@ -47,10 +64,7 @@ public class CardHandler : MonoBehaviour
         imageRT.sizeDelta = new Vector2(100 * originalSize.x / originalSize.y, 100);
     }
 
-    private void Start()
-    {
-        cardTransform = GetComponent<RectTransform>();
-    }
+
 
     private void Update()
     {

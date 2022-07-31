@@ -13,6 +13,7 @@ public class ChampionData : ScriptableObject
     public float range;
     public float cooldownTime;
     public int tier;
+    public CardColorData cardColor;
     public GameObject projectile;
     [HideInInspector] public float weight;
 }

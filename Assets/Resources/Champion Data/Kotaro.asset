@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
-  m_Name: Swordsman
+  m_Name: Kotaro
   m_EditorClassIdentifier: 
-  name: Swordsman
+  name: Kotaro
   description: Attack with sword
   health: 130
-  damage: 50
+  damage: 30
   defense: 0
   range: 3.5
-  cooldownTime: 1
-  tier: 1
+  cooldownTime: 0.5
+  tier: 3
+  cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 3611118393586328161, guid: a88fa408447e7b04d80917b8aba9d063,
     type: 3}
-  weight: 380
+  weight: 170
