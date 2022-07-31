@@ -22,8 +22,13 @@ public class Sword : Projectile
             targetPos = target.transform.position;
             direction = targetPos - transform.position;
             RotateToDirection(direction);
+
+
+
+            
             transform.Rotate(new Vector3(0, 0, -angle), Space.Self);
             transform.DOLocalRotate(new Vector3(0, 0, angle * 2), rotateDuration, RotateMode.LocalAxisAdd).SetEase(ease);
+            
         }
         else
         {

@@ -39,6 +39,7 @@ public class Orb : Projectile
         if (Time.time >= nextEffectTime)
         {
             nextEffectTime = Time.time + effectTime;
+
             foreach (GameObject t in targets)
             {
                 if (Vector2.Distance(t.transform.position, transform.position) <= effectRadius)

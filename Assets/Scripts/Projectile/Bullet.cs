@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class Bullet : Projectile
 {
     public float speed;
@@ -9,7 +9,6 @@ public class Bullet : Projectile
 
     Vector3 targetPos;
     Vector3 direction;
-    float angle;
 
     LivingEntity targetEntity;
 
@@ -39,8 +38,10 @@ public class Bullet : Projectile
     {
         if (collision.CompareTag("Enemy"))
         {
+            // Deals target damage
             targetEntity = collision.gameObject.GetComponent<LivingEntity>();
             targetEntity.TakeDamage(damage);
+
             Destroy(this.gameObject);
         }
     }
