@@ -11,12 +11,12 @@ public class ButtonHandler : MonoBehaviour
     }
     public void ScaleButton()
     {
-        transform.DOScale(new Vector2(1.1f, 1.1f), 0.05f);
+        transform.DOScale(new Vector2(1.1f, 1.1f), 0.05f).SetUpdate(true);
     }
 
     public void OriginalScale()
     {
-        transform.DOScale(new Vector2(1f, 1f), 0.05f);
+        transform.DOScale(new Vector2(1f, 1f), 0.05f).SetUpdate(true);
     }
 
     public void DoneSelected()
