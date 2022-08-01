@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
+    public Slider volumeSlider;
 
     [SerializeField] private AudioSource effectsSource;
 
@@ -19,6 +21,11 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        ChangeMasterVolume(volumeSlider.value / volumeSlider.maxValue);
     }
 
     public void PlaySound (AudioClip clip)
