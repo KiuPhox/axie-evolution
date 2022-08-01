@@ -6948,6 +6948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517711c0b85003a408dfc93d5180847f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 873746593}
   effectsSource: {fileID: 262392542}
 --- !u!4 &1988675162
 Transform:
