@@ -7116,7 +7116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f602949d0c8d0d548bfcffa43521e899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCursor: {fileID: 2800000, guid: d63cea8b700285245aa9a1a410f4ff75, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 26506df5e98b57a40ad23e4b916b75db, type: 3}
 --- !u!1 &2114047960
 GameObject:
   m_ObjectHideFlags: 0
