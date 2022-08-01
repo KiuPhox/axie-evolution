@@ -77,6 +77,7 @@ public class Champion : LivingEntity, IFollowable
             //Please Fix
             i_projectile.GetComponent<Projectile>().target = closestTarget;
             i_projectile.GetComponent<Projectile>().damage = damage;
+            i_projectile.GetComponent<Projectile>().holder = this.gameObject;
         }
     }
 }

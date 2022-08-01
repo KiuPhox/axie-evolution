@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [HideInInspector] public float damage;
     [HideInInspector] public GameObject target;
+    [HideInInspector] public GameObject holder;
 
     public void RotateToDirection(Vector3 direction)
     {
