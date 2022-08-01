@@ -113,5 +113,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   target: {fileID: 0}
-  speed: 0
-  lifeTime: 0
+  speed: 3
+  lifeTime: 3
+  maxDistance: 7
