@@ -5,61 +5,70 @@ using DG.Tweening;
 
 public class Boomerang : Projectile
 {
-    public float speed;
-    public float lifeTime;
+    public float currentSpeed;
     public float effectTime;
-    public float rotateTime;
+    public float rotationTime;
 
-    private float originSpeed;
+    private float originalSpeed;
     Vector3 targetPos;
     Vector3 direction;
 
     LivingEntity targetEntity;
-    float nextEffectTime;
 
     void Start()
     {
         effectTime += Time.time;
-        originSpeed = speed;
-        transform.DOLocalRotate(new Vector3(0, 0, 360), rotateTime, RotateMode.LocalAxisAdd).SetLoops(-1, LoopType.Incremental);
-        // t biet bomerang lay cai gì r :)) bumerang trong gunny :))
-        // voi cai thượng cổ nữa :))
+        originalSpeed = currentSpeed;
+        transform.DOLocalRotate(new Vector3(0, 0, 360), rotationTime, RotateMode.LocalAxisAdd).SetLoops(-1, LoopType.Incremental);
+
         if (target != null)
         {
             targetPos = target.transform.position;
             direction = targetPos - transform.position;
         }
-        else // đù
+        else
         {
             Destroy(this.gameObject);
         }
-        Destroy(this.gameObject, lifeTime);
     }
-    // đó nó mát tiep
 
     void Update()
     {
-        transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World); // chạy theo hướng, 
+        transform.Translate(direction.normalized * currentSpeed * Time.deltaTime, Space.World);
        
-        if (Time.time >= effectTime) 
+        if (holder == null)
+        {
+            Destroy(this.gameObject);
+        }
+        else if (Time.time >= effectTime) 
         {
             direction = holder.transform.position - transform.position;
-            speed = originSpeed;
+            currentSpeed = Mathf.Lerp(currentSpeed, originalSpeed, 0.005f);
         }
-        // nếu dị thì cái này back nó true mãi r
+        else
+        {
+            currentSpeed = Mathf.Lerp(currentSpeed, 0, 0.005f);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision) 
     {
         if (collision.CompareTag("Enemy"))
         {
-            // Deals target damage
             targetEntity = collision.gameObject.GetComponent<LivingEntity>();
             targetEntity.TakeDamage(damage);
-            speed -= 1f;
+            if (Time.time < effectTime)
+            {
+                currentSpeed -= 1f;
+            }
         }
         if (Time.time >= effectTime && collision.gameObject == holder)
         {
             Destroy(this.gameObject);
         }    
+    }
+
+    private void OnDestroy()
+    {
+        transform.DOKill();
     }
 }

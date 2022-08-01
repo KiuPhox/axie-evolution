@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Scout
   description: Shoot arrow.
   health: 80
-  damage: 130
+  damage: 20
   defense: 0
   range: 10
   cooldownTime: 1.1

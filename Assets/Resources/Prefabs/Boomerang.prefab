@@ -96,9 +96,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.4, y: 0.4}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.4
+  m_Radius: 1.77
 --- !u!114 &2527239565705612432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   damage: 0
   target: {fileID: 0}
   holder: {fileID: 0}
-  speed: 10
+  currentSpeed: 10
   lifeTime: 5
-  effectTime: 2
-  rotateTime: 0.2
+  effectTime: 1
+  rotationTime: 0.15
