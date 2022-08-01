@@ -8,11 +8,9 @@ public class Boomerang : Projectile
     public float speed;
     public float lifeTime;
     public float effectTime;
-    public float maxDistance;
+    public float rotateTime;
 
-
-    bool isBack = false;
-
+    private float originSpeed;
     Vector3 targetPos;
     Vector3 direction;
 
@@ -21,13 +19,17 @@ public class Boomerang : Projectile
 
     void Start()
     {
+        effectTime += Time.time;
+        originSpeed = speed;
+        transform.DOLocalRotate(new Vector3(0, 0, 360), rotateTime, RotateMode.LocalAxisAdd).SetLoops(-1, LoopType.Incremental);
+        // t biet bomerang lay cai gì r :)) bumerang trong gunny :))
+        // voi cai thượng cổ nữa :))
         if (target != null)
         {
             targetPos = target.transform.position;
             direction = targetPos - transform.position;
-            RotateToDirection(direction);
         }
-        else
+        else // đù
         {
             Destroy(this.gameObject);
         }
@@ -37,17 +39,14 @@ public class Boomerang : Projectile
 
     void Update()
     {
-        transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
-        
-        if (Time.time >= effectTime && !isBack)
+        transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World); // chạy theo hướng, 
+       
+        if (Time.time >= effectTime) 
         {
-            isBack = true;
-
-            
-            targetPos = target.transform.position;
-            direction = transform.position - targetPos;
-            RotateToDirection(direction);
+            direction = holder.transform.position - transform.position;
+            speed = originSpeed;
         }
+        // nếu dị thì cái này back nó true mãi r
     }
     private void OnTriggerEnter2D(Collider2D collision) 
     {
@@ -56,6 +55,11 @@ public class Boomerang : Projectile
             // Deals target damage
             targetEntity = collision.gameObject.GetComponent<LivingEntity>();
             targetEntity.TakeDamage(damage);
+            speed -= 1f;
         }
+        if (Time.time >= effectTime && collision.gameObject == holder)
+        {
+            Destroy(this.gameObject);
+        }    
     }
 }
