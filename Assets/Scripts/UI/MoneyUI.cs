@@ -8,13 +8,12 @@ public class MoneyUI : MonoBehaviour
     public TMP_Text moneyText;
 
     [HideInInspector] public bool isChanged = false;
-    AudioSource coinSound;
+    [SerializeField] AudioClip coinClip;
 
     // Start is called before the first frame update
     void Start()
     {
         moneyText.text = startingMoney.ToString();
-        coinSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,7 +23,7 @@ public class MoneyUI : MonoBehaviour
         {
             isChanged = false;
             moneyText.text = startingMoney.ToString();
-            coinSound.Play();
+            SoundManager.Instance.PlaySound(coinClip);
         }
     }
 }

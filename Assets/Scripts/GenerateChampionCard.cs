@@ -4,34 +4,44 @@ using UnityEngine;
 using System.Linq;
 public class GenerateChampionCard : MonoBehaviour
 {
+    [HideInInspector] public bool isFisrtGenerated;
     [HideInInspector] public ChampionData[] champions;
+    [SerializeField] AudioClip flipClip;
+
     public float[] tierChances;
 
     public CardHandler[] cards;
- 
+
+    CanvasManager canvasManager;
+
     float accumlateWeights;
     ChampionData randomChampion;
-    AudioSource flipSound;
+   
 
     public MoneyUI moneyUI;
-
-    // Start is called before the first frame update
+    
 
     private void Awake()
     {
         champions = Resources.LoadAll("Champion Data", typeof(ChampionData)).Cast<ChampionData>().ToArray();
+        isFisrtGenerated = false;
     }
 
     void Start()
     {
         CalculateWeights();
-        flipSound = GetComponent<AudioSource>();
-        Invoke("GenerateCard", 0f);
+        canvasManager = GetComponentInParent<CanvasManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isFisrtGenerated && canvasManager.chooseCardUI.activeSelf == true)
+        {
+            isFisrtGenerated = true;
+            GenerateCard();
+        }
+
         if (Input.GetKeyDown(KeyCode.G))
         {
             GenerateCard();
@@ -40,7 +50,7 @@ public class GenerateChampionCard : MonoBehaviour
 
     public void GenerateCard()
     {
-        flipSound.Play();
+        SoundManager.Instance.PlaySound(flipClip);
         
 
         for (int i = 0; i < cards.Length; i++)

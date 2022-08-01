@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState State { get; private set; }
+    public GameState previousState { get; private set; }
+
     public static event Action<GameState> OnGameStateChanged;
 
     public GenerateChampionCard generateChampionCard;
@@ -25,7 +27,12 @@ public class GameManager : MonoBehaviour
 
     public void UpdateGameState(GameState newState)
     {
+        previousState = State;
         State = newState;
+
+        Debug.Log("pre: " + previousState);
+        Debug.Log("current: " + State);
+
         switch (newState)
         {
             case GameState.Idle:
@@ -51,14 +58,29 @@ public class GameManager : MonoBehaviour
 
 
 
-    // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TriggerPause();
+        }
+    }
 
+    public void TriggerPause()
+    {
+        if (State == GameState.GamePause)
+        {
+            UpdateGameState(previousState);
+        }
+        else
+        {
+            UpdateGameState(GameState.GamePause);
+        }
     }
 
     private void HandleIdle()
     {
+        
     }
 
     private void HandleGameStart()
@@ -78,7 +100,11 @@ public class GameManager : MonoBehaviour
     
     private void HandleChooseCard()
     {
-        generateChampionCard.GenerateCard();
+        Time.timeScale = 1f;
+        if (previousState != GameState.GamePause && generateChampionCard.isFisrtGenerated)
+        {
+            generateChampionCard.GenerateCard();
+        }
     }
 }
 
