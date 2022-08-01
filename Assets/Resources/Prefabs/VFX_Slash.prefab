@@ -159,7 +159,7 @@ MonoBehaviour:
   angle: 45
   rotateDuration: 0.15
   ease: 1
-  lifeTime: 0.5
+  lifeTime: 0.2
 --- !u!61 &1728492550
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CanvasManager : MonoBehaviour
 {
+    public GameObject moneyBoxUI;
     public GameObject idleMenuUI;
     public GameObject chooseCardUI;
     public GameObject pauseMenuUI;
@@ -22,23 +23,19 @@ public class CanvasManager : MonoBehaviour
             chooseCardUI.SetActive(true);
             pauseMenuUI.SetActive(false);
             idleMenuUI.SetActive(false);
+            moneyBoxUI.SetActive(true);
         }
         else if (GameManager.Instance.State == GameState.GamePause)
         {
             chooseCardUI.SetActive(false);
             pauseMenuUI.SetActive(true);
+            moneyBoxUI.SetActive(false);
         }
         else if (GameManager.Instance.State == GameState.GameStart)
         {
             chooseCardUI.SetActive(false);
             pauseMenuUI.SetActive(false);
-        }
-
-        else if (GameManager.Instance.State == GameState.GameStart)
-        {
-            chooseCardUI.SetActive(false);
-            pauseMenuUI.SetActive(false);
-            idleMenuUI.SetActive(false);
+            moneyBoxUI.SetActive(false);
         }
     }
 }
