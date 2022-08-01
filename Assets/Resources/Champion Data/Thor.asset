@@ -21,6 +21,6 @@ MonoBehaviour:
   cooldownTime: 2
   tier: 2
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
-  projectile: {fileID: 1768310633749735082, guid: 9828e5022db81194e81930e4ff1195e7,
+  projectile: {fileID: 5876398060244672991, guid: 6daf6ee519ab20246b8ca7dc4acd9f59,
     type: 3}
   weight: 250

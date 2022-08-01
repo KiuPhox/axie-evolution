@@ -16,6 +16,7 @@ public class Enemy : LivingEntity, IFollowable
     
     // float closestDis = 100f;
     GameObject closestChampion;
+    bool isStun = false;
 
     public override void Start()
     {
@@ -27,7 +28,7 @@ public class Enemy : LivingEntity, IFollowable
     private void Update()
     {
         closestChampion = GetClosestTargetInList(playerChampions.champions);
-        if (closestChampion != null)
+        if (closestChampion != null && !isStun)
         {
             FollowTarget(closestChampion.transform.position);
             FlipBaseOnTargetPos(closestChampion.transform.position);
@@ -50,5 +51,16 @@ public class Enemy : LivingEntity, IFollowable
                 targetEntity.TakeDamage(championData.damage);
             }
         }
+    }
+
+    public void TriggerStun(float effectTime)
+    {
+        isStun = true;
+        Invoke("TriggerStun", effectTime);
+    }
+
+    void TriggerStun()
+    {
+        isStun = false;
     }
 }
