@@ -14,11 +14,11 @@ public class Bullet : Projectile
 
     void Start()
     {
-        if (target != null)
+        if (target != null) 
         {
             targetPos = target.transform.position;
             direction = targetPos - transform.position;
-            RotateToDirection(direction);
+            RotateToDirection(direction); 
         }
         else
         {
