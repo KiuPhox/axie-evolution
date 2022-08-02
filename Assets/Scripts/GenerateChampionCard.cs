@@ -51,7 +51,8 @@ public class GenerateChampionCard : MonoBehaviour
     public void GenerateCard()
     {
         SoundManager.Instance.PlaySound(flipClip);
-        
+
+        tierChances = Level.levelToTierChances[GameManager.Instance.currentLevel - 1];
 
         for (int i = 0; i < cards.Length; i++)
         {
@@ -67,6 +68,7 @@ public class GenerateChampionCard : MonoBehaviour
     {
         if (moneyUI.startingMoney >= 2)
         {
+            CalculateWeights();
             moneyUI.startingMoney -= 2;
             moneyUI.isChanged = true;
             GenerateCard();

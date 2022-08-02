@@ -52,7 +52,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             nextImmortalTime = Time.time + immortalTime;
             FlashOnDamaged();
-            Debug.Log(damage * (100 / (100 + championData.defense)));
+            // Debug.Log(damage * (100 / (100 + championData.defense)));
             health -= damage * (100 / (100 + championData.defense));
         }
         if (health <= 0 && !dead)

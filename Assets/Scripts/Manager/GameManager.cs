@@ -7,6 +7,8 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
+    public int currentLevel = 1;
+
     public static GameManager Instance;
     public GameState State { get; private set; }
     public GameState previousState { get; private set; }
@@ -14,6 +16,7 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChanged;
 
     public GenerateChampionCard generateChampionCard;
+    public Spawner spawner;
 
     private void Awake()
     {
@@ -30,8 +33,8 @@ public class GameManager : MonoBehaviour
         previousState = State;
         State = newState;
 
-        Debug.Log("pre: " + previousState);
-        Debug.Log("current: " + State);
+        // Debug.Log("pre: " + previousState);
+        // Debug.Log("current: " + State);
 
         switch (newState)
         {
@@ -86,6 +89,7 @@ public class GameManager : MonoBehaviour
     private void HandleGameStart()
     {
         Time.timeScale = 1f;
+        spawner.isStarted = false;
     }
 
     private void HandleGamePause()
@@ -103,6 +107,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         if (previousState != GameState.GamePause && generateChampionCard.isFisrtGenerated)
         {
+            currentLevel++;
             generateChampionCard.GenerateCard();
         }
     }

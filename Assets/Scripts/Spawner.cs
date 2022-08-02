@@ -10,16 +10,17 @@ public class Spawner : MonoBehaviour
     public GameObject crossSpawn;
     public float spawnRadius;
     public GameObject enemy;
-    public Wave[] waves;
 
-    
+    public Wave[] waves;
 
     Wave currentWave;
     [HideInInspector] public int currentWaveNumber;
+    int maxWaves;
+
     int enemiesPerSpawner;
     int enemiesReaminingAlive;
 
-    bool isStarted = false;
+    [HideInInspector] public bool isStarted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -40,20 +41,36 @@ public class Spawner : MonoBehaviour
     {
         if (GameManager.Instance.State == GameState.GameStart)
         {
+            maxWaves = Level.levelToMaxWaves[GameManager.Instance.currentLevel - 1];
             currentWaveNumber++;
 
-            if (currentWaveNumber - 1 < waves.Length)
+            if (currentWaveNumber - 1 < maxWaves)
             {
                 currentWave = waves[currentWaveNumber - 1];
-                enemiesReaminingAlive = currentWave.enemyCount;
+
+                // Fix this shit
                 enemiesPerSpawner = currentWave.enemyCount / currentWaveNumber;
+
+                if (currentWaveNumber >= 5)
+                {
+                    enemiesReaminingAlive = 4 * enemiesPerSpawner;
+;               }
+                else
+                {
+                    enemiesReaminingAlive = currentWave.enemyCount;
+                }
+
+                Utility.ShuffleArray(spawners);
+
+                for (int i = 0; i < currentWaveNumber && i < 4; i++)
+                {
+                    SpawnEnemies(spawners[i]);
+                }
             }
-
-            Utility.ShuffleArray(spawners);
-
-            for (int i = 0; i < currentWaveNumber && i < spawners.Length - 1; i++)
+            else
             {
-                SpawnEnemies(spawners[i]);
+                GameManager.Instance.UpdateGameState(GameState.ChooseCard);
+                currentWaveNumber = 0;
             }
         }
     }
@@ -64,7 +81,6 @@ public class Spawner : MonoBehaviour
         enemiesReaminingAlive--;
         if (enemiesReaminingAlive == 0)
         {
-            GameManager.Instance.UpdateGameState(GameState.ChooseCard);
             isStarted = false;
         }
     }

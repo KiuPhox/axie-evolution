@@ -2193,7 +2193,12 @@ MonoBehaviour:
   - enemyCount: 27
   - enemyCount: 36
   - enemyCount: 45
+  - enemyCount: 54
+  - enemyCount: 63
+  - enemyCount: 72
+  - enemyCount: 81
   currentWaveNumber: 0
+  isStarted: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4187,9 +4192,10 @@ MonoBehaviour:
   champions: []
   flipClip: {fileID: 8300000, guid: e5fdc835cffa5d5408d7aac0324bda00, type: 3}
   tierChances:
-  - 60
-  - 30
+  - 90
   - 10
+  - 0
+  - 0
   cards:
   - {fileID: 1824562529}
   - {fileID: 586475051}
@@ -5315,7 +5321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89e302db47ebe4fbbca22807d2c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 1
   generateChampionCard: {fileID: 995336675}
+  spawner: {fileID: 510916121}
 --- !u!1 &1486875015
 GameObject:
   m_ObjectHideFlags: 0

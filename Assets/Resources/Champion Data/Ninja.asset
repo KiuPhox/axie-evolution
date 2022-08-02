@@ -23,4 +23,4 @@ MonoBehaviour:
   cardColor: {fileID: 11400000, guid: 0a3f7a685d2c01b4da8801c8e4c1ed4d, type: 2}
   projectile: {fileID: 1768310633749735082, guid: 9828e5022db81194e81930e4ff1195e7,
     type: 3}
-  weight: 220
+  weight: 190
