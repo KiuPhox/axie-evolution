@@ -60,13 +60,13 @@ public class LivingEntity : MonoBehaviour, IDamageable
             FlashOnDamaged();
             // Debug.Log(damage * (100 / (100 + championData.defense)));
 
-            float incomeDmg = damage * (100 / (100 + championData.defense));
-            health -= incomeDmg;
+            float incomeDamage = damage * (100 / (100 + championData.defense));
+            health -= incomeDamage;
 
-            if (incomeDmg > 0)
+            if (incomeDamage > 0)
             {
-                damagePopup.text = Mathf.RoundToInt(incomeDmg).ToString();
-                Instantiate(damagePopup, transform.position, Quaternion.identity, damagePopupHolder.transform);
+                TMP_Text i_damagePopup = Instantiate(damagePopup, transform.position, Quaternion.identity, damagePopupHolder.transform);
+                i_damagePopup.text = Mathf.RoundToInt(incomeDamage).ToString();
             }
         }
 
