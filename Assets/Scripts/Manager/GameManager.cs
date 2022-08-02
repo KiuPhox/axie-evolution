@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        DOTween.SetTweensCapacity(500, 150);
         UpdateGameState(GameState.Idle);
     }
 
