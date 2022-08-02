@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Archer
   m_EditorClassIdentifier: 
   name: Archer
-  description: Shoot carrot.
+  description: Shoot a carrot that deals 15 damage.
   health: 100
-  damage: 120
-  defense: 0
+  damage: 15
+  defense: 30
   range: 10
-  cooldownTime: 1.5
+  cooldownTime: 1.3
   tier: 1
   cardColor: {fileID: 11400000, guid: 8305200c689e60e4c9b363deb4d0ce57, type: 2}
   projectile: {fileID: 897866155811430675, guid: f4a72729ca7b1044e96f68b748b8f09b,
     type: 3}
-  weight: 160
+  weight: 120

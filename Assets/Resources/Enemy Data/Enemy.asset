@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Enemy
   m_EditorClassIdentifier: 
   name: Enemy
-  health: 200
-  damage: 50
+  description: 
+  health: 25
+  damage: 30
+  defense: 0
   range: 10
   cooldownTime: 1
   tier: 0
+  cardColor: {fileID: 0}
   projectile: {fileID: 0}
   weight: 0

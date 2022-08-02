@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Arcanist
   m_EditorClassIdentifier: 
   name: Arcanist
-  description: Throw magic orb.
-  health: 80
-  damage: 35
-  defense: 0
+  description: Throw a slow moving orb that deals 8 damage per 0.6 seconds.
+  health: 60
+  damage: 8
+  defense: 25
   range: 10
-  cooldownTime: 3
+  cooldownTime: 4
   tier: 1
   cardColor: {fileID: 11400000, guid: c192466b9f08ca04ab1f0f532a7249c9, type: 2}
   projectile: {fileID: 1712103883538681380, guid: f25696c96a135e34bb6a45d09c1871b7,
     type: 3}
-  weight: 80
+  weight: 60

@@ -230,7 +230,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   target: {fileID: 0}
+  holder: {fileID: 0}
   speed: 1
-  lifeTime: 6
-  effectTime: 0.6
+  lifeTime: 10
+  effectTime: 0.7
   effectRadius: 2

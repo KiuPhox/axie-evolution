@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
-  m_Name: Scout
+  m_Name: Boomeranger
   m_EditorClassIdentifier: 
-  name: Scout
-  description: Shoot arrow.
+  name: Boomeranger
+  description: Throw a boomerang that deals 13 damage.
   health: 80
-  damage: 30
-  defense: 0
-  range: 10
+  damage: 13
+  defense: 25
+  range: 7
   cooldownTime: 2
-  tier: 1
+  tier: 2
   cardColor: {fileID: 11400000, guid: 0a3f7a685d2c01b4da8801c8e4c1ed4d, type: 2}
   projectile: {fileID: 8722989835644347901, guid: 25a0f46b912a5ca41b487504cd71e725,
     type: 3}
-  weight: 220
+  weight: 150

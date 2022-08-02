@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Kotaro
   m_EditorClassIdentifier: 
   name: Kotaro
-  description: Attack with sword
+  description: Slash nearby enemies in range and deals 20 damage
   health: 130
-  damage: 50
+  damage: 20
   defense: 0
   range: 3.5
-  cooldownTime: 0.5
+  cooldownTime: 0.4
   tier: 3
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 3611118393586328161, guid: a88fa408447e7b04d80917b8aba9d063,
     type: 3}
-  weight: 130
+  weight: 160

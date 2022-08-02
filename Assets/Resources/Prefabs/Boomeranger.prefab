@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 453100247}
   - component: {fileID: -4339726839111372942}
   m_Layer: 0
-  m_Name: Scout
+  m_Name: Boomeranger
   m_TagString: Champion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
