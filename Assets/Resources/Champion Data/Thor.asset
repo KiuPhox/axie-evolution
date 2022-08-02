@@ -15,12 +15,12 @@ MonoBehaviour:
   name: Thor
   description: Stun enemy.
   health: 130
-  damage: 100
-  defense: 0
+  damage: 10
+  defense: 100
   range: 6
-  cooldownTime: 2
+  cooldownTime: 8
   tier: 2
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
-  projectile: {fileID: 5876398060244672991, guid: 6daf6ee519ab20246b8ca7dc4acd9f59,
+  projectile: {fileID: 5466792084939744564, guid: c83bb02f343d2d640b920bdd492e9ab4,
     type: 3}
   weight: 250

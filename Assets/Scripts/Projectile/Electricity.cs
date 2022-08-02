@@ -7,6 +7,7 @@ public class Electricity : Projectile
     public float lifeTime;
     public float effectRadius;
     public float effectTime;
+    public float stunTime;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,14 @@ public class Electricity : Projectile
         {
             Destroy(this.gameObject);
         }
-        
+
+        Invoke("EffectEnemy", effectTime);
+
+        Destroy(this.gameObject, lifeTime);
+    }
+
+    void EffectEnemy()
+    {
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject t in targets)
@@ -27,10 +35,8 @@ public class Electricity : Projectile
             if (Vector2.Distance(t.transform.position, transform.position) <= effectRadius)
             {
                 t.GetComponent<LivingEntity>().TakeDamage(damage);
-                t.GetComponent<Enemy>().TriggerStun(effectTime);
+                t.GetComponent<Enemy>().stunTime = stunTime;
             }
         }
-
-        Destroy(this.gameObject, lifeTime);
     }
 }
