@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Slash nearby enemies in range and deals 20 damage
   health: 130
   damage: 20
-  defense: 0
+  defense: 30
   range: 3.5
   cooldownTime: 0.4
   tier: 3

@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Stun enemy for 1.5 seconds
   health: 110
   damage: 0
-  defense: 25
+  defense: 40
   range: 10
   cooldownTime: 6
   tier: 2
