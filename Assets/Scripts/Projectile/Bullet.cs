@@ -41,8 +41,6 @@ public class Bullet : Projectile
             // Deals target damage
             targetEntity = collision.gameObject.GetComponent<LivingEntity>();
             targetEntity.TakeDamage(damage);
-
-            Destroy(this.gameObject);
         }
     }
 }

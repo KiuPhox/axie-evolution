@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using DG.Tweening;
+using TMPro;
 public class LivingEntity : MonoBehaviour, IDamageable
 {
     [HideInInspector] public PlayerChampions playerChampions;
+    [HideInInspector] public GameObject damagePopupHolder;
 
     public ChampionData championData;
     public float startingHealth;
@@ -22,6 +24,9 @@ public class LivingEntity : MonoBehaviour, IDamageable
     FlashEffect flashEffect;
     SpriteRenderer SR;
 
+    TMP_Text damagePopup;
+    
+
     // Time Management
     float nextImmortalTime;
 
@@ -34,7 +39,8 @@ public class LivingEntity : MonoBehaviour, IDamageable
         SR = GetComponent<SpriteRenderer>();
         flashEffect = GetComponent<FlashEffect>();
         playerChampions = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
-        
+        damagePopup = Resources.Load("Prefabs/Damage Popup", typeof(TMP_Text)) as TMP_Text;
+        damagePopupHolder = GameObject.Find("Text Holder");
         SetCharacteristics();
     }
 
@@ -53,8 +59,17 @@ public class LivingEntity : MonoBehaviour, IDamageable
             nextImmortalTime = Time.time + immortalTime;
             FlashOnDamaged();
             // Debug.Log(damage * (100 / (100 + championData.defense)));
-            health -= damage * (100 / (100 + championData.defense));
+
+            float incomeDmg = damage * (100 / (100 + championData.defense));
+            health -= incomeDmg;
+
+            if (incomeDmg > 0)
+            {
+                damagePopup.text = Mathf.RoundToInt(incomeDmg).ToString();
+                Instantiate(damagePopup, transform.position, Quaternion.identity, damagePopupHolder.transform);
+            }
         }
+
         if (health <= 0 && !dead)
         {
             Die();
