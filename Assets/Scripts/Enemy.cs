@@ -6,21 +6,22 @@ using DG.Tweening;
 
 public class Enemy : LivingEntity, IFollowable
 {
-    public float speed;
+    public Vector2 randomSpeed;
+    float speed;
 
-    LivingEntity targetEntity;
-
+    [HideInInspector] public float stunTime;
     float attackCooldownTime;
     float nextAttackTime;
-    [HideInInspector] public float stunTime;
-    
-    // float closestDis = 100f;
+
+    LivingEntity targetEntity;
     GameObject closestChampion;
     bool isStunned = false;
 
     public override void Start()
     {
         base.Start();
+
+        speed = Random.Range(randomSpeed.x, randomSpeed.y);
         attackCooldownTime = cooldownTime;
         playerChampions.AddBlobShadowForChampion(this.gameObject);
     }
@@ -46,7 +47,8 @@ public class Enemy : LivingEntity, IFollowable
 
     public void FollowTarget(Vector3 targetPos)
     {
-        transform.position += (targetPos - transform.position).normalized * speed * Time.deltaTime;
+        Vector3 direction = targetPos - transform.position;
+        transform.position += direction.normalized * speed * Time.deltaTime;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
