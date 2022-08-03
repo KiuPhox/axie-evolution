@@ -56,11 +56,6 @@ public class Champion : LivingEntity, IFollowable
         }
     }
 
-    void OnNewWave(int waveNumber)
-    {
-        health = startingHealth;
-    }
-
     public void FollowTarget(Vector3 targetPos)
     {
         transform.position += (targetPos - transform.position).normalized * speed * Time.fixedDeltaTime;

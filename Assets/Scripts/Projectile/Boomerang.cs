@@ -55,7 +55,7 @@ public class Boomerang : Projectile
         if (collision.CompareTag("Enemy"))
         {
             targetEntity = collision.gameObject.GetComponent<LivingEntity>();
-            targetEntity.TakeDamage(damage);
+            targetEntity.TakeDamage(damage, holder.GetComponent<LivingEntity>());
             if (Time.time < effectTime)
             {
                 currentSpeed -= 1f;

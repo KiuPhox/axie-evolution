@@ -6,6 +6,7 @@ using UnityEngine;
 public class ChampionData : ScriptableObject
 {
     public new string name;
+    [TextArea]
     public string description;
     public float health;
     public float damage;

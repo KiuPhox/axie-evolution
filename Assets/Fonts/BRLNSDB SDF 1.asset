@@ -107,7 +107,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.2
+    - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
@@ -136,7 +136,7 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FaceColor: {r: 1.3041189, g: 1.3041189, b: 1.3041189, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
@@ -154,11 +154,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: BRLNSDB SDF
+  m_Name: BRLNSDB SDF 1
   m_EditorClassIdentifier: 
-  hashCode: 1531202422
+  hashCode: 1032125671
   material: {fileID: -3017296168058915342}
-  materialHashCode: 1360790294
+  materialHashCode: 383057639
   m_Version: 1.1.0
   m_SourceFontFileGUID: afc17358d379df947bf3b9007a8dc1fa
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: afc17358d379df947bf3b9007a8dc1fa,

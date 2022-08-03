@@ -10,7 +10,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
     [HideInInspector] public GameObject damagePopupHolder;
 
     public ChampionData championData;
-    public float startingHealth;
     public float immortalTime = 1f;
 
     protected float health;
@@ -46,13 +45,13 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     private void SetCharacteristics()
     {
-        startingHealth = health = championData.health;
+        health = championData.health;
         damage = championData.damage;
         projectile = championData.projectile;
         cooldownTime = championData.cooldownTime;
     }
 
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage, LivingEntity damagingEntity)
     {
         if (Time.time >= nextImmortalTime)
         {
@@ -67,6 +66,10 @@ public class LivingEntity : MonoBehaviour, IDamageable
             {
                 TMP_Text i_damagePopup = Instantiate(damagePopup, transform.position, Quaternion.identity, damagePopupHolder.transform);
                 i_damagePopup.text = Mathf.RoundToInt(incomeDamage).ToString();
+                if (damagingEntity.CompareTag("Champion"))
+                {
+                    i_damagePopup.color = damagingEntity.championData.cardColor.nameBoxColor;
+                }
             }
         }
 
@@ -76,19 +79,17 @@ public class LivingEntity : MonoBehaviour, IDamageable
         }
     }
 
-    float closestDis;
-    GameObject closestTarget;
-
     public GameObject GetClosestTargetInList(List<GameObject> targets)
     {
+        GameObject closestTarget = null;
         if (targets.Count > 0)
         {
-            closestDis = 100f;
+            float closestDistance = 100f;
             foreach (GameObject target in targets)
             {
-                if (Vector3.Distance(target.transform.position, transform.position) < closestDis)
+                if (Vector3.Distance(target.transform.position, transform.position) < closestDistance)
                 {
-                    closestDis = Vector3.Distance(target.transform.position, transform.position);
+                    closestDistance = Vector3.Distance(target.transform.position, transform.position);
                     closestTarget = target;
                 }
             }
@@ -99,14 +100,15 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public GameObject GetClosestTargetInList(GameObject[] targets)
     {
+        GameObject closestTarget = null;
         if (targets.Length > 0)
         {
-            closestDis = 100f;
+            float closestDistance = 100f;
             foreach (GameObject target in targets)
             {
-                if (Vector3.Distance(target.transform.position, transform.position) < closestDis)
+                if (Vector3.Distance(target.transform.position, transform.position) < closestDistance)
                 {
-                    closestDis = Vector3.Distance(target.transform.position, transform.position);
+                    closestDistance = Vector3.Distance(target.transform.position, transform.position);
                     closestTarget = target;
                 }
             }

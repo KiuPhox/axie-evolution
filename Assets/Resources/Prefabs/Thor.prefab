@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4668068747576217227}
   - component: {fileID: 9115612116787840765}
   - component: {fileID: 9115612116787840760}
-  - component: {fileID: -5461738605902480789}
   - component: {fileID: 453100247}
   - component: {fileID: -4339726839111372942}
   m_Layer: 0
@@ -49,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerChampions: {fileID: 0}
+  damagePopupHolder: {fileID: 0}
   championData: {fileID: 11400000, guid: ddf7dbc00e381294680dc1546522e6bb, type: 2}
   startingHealth: 0
   immortalTime: 1
@@ -125,21 +125,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-5461738605902480789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f26051ac64ffae944950d71cd2e5ddb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cd: {fileID: 11400000, guid: ddf7dbc00e381294680dc1546522e6bb, type: 2}
-  championName: 
-  tier: 0
 --- !u!58 &453100247
 CircleCollider2D:
   m_ObjectHideFlags: 0

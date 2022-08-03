@@ -49,7 +49,7 @@ public class Sword : Projectile
         if (collision.CompareTag("Enemy"))
         {
             targetEntity = collision.gameObject.GetComponent<LivingEntity>();
-            targetEntity.TakeDamage(damage);
+            targetEntity.TakeDamage(damage, holder.GetComponent<LivingEntity>());
         }
     }
 

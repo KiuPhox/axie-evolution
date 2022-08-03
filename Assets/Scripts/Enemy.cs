@@ -57,7 +57,7 @@ public class Enemy : LivingEntity, IFollowable
             {
                 nextAttackTime = Time.time + attackCooldownTime;
                 targetEntity = collision.gameObject.GetComponent<LivingEntity>();
-                targetEntity.TakeDamage(championData.damage);
+                targetEntity.TakeDamage(championData.damage, GetComponent<LivingEntity>());
             }
         }
     }

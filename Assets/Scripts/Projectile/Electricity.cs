@@ -34,7 +34,7 @@ public class Electricity : Projectile
         {
             if (Vector2.Distance(t.transform.position, transform.position) <= effectRadius)
             {
-                t.GetComponent<LivingEntity>().TakeDamage(damage);
+                t.GetComponent<LivingEntity>().TakeDamage(damage, holder.GetComponent<LivingEntity>());
                 t.GetComponent<Enemy>().stunTime = stunTime;
             }
         }

@@ -44,7 +44,7 @@ public class Orb : Projectile
             {
                 if (Vector2.Distance(t.transform.position, transform.position) <= effectRadius)
                 {
-                    t.GetComponent<LivingEntity>().TakeDamage(damage);
+                    t.GetComponent<LivingEntity>().TakeDamage(damage, holder.GetComponent<LivingEntity>());
                 }
             }
         }
