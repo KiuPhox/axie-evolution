@@ -14,10 +14,19 @@ public class Champion : LivingEntity, IFollowable
     GameObject closestTarget;
     float closestDistance = 100f;
 
+    bool isLoop = false;
     public override void Start()
     {
         base.Start();
-        nextAttackTime = Random.Range(Time.time, Time.time + cooldownTime);
+        if (cooldownTime < 0)
+        {
+            isLoop = true;
+            Shoot();
+        }
+        else
+        {
+            nextAttackTime = Random.Range(Time.time, Time.time + cooldownTime);
+        }
     }
 
     private void Update()
@@ -29,8 +38,7 @@ public class Champion : LivingEntity, IFollowable
         {
             closestDistance = Vector2.Distance(transform.position, closestTarget.transform.position);
         }
-
-        if (Time.time >= nextAttackTime)
+        else if (Time.time >= nextAttackTime && !isLoop)
         {    
             nextAttackTime = Time.time + cooldownTime;
             if (closestDistance <= championData.range)
@@ -65,12 +73,13 @@ public class Champion : LivingEntity, IFollowable
 
     private void Shoot()
     {
-
         GameObject i_projectile = Instantiate(projectile, transform.position, Quaternion.identity, damagePopupHolder.transform);
-
         if (i_projectile != null) {
             //Please Fix
-            i_projectile.GetComponent<Projectile>().target = closestTarget;
+            if (closestTarget != null)
+            {
+                i_projectile.GetComponent<Projectile>().target = closestTarget;
+            }
             i_projectile.GetComponent<Projectile>().damage = damage;
             i_projectile.GetComponent<Projectile>().holder = this.gameObject;
         }
