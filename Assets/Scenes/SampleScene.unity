@@ -5648,7 +5648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90df65ec466cb747bfbfed885635859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoney: 100
+  startingMoney: 0
   moneyText: {fileID: 1506518686}
   isChanged: 0
   coinClip: {fileID: 8300000, guid: fe3f102fa57ce6c49b7b3662a89d1fb1, type: 3}

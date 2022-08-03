@@ -38,6 +38,7 @@ public class GenerateChampionCard : MonoBehaviour
     {
         if (!isFisrtGenerated && canvasManager.chooseCardUI.activeSelf == true)
         {
+            EarnMoney();
             isFisrtGenerated = true;
             GenerateCard();
         }
@@ -62,6 +63,13 @@ public class GenerateChampionCard : MonoBehaviour
             cards[i].transform.localScale = new Vector2(1f, 1f);
             cards[i].SetCardData(randomChampion);
         }
+    }
+
+    public void EarnMoney()
+    {
+        Vector2 moneyRange = Level.levelToMoneyRange[GameManager.Instance.currentLevel - 1];
+        moneyUI.startingMoney += Random.Range(Mathf.RoundToInt(moneyRange.x), Mathf.RoundToInt(moneyRange.y));
+        moneyUI.isChanged = true;
     }
 
     public void Reroll()

@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviour
         if (previousState != GameState.GamePause && generateChampionCard.isFisrtGenerated)
         {
             currentLevel++;
+            generateChampionCard.EarnMoney();
             generateChampionCard.GenerateCard();
         }
     }

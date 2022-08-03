@@ -30,7 +30,7 @@ public static class Level
         new float[] {0, 20, 40, 40},
         new float[] {0, 20, 35, 45},
         new float[] {0, 10, 30, 60},
-        new float[] {0, 0, 0, 100},
+        new float[] {0, 0, 0, 100}
     };
 
     public static int[] levelToMaxWaves =
@@ -39,6 +39,36 @@ public static class Level
         3, 4, 4, 5,
         4, 5, 5, 6,
         5, 6, 6, 7,
-        7, 8, 8, 9
+        6, 7, 7, 8,
+        8, 9, 9, 10, 12
+    };
+
+    public static Vector2[] levelToMoneyRange =
+    {
+        new Vector2 (3, 3),
+        new Vector2 (3, 3),
+        new Vector2 (5, 6),
+        new Vector2 (4, 5),
+        new Vector2 (5, 8),
+        new Vector2 (8, 10),
+        new Vector2 (8, 10), 
+        new Vector2 (12, 14),
+        new Vector2 (14, 18),
+        new Vector2 (10, 13),
+        new Vector2 (12, 15),
+        new Vector2 (18, 20),
+        new Vector2 (10, 14),
+        new Vector2 (12, 16),
+        new Vector2 (14, 18),
+        new Vector2 (12, 12),
+        new Vector2 (12, 15),
+        new Vector2 (20, 28), 
+        new Vector2 (10, 16),
+        new Vector2 (10, 18), 
+        new Vector2 (20, 28),
+        new Vector2 (32, 32),
+        new Vector2 (36, 36),
+        new Vector2 (48, 48),
+        new Vector2 (100, 100)
     };
 }
