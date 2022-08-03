@@ -7,6 +7,8 @@ using DG.Tweening;
 public class Enemy : LivingEntity, IFollowable
 {
     public Vector2 randomSpeed;
+    public Vector2 randomWanderTime;
+    public float detectRange;
     float speed;
 
     [HideInInspector] public float stunTime;
@@ -16,11 +18,15 @@ public class Enemy : LivingEntity, IFollowable
     LivingEntity targetEntity;
     GameObject closestChampion;
     bool isStunned = false;
+    float wanderTime;
+
+    bool isWander = false;
+    Vector3 desiredDirection;
 
     public override void Start()
     {
         base.Start();
-
+        wanderTime = Random.Range(randomWanderTime.x, randomWanderTime.y);
         speed = Random.Range(randomSpeed.x, randomSpeed.y);
         attackCooldownTime = cooldownTime;
         playerChampions.AddBlobShadowForChampion(this.gameObject);
@@ -43,12 +49,30 @@ public class Enemy : LivingEntity, IFollowable
         {
             isStunned = false;
         }
+
+
+
+
     }
 
     public void FollowTarget(Vector3 targetPos)
     {
         Vector3 direction = targetPos - transform.position;
-        transform.position += direction.normalized * speed * Time.deltaTime;
+        if (direction.magnitude <= detectRange)
+        {
+            direction = targetPos - transform.position;
+            transform.position += direction.normalized * speed * Time.deltaTime;
+        }
+        else
+        {
+            Vector3 offsetDirection = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0);
+            if (Time.time > wanderTime)
+            {
+                wanderTime = Random.Range(randomWanderTime.x, randomWanderTime.y);
+                desiredDirection = direction + offsetDirection;
+            }
+            transform.position += desiredDirection.normalized * speed * Time.deltaTime;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)

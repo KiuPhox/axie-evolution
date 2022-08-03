@@ -52,6 +52,8 @@ MonoBehaviour:
   championData: {fileID: 11400000, guid: 1e3ebc4da49b49247ac99cc1d3986174, type: 2}
   immortalTime: 0
   randomSpeed: {x: 2, y: 3}
+  randomWanderTime: {x: 2, y: 3}
+  detectRange: 2
   stunTime: 0
 --- !u!212 &9115612116787840765
 SpriteRenderer:
