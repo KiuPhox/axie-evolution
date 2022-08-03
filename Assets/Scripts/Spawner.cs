@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 
 public class Spawner : MonoBehaviour
 {
+    public ChampionData enemyData;
     public GameObject[] spawners;
     public GameObject crossSpawn;
     public float spawnRadius;
@@ -25,6 +26,8 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemyData.health = 30f;
+        enemyData.damage = 8f;
         Utility.ShuffleArray(spawners);
     }
 
@@ -70,6 +73,12 @@ public class Spawner : MonoBehaviour
             else
             {
                 GameManager.Instance.UpdateGameState(GameState.ChooseCard);
+
+                // Fix
+                enemyData.health  = 30 + 15 * (GameManager.Instance.currentLevel - 1);
+                enemyData.damage = 8 + 3 * (GameManager.Instance.currentLevel - 1);
+
+
                 currentWaveNumber = 0;
             }
         }
