@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1587430510561629164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1}
   m_Children: []
   m_Father: {fileID: 1587430511295214168}
   m_RootOrder: 2
@@ -4780,7 +4780,7 @@ Transform:
   m_GameObject: {fileID: 1587430510852920175}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1}
   m_Children: []
   m_Father: {fileID: 1587430511295214168}
   m_RootOrder: 1
@@ -9578,7 +9578,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.4
+  m_Radius: 2.6
 --- !u!114 &5912678207663143034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9594,8 +9594,8 @@ MonoBehaviour:
   damage: 0
   target: {fileID: 0}
   holder: {fileID: 0}
-  lifeTime: 5
-  effectRadius: 0
+  effectRadius: 4
+  effectSpeed: 0.3
 --- !u!1 &1587430512316711924
 GameObject:
   m_ObjectHideFlags: 0
@@ -9623,7 +9623,7 @@ Transform:
   m_GameObject: {fileID: 1587430512316711924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1}
   m_Children: []
   m_Father: {fileID: 1587430511295214168}
   m_RootOrder: 0

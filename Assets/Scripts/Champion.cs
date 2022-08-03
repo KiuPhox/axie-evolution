@@ -38,7 +38,7 @@ public class Champion : LivingEntity, IFollowable
         {
             closestDistance = Vector2.Distance(transform.position, closestTarget.transform.position);
         }
-        else if (Time.time >= nextAttackTime && !isLoop)
+        if (Time.time >= nextAttackTime && !isLoop)
         {    
             nextAttackTime = Time.time + cooldownTime;
             if (closestDistance <= championData.range)

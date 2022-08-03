@@ -10,6 +10,7 @@ public class Enemy : LivingEntity, IFollowable
     public Vector2 randomWanderTime;
     public float detectRange;
     float speed;
+    float originalSpeed;
 
     [HideInInspector] public float stunTime;
     float attackCooldownTime;
@@ -28,6 +29,7 @@ public class Enemy : LivingEntity, IFollowable
         base.Start();
         wanderTime = Random.Range(randomWanderTime.x, randomWanderTime.y);
         speed = Random.Range(randomSpeed.x, randomSpeed.y);
+        originalSpeed = speed;
         attackCooldownTime = cooldownTime;
         playerChampions.AddBlobShadowForChampion(this.gameObject);
     }
@@ -49,10 +51,6 @@ public class Enemy : LivingEntity, IFollowable
         {
             isStunned = false;
         }
-
-
-
-
     }
 
     public void FollowTarget(Vector3 targetPos)
@@ -73,6 +71,16 @@ public class Enemy : LivingEntity, IFollowable
             }
             transform.position += desiredDirection.normalized * speed * Time.deltaTime;
         }
+    }
+
+    public void SetSpeed(float speedEffect)
+    {
+        speed -= speed * speedEffect;
+    }
+
+    public void SetOriginalSpeed()
+    {
+        speed = originalSpeed;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
