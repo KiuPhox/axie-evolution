@@ -6,6 +6,7 @@ public class Bullet : Projectile
 {
     public float speed;
     public float lifeTime;
+    public ParticleSystem leafEffect;
 
     Vector3 targetPos;
     Vector3 direction;
@@ -18,7 +19,9 @@ public class Bullet : Projectile
         {
             targetPos = target.transform.position;
             direction = targetPos - transform.position;
-            RotateToDirection(direction); 
+            RotateToDirection(direction);
+            ParticleSystem i_leaf = Instantiate(leafEffect, transform.position, transform.rotation);
+            Destroy(i_leaf.gameObject, 0.35f);
         }
         else
         {

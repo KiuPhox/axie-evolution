@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae73ab1d415c7c4a9ffbd954f482d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  seekAcceleration: 10
+  randomTimeSeek: {x: 1, y: 2}
 --- !u!114 &11487320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,10 +113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6f58141e9f357e448fd2fa6f1afc1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: 3.5
-  maxAcceleration: 5
+  maxVelocity: 10
+  maxAcceleration: 20
   turnSpeed: 20
-  targetRadius: 0.005
+  targetRadius: 3
   slowRadius: 1
   timeToTarget: 0.1
   smoothing: 1
