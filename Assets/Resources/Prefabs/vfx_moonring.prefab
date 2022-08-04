@@ -9578,7 +9578,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.6
+  m_Radius: 2.5
 --- !u!114 &5912678207663143034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9594,7 +9594,6 @@ MonoBehaviour:
   damage: 0
   target: {fileID: 0}
   holder: {fileID: 0}
-  effectRadius: 4
   effectSpeed: 0.3
 --- !u!1 &1587430512316711924
 GameObject:

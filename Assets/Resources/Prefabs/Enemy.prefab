@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wanderOffset: 1.5
   wanderRadius: 2
-  wanderRate: 1.5
+  wanderRate: 2
 --- !u!114 &8563773296401646912
 MonoBehaviour:
   m_ObjectHideFlags: 0

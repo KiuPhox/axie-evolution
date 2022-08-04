@@ -90,6 +90,16 @@ public class Enemy : LivingEntity
         steeringBasics.Steer(accel);
     }
 
+    public void SetEffectSpeed(float effectSpeed)
+    {
+        arriveWeight -= effectSpeed;
+    }
+
+    public void SetOriginalSpeed()
+    {
+        arriveWeight = 1;
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Champion") && !isStunned)

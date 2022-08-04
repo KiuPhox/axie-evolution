@@ -22,7 +22,7 @@ public class MoonRing : Projectile
     {
         if (collision.CompareTag("Enemy"))
         {
-            //collision.gameObject.GetComponent<Enemy>().SetSpeed(effectSpeed);
+            collision.gameObject.GetComponent<Enemy>().SetEffectSpeed(effectSpeed);
         }
     }
 
@@ -30,7 +30,7 @@ public class MoonRing : Projectile
     {
         if (collision.CompareTag("Enemy"))
         {
-            //collision.gameObject.GetComponent<Enemy>().SetOriginalSpeed();
+            collision.gameObject.GetComponent<Enemy>().SetOriginalSpeed();
         }
     }
 }
