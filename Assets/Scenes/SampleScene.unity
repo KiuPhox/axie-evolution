@@ -5323,7 +5323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89e302db47ebe4fbbca22807d2c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 5
+  currentLevel: 1
   generateChampionCard: {fileID: 995336675}
   spawner: {fileID: 510916121}
 --- !u!1 &1486875015

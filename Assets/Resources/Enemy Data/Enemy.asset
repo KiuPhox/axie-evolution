@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Enemy
   description: 
-  health: 150
-  damage: 30
+  health: 30
+  damage: 8
   defense: 0
   range: 10
   cooldownTime: 1
