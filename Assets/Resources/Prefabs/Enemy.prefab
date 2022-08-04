@@ -57,6 +57,7 @@ MonoBehaviour:
   immortalTime: 0
   stunTime: 0
   separationWeight: 0.6
+  arriveWeight: 1
 --- !u!212 &9115612116787840765
 SpriteRenderer:
   m_ObjectHideFlags: 0
