@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using DG.Tweening;
+using UnityMovementAI;
 
-public class Enemy : LivingEntity, IFollowable
+
+public class Enemy : LivingEntity
 {
     public Vector2 randomSpeed;
     public Vector2 randomWanderTime;
     public float detectRange;
-    float speed;
-    float originalSpeed;
 
     [HideInInspector] public float stunTime;
     float attackCooldownTime;
@@ -21,17 +21,28 @@ public class Enemy : LivingEntity, IFollowable
     bool isStunned = false;
     float wanderTime;
 
-    bool isWander = false;
     Vector3 desiredDirection;
+
+    SteeringBasics steeringBasics;
+    Wander1 wander;
+    Separation separation;
+    Vector3 accel = new Vector3(0, 0, 0);
+
+    List<MovementAIRigidbody> otherEnemies;
+
+    public float separationWeight;
 
     public override void Start()
     {
         base.Start();
         wanderTime = Random.Range(randomWanderTime.x, randomWanderTime.y);
-        speed = Random.Range(randomSpeed.x, randomSpeed.y);
-        originalSpeed = speed;
+
         attackCooldownTime = cooldownTime;
         playerChampions.AddBlobShadowForChampion(this.gameObject);
+
+        steeringBasics = GetComponent<SteeringBasics>();
+        wander = GetComponent<Wander1>();
+        separation = GetComponent<Separation>();
     }
 
     private void Update()
@@ -39,7 +50,6 @@ public class Enemy : LivingEntity, IFollowable
         closestChampion = GetClosestTargetInList(playerChampions.champions);
         if (closestChampion != null && !isStunned)
         {
-            FollowTarget(closestChampion.transform.position);
             FlipBaseOnTargetPos(closestChampion.transform.position);
         }
         if (stunTime > 0)
@@ -53,34 +63,36 @@ public class Enemy : LivingEntity, IFollowable
         }
     }
 
-    public void FollowTarget(Vector3 targetPos)
+    private void FixedUpdate()
     {
-        Vector3 direction = targetPos - transform.position;
-        if (direction.magnitude <= detectRange)
+        otherEnemies = new List<MovementAIRigidbody>();
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject e in enemies)
         {
-            direction = targetPos - transform.position;
-            transform.position += direction.normalized * speed * Time.deltaTime;
-        }
-        else
-        {
-            Vector3 offsetDirection = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0);
-            if (Time.time > wanderTime)
+            if (e != this.gameObject)
             {
-                wanderTime = Random.Range(randomWanderTime.x, randomWanderTime.y);
-                desiredDirection = direction + offsetDirection;
+                otherEnemies.Add(e.GetComponent<MovementAIRigidbody>());
             }
-            transform.position += desiredDirection.normalized * speed * Time.deltaTime;
         }
-    }
 
-    public void SetSpeed(float speedEffect)
-    {
-        speed -= speed * speedEffect;
-    }
+        if (!isStunned)
+        {
+            // Basic Movement
+            accel = wander.GetSteering();
+            accel += separation.GetSteering(otherEnemies) * separationWeight;
+            if (closestChampion != null && !isStunned)
+            {
+                accel += steeringBasics.Arrive(closestChampion.transform.position);
+            }
+        }
 
-    public void SetOriginalSpeed()
-    {
-        speed = originalSpeed;
+        else if (isStunned)
+        {
+            // Stun
+            accel = steeringBasics.Arrive(transform.position);
+        }
+        steeringBasics.Steer(accel);
     }
 
     private void OnCollisionStay2D(Collision2D collision)

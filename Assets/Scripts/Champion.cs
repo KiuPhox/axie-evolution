@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityMovementAI; 
 
-public class Champion : LivingEntity, IFollowable
+
+public class Champion : LivingEntity
 {
     public float speed;
     public float spaceBetween = 0.5f;
@@ -15,6 +17,8 @@ public class Champion : LivingEntity, IFollowable
     float closestDistance = 100f;
 
     bool isLoop = false;
+    SteeringBasics steeringBasics;
+
     public override void Start()
     {
         base.Start();
@@ -27,6 +31,7 @@ public class Champion : LivingEntity, IFollowable
         {
             nextAttackTime = Random.Range(Time.time, Time.time + cooldownTime);
         }
+        steeringBasics = GetComponent<SteeringBasics>();
     }
 
     private void Update()
@@ -39,7 +44,7 @@ public class Champion : LivingEntity, IFollowable
             closestDistance = Vector2.Distance(transform.position, closestTarget.transform.position);
         }
         if (Time.time >= nextAttackTime && !isLoop)
-        {    
+        {
             nextAttackTime = Time.time + cooldownTime;
             if (closestDistance <= championData.range)
             {
@@ -50,31 +55,23 @@ public class Champion : LivingEntity, IFollowable
 
     void FixedUpdate()
     {
-        
-        Vector3 targetPos = Utility.GetMouseWorldPosition();
 
-        FlipBaseOnTargetPos(targetPos);
+        Vector3 targetPosition = Utility.GetMouseWorldPosition();
 
-        if (GameManager.Instance.State == GameState.GameStart)
-        {
-            if (Vector3.Distance(targetPos, transform.position) > spaceBetween)
-            {
-                FollowTarget(targetPos);
-            }
-        }
+        FlipBaseOnTargetPos(targetPosition);
+
+        Vector3 accel = steeringBasics.Arrive(targetPosition);
+
+        steeringBasics.Steer(accel);
+
     }
 
-    public void FollowTarget(Vector3 targetPos)
-    {
-        transform.position += (targetPos - transform.position).normalized * speed * Time.fixedDeltaTime;
-    }
-
-    
 
     private void Shoot()
     {
         GameObject i_projectile = Instantiate(projectile, transform.position, Quaternion.identity, damagePopupHolder.transform);
-        if (i_projectile != null) {
+        if (i_projectile != null)
+        {
             //Please Fix
             if (closestTarget != null)
             {
@@ -85,3 +82,4 @@ public class Champion : LivingEntity, IFollowable
         }
     }
 }
+
