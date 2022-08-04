@@ -8,34 +8,29 @@ using UnityMovementAI;
 
 public class Enemy : LivingEntity
 {
-    public Vector2 randomSpeed;
-    public Vector2 randomWanderTime;
-    public float detectRange;
-
     [HideInInspector] public float stunTime;
     float attackCooldownTime;
     float nextAttackTime;
 
     LivingEntity targetEntity;
     GameObject closestChampion;
-    bool isStunned = false;
-    float wanderTime;
-
-    Vector3 desiredDirection;
+    
 
     SteeringBasics steeringBasics;
     Wander1 wander;
     Separation separation;
-    Vector3 accel = new Vector3(0, 0, 0);
 
     List<MovementAIRigidbody> otherEnemies;
 
     public float separationWeight;
+    public float arriveWeight;
+
+    bool isStunned = false;
+    Vector3 accel = new Vector3(0, 0, 0);
 
     public override void Start()
     {
         base.Start();
-        wanderTime = Random.Range(randomWanderTime.x, randomWanderTime.y);
 
         attackCooldownTime = cooldownTime;
         playerChampions.AddBlobShadowForChampion(this.gameObject);
@@ -83,7 +78,7 @@ public class Enemy : LivingEntity
             accel += separation.GetSteering(otherEnemies) * separationWeight;
             if (closestChampion != null && !isStunned)
             {
-                accel += steeringBasics.Arrive(closestChampion.transform.position);
+                accel += steeringBasics.Arrive(closestChampion.transform.position) * arriveWeight;
             }
         }
 

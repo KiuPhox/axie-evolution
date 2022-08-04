@@ -5323,7 +5323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89e302db47ebe4fbbca22807d2c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 1
+  currentLevel: 5
   generateChampionCard: {fileID: 995336675}
   spawner: {fileID: 510916121}
 --- !u!1 &1486875015
@@ -7179,7 +7179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 105404, guid: 5c40413500bcaa84f884e9834bc27ec9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 491568, guid: 5c40413500bcaa84f884e9834bc27ec9, type: 3}
       propertyPath: m_RootOrder
@@ -7228,7 +7228,7 @@ PrefabInstance:
     - target: {fileID: 11493774, guid: 5c40413500bcaa84f884e9834bc27ec9, type: 3}
       propertyPath: obj
       value: 
-      objectReference: {fileID: 491440, guid: da80255990975084f87fb58c04272804, type: 3}
+      objectReference: {fileID: 429778, guid: dfd3517fffef456469be4b97538e3aed, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c40413500bcaa84f884e9834bc27ec9, type: 3}
 --- !u!1 &2025233128
