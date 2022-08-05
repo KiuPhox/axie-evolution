@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Green Trail
+  m_Shader: {fileID: -6465566751694194690, guid: 802924a758876ab4badab2fa604f5673,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - MainTex:
+        m_Texture: {fileID: 2800000, guid: 49ffe83084262e449935471b717d52bd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - DissolveScale: 60
+    m_Colors:
+    - Color01: {r: 27.74403, g: 102.64151, b: 5.3257394, a: 1}
+    - Color02: {r: 95.87451, g: 95.87451, b: 0, a: 1}
+    - DissolveSpeed: {r: -1, g: 0, b: 0, a: 0}
+    - MainTexSpeed: {r: -8, g: 0, b: 0, a: 0}
