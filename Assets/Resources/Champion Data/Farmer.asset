@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Farmer
   m_EditorClassIdentifier: 
   name: Farmer
+  axieID: 161507
+  genes: 
   description: Shoot a carrot deals 15 damage and can pass through.
   health: 100
   damage: 15

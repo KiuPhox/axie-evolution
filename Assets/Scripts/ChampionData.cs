@@ -6,6 +6,8 @@ using UnityEngine;
 public class ChampionData : ScriptableObject
 {
     public new string name;
+    public string axieID;
+    public string genes;
     [TextArea]
     public string description;
     public float health;
