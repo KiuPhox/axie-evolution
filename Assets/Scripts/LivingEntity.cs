@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using DG.Tweening;
 using TMPro;
+using Spine.Unity;
+using AxieMixer.Unity;
 public class LivingEntity : MonoBehaviour, IDamageable
 {
     [HideInInspector] public PlayerChampions playerChampions;
@@ -21,21 +23,27 @@ public class LivingEntity : MonoBehaviour, IDamageable
     protected bool dead;
     
     FlashEffect flashEffect;
-    SpriteRenderer SR;
 
     TMP_Text damagePopup;
-    
+
+    SkeletonAnimation skeletonAnimation;
 
     // Time Management
     float nextImmortalTime;
 
 
     public event System.Action OnDeath;
-    
+
+    private void Awake()
+    {
+        skeletonAnimation = GetComponent<SkeletonAnimation>();
+        //Mixer.Init();
+        Mixer.SpawnSkeletonAnimation(skeletonAnimation, championData.axieID, championData.genes);
+    }
 
     public virtual void Start()
     {
-        SR = GetComponent<SpriteRenderer>();
+        
         flashEffect = GetComponent<FlashEffect>();
         playerChampions = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
         damagePopup = Resources.Load("Prefabs/Damage Popup", typeof(TMP_Text)) as TMP_Text;
@@ -121,10 +129,13 @@ public class LivingEntity : MonoBehaviour, IDamageable
     {
         if (targetPos.x > transform.position.x)
         {
-            SR.flipX = true;
+            skeletonAnimation.skeleton.ScaleX = -1;
         }
         else
-            SR.flipX = false;
+        {
+            skeletonAnimation.skeleton.ScaleX = 1;
+        }
+           
     }
 
     [ContextMenu("Self Destruct")]
@@ -144,7 +155,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     protected void FlashOnDamaged()
     { 
-        flashEffect.Flash();
+        
     }
 
     private void OnDestroy()

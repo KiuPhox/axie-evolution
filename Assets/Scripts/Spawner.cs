@@ -113,7 +113,6 @@ public class Spawner : MonoBehaviour
                 Vector3 offsetSpawn = new Vector3(x, y, 0);
 
                 GameObject i_enemy = Instantiate(enemy, spawner.transform);
-
                 i_enemy.transform.DOLocalMove(offsetSpawn, 0.2f);
                 i_enemy.GetComponent<Enemy>().OnDeath += OnEnemyDeath;
             }

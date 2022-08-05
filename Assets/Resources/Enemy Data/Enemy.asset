@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Enemy
   m_EditorClassIdentifier: 
   name: Enemy
+  axieID: 47
+  genes: 0x3000081809044080000000100140800850200010010100084020001000008604106000100001820810200010010082081040001000010208406
   description: 
-  health: 30
-  damage: 8
+  health: 60
+  damage: 14
   defense: 0
   range: 10
   cooldownTime: 1

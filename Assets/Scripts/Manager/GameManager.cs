@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using DG.Tweening;
-
+using AxieMixer.Unity;
 public class GameManager : MonoBehaviour
 {
     public int currentLevel = 1;
@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Mixer.Init();
         Instance = this;
     }
 

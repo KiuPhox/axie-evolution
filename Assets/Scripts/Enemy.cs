@@ -33,8 +33,6 @@ public class Enemy : LivingEntity
         base.Start();
 
         attackCooldownTime = cooldownTime;
-        playerChampions.AddBlobShadowForChampion(this.gameObject);
-
         steeringBasics = GetComponent<SteeringBasics>();
         wander = GetComponent<Wander1>();
         separation = GetComponent<Separation>();

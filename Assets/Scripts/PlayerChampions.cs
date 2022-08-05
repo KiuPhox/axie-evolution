@@ -37,7 +37,7 @@ public class PlayerChampions : MonoBehaviour
             insChampion.transform.position = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
         }
         champions.Add(insChampion);
-        AddBlobShadowForChampion(insChampion);
+        //AddBlobShadowForChampion(insChampion);
         UpdateChampions(champions.Count);
     }
 

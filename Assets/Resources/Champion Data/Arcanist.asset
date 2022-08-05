@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Arcanist
   m_EditorClassIdentifier: 
   name: Arcanist
+  axieID: 86809
+  genes: 0x200000000000010001008040c20c00000001000c08808302000100001080420400010000180143060001018010008006000100000860c0020001000010004006
   description: Throw a slow moving orb that deals 8 damage per 0.6 seconds.
   health: 60
   damage: 8
@@ -23,4 +25,4 @@ MonoBehaviour:
   cardColor: {fileID: 11400000, guid: c192466b9f08ca04ab1f0f532a7249c9, type: 2}
   projectile: {fileID: 1712103883538681380, guid: f25696c96a135e34bb6a45d09c1871b7,
     type: 3}
-  weight: 60
+  weight: 75

@@ -18,13 +18,6 @@ public class test : MonoBehaviour
     {
         Mixer.Init();
         Mixer.SpawnSkeletonAnimation(skeletonAnimation, axieId, genesString);
-        skeletonAnimation.transform.localPosition = new Vector3(0f, -0.32f, 0f);
-        skeletonAnimation.transform.SetParent(transform, false);
-        skeletonAnimation.transform.localScale = new Vector3(1, 1, 1);
-        skeletonAnimation.timeScale = 0.5f;
-        skeletonAnimation.skeleton.FindSlot("shadow").Attachment = null;
-        skeletonAnimation.state.SetAnimation(0, "action/idle/normal", true);
-
     }
 
     // Update is called once per frame
