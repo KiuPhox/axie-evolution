@@ -37,6 +37,7 @@ public class Bullet : Projectile
     }
 
 
+    //Run 1 times at the time of collision between 2 objects.
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
