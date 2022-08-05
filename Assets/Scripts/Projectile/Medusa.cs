@@ -1,27 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
-public class Bullet : Projectile
+
+public class Medusa : Projectile
 {
+
     public float speed;
     public float lifeTime;
-    public ParticleSystem leafEffect;
+
 
     Vector3 targetPos;
     Vector3 direction;
-
     LivingEntity targetEntity;
 
+    float shortestDistance = Mathf.Infinity;
+    GameObject closestEnemy = new GameObject();
+
+    // Start is called before the first frame update
     void Start()
     {
-        if (target != null) 
+        if (target != null)
         {
             targetPos = target.transform.position;
             direction = targetPos - transform.position;
-            RotateToDirection(direction);
-            ParticleSystem i_leaf = Instantiate(leafEffect, transform.position, transform.rotation);
-            Destroy(i_leaf.gameObject, 0.35f);
         }
         else
         {
@@ -30,14 +31,32 @@ public class Bullet : Projectile
         Destroy(this.gameObject, lifeTime);
     }
 
+
     // Update is called once per frame
     void Update()
     {
         transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy.transform.position != targetPos) 
+            {
+                float distance = Vector3.Distance(targetPos, enemy.transform.position);
+
+                if (distance <= shortestDistance)
+                {
+                    shortestDistance = distance;
+                    closestEnemy = enemy;
+                }
+            }
+        }
+
+        targetPos = closestEnemy.transform.position;
+        direction = targetPos - transform.position;
     }
 
-
-    //Run 1 times at the time of collision between 2 objects.
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -47,4 +66,5 @@ public class Bullet : Projectile
             targetEntity.TakeDamage(damage, holder.GetComponent<LivingEntity>());
         }
     }
+
 }
