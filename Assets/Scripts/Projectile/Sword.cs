@@ -40,7 +40,7 @@ public class Sword : Projectile
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = holder.transform.position;
     }
 
 
