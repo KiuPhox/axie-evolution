@@ -32,27 +32,6 @@ public class Medusa : Projectile
     }
 
 
-    GameObject ShortDistanceSearch(GameObject choosedEnemy, List<GameObject> enemies)
-    {
-        float shortestDistance = Mathf.Infinity;
-        GameObject closestEnemy = new GameObject();
-
-        foreach (GameObject enemy in enemies)
-        {
-            if (enemy.transform.position != choosedEnemy.transform.position)
-            {
-                float distance = Vector3.Distance(choosedEnemy.transform.position, enemy.transform.position);
-                if (distance <= shortestDistance)
-                {
-                    shortestDistance = distance;
-                    closestEnemy = enemy;
-                }
-            }
-        }
-
-        return closestEnemy;
-    }
-
     // Update is called once per frame
     void Update()
     {
