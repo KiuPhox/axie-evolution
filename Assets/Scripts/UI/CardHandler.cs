@@ -28,11 +28,16 @@ public class CardHandler : MonoBehaviour
 
         if (moneyUI.startingMoney >= int.Parse(_tier.text))
         {
-            pc.AddChampion(choosedChampion);
+            if (!pc.CheckExistedChampion(choosedChampion))
+            {
+                pc.AddChampion(choosedChampion);
+            }
+            else
+            {
+
+            }
             moneyUI.startingMoney -= int.Parse(_tier.text);
             moneyUI.isChanged = true;
-
-
             gameObject.SetActive(false);   
         }
     }

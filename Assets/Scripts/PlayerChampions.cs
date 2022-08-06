@@ -27,18 +27,29 @@ public class PlayerChampions : MonoBehaviour
     {
         GameObject insChampion;
         insChampion = Instantiate(choosedChampion, transform);
-
-        if (champions.Count == 0)
-        {
-            insChampion.transform.position = transform.position;
-        }
-        else
-        {
-            insChampion.transform.position = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
-        }
+        insChampion.transform.position = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
         champions.Add(insChampion);
-        //AddBlobShadowForChampion(insChampion);
         UpdateChampions(champions.Count);
+    }
+
+    public bool CheckExistedChampion(GameObject choosedChampion)
+    {
+        string choosedChampionName = choosedChampion.GetComponent<Champion>().championData.name;
+        foreach (GameObject champion in champions)
+        {
+            if (choosedChampionName == champion.GetComponent<Champion>().championData.name)
+            {
+                UpgradeChampion(champion);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void UpgradeChampion(GameObject champion)
+    {
+        champion.GetComponent<LivingEntity>().currentLevel++;
+        champion.GetComponent<LivingEntity>().SetCharacteristics(5f, 5f, 5f, 0.1f);
     }
 
     public void RemoveChampion(GameObject choosedChampion)

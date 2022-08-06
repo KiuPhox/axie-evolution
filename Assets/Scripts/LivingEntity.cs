@@ -15,8 +15,10 @@ public class LivingEntity : MonoBehaviour, IDamageable
     public ChampionData championData;
     public float immortalTime = 1f;
 
+    public int currentLevel;
     public float health;
     protected float damage;
+    protected float defense;
     protected GameObject projectile;
     protected float cooldownTime;
 
@@ -59,8 +61,20 @@ public class LivingEntity : MonoBehaviour, IDamageable
         Debug.Log(championData.health);
         health = championData.health;
         damage = championData.damage;
+        defense = championData.defense;
         projectile = championData.projectile;
         cooldownTime = championData.cooldownTime;
+        currentLevel = 1;
+    }
+
+    public void SetCharacteristics(float _health, float _damage, float _defense, float _cooldownTime)
+    {
+        health = championData.health + _health * (currentLevel - 1);
+        damage = championData.damage + _damage * (currentLevel - 1);
+        health = championData.defense + _defense * (currentLevel - 1);
+        cooldownTime = championData.cooldownTime - cooldownTime * _cooldownTime * (currentLevel - 1);
+        skeletonAnimation.state.SetAnimation(0, "battle/get-buff", false);
+        skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
     }
 
     public virtual void TakeDamage(float damage, LivingEntity damagingEntity)
@@ -69,7 +83,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             nextImmortalTime = Time.time + immortalTime;
 
-            float incomeDamage = damage * (100 / (100 + championData.defense));
+            float incomeDamage = damage * (100 / (100 + defense));
             health -= incomeDamage;
 
             if (incomeDamage > 0)
