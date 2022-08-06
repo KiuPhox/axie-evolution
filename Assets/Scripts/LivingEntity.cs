@@ -50,6 +50,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         playerChampions = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
         damagePopup = Resources.Load("Prefabs/Damage Popup", typeof(TMP_Text)) as TMP_Text;
         damagePopupHolder = GameObject.Find("Text Holder");
+        transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(-1f, 0f));
         SetCharacteristics();
     }
 

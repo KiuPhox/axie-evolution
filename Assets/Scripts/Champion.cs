@@ -87,7 +87,7 @@ public class Champion : LivingEntity
     {
         skeletonAnimation.state.SetAnimation(0, championData.attackAnimation, false);
         skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         Shoot();
     }
 }
