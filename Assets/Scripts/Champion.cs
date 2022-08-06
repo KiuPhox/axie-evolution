@@ -40,6 +40,7 @@ public class Champion : LivingEntity
 
         if (closestTarget != null)
         {
+            FlipBaseOnTargetPos(closestTarget.transform.position);
             closestDistance = Vector2.Distance(transform.position, closestTarget.transform.position);
         }
         if (Time.time >= nextAttackTime && !isLoop)
