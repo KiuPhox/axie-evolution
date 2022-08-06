@@ -19,4 +19,5 @@ public class ChampionData : ScriptableObject
     public CardColorData cardColor;
     public GameObject projectile;
     [HideInInspector] public float weight;
+    public string attackAnimation;
 }

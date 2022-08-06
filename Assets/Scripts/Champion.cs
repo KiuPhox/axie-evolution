@@ -42,14 +42,14 @@ public class Champion : LivingEntity
         if (closestTarget != null)
         {
             closestDistance = Vector2.Distance(transform.position, closestTarget.transform.position);
-            if (Time.time >= nextAttackTime && !isLoop)
+        }
+        if (Time.time >= nextAttackTime && !isLoop)
+        {
+            nextAttackTime = Time.time + cooldownTime;
+            if (closestTarget != null && closestDistance <= championData.range && closestTarget)
             {
-                nextAttackTime = Time.time + cooldownTime;
-                if (closestDistance <= championData.range)
-                {
-                    StartCoroutine(ShootIE());
-                    //Shoot();
-                }
+                StartCoroutine(ShootIE());
+                //Shoot();
             }
         }
     }
@@ -84,7 +84,7 @@ public class Champion : LivingEntity
     }
     IEnumerator ShootIE()
     {
-        skeletonAnimation.state.SetAnimation(0, "attack/melee/normal-attack", false);
+        skeletonAnimation.state.SetAnimation(0, championData.attackAnimation, false);
         yield return new WaitForSeconds(0.5f);
         Shoot();
     }
