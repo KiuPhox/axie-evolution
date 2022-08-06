@@ -25,4 +25,5 @@ MonoBehaviour:
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 1587430511295214175, guid: 247ea57a29f222d468f975b612c05192,
     type: 3}
-  weight: 215
+  weight: 260
+  attackAnimation: attack/melee/normal-attack
