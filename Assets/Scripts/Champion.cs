@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityMovementAI;
-using Spine.Unity;
 
 public class Champion : LivingEntity
 {
@@ -49,7 +48,8 @@ public class Champion : LivingEntity
             if (closestTarget != null && closestDistance <= championData.range && closestTarget)
             {
                 StartCoroutine(ShootIE());
-                //Shoot();
+                //skeletonAnimation.state.SetAnimation(0, championData.attackAnimation, false);
+                Shoot();
             }
         }
     }
@@ -88,6 +88,5 @@ public class Champion : LivingEntity
         yield return new WaitForSeconds(0.5f);
         Shoot();
     }
-
 }
 
