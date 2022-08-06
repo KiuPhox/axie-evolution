@@ -82,7 +82,6 @@ public class Enemy : LivingEntity
 
         else if (isStunned)
         {
-            // Stun
             accel = steeringBasics.Arrive(transform.position);
         }
         steeringBasics.Steer(accel);

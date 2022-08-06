@@ -34,8 +34,9 @@ public class Electricity : Projectile
         {
             if (Vector2.Distance(t.transform.position, transform.position) <= effectRadius)
             {
-                t.GetComponent<LivingEntity>().TakeDamage(damage, holder.GetComponent<LivingEntity>());
                 t.GetComponent<Enemy>().stunTime = stunTime;
+                t.GetComponent<LivingEntity>().skeletonAnimation.state.SetAnimation(0, "battle/get-debuff", false);
+                t.GetComponent<LivingEntity>().skeletonAnimation.state.AddAnimation(0, "draft/run-origin", false, 0f);
             }
         }
     }
