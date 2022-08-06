@@ -14,7 +14,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
     public ChampionData championData;
     public float immortalTime = 1f;
 
-    protected float health;
+    public float health;
     protected float damage;
     protected GameObject projectile;
     protected float cooldownTime;
@@ -36,23 +36,23 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        skeletonAnimation = GetComponent<SkeletonAnimation>();
-        //Mixer.Init();
-        Mixer.SpawnSkeletonAnimation(skeletonAnimation, championData.axieID, championData.genes);
+        if (skeletonAnimation == null)
+        {
+            skeletonAnimation = GetComponent<SkeletonAnimation>();
+            Mixer.SpawnSkeletonAnimation(skeletonAnimation, championData.axieID, championData.genes);
+        }
     }
-
     public virtual void Start()
-    {
-        
-        flashEffect = GetComponent<FlashEffect>();
+    { 
         playerChampions = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
         damagePopup = Resources.Load("Prefabs/Damage Popup", typeof(TMP_Text)) as TMP_Text;
         damagePopupHolder = GameObject.Find("Text Holder");
         SetCharacteristics();
     }
 
-    private void SetCharacteristics()
+    public void SetCharacteristics()
     {
+        Debug.Log(championData.health);
         health = championData.health;
         damage = championData.damage;
         projectile = championData.projectile;
@@ -81,7 +81,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
             }
         }
 
-        if (health <= 0 && !dead)
+        if (health <= 0)
         {
             Die();
         }
@@ -141,7 +141,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
     [ContextMenu("Self Destruct")]
     protected void Die()
     {
-        dead = true;
         if (OnDeath != null)
         {
             OnDeath();
@@ -149,8 +148,13 @@ public class LivingEntity : MonoBehaviour, IDamageable
         if (gameObject.CompareTag("Champion"))
         {
             playerChampions.RemoveChampion(gameObject);
+            GameObject.Destroy(gameObject, 0.12f);
         }
-        GameObject.Destroy(gameObject, 0.12f);
+        else
+        {
+            OnDeath = null;
+            gameObject.SetActive(false);
+        }
     }
 
     protected void FlashOnDamaged()

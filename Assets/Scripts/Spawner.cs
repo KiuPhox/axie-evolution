@@ -23,12 +23,13 @@ public class Spawner : MonoBehaviour
 
     [HideInInspector] public bool isStarted = false;
 
-    // Start is called before the first frame update
+    ObjectPooler objectPooler;
     void Start()
     {
         enemyData.health = 30f;
         enemyData.damage = 8f;
         Utility.ShuffleArray(spawners);
+        objectPooler = GetComponent<ObjectPooler>();
     }
 
     // Update is called once per frame
@@ -101,7 +102,7 @@ public class Spawner : MonoBehaviour
         Color spawnCrossColor = i_cross.GetComponent<SpriteRenderer>().color;
         spawnCrossColor.a = 0f;
         i_cross.GetComponent<SpriteRenderer>().color = spawnCrossColor;
-
+        
         // Spawn Enemy
         i_cross.GetComponent<SpriteRenderer>().DOFade(1f, 0.2f).SetLoops(8, LoopType.Yoyo).SetDelay(0.5f).OnComplete(() =>
         {
@@ -112,11 +113,17 @@ public class Spawner : MonoBehaviour
                 float y = Random.Range(-spawnRadius, spawnRadius);
                 Vector3 offsetSpawn = new Vector3(x, y, 0);
 
-                GameObject i_enemy = Instantiate(enemy, spawner.transform);
+                GameObject i_enemy = ObjectPooler.Instance.GetPooledObject();
+
+                i_enemy.SetActive(true);
+                i_enemy.GetComponent<Enemy>().SetCharacteristics();
+                i_enemy.transform.SetParent(spawner.transform);
+                i_enemy.transform.position = spawner.transform.position;
                 i_enemy.transform.DOLocalMove(offsetSpawn, 0.2f);
                 i_enemy.GetComponent<Enemy>().OnDeath += OnEnemyDeath;
             }
-        });  
+        });
+        
     }
 
 
