@@ -19,6 +19,10 @@ public class Sword : Projectile
         if (target != null)
         {
             targetPos = target.transform.position;
+            if (targetPos.x > transform.position.x)
+            {
+                angle = -angle;
+            }
             direction = targetPos - transform.position;
             RotateToDirection(direction);
             transform.Rotate(new Vector3(0, 0, -angle), Space.Self);
