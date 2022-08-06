@@ -26,4 +26,4 @@ MonoBehaviour:
   projectile: {fileID: 897866155811430675, guid: f4a72729ca7b1044e96f68b748b8f09b,
     type: 3}
   weight: 130
-  attackAnimation: attack/melee/normal-attack
+  attackAnimation: attack/ranged/cast-low
