@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityMovementAI; 
-
+using UnityMovementAI;
+using Spine.Unity;
 
 public class Champion : LivingEntity
 {
@@ -42,13 +42,14 @@ public class Champion : LivingEntity
         if (closestTarget != null)
         {
             closestDistance = Vector2.Distance(transform.position, closestTarget.transform.position);
-        }
-        if (Time.time >= nextAttackTime && !isLoop)
-        {
-            nextAttackTime = Time.time + cooldownTime;
-            if (closestDistance <= championData.range)
+            if (Time.time >= nextAttackTime && !isLoop)
             {
-                Shoot();
+                nextAttackTime = Time.time + cooldownTime;
+                if (closestDistance <= championData.range)
+                {
+                    StartCoroutine(ShootIE());
+                    //Shoot();
+                }
             }
         }
     }
@@ -81,5 +82,12 @@ public class Champion : LivingEntity
             i_projectile.GetComponent<Projectile>().holder = this.gameObject;
         }
     }
+    IEnumerator ShootIE()
+    {
+        skeletonAnimation.state.SetAnimation(0, "attack/melee/normal-attack", false);
+        yield return new WaitForSeconds(0.5f);
+        Shoot();
+    }
+
 }
 

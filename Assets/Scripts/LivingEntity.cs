@@ -26,7 +26,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     TMP_Text damagePopup;
 
-    SkeletonAnimation skeletonAnimation;
+    [HideInInspector] public SkeletonAnimation skeletonAnimation;
 
     // Time Management
     float nextImmortalTime;
@@ -40,6 +40,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             skeletonAnimation = GetComponent<SkeletonAnimation>();
             Mixer.SpawnSkeletonAnimation(skeletonAnimation, championData.axieID, championData.genes);
+            skeletonAnimation.state.SetAnimation(0, "draft/run-origin", true);
         }
     }
     public virtual void Start()

@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 9115612116787840764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.18446216, y: 0.18446216, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,6 +55,7 @@ MonoBehaviour:
   damagePopupHolder: {fileID: 0}
   championData: {fileID: 11400000, guid: 5bfdb17118a1efc44a67f85b3790c50e, type: 2}
   immortalTime: 1
+  health: 0
   speed: 3
   spaceBetween: 0.2
 --- !u!50 &9115612116787840760
@@ -91,9 +92,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.4}
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 0.5
 --- !u!114 &-4339726839111372942
 MonoBehaviour:
   m_ObjectHideFlags: 0

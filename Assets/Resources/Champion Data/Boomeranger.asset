@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Boomeranger
   m_EditorClassIdentifier: 
   name: Boomeranger
+  axieID: 590911
+  genes: 0x8000000000001000081605103100000000100000821030400010000084141040001000008a0c00800010000104084020001001008010208000100103060410a
   description: Throw a boomerang that deals 13 damage.
   health: 80
   damage: 13
@@ -23,4 +25,4 @@ MonoBehaviour:
   cardColor: {fileID: 11400000, guid: 0a3f7a685d2c01b4da8801c8e4c1ed4d, type: 2}
   projectile: {fileID: 8722989835644347901, guid: 25a0f46b912a5ca41b487504cd71e725,
     type: 3}
-  weight: 150
+  weight: 75
