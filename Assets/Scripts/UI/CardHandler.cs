@@ -15,31 +15,36 @@ public class CardHandler : MonoBehaviour
     public TMP_Text _tier;
 
     public MoneyUI moneyUI;
+    public UnitsUI unitsUI;
 
     Image[] images;
+    [HideInInspector] public Vector2 originalScale;
     private void Start()
     {
         images = GetComponentsInChildren<Image>();
+        originalScale = transform.localScale;
     }
 
     public void SelectChampion()
     {   
         GameObject choosedChampion = Resources.Load("Prefabs/" + _name.text) as GameObject;
 
+        if (pc.GetChampionLevel(choosedChampion) == 3)
+            return;
+
         if (moneyUI.startingMoney >= int.Parse(_tier.text))
         {
+            // Fix max level 3
+
             if (!pc.CheckExistedChampion(choosedChampion))
             {
                 pc.AddChampion(choosedChampion);
-            }
-            else
-            {
-
             }
             moneyUI.startingMoney -= int.Parse(_tier.text);
             moneyUI.isChanged = true;
             gameObject.SetActive(false);   
         }
+        unitsUI.SetChampionsToUnit();
     }
 
     public void SetCardData(ChampionData champion)
@@ -75,18 +80,12 @@ public class CardHandler : MonoBehaviour
         imageRT.sizeDelta = new Vector2(100 * originalSize.x / originalSize.y, 100);
     }
 
-
-
-    private void Update()
-    {
-
-    }
     public void ScaleBiggerCard()
     {
-        transform.DOScale(1.2f, 0.2f).SetEase(Ease.OutCubic);
+        transform.DOScale(originalScale * 1.25f, 0.2f).SetEase(Ease.OutCubic);
     }
     public void ScaleSmallerCard()
     {
-        transform.DOScale(1f, 0.2f).SetEase(Ease.OutCubic);
+        transform.DOScale(originalScale, 0.2f).SetEase(Ease.OutCubic);
     }
 }

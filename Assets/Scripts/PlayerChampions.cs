@@ -39,17 +39,72 @@ public class PlayerChampions : MonoBehaviour
         {
             if (choosedChampionName == champion.GetComponent<Champion>().championData.name)
             {
-                UpgradeChampion(champion);
+                SetReserveChampion(champion);
                 return true;
             }
         }
         return false;
     }
 
+    public int GetChampionLevel(GameObject choosedChampion)
+    {
+        string choosedChampionName = choosedChampion.GetComponent<Champion>().championData.name;
+        foreach (GameObject champion in champions)
+        {
+            if (choosedChampionName == champion.GetComponent<Champion>().championData.name)
+            {
+                return champion.GetComponent<Champion>().currentLevel;
+            }
+        }
+        return -1;
+    }
+
+    void SetReserveChampion(GameObject champion)
+    {
+        Champion c = champion.GetComponent<Champion>();
+        if (c.currentLevel == 1)
+        {
+            c.reserve[1]++;
+            if (c.reserve[1] > 1)
+            {
+                c.reserve[1] = 0;
+                c.currentLevel = 2;
+                c.BuffLevel();
+            }
+        }
+        else if (c.currentLevel == 2)
+        {
+            c.reserve[1]++;
+            if (c.reserve[1] > 2)
+            {
+                if (c.reserve[2] == 1)
+                {
+                    c.reserve[2] = 0;
+                    c.reserve[1] = 0;
+                    c.currentLevel = 3;
+                    c.BuffLevel();
+                }
+                else
+                {
+                    c.reserve[2]++;
+                    c.reserve[1] = 0;
+                }
+            }
+        }
+    }
+
+    public void ResetAllChampions()
+    {
+        foreach (GameObject champion in champions)
+        {
+            champion.SetActive(true);
+            champion.GetComponent<Champion>().SetCharacteristics();
+        }
+    }
+
     public void UpgradeChampion(GameObject champion)
     {
         champion.GetComponent<LivingEntity>().currentLevel++;
-        champion.GetComponent<LivingEntity>().SetCharacteristics(5f, 5f, 5f, 0.1f);
     }
 
     public void RemoveChampion(GameObject choosedChampion)

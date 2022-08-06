@@ -6,6 +6,7 @@ using UnityMovementAI;
 
 public class Champion : LivingEntity
 {
+    [HideInInspector] public int[] reserve = {0, 0, 0};
     public float speed;
     public float spaceBetween = 0.5f;
 
@@ -66,6 +67,13 @@ public class Champion : LivingEntity
 
         steeringBasics.Steer(accel);
 
+    }
+
+    public void BuffLevel()
+    {
+        skeletonAnimation.state.SetAnimation(0, "battle/get-buff", false);
+        skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
+        SetCharacteristics();
     }
 
 

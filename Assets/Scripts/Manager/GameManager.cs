@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public static event Action<GameState> OnGameStateChanged;
 
+    public PlayerChampions playerChampions;
     public GenerateChampionCard generateChampionCard;
     public Spawner spawner;
 
@@ -110,6 +111,7 @@ public class GameManager : MonoBehaviour
     private void HandleChooseCard()
     {
         Time.timeScale = 1f;
+        playerChampions.ResetAllChampions();
         if (previousState != GameState.GamePause && generateChampionCard.isFisrtGenerated)
         {
             currentLevel++;

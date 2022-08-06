@@ -60,7 +60,7 @@ public class GenerateChampionCard : MonoBehaviour
             randomChampion = champions[GetRandomChampionIndex()];
             Debug.Log(randomChampion.name);
             cards[i].gameObject.SetActive(true);
-            cards[i].transform.localScale = new Vector2(1f, 1f);
+            cards[i].transform.localScale = cards[i].originalScale;
             cards[i].SetCardData(randomChampion);
         }
     }

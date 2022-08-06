@@ -45,6 +45,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
             Mixer.SpawnSkeletonAnimation(skeletonAnimation, championData.axieID, championData.genes);
             skeletonAnimation.state.SetAnimation(0, "draft/run-origin", true);
         }
+        currentLevel = 1;
     }
 
     public virtual void Start()
@@ -53,29 +54,19 @@ public class LivingEntity : MonoBehaviour, IDamageable
         damagePopup = Resources.Load("Prefabs/Damage Popup", typeof(TMP_Text)) as TMP_Text;
         damagePopupHolder = GameObject.Find("Text Holder");
         transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(-1f, 0f));
+        currentLevel = 1;
         SetCharacteristics();
     }
 
     public void SetCharacteristics()
     {
-        Debug.Log(championData.health);
-        health = championData.health;
-        damage = championData.damage;
-        defense = championData.defense;
+        health = championData.health * currentLevel;
+        damage = championData.damage * currentLevel;
+        defense = championData.defense * currentLevel;
         projectile = championData.projectile;
         cooldownTime = championData.cooldownTime;
-        currentLevel = 1;
     }
 
-    public void SetCharacteristics(float _health, float _damage, float _defense, float _cooldownTime)
-    {
-        health = championData.health + _health * (currentLevel - 1);
-        damage = championData.damage + _damage * (currentLevel - 1);
-        health = championData.defense + _defense * (currentLevel - 1);
-        cooldownTime = championData.cooldownTime - cooldownTime * _cooldownTime * (currentLevel - 1);
-        skeletonAnimation.state.SetAnimation(0, "battle/get-buff", false);
-        skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
-    }
 
     public virtual void TakeDamage(float damage, LivingEntity damagingEntity)
     {
@@ -113,10 +104,13 @@ public class LivingEntity : MonoBehaviour, IDamageable
             float closestDistance = 100f;
             foreach (GameObject target in targets)
             {
-                if (Vector3.Distance(target.transform.position, transform.position) < closestDistance)
+                if (target.activeSelf)
                 {
-                    closestDistance = Vector3.Distance(target.transform.position, transform.position);
-                    closestTarget = target;
+                    if (Vector3.Distance(target.transform.position, transform.position) < closestDistance)
+                    {
+                        closestDistance = Vector3.Distance(target.transform.position, transform.position);
+                        closestTarget = target;
+                    }
                 }
             }
             return closestTarget;
@@ -163,16 +157,8 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             OnDeath();
         }
-        if (gameObject.CompareTag("Champion"))
-        {
-            playerChampions.RemoveChampion(gameObject);
-            GameObject.Destroy(gameObject, 0.12f);
-        }
-        else
-        {
-            OnDeath = null;
-            gameObject.SetActive(false);
-        }
+        OnDeath = null;
+        gameObject.SetActive(false);
     }
 
 
