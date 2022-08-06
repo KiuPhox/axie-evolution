@@ -24,7 +24,7 @@ public class Champion : LivingEntity
         if (cooldownTime < 0)
         {
             isLoop = true;
-            Shoot();
+            StartCoroutine(ShootIE());
         }
         else
         {
@@ -86,6 +86,7 @@ public class Champion : LivingEntity
     IEnumerator ShootIE()
     {
         skeletonAnimation.state.SetAnimation(0, championData.attackAnimation, false);
+        skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
         yield return new WaitForSeconds(0.5f);
         Shoot();
     }
