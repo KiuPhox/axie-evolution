@@ -49,7 +49,7 @@ public class Champion : LivingEntity
             {
                 StartCoroutine(ShootIE());
                 //skeletonAnimation.state.SetAnimation(0, championData.attackAnimation, false);
-                Shoot();
+                //Shoot();
             }
         }
     }
