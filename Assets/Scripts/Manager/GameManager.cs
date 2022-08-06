@@ -91,7 +91,10 @@ public class GameManager : MonoBehaviour
     private void HandleGameStart()
     {
         Time.timeScale = 1f;
-        spawner.isStarted = false;
+        if (previousState == GameState.ChooseCard)
+        {
+            spawner.isStarted = false;
+        }
     }
 
     private void HandleGamePause()
