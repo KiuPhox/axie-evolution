@@ -67,8 +67,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
         if (Time.time >= nextImmortalTime)
         {
             nextImmortalTime = Time.time + immortalTime;
-            FlashOnDamaged();
-            // Debug.Log(incomeDamage)));
 
             float incomeDamage = damage * (100 / (100 + championData.defense));
             health -= incomeDamage;
@@ -82,6 +80,8 @@ public class LivingEntity : MonoBehaviour, IDamageable
                     i_damagePopup.color = damagingEntity.championData.cardColor.nameBoxColor;
                 }
             }
+            skeletonAnimation.state.SetAnimation(0, "defense/hit-by-ranged-attack", false);
+            skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
         }
 
         if (health <= 0)
@@ -160,10 +160,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
         }
     }
 
-    protected void FlashOnDamaged()
-    { 
-        
-    }
 
     private void OnDestroy()
     {
