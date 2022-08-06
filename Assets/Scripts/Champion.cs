@@ -71,7 +71,7 @@ public class Champion : LivingEntity
 
     private void Shoot()
     {
-        GameObject i_projectile = Instantiate(projectile, transform.position, Quaternion.identity, damagePopupHolder.transform);
+        GameObject i_projectile = Instantiate(projectile, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity, damagePopupHolder.transform);
         if (i_projectile != null)
         {
             //Please Fix
