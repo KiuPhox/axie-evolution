@@ -15,14 +15,15 @@ MonoBehaviour:
   name: Buba
   axieID: 2754146
   genes: 0x1000081207104080000000100140801400a0001000c108040020001000008008002000100141020800400010000286103020001000030014004
-  description: Stun enemy for 1.5 seconds
+  description: Smash ground deals 15 damage in an area, gets extra 2 damage per enemy
+    hit.
   health: 140
-  damage: 20
+  damage: 15
   defense: 40
-  range: 4
+  range: 3
   cooldownTime: 3.3
   tier: 2
   cardColor: {fileID: 11400000, guid: 8305200c689e60e4c9b363deb4d0ce57, type: 2}
   projectile: {fileID: 1462327970484030, guid: f01c1eba69de19e44b04d8d651aaac37, type: 3}
-  weight: 110
+  weight: 105
   attackAnimation: attack/melee/tail-smash

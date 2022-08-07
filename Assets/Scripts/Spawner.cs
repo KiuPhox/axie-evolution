@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
     ObjectPooler objectPooler;
     void Start()
     {
-        enemyData.health = 30f;
+        enemyData.health = 25f;
         enemyData.damage = 8f;
         Utility.ShuffleArray(spawners);
         objectPooler = GetComponent<ObjectPooler>();
@@ -76,7 +76,7 @@ public class Spawner : MonoBehaviour
                 GameManager.Instance.UpdateGameState(GameState.ChooseCard);
 
                 // Fix
-                enemyData.health  = 30 + 15 * (GameManager.Instance.currentLevel - 1);
+                enemyData.health  = 25 + 15 * (GameManager.Instance.currentLevel - 1);
                 enemyData.damage = 8 + 3 * (GameManager.Instance.currentLevel - 1);
 
 
