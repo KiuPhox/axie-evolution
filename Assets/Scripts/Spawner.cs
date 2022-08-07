@@ -59,38 +59,44 @@ public class Spawner : MonoBehaviour
                 Debug.Log(spawnType);
 
                 switch (spawnType)
-                {
+                { 
                     case "4":
-
+                        StartCoroutine(SpawnEnemies(spawners[0], 9, 0));
+                        enemiesReaminingAlive = 9;
                         break;
                     case "4+4":
+                        StartCoroutine(SpawnEnemies(spawners[0], 4, 0));
+                        StartCoroutine(SpawnEnemies(spawners[1], 5, 0));
+                        enemiesReaminingAlive = 9;
                         break;
                     case "4+4+4":
+                        StartCoroutine(SpawnEnemies(spawners[0], 2, 0));
+                        StartCoroutine(SpawnEnemies(spawners[1], 3, 0));
+                        StartCoroutine(SpawnEnemies(spawners[2], 4, 0));
+                        enemiesReaminingAlive = 9;
                         break;
                     case "2x4":
+                        StartCoroutine(SpawnEnemies(spawners[0], 5, 0));
+                        StartCoroutine(SpawnEnemies(spawners[1], 2, 3));
+                        StartCoroutine(SpawnEnemies(spawners[2], 2, 3));
+                        enemiesReaminingAlive = 9;
                         break;
                     case "3x4":
+                        StartCoroutine(SpawnEnemies(spawners[0], 5, 0));
+                        StartCoroutine(SpawnEnemies(spawners[1], 1, 3));
+                        StartCoroutine(SpawnEnemies(spawners[2], 1, 3));
+                        StartCoroutine(SpawnEnemies(spawners[3], 2, 3));
+                        enemiesReaminingAlive = 9;
                         break;
                     case "4x2":
+                        StartCoroutine(SpawnEnemies(spawners[0], 5, 0));
+                        StartCoroutine(SpawnEnemies(spawners[1], 1, 3));
+                        StartCoroutine(SpawnEnemies(spawners[2], 1, 3));
+                        StartCoroutine(SpawnEnemies(spawners[3], 1, 3));
+                        StartCoroutine(SpawnEnemies(spawners[4], 1, 3));
+                        enemiesReaminingAlive = 9;
                         break;
                 }
-                // Fix this shit
-                /*
-                enemiesPerSpawner = currentWave.enemyCount / currentWaveNumber;
-
-                if (currentWaveNumber >= 5)
-                {
-                    enemiesReaminingAlive = 4 * enemiesPerSpawner;
-;               }
-                else
-                {
-                    enemiesReaminingAlive = currentWave.enemyCount;
-                }
-                for (int i = 0; i < currentWaveNumber && i < 4; i++)
-                {
-                    SpawnEnemies(spawners[i], 9);
-                }
-                */
             }
             else
             {
@@ -112,8 +118,9 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void SpawnEnemies(GameObject spawner, int enemiesToSpawn)
+    IEnumerator SpawnEnemies(GameObject spawner, int enemiesToSpawn, float delayTime)
     {
+        yield return new WaitForSeconds(delayTime);
         // Instantiate Spawn Cross
         GameObject i_cross = Instantiate(crossSpawn, spawner.transform);
         Color spawnCrossColor = i_cross.GetComponent<SpriteRenderer>().color;
