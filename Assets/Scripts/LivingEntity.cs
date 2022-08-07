@@ -46,10 +46,11 @@ public class LivingEntity : MonoBehaviour, IDamageable
             skeletonAnimation.state.SetAnimation(0, "draft/run-origin", true);
         }
         currentLevel = 1;
+        multipliers = new float[] { 1, 1, 1, 1 };
     }
 
     public virtual void Start()
-    { 
+    {
         playerChampions = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
         damagePopup = Resources.Load("Prefabs/Damage Popup", typeof(TMP_Text)) as TMP_Text;
         damagePopupHolder = GameObject.Find("Text Holder");
@@ -59,11 +60,11 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public void SetCharacteristics()
     {
-        health = championData.health * currentLevel;
-        damage = championData.damage * currentLevel;
-        defense = championData.defense;
+        health = championData.health * currentLevel * multipliers[0];
+        damage = championData.damage * currentLevel * multipliers[1];
+        defense = championData.defense * multipliers[2];
         projectile = championData.projectile;
-        cooldownTime = championData.cooldownTime;
+        cooldownTime = championData.cooldownTime * multipliers[3];
     }
 
 
