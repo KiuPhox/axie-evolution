@@ -20,7 +20,7 @@ public class Arcanist : Champion
             nextAttackTime = Time.time + cooldownTime;
             if (closestTarget != null && closestDistance <= championData.range && closestTarget)
             {
-                StartCoroutine(ShootIE());
+                StartCoroutine(ShootIE(0f));
             }
         }
     }

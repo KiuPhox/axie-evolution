@@ -52,10 +52,11 @@ public class Champion : LivingEntity
             i_projectile.GetComponent<Projectile>().holder = this.gameObject;
         }
     }
-    public IEnumerator ShootIE()
+    public IEnumerator ShootIE(float timeDelay)
     {
         skeletonAnimation.state.SetAnimation(0, championData.attackAnimation, false);
         skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
+        yield return new WaitForSeconds(timeDelay);
         yield return new WaitForSeconds(0.4f);
         Shoot();
     }

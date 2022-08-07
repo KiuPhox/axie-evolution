@@ -20,7 +20,12 @@ public class Farmer : Champion
             nextAttackTime = Time.time + cooldownTime;
             if (closestTarget != null && closestDistance <= championData.range && closestTarget)
             {
-                StartCoroutine(ShootIE());
+                StartCoroutine(ShootIE(0));
+                if (currentLevel == 3)
+                {
+                    StartCoroutine(ShootIE(0.15f));
+                    StartCoroutine(ShootIE(0.3f));
+                }
             }
         }
     }
