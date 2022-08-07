@@ -12,13 +12,8 @@ public class Spawner : MonoBehaviour
     public float spawnRadius;
     public GameObject enemy;
 
-    public Wave[] waves;
-
-    Wave currentWave;
     [HideInInspector] public int currentWaveNumber;
-    int maxWaves;
-
-    int enemiesPerSpawner;
+    [HideInInspector] public int maxWaves;
     int enemiesReaminingAlive;
 
     [HideInInspector] public bool isStarted = false;
@@ -50,8 +45,6 @@ public class Spawner : MonoBehaviour
 
             if (currentWaveNumber - 1 < maxWaves)
             {
-                currentWave = waves[currentWaveNumber - 1];
-
                 Utility.ShuffleArray(spawners);
 
                 string[] spawnTypes = { "4", "4+4", "4+4+4", "2x4", "3x4", "4x2"};
@@ -148,12 +141,5 @@ public class Spawner : MonoBehaviour
             }
         });
         
-    }
-
-
-    [System.Serializable]
-    public class Wave
-    {
-        public int enemyCount;
     }
 }
