@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
+  m_Name: Buba
+  m_EditorClassIdentifier: 
+  name: Buba
+  axieID: 2754146
+  genes: 0x1000081207104080000000100140801400a0001000c108040020001000008008002000100141020800400010000286103020001000030014004
+  description: Stun enemy for 1.5 seconds
+  health: 110
+  damage: 0
+  defense: 40
+  range: 10
+  cooldownTime: 6
+  tier: 2
+  cardColor: {fileID: 11400000, guid: 8305200c689e60e4c9b363deb4d0ce57, type: 2}
+  projectile: {fileID: 0}
+  weight: 290
+  attackAnimation: attack/ranged/cast-multi

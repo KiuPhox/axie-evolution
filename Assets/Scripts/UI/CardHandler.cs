@@ -27,7 +27,7 @@ public class CardHandler : MonoBehaviour
 
     public void SelectChampion()
     {   
-        GameObject choosedChampion = Resources.Load("Prefabs/" + _name.text) as GameObject;
+        GameObject choosedChampion = Resources.Load("Champion Prefabs/" + _name.text) as GameObject;
 
         if (pc.GetChampionLevel(choosedChampion) == 3)
             return;

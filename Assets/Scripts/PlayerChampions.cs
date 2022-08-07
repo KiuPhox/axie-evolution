@@ -9,14 +9,8 @@ public class PlayerChampions : MonoBehaviour
 
     public int championsCount;
 
-    GameObject blobShadow;
     Vector3 offset = new Vector3(-0.75f, 0f, 0f);
     Vector3 shadowOffset = new Vector3(0, -0.6f, 0f);
-
-    private void Start()
-    {
-        blobShadow = Resources.Load("Prefabs/Shadow") as GameObject; 
-    }
 
     public void Update()
     {
@@ -116,9 +110,5 @@ public class PlayerChampions : MonoBehaviour
     public void UpdateChampions(int count)
     {
         championsCount = count;
-    }
-    public void AddBlobShadowForChampion(GameObject champion)
-    {
-        Instantiate(blobShadow, champion.transform.position + shadowOffset, Quaternion.identity, champion.transform);
     }
 }
