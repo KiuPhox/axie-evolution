@@ -8,13 +8,10 @@ public class MoonRing : Projectile
 
     void Update()
     {
+        // Fix Noah Moonring not Destroy
         if (holder != null)
         {
             transform.position = holder.transform.position;
-        }
-        else
-        {
-            Destroy(this.gameObject);
         }
     }
 
