@@ -22,10 +22,10 @@ public class LivingEntity : MonoBehaviour, IDamageable
     protected GameObject projectile;
     protected float cooldownTime;
 
-
-    protected bool dead;
+    [HideInInspector] public float[] multipliers = {1, 1, 1, 1};
     
-    FlashEffect flashEffect;
+    protected bool dead;
+   
 
     TMP_Text damagePopup;
 
@@ -60,11 +60,11 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public void SetCharacteristics()
     {
-        health = championData.health * currentLevel;
-        damage = championData.damage * currentLevel;
-        defense = championData.defense * currentLevel;
+        health = championData.health * currentLevel * multipliers[0];
+        damage = championData.damage * currentLevel * multipliers[1];
+        defense = championData.defense * multipliers[2];
         projectile = championData.projectile;
-        cooldownTime = championData.cooldownTime;
+        cooldownTime = championData.cooldownTime * multipliers[3];
     }
 
 
