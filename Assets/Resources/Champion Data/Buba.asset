@@ -16,13 +16,13 @@ MonoBehaviour:
   axieID: 2754146
   genes: 0x1000081207104080000000100140801400a0001000c108040020001000008008002000100141020800400010000286103020001000030014004
   description: Stun enemy for 1.5 seconds
-  health: 110
-  damage: 0
+  health: 140
+  damage: 20
   defense: 40
-  range: 10
-  cooldownTime: 6
+  range: 4
+  cooldownTime: 3.3
   tier: 2
   cardColor: {fileID: 11400000, guid: 8305200c689e60e4c9b363deb4d0ce57, type: 2}
-  projectile: {fileID: 0}
-  weight: 290
-  attackAnimation: attack/ranged/cast-multi
+  projectile: {fileID: 1462327970484030, guid: f01c1eba69de19e44b04d8d651aaac37, type: 3}
+  weight: 110
+  attackAnimation: attack/melee/tail-smash
