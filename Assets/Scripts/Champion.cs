@@ -50,8 +50,6 @@ public class Champion : LivingEntity
             if (closestTarget != null && closestDistance <= championData.range && closestTarget)
             {
                 StartCoroutine(ShootIE());
-                //skeletonAnimation.state.SetAnimation(0, championData.attackAnimation, false);
-                //Shoot();
             }
         }
     }
