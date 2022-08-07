@@ -7,7 +7,7 @@ public class SmashGround : Projectile
     public float effectRadius;
     public float bonusDamagePerEnemy;
     public float effectTime;
-    int enemyinRange = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,21 +25,28 @@ public class SmashGround : Projectile
     
     void EffectEnemy()
     {
+        int enemyInRange = 0;
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject t in targets)
         {
             if (Vector2.Distance(t.transform.position, transform.position) <= effectRadius)
             {
-                enemyinRange++;
+                enemyInRange++;
             }
+        }
+
+        float allDamage = damage + bonusDamagePerEnemy * enemyInRange;
+        if (holder.GetComponent<Champion>().currentLevel == 3)
+        {
+            allDamage *= 2;
         }
 
         foreach (GameObject t in targets)
         {
             if (Vector2.Distance(t.transform.position, transform.position) <= effectRadius)
             {
-                t.GetComponent<Enemy>().TakeDamage(damage + bonusDamagePerEnemy * enemyinRange, holder.GetComponent<LivingEntity>());
+                t.GetComponent<Enemy>().TakeDamage(allDamage, holder.GetComponent<LivingEntity>());
             }
         }
     }
