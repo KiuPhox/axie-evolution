@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Rendering;
-
+using TMPro;
 public class Spawner : MonoBehaviour
 {
     public ChampionData enemyData;
@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
     public GameObject crossSpawn;
     public float spawnRadius;
     public GameObject enemy;
+    public TMP_Text waveCount;
 
     [HideInInspector] public int currentWaveNumber;
     [HideInInspector] public int maxWaves;
@@ -42,7 +43,7 @@ public class Spawner : MonoBehaviour
         {
             maxWaves = Level.levelToMaxWaves[GameManager.Instance.currentLevel - 1];
             currentWaveNumber++;
-
+            waveCount.text = "Wave: " + currentWaveNumber + "/" + maxWaves;
             if (currentWaveNumber - 1 < maxWaves)
             {
                 Utility.ShuffleArray(spawners);

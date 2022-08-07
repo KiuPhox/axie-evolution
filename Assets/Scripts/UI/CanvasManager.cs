@@ -8,6 +8,7 @@ public class CanvasManager : MonoBehaviour
     public GameObject idleMenuUI;
     public GameObject chooseCardUI;
     public GameObject pauseMenuUI;
+    public GameObject waveCountUI;
 
     // Start is called before the first frame update
     void Start()
@@ -24,18 +25,21 @@ public class CanvasManager : MonoBehaviour
             pauseMenuUI.SetActive(false);
             idleMenuUI.SetActive(false);
             moneyBoxUI.SetActive(true);
+            waveCountUI.SetActive(false);
         }
         else if (GameManager.Instance.State == GameState.GamePause)
         {
             chooseCardUI.SetActive(false);
             pauseMenuUI.SetActive(true);
             moneyBoxUI.SetActive(false);
+            waveCountUI.SetActive(false);
         }
         else if (GameManager.Instance.State == GameState.GameStart)
         {
             chooseCardUI.SetActive(false);
             pauseMenuUI.SetActive(false);
             moneyBoxUI.SetActive(false);
+            waveCountUI.SetActive(true);
         }
     }
 }
