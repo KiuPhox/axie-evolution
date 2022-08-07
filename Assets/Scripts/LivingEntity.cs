@@ -22,7 +22,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
     protected GameObject projectile;
     protected float cooldownTime;
 
-    [HideInInspector] public float[] multipliers = {1, 1, 1, 1};
+    [HideInInspector] public float[] multipliers;
     
     protected bool dead;
    
@@ -54,17 +54,16 @@ public class LivingEntity : MonoBehaviour, IDamageable
         damagePopup = Resources.Load("Prefabs/Damage Popup", typeof(TMP_Text)) as TMP_Text;
         damagePopupHolder = GameObject.Find("Text Holder");
         transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(-1f, 0f));
-        currentLevel = 1;
         SetCharacteristics();
     }
 
     public void SetCharacteristics()
     {
-        health = championData.health * currentLevel * multipliers[0];
-        damage = championData.damage * currentLevel * multipliers[1];
-        defense = championData.defense * multipliers[2];
+        health = championData.health * currentLevel;
+        damage = championData.damage * currentLevel;
+        defense = championData.defense;
         projectile = championData.projectile;
-        cooldownTime = championData.cooldownTime * multipliers[3];
+        cooldownTime = championData.cooldownTime;
     }
 
 
