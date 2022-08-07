@@ -9249,7 +9249,7 @@ MonoBehaviour:
   damage: 0
   target: {fileID: 0}
   holder: {fileID: 0}
-  effectRadius: 5
+  effectRadius: 4.5
   bonusDamagePerEnemy: 2
   effectTime: 0.2
 --- !u!1 &1894011419027366
