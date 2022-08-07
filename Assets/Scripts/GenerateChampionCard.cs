@@ -97,7 +97,6 @@ public class GenerateChampionCard : MonoBehaviour
 
     void CalculateWeights()
     {
-        // Fix
         tierChances = Level.levelToTierChances[GameManager.Instance.currentLevel - 1];
         accumlateWeights = 0f;
         for (int i = 0; i < champions.Length; i++)

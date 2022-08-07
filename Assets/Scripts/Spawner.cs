@@ -52,7 +52,30 @@ public class Spawner : MonoBehaviour
             {
                 currentWave = waves[currentWaveNumber - 1];
 
+                Utility.ShuffleArray(spawners);
+
+                string[] spawnTypes = { "4", "4+4", "4+4+4", "2x4", "3x4", "4x2"};
+                string spawnType = spawnTypes[Utility.WeightPick(new float[] { 20, 20, 10, 15, 10, 15 })];
+                Debug.Log(spawnType);
+
+                switch (spawnType)
+                {
+                    case "4":
+
+                        break;
+                    case "4+4":
+                        break;
+                    case "4+4+4":
+                        break;
+                    case "2x4":
+                        break;
+                    case "3x4":
+                        break;
+                    case "4x2":
+                        break;
+                }
                 // Fix this shit
+                /*
                 enemiesPerSpawner = currentWave.enemyCount / currentWaveNumber;
 
                 if (currentWaveNumber >= 5)
@@ -63,23 +86,17 @@ public class Spawner : MonoBehaviour
                 {
                     enemiesReaminingAlive = currentWave.enemyCount;
                 }
-
-                Utility.ShuffleArray(spawners);
-
                 for (int i = 0; i < currentWaveNumber && i < 4; i++)
                 {
-                    SpawnEnemies(spawners[i]);
+                    SpawnEnemies(spawners[i], 9);
                 }
+                */
             }
             else
             {
                 GameManager.Instance.UpdateGameState(GameState.ChooseCard);
-
-                // Fix
                 enemyData.health  = 25 + 15 * (GameManager.Instance.currentLevel - 1);
                 enemyData.damage = 8 + 3 * (GameManager.Instance.currentLevel - 1);
-
-
                 currentWaveNumber = 0;
             }
         }
@@ -95,7 +112,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void SpawnEnemies(GameObject spawner)
+    private void SpawnEnemies(GameObject spawner, int enemiesToSpawn)
     {
         // Instantiate Spawn Cross
         GameObject i_cross = Instantiate(crossSpawn, spawner.transform);
@@ -107,7 +124,7 @@ public class Spawner : MonoBehaviour
         i_cross.GetComponent<SpriteRenderer>().DOFade(1f, 0.2f).SetLoops(8, LoopType.Yoyo).SetDelay(0.5f).OnComplete(() =>
         {
             Destroy(i_cross);
-            for (int i = 0; i < enemiesPerSpawner; i++)
+            for (int i = 0; i < enemiesToSpawn; i++)
             {
                 float x = Random.Range(-spawnRadius, spawnRadius);
                 float y = Random.Range(-spawnRadius, spawnRadius);

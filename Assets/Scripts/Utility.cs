@@ -39,4 +39,24 @@ public static class Utility
         return new Vector3(worldPosition.x, worldPosition.y, 0f);
     }
 
+    public static int WeightPick(float[] weights)
+    {
+        float accumlateWeights = 0;
+        float[] anotherWeights = weights;
+        for (int i = 0; i < weights.Length; i++)
+        {
+            accumlateWeights += weights[i];
+            anotherWeights[i] = accumlateWeights;
+        }
+        float r = Random.Range(0f, 1f) * accumlateWeights;
+        for (int i = 0; i < anotherWeights.Length; i++)
+        {
+            if (anotherWeights[i] >= r)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 }
