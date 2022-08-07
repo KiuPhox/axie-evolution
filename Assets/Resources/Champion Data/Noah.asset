@@ -16,14 +16,13 @@ MonoBehaviour:
   axieID: 2043329
   genes: 0x8800000000000100030100e0831000000001001010610104000100140880800400010000088102060001000820818304000100141820440a0001000c1021010c
   description: Create an celetis field to slowdown enemy.
-  health: 100
+  health: 120
   damage: 0
   defense: 25
   range: 10
-  cooldownTime: -1
+  cooldownTime: 6
   tier: 1
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
-  projectile: {fileID: 1587430511295214175, guid: 247ea57a29f222d468f975b612c05192,
-    type: 3}
-  weight: 260
+  projectile: {fileID: 100006, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
+  weight: 255
   attackAnimation: attack/ranged/cast-multi

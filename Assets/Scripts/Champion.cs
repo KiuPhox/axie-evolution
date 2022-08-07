@@ -7,64 +7,29 @@ using UnityMovementAI;
 public class Champion : LivingEntity
 {
     [HideInInspector] public int[] reserve = {0, 0, 0};
-    public float speed;
-    public float spaceBetween = 0.5f;
-
-    float nextAttackTime;
+    [HideInInspector] public float nextAttackTime;
+    [HideInInspector] public GameObject closestTarget;
 
     GameObject[] targets;
-    GameObject closestTarget;
-    float closestDistance = 100f;
-
-    bool isLoop = false;
+    
     SteeringBasics steeringBasics;
 
     public override void Start()
     {
         base.Start();
-        if (cooldownTime < 0)
-        {
-            isLoop = true;
-            StartCoroutine(ShootIE());
-        }
-        else
-        {
-            nextAttackTime = Random.Range(Time.time, Time.time + cooldownTime);
-        }
+        nextAttackTime = Random.Range(Time.time, Time.time + cooldownTime);
         steeringBasics = GetComponent<SteeringBasics>();
-    }
-
-    private void Update()
-    {
-        targets = GameObject.FindGameObjectsWithTag("Enemy");
-        closestTarget = GetClosestTargetInList(targets);
-
-        if (closestTarget != null)
-        {
-            FlipBaseOnTargetPos(closestTarget.transform.position);
-            closestDistance = Vector2.Distance(transform.position, closestTarget.transform.position);
-        }
-        if (Time.time >= nextAttackTime && !isLoop)
-        {
-            nextAttackTime = Time.time + cooldownTime;
-            if (closestTarget != null && closestDistance <= championData.range && closestTarget)
-            {
-                StartCoroutine(ShootIE());
-            }
-        }
     }
 
     void FixedUpdate()
     {
-
         Vector3 targetPosition = Utility.GetMouseWorldPosition();
-
-        FlipBaseOnTargetPos(targetPosition);
-
+        if (closestTarget == null)
+        {
+            FlipBaseOnTargetPos(targetPosition);
+        }
         Vector3 accel = steeringBasics.Arrive(targetPosition);
-
         steeringBasics.Steer(accel);
-
     }
 
     public void BuffLevel()
@@ -74,13 +39,11 @@ public class Champion : LivingEntity
         SetCharacteristics();
     }
 
-
-    private void Shoot()
+    public void Shoot()
     {
         GameObject i_projectile = Instantiate(projectile, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity, damagePopupHolder.transform);
         if (i_projectile != null)
         {
-            //Please Fix
             if (closestTarget != null)
             {
                 i_projectile.GetComponent<Projectile>().target = closestTarget;
@@ -89,7 +52,7 @@ public class Champion : LivingEntity
             i_projectile.GetComponent<Projectile>().holder = this.gameObject;
         }
     }
-    IEnumerator ShootIE()
+    public IEnumerator ShootIE()
     {
         skeletonAnimation.state.SetAnimation(0, championData.attackAnimation, false);
         skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);

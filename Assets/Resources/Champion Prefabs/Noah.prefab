@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1111949700692832421}
-  - component: {fileID: 6553280027092434758}
   - component: {fileID: 1111949700692832419}
   - component: {fileID: 8209878161902955790}
   - component: {fileID: 7751020506723412001}
@@ -18,6 +17,7 @@ GameObject:
   - component: {fileID: 2006964287044874717}
   - component: {fileID: 17347500789961422}
   - component: {fileID: -4171537690561298699}
+  - component: {fileID: 4592072605947524733}
   m_Layer: 0
   m_Name: Noah
   m_TagString: Champion
@@ -39,24 +39,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6553280027092434758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111949700692832423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08281d5d59a78ea4381cde953e92c007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerChampions: {fileID: 0}
-  damagePopupHolder: {fileID: 0}
-  championData: {fileID: 11400000, guid: 7093e6cbd59f57446a28e24dcbed03f3, type: 2}
-  immortalTime: 1
-  speed: 3
-  spaceBetween: 0.2
 --- !u!50 &1111949700692832419
 Rigidbody2D:
   serializedVersion: 4
@@ -231,3 +213,27 @@ MonoBehaviour:
   _animationName: 
   loop: 0
   timeScale: 1
+--- !u!114 &4592072605947524733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111949700692832423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2638ccdce26b4604282bbb5694db3742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerChampions: {fileID: 0}
+  damagePopupHolder: {fileID: 0}
+  championData: {fileID: 11400000, guid: 7093e6cbd59f57446a28e24dcbed03f3, type: 2}
+  immortalTime: 1
+  currentLevel: 0
+  health: 0
+  multipliers: []
+  skeletonAnimation: {fileID: 0}
+  reserve: 000000000000000000000000
+  nextAttackTime: 0
+  isLoop: 0
+  closestTarget: {fileID: 0}

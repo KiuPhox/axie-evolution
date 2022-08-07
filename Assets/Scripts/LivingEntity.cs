@@ -17,6 +17,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public int currentLevel;
     public float health;
+    [HideInInspector] public float maxHealth;
     protected float damage;
     protected float defense;
     protected GameObject projectile;
@@ -60,7 +61,8 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public void SetCharacteristics()
     {
-        health = championData.health * currentLevel * multipliers[0];
+        maxHealth = championData.health * currentLevel * multipliers[0];
+        health = maxHealth;
         damage = championData.damage * currentLevel * multipliers[1];
         defense = championData.defense * multipliers[2];
         projectile = championData.projectile;

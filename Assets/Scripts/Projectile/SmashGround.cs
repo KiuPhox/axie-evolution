@@ -37,6 +37,7 @@ public class SmashGround : Projectile
         }
 
         float allDamage = damage + bonusDamagePerEnemy * enemyInRange;
+
         if (holder.GetComponent<Champion>().currentLevel == 3)
         {
             allDamage *= 2;

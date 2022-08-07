@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Kotaro
   axieID: 2582937
   genes: 0x800000000000010000804021030c0000000100042800820200010014100040040001000008404002000100001000850a00010000080040020001000008808404
-  description: Slash nearby enemies in range and deals 20 damage
+  description: Slash nearby enemies and deals 20 damage.
   health: 130
   damage: 20
   defense: 30
@@ -25,5 +25,5 @@ MonoBehaviour:
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 3611118393586328161, guid: a88fa408447e7b04d80917b8aba9d063,
     type: 3}
-  weight: 175
+  weight: 190
   attackAnimation: attack/melee/normal-attack
