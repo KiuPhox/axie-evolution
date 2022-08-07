@@ -87,6 +87,12 @@ public class Enemy : LivingEntity
         steeringBasics.Steer(accel);
     }
 
+    public void ResetAllEffect()
+    {
+        stunTime = 0;
+        skeletonAnimation.state.SetAnimation(0, "draft/run-origin", true);
+    }
+
     public void SetEffectSpeed(float effectSpeed)
     {
         arriveWeight -= effectSpeed;

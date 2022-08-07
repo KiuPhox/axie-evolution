@@ -4880,7 +4880,7 @@ MonoBehaviour:
   lifeTime: 0.5
   effectRadius: 2.7
   effectTime: 0.2
-  stunTime: 1.5
+  stunTime: 3
 --- !u!114 &-6401142430698721651
 MonoBehaviour:
   m_ObjectHideFlags: 0

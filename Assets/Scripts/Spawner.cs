@@ -138,7 +138,9 @@ public class Spawner : MonoBehaviour
                 i_enemy.transform.SetParent(spawner.transform);
                 i_enemy.transform.position = spawner.transform.position;
                 i_enemy.transform.DOLocalMove(offsetSpawn, 0.2f);
+                i_enemy.GetComponent<Enemy>().ResetAllEffect();
                 i_enemy.GetComponent<Enemy>().OnDeath += OnEnemyDeath;
+
             }
         });
         
