@@ -4662,6 +4662,7 @@ GameObject:
   - component: {fileID: 199646569410326802}
   - component: {fileID: 114667553580105858}
   - component: {fileID: -3134620045840145646}
+  - component: {fileID: -579729083506710679}
   m_Layer: 0
   m_Name: Ground Smash
   m_TagString: FxTemporaire
@@ -9252,6 +9253,19 @@ MonoBehaviour:
   effectRadius: 4.5
   bonusDamagePerEnemy: 2
   effectTime: 0.2
+--- !u!114 &-579729083506710679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462327970484030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02aab6c5a785f4b448d1a8e83b6d23d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: b7e09917ebbdc4a42931cc108f3d6039, type: 3}
 --- !u!1 &1894011419027366
 GameObject:
   m_ObjectHideFlags: 0
