@@ -6,6 +6,7 @@ public class SmashGround : Projectile
 {
     public float effectRadius;
     public float bonusDamagePerEnemy;
+    public float effectTime;
     int enemyinRange = 0;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class SmashGround : Projectile
             Destroy(this.gameObject);
         }
         bonusDamagePerEnemy *= holder.GetComponent<Champion>().currentLevel;
-        EffectEnemy();
+        Invoke("EffectEnemy", effectTime);
     }
     
     void EffectEnemy()
