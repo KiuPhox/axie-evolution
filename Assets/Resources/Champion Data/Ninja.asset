@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Ninja
   m_EditorClassIdentifier: 
   name: Ninja
-  axieID: 
-  genes: 
-  description: Throw suriken
-  health: 130
-  damage: 100
-  defense: 0
+  axieID: 636231
+  genes: 0x80000000000010002000090c30800000001001428a0430200010014280080020001000c08818302000100081041450c000100141000400a000100141880c206
+  description: 'Throw '
+  health: 80
+  damage: 13
+  defense: 25
   range: 10
-  cooldownTime: 0.9
+  cooldownTime: 1
   tier: 2
   cardColor: {fileID: 11400000, guid: 0a3f7a685d2c01b4da8801c8e4c1ed4d, type: 2}
   projectile: {fileID: 1768310633749735082, guid: 9828e5022db81194e81930e4ff1195e7,

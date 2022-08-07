@@ -27,5 +27,5 @@ MonoBehaviour:
   tier: 1
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 100006, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
-  weight: 220
-  attackAnimation: attack/ranged/cast-multi
+  weight: 300
+  attackAnimation: action/idle/random-03
