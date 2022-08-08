@@ -17,9 +17,9 @@ public class Buba : Champion
         }
         if (Time.time >= nextAttackTime)
         {
-            nextAttackTime = Time.time + cooldownTime;
             if (closestTarget != null && closestDistance <= championData.range && closestTarget)
             {
+                nextAttackTime = Time.time + cooldownTime;
                 StartCoroutine(ShootIE(0f));
             }
         }

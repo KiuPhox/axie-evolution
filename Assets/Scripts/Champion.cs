@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityMovementAI;
+using DG.Tweening;
 
 public class Champion : LivingEntity
 {
@@ -11,7 +12,7 @@ public class Champion : LivingEntity
     [HideInInspector] public GameObject closestTarget;
 
     GameObject[] targets;
-    
+    CameraHolder cameraHolder;
     SteeringBasics steeringBasics;
 
     public override void Start()
@@ -19,6 +20,7 @@ public class Champion : LivingEntity
         base.Start();
         nextAttackTime = Random.Range(Time.time, Time.time + cooldownTime);
         steeringBasics = GetComponent<SteeringBasics>();
+        cameraHolder = GameObject.Find("Camera Holder").GetComponent<CameraHolder>();
     }
 
     void FixedUpdate()
@@ -58,6 +60,7 @@ public class Champion : LivingEntity
         skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
         yield return new WaitForSeconds(timeDelay);
         yield return new WaitForSeconds(0.4f);
+        cameraHolder.Shake();
         Shoot();
     }
 
