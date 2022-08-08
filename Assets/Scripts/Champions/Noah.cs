@@ -13,7 +13,6 @@ public class Noah : Champion
         if (Time.time >= nextAttackTime)
         {
             isHeal = false;
-            nextAttackTime = Time.time + cooldownTime;
             foreach (GameObject t in targets)
             {
                 float maxHealth = t.GetComponent<LivingEntity>().maxHealth;
@@ -23,6 +22,7 @@ public class Noah : Champion
                     {
                         isHeal = true;
                     }
+                    nextAttackTime = Time.time + cooldownTime;
                     StartCoroutine(HealIE(t));
                     t.GetComponent<LivingEntity>().Healing(maxHealth * 0.2f);
                 }

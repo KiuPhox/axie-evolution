@@ -17,6 +17,8 @@ public class CardHandler : MonoBehaviour
     public MoneyUI moneyUI;
     public UnitsUI unitsUI;
 
+    public float maxUnits;
+
     Image[] images;
     [HideInInspector] public Vector2 originalScale;
     private void Start()
@@ -26,7 +28,7 @@ public class CardHandler : MonoBehaviour
     }
 
     public void SelectChampion()
-    {   
+    {
         GameObject choosedChampion = Resources.Load("Champion Prefabs/" + _name.text) as GameObject;
 
         if (pc.GetChampionLevel(choosedChampion) == 3)
@@ -35,14 +37,22 @@ public class CardHandler : MonoBehaviour
         if (moneyUI.startingMoney >= int.Parse(_tier.text))
         {
             // Fix max level 3
-
             if (!pc.CheckExistedChampion(choosedChampion))
             {
-                pc.AddChampion(choosedChampion);
+                if (pc.champions.Count < maxUnits)
+                {
+                    pc.AddChampion(choosedChampion);
+                    moneyUI.startingMoney -= int.Parse(_tier.text);
+                    moneyUI.isChanged = true;
+                    gameObject.SetActive(false);
+                }
             }
-            moneyUI.startingMoney -= int.Parse(_tier.text);
-            moneyUI.isChanged = true;
-            gameObject.SetActive(false);   
+            else
+            {
+                moneyUI.startingMoney -= int.Parse(_tier.text);
+                moneyUI.isChanged = true;
+                gameObject.SetActive(false);
+            }
         }
         unitsUI.SetChampionsToUnit();
     }

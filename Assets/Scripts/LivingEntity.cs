@@ -26,15 +26,16 @@ public class LivingEntity : MonoBehaviour, IDamageable
     [HideInInspector] public float[] multipliers;
     
     protected bool dead;
-   
+
+    UnitsUI unitsUI;
 
     TMP_Text damagePopup;
 
     [HideInInspector] public SkeletonAnimation skeletonAnimation;
+    
     private AudioClip healClip;
-    // Time Management
-    float nextImmortalTime;
 
+    float nextImmortalTime;
 
     public event System.Action OnDeath;
 
@@ -57,6 +58,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         damagePopupHolder = GameObject.Find("Text Holder");
         transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(-1f, 0f));
         healClip = Resources.Load<AudioClip>("Audio/Heal");
+        unitsUI = GameObject.Find("Units Holder").GetComponent<UnitsUI>();
         SetCharacteristics();
     }
 
@@ -80,6 +82,13 @@ public class LivingEntity : MonoBehaviour, IDamageable
             float incomeDamage = damage * (100 / (100 + defense));
             health -= incomeDamage;
 
+            // Health Bar
+            if (this.tag == "Champion")
+            {
+                unitsUI.LoadHealthbar(this.gameObject, health, maxHealth);
+            }
+
+            // Damage Popup
             if (incomeDamage > 0)
             {
                 TMP_Text i_damagePopup = Instantiate(damagePopup, transform.position, Quaternion.identity, damagePopupHolder.transform);
@@ -89,6 +98,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
                     i_damagePopup.color = damagingEntity.championData.cardColor.nameBoxColor;
                 }
             }
+
             skeletonAnimation.state.SetAnimation(0, "defense/hit-by-ranged-attack", false);
             skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
         }
@@ -109,6 +119,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             health = maxHealth;
         }
+        unitsUI.LoadHealthbar(this.gameObject, health, maxHealth);
         SoundManager.Instance.PlayHealSound();
     }
 

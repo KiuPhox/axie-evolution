@@ -7,12 +7,26 @@ public class UnitsUI : MonoBehaviour
 {
     public PlayerChampions playerChampions;
     public GameObject[] units;
-    
+
+    bool isResetHealth = false;
     void Start()
     {
         foreach (GameObject unit in units)
         {
             unit.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (GameManager.Instance.State == GameState.ChooseCard && !isResetHealth)
+        {
+            isResetHealth = true;
+            ResetAllHealthBar();
+        }
+        if (GameManager.Instance.State == GameState.GameStart)
+        {
+            isResetHealth = false;
         }
     }
 
@@ -22,8 +36,32 @@ public class UnitsUI : MonoBehaviour
         {
             LoadChampionUnit(units[i], playerChampions.champions[i]);
         }
+        for (int i = playerChampions.champions.Count; i < 7; i++)
+        {
+            units[i].SetActive(false);
+        }
     }
 
+    public void ResetAllHealthBar()
+    {
+        for (int i = 0; i < playerChampions.champions.Count; i++)
+        {
+            Image[] images = units[i].GetComponentsInChildren<Image>();
+            images[3].fillAmount = 1;
+        }
+    }
+    public void LoadHealthbar(GameObject champion, float health, float maxHealth)
+    {
+        for (int i = 0; i < playerChampions.champions.Count; i++)
+        {
+            if (champion == playerChampions.champions[i])
+            {
+                Image[] images = units[i].GetComponentsInChildren<Image>();
+                images[3].fillAmount = health / maxHealth;
+                return;
+            }
+        }
+    }
 
     public void LoadChampionUnit(GameObject unit, GameObject champion)
     {
