@@ -20,10 +20,10 @@ MonoBehaviour:
   health: 140
   damage: 15
   defense: 40
-  range: 3
+  range: 3.5
   cooldownTime: 3.3
   tier: 2
   cardColor: {fileID: 11400000, guid: 8305200c689e60e4c9b363deb4d0ce57, type: 2}
   projectile: {fileID: 1462327970484030, guid: f01c1eba69de19e44b04d8d651aaac37, type: 3}
-  weight: 155
+  weight: 110
   attackAnimation: attack/melee/tail-smash

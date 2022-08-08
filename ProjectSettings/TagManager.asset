@@ -7,6 +7,8 @@ TagManager:
   - Champion
   - Enemy
   - Bullet
+  - FxTemporaire
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - VFX
   - Black
   - Enemy
-  - 
-  - 
+  - Push
+  - Player
   - 
   - 
   - 

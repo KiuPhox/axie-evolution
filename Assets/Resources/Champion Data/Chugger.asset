@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
+  m_Name: Chugger
+  m_EditorClassIdentifier: 
+  name: Chugger
+  axieID: 4529577
+  genes: 0x200000000000010000c06020c2000000000100102080850a000100102881040a000100100880c4080001001018814408000100101880c406000100102880820c
+  description: 'Pushes enemies away and deals 12 damage
+
+    Lvl 3: Enemies take
+    200 damage if they hit wall'
+  health: 175
+  damage: 12
+  defense: 30
+  range: 10
+  cooldownTime: 10
+  tier: 3
+  cardColor: {fileID: 11400000, guid: c192466b9f08ca04ab1f0f532a7249c9, type: 2}
+  projectile: {fileID: 5420725915103826893, guid: 0b9b30b4b2b77604eb7af517b89b59bf,
+    type: 3}
+  weight: 180
+  attackAnimation: attack/melee/shrimp

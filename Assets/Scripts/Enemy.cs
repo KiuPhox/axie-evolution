@@ -28,6 +28,9 @@ public class Enemy : LivingEntity
     bool isStunned = false;
     Vector3 accel = new Vector3(0, 0, 0);
 
+    [HideInInspector] public bool chuggerPushed = false;
+    float chuggerTime = 2f;
+
     public override void Start()
     {
         base.Start();
@@ -53,6 +56,17 @@ public class Enemy : LivingEntity
         else
         {
             isStunned = false;
+        }
+
+        // Chugger Pushed
+        if (chuggerPushed)
+        {
+            chuggerTime -= Time.deltaTime;
+        }
+        if (chuggerTime <= 0)
+        {
+            chuggerPushed = false;
+            chuggerTime = 2f;
         }
     }
 
@@ -90,6 +104,7 @@ public class Enemy : LivingEntity
     public void ResetAllEffect()
     {
         stunTime = 0;
+        chuggerPushed = false;
         skeletonAnimation.state.SetAnimation(0, "draft/run-origin", true);
     }
 
@@ -122,5 +137,13 @@ public class Enemy : LivingEntity
         skeletonAnimation.state.SetAnimation(0, championData.attackAnimation, false);
         skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
         yield return new WaitForSeconds(0.5f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall") && chuggerPushed)
+        {
+            TakeDamage(200f, this);
+        }
     }
 }
