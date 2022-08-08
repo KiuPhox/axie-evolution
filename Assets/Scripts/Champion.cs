@@ -60,5 +60,7 @@ public class Champion : LivingEntity
         yield return new WaitForSeconds(0.4f);
         Shoot();
     }
+
+
 }
 

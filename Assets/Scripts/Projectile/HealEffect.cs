@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoahHeal : Projectile
+public class HealEffect : Projectile
 {
     private void Start()
     {
@@ -10,6 +10,8 @@ public class NoahHeal : Projectile
     }
     void Update()
     {
-        transform.position = target.transform.position;
+        if (target != null) { 
+            transform.position = target.transform.position; 
+        }   
     }
 }

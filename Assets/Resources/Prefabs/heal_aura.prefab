@@ -4683,6 +4683,7 @@ GameObject:
   - component: {fileID: 8279640496934292886}
   - component: {fileID: 8082284771346051724}
   - component: {fileID: 8082747115658049726}
+  - component: {fileID: -681470491726547911}
   m_Layer: 0
   m_Name: heal_aura
   m_TagString: Untagged
@@ -9412,3 +9413,21 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-681470491726547911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8281832377026056950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f985d8acf9e044cb810dc26abbd0ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  target: {fileID: 0}
+  holder: {fileID: 0}
+  lifeTime: 10
+  effectTime: 3
+  effectRange: 2.7

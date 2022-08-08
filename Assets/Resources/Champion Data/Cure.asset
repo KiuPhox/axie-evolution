@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
+  m_Name: Cure
+  m_EditorClassIdentifier: 
+  name: Cure
+  axieID: 140189
+  genes: 0x200000000000000081c16041030800000001028810408104000102942880450a00010010306141040001028c2840430a0001000c28a1430a0001001418404006
+  description: 'Create an area that heal 1 axie 20% max HP
+
+    Lvl 3: Heals faster,
+    bigger area and heals 2 axies'
+  health: 120
+  damage: 0
+  defense: 30
+  range: 5
+  cooldownTime: 16
+  tier: 2
+  cardColor: {fileID: 11400000, guid: 8305200c689e60e4c9b363deb4d0ce57, type: 2}
+  projectile: {fileID: 8281832377026056950, guid: 3c2f2f2a805ce294db0f9ccdc1905a32,
+    type: 3}
+  weight: 140
+  attackAnimation: attack/ranged/cast-multi

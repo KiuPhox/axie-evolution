@@ -31,7 +31,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
     TMP_Text damagePopup;
 
     [HideInInspector] public SkeletonAnimation skeletonAnimation;
-
+    private AudioClip healClip;
     // Time Management
     float nextImmortalTime;
 
@@ -56,6 +56,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         damagePopup = Resources.Load("Prefabs/Damage Popup", typeof(TMP_Text)) as TMP_Text;
         damagePopupHolder = GameObject.Find("Text Holder");
         transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(-1f, 0f));
+        healClip = Resources.Load<AudioClip>("Audio/Heal");
         SetCharacteristics();
     }
 
@@ -96,6 +97,19 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             Die();
         }
+    }
+
+    public void Healing(float healAmount)
+    {
+        GameObject vfx_heal = Resources.Load("Prefabs/vfx_heal") as GameObject;
+        Instantiate(vfx_heal, transform.position, Quaternion.identity);
+        vfx_heal.GetComponent<HealEffect>().target = this.gameObject;
+        health += healAmount;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+        SoundManager.Instance.PlaySound(healClip);
     }
 
     public GameObject GetClosestTargetInList(List<GameObject> targets)
