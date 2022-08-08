@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     public Slider volumeSlider;
 
     [SerializeField] private AudioSource effectsSource;
+    [SerializeField] private AudioSource healEffectSource;
 
     private void Awake()
     {
@@ -32,6 +33,12 @@ public class SoundManager : MonoBehaviour
     {
         effectsSource.PlayOneShot(clip);
     }
+
+    public void PlayHealSound()
+    {
+        healEffectSource.Play();
+    }
+
 
     public void ChangeMasterVolume(float value)
     {

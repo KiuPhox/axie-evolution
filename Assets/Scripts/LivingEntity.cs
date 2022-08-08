@@ -109,7 +109,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             health = maxHealth;
         }
-        SoundManager.Instance.PlaySound(healClip);
+        SoundManager.Instance.PlayHealSound();
     }
 
     public GameObject GetClosestTargetInList(List<GameObject> targets)
