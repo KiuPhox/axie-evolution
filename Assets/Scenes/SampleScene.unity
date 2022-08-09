@@ -3263,8 +3263,8 @@ MonoBehaviour:
   - {fileID: 1793830605}
   crossSpawn: {fileID: 453793985967900363, guid: 9d55ef4c2b776004abc9ead57db86d4d,
     type: 3}
-  spawnRadius: 2
-  enemy: {fileID: 9115612116787840764, guid: 7938fc34115a382449a9af144b6790d8, type: 3}
+  spawnRadius: 1
+  enemy: {fileID: 0}
   waveCount: {fileID: 1486875017}
   currentWaveNumber: 0
   maxWaves: 0

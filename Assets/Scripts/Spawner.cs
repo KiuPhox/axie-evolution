@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Rendering;
 using TMPro;
+using System.Linq;
 public class Spawner : MonoBehaviour
 {
     public ChampionData seekerData;
@@ -40,14 +41,18 @@ public class Spawner : MonoBehaviour
     }
 
     float[] eliteSpawnWeight;
-    string[] eliteSpawnType; 
+    string[] eliteSpawnType;
+    float sumEliteSpawn;
     void NextWave()
     {
         if (GameManager.Instance.State == GameState.GameStart)
         {
-            maxWaves = Level.levelToMaxWaves[GameManager.Instance.currentLevel - 1];
-            eliteSpawnWeight = Level.levelToEliteSpawnWeight[GameManager.Instance.currentLevel - 1];
-            eliteSpawnType = Level.levelToEliteSpawnType[GameManager.Instance.currentLevel - 1];
+            int currentLevel = GameManager.Instance.currentLevel;
+
+            maxWaves = Level.levelToMaxWaves[currentLevel - 1];
+            eliteSpawnWeight = Level.levelToEliteSpawnWeight[currentLevel - 1];
+            eliteSpawnType = Level.levelToEliteSpawnType[currentLevel - 1];
+            sumEliteSpawn = eliteSpawnWeight.Sum();
 
             currentWaveNumber++;
             waveCount.text = "Wave: " + currentWaveNumber + "/" + maxWaves;
@@ -136,12 +141,12 @@ public class Spawner : MonoBehaviour
             Destroy(i_cross);
             for (int i = 0; i < enemiesToSpawn; i++)
             {
-                // Spawn Elite
                 GameObject i_enemy;
-                if (Utility.RandomBool(Utility.SumOfArray(eliteSpawnWeight)))
+
+                // Spawn Elite
+                if (Utility.RandomBool(sumEliteSpawn))
                 {
                     string eliteType = eliteSpawnType[Utility.WeightPick(eliteSpawnWeight)];
-                    Debug.Log(eliteType);
                     i_enemy = ObjectPooler.Instance.GetPooledObject(eliteType);
                 }
                 else

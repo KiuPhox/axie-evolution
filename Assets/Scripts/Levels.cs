@@ -34,7 +34,7 @@ public static class Level
     };
 
 
-    public static float[][] levelToEliteSpawnWeight =
+    public static float[][] levelToEliteSpawnWeight = new float[][]
     {
         new float[] {0},
         new float[] {4, 2},

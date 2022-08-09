@@ -41,14 +41,21 @@ public static class Utility
 
     public static int WeightPick(float[] weights)
     {
+        
         float accumlateWeights = 0;
-        float[] anotherWeights = weights;
+
+        float[] anotherWeights = new float[weights.Length];
+        
+
         for (int i = 0; i < weights.Length; i++)
         {
             accumlateWeights += weights[i];
             anotherWeights[i] = accumlateWeights;
         }
+
+        
         float r = Random.Range(0f, 1f) * accumlateWeights;
+
         for (int i = 0; i < anotherWeights.Length; i++)
         {
             if (anotherWeights[i] >= r)
@@ -56,6 +63,7 @@ public static class Utility
                 return i;
             }
         }
+        
         return -1;
     }
 
@@ -79,19 +87,9 @@ public static class Utility
         return array;
     }
 
-    public static float SumOfArray(float[] array)
-    {
-        float sum = 0;
-        for (int i = 0; i < array.Length; i++)
-        {
-            sum += array[i];
-        }
-        return sum;
-    }
-
     public static bool RandomBool(float chance)
     {
-        if (Random.Range(0f, 10000f) <= 100 * chance)
+        if (Random.Range(0f, 100f) <= chance)
         {
             return true;
         }

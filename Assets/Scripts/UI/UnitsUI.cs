@@ -83,24 +83,21 @@ public class UnitsUI : MonoBehaviour
         images[1].sprite = Resources.Load<Sprite>("Sprite/" + level + "star");
 
         // Load Remaning Units
-        if (unitRemaning_text.text != "")
+        int unitRemaning;
+        int[] reserve = champion.GetComponent<Champion>().reserve;
+        if (level == 1)
         {
-            int unitRemaning = int.Parse(unitRemaning_text.text);
-            int[] reserve = champion.GetComponent<Champion>().reserve;
-            if (level == 1)
-            {
-                unitRemaning = 2 - reserve[1];
-                unitRemaning_text.text = unitRemaning.ToString();
-            }
-            else if (level == 2)
-            {
-                unitRemaning = 6 - reserve[1] - 3 * reserve[2];
-                unitRemaning_text.text = unitRemaning.ToString();
-            }
-            if (level == 3)
-            {
-                unitRemaning_text.text = "";
-            }
+            unitRemaning = 2 - reserve[1];
+            unitRemaning_text.text = unitRemaning.ToString();
+        }
+        else if (level == 2)
+        {
+            unitRemaning = 6 - reserve[1] - 3 * reserve[2];
+            unitRemaning_text.text = unitRemaning.ToString();
+        }
+        if (level == 3)
+        {
+            unitRemaning_text.text = "";
         }
     }
 }
