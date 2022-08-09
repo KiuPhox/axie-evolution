@@ -32,8 +32,6 @@ public class Kotaro : Champion
                 damageMutiply = 1;
                 attack++;
 
-                Debug.Log(attack);
-
                 if (attack == 3)
                 {
                     attack = 0;

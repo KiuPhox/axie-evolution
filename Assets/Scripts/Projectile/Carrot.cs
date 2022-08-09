@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-public class Bullet: Projectile
+public class Carrot : Projectile
 {
     public float speed;
     public float lifeTime;
@@ -17,15 +17,11 @@ public class Bullet: Projectile
     {
         if (target != null) 
         {
-            Debug.Log("Yes");
             targetPos = target.transform.position;
             direction = targetPos - transform.position;
             RotateToDirection(direction);
-            if (leafEffect != null)
-            {
-                ParticleSystem i_leaf = Instantiate(leafEffect, transform.position, transform.rotation);
-                Destroy(i_leaf.gameObject, 0.35f);
-            }
+            ParticleSystem i_leaf = Instantiate(leafEffect, transform.position, transform.rotation);
+            Destroy(i_leaf.gameObject, 0.35f);
         }
         else
         {
@@ -44,12 +40,11 @@ public class Bullet: Projectile
     //Run 1 times at the time of collision between 2 objects.
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Champion"))
+        if (collision.CompareTag("Enemy"))
         {
             // Deals target damage
             targetEntity = collision.gameObject.GetComponent<LivingEntity>();
             targetEntity.TakeDamage(damage, holder.GetComponent<LivingEntity>());
-            Destroy(gameObject);
         }
     }
 }

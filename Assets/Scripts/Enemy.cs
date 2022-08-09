@@ -9,11 +9,11 @@ using UnityMovementAI;
 public class Enemy : LivingEntity
 {
     [HideInInspector] public float stunTime;
-    float attackCooldownTime;
-    float nextAttackTime;
+    [HideInInspector] public float attackCooldownTime;
+    [HideInInspector] public float nextAttackTime;
 
     LivingEntity targetEntity;
-    GameObject closestChampion;
+    [HideInInspector] public GameObject closestChampion;
     
 
     SteeringBasics steeringBasics;
@@ -25,7 +25,7 @@ public class Enemy : LivingEntity
     public float separationWeight;
     public float arriveWeight;
 
-    bool isStunned = false;
+    [HideInInspector] public bool isStunned = false;
     Vector3 accel = new Vector3(0, 0, 0);
 
     [HideInInspector] public bool chuggerPushed = false;

@@ -22,9 +22,9 @@ MonoBehaviour:
   defense: 30
   range: 3.5
   cooldownTime: 0.5
-  tier: 1
+  tier: 3
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 3611118393586328161, guid: 243c3aaca5f1d304ba1b478bdd758131,
     type: 3}
-  weight: 290
+  weight: 225
   attackAnimation: attack/melee/normal-attack

@@ -3255,6 +3255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seekerData: {fileID: 11400000, guid: 1e3ebc4da49b49247ac99cc1d3986174, type: 2}
   speedData: {fileID: 11400000, guid: a3ab3958e6dc0b54f8b289969b258b7c, type: 2}
+  shooterData: {fileID: 11400000, guid: 7e5ef9d8d5d62ea449619f1600fcbf65, type: 2}
   spawners:
   - {fileID: 762234300}
   - {fileID: 1209784102}
@@ -8286,7 +8287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89e302db47ebe4fbbca22807d2c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 1
+  currentLevel: 3
   playerChampions: {fileID: 993331035}
   generateChampionCard: {fileID: 995336675}
   spawner: {fileID: 510916121}
@@ -11028,7 +11029,11 @@ MonoBehaviour:
   - tag: speed
     prefab: {fileID: 9115612116787840764, guid: 5616a638c48c1184a8c0c392fcc5a0e7,
       type: 3}
-    size: 20
+    size: 10
+  - tag: shooter
+    prefab: {fileID: 9115612116787840764, guid: 9ad73e023df0dee458a55efe610f6d70,
+      type: 3}
+    size: 10
 --- !u!1 &2114047960
 GameObject:
   m_ObjectHideFlags: 0

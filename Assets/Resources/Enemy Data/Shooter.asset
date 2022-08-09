@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
+  m_Name: Shooter
+  m_EditorClassIdentifier: 
+  name: Shooter
+  axieID: 71412
+  genes: 0x800000000000010001c1008002000000000100001000820400010014082040020001001008804006000100000840440800010010088082080001000410018302
+  description: 
+  health: 25
+  damage: 8
+  defense: 0
+  range: 10
+  cooldownTime: 3
+  tier: 0
+  cardColor: {fileID: 0}
+  projectile: {fileID: 897866155811430675, guid: 0da3ed2da5d06d543b4e8a0b9bdefac2,
+    type: 3}
+  weight: 0
+  attackAnimation: attack/melee/multi-attack
