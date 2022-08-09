@@ -37,7 +37,7 @@ public class HealAura : Projectile
                     targetsInRange.Add(t);
                 }
             }
-            Debug.Log(targetsInRange.Count);
+
             if (targetsInRange.Count > 0) { 
                 int randomIndex = Random.Range(0, targetsInRange.Count);
                 HealingTarget(targetsInRange[randomIndex]);

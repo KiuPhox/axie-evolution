@@ -59,4 +59,43 @@ public static class Utility
         return -1;
     }
 
+    public static int[] DistributedSum(int sum, int n)
+    {
+        int[] array = new int[n];
+        int s = sum - Mathf.FloorToInt(sum / n) * n;
+        for (int i = 0; i < n; i++)
+        {
+            array[i] = Mathf.FloorToInt(sum / n);
+        }
+        for (int i = 0; i < n; i++)
+        {
+            if (s == 0)
+            {
+                break;
+            }
+            array[i]++;
+            s--;
+        }
+        return array;
+    }
+
+    public static float SumOfArray(float[] array)
+    {
+        float sum = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            sum += array[i];
+        }
+        return sum;
+    }
+
+    public static bool RandomBool(float chance)
+    {
+        if (Random.Range(0f, 10000f) <= 100 * chance)
+        {
+            return true;
+        }
+        return false;    
+    }
+
 }

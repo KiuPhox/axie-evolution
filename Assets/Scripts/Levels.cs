@@ -33,6 +33,65 @@ public static class Level
         new float[] {0, 0, 0, 100}
     };
 
+
+    public static float[][] levelToEliteSpawnWeight =
+    {
+        new float[] {0},
+        new float[] {4, 2},
+        new float[] {10},
+        new float[] {4, 4},
+        new float[] {4, 3, 2},
+        new float[] {12},
+        new float[] {5, 3, 2},
+        new float[] {6, 3, 3, 3},
+        new float[] {14},
+        new float[] {8, 4},
+        new float[] {8, 6, 2},
+        new float[] {16},
+        new float[] {8, 8},
+        new float[] {12, 6},
+        new float[] {18},
+        new float[] {10, 6, 4},
+        new float[] {6, 5, 4, 3},
+        new float[] {18},
+        new float[] {10, 6},
+        new float[] {8, 6, 2},
+        new float[] {22},
+        new float[] {10, 8, 4},
+        new float[] {20, 5, 5},
+        new float[] {30},
+        new float[] {5, 5, 5, 5, 5, 5},
+    };
+
+    public static string[][] levelToEliteSpawnType =
+    {
+        new string[] {"speed"},
+        new string[] {"speed", "shooter"},
+        new string[] {"speed"},
+        new string[] {"speed", "exploder"},
+        new string[] {"speed", "exploder", "shooter"},
+        new string[] {"speed"},
+        new string[] {"speed", "exploder", "headbutter"},
+        new string[] {"speed", "exploder", "headbutter", "shooter"},
+        new string[] {"shooter"},
+        new string[] {"exploder", "headbutter"},
+        new string[] {"exploder", "headbutter", "tank"},
+        new string[] {"exploder"},
+        new string[] {"speed", "shooter"},
+        new string[] {"speed", "spawner"},
+        new string[] {"shooter"},
+        new string[] {"speed", "exploder", "spawner"},
+        new string[] {"speed", "exploder", "spawner", "shooter"},
+        new string[] {"spawner"},
+        new string[] {"headbutter", "tank"},
+        new string[] {"speed", "tank", "spawner"},
+        new string[] {"headbutter"},
+        new string[] {"speed", "headbutter", "tank"},
+        new string[] {"headbutter", "tank", "shooter"},
+        new string[] {"tank"},
+        new string[] {"speed", "exploder", "headbutter", "tank", "shooter", "spawner"},
+    };
+
     public static int[] levelToMaxWaves =
     {
         2, 3, 3, 4, 
@@ -42,6 +101,8 @@ public static class Level
         6, 7, 7, 8,
         8, 9, 9, 10, 12
     };
+
+
 
     public static Vector2[] levelToMoneyRange =
     {
@@ -71,4 +132,6 @@ public static class Level
         new Vector2 (48, 48),
         new Vector2 (100, 100)
     };
+
+    
 }

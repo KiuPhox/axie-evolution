@@ -37,11 +37,17 @@ public class Spawner : MonoBehaviour
             NextWave();
         }
     }
+
+    float[] eliteSpawnWeight;
+    string[] eliteSpawnType; 
     void NextWave()
     {
         if (GameManager.Instance.State == GameState.GameStart)
         {
             maxWaves = Level.levelToMaxWaves[GameManager.Instance.currentLevel - 1];
+            eliteSpawnWeight = Level.levelToEliteSpawnWeight[GameManager.Instance.currentLevel - 1];
+            eliteSpawnType = Level.levelToEliteSpawnType[GameManager.Instance.currentLevel - 1];
+
             currentWaveNumber++;
             waveCount.text = "Wave: " + currentWaveNumber + "/" + maxWaves;
             if (currentWaveNumber - 1 < maxWaves)
@@ -50,45 +56,46 @@ public class Spawner : MonoBehaviour
 
                 string[] spawnTypes = { "4", "4+4", "4+4+4", "2x4", "3x4", "4x2"};
                 string spawnType = spawnTypes[Utility.WeightPick(new float[] { 20, 20, 10, 15, 10, 15 })];
-                Debug.Log(spawnType);
+
+                enemiesReaminingAlive =  8 + Mathf.FloorToInt((float)GameManager.Instance.currentLevel / 2f);
+                int[] distributedEnemies;
 
                 switch (spawnType)
                 { 
                     case "4":
-                        StartCoroutine(SpawnEnemies(spawners[0], 9, 0));
-                        enemiesReaminingAlive = 9;
+                        StartCoroutine(SpawnEnemies(spawners[0], enemiesReaminingAlive, 0));
                         break;
                     case "4+4":
-                        StartCoroutine(SpawnEnemies(spawners[0], 4, 0));
-                        StartCoroutine(SpawnEnemies(spawners[1], 5, 0));
-                        enemiesReaminingAlive = 9;
+                        distributedEnemies = Utility.DistributedSum(enemiesReaminingAlive, 2);
+                        StartCoroutine(SpawnEnemies(spawners[0], distributedEnemies[0], 0));
+                        StartCoroutine(SpawnEnemies(spawners[1], distributedEnemies[1], 0));
                         break;
                     case "4+4+4":
-                        StartCoroutine(SpawnEnemies(spawners[0], 2, 0));
-                        StartCoroutine(SpawnEnemies(spawners[1], 3, 0));
-                        StartCoroutine(SpawnEnemies(spawners[2], 4, 0));
-                        enemiesReaminingAlive = 9;
+                        distributedEnemies = Utility.DistributedSum(enemiesReaminingAlive, 3);
+                        StartCoroutine(SpawnEnemies(spawners[0], distributedEnemies[0], 0));
+                        StartCoroutine(SpawnEnemies(spawners[1], distributedEnemies[1], 0));
+                        StartCoroutine(SpawnEnemies(spawners[2], distributedEnemies[2], 0));
                         break;
                     case "2x4":
-                        StartCoroutine(SpawnEnemies(spawners[0], 5, 0));
-                        StartCoroutine(SpawnEnemies(spawners[1], 2, 3));
-                        StartCoroutine(SpawnEnemies(spawners[2], 2, 3));
-                        enemiesReaminingAlive = 9;
+                        distributedEnemies = Utility.DistributedSum(enemiesReaminingAlive, 3);
+                        StartCoroutine(SpawnEnemies(spawners[0], distributedEnemies[0], 0));
+                        StartCoroutine(SpawnEnemies(spawners[1], distributedEnemies[1], 3));
+                        StartCoroutine(SpawnEnemies(spawners[2], distributedEnemies[2], 3));
                         break;
                     case "3x4":
-                        StartCoroutine(SpawnEnemies(spawners[0], 5, 0));
-                        StartCoroutine(SpawnEnemies(spawners[1], 1, 3));
-                        StartCoroutine(SpawnEnemies(spawners[2], 1, 3));
-                        StartCoroutine(SpawnEnemies(spawners[3], 2, 3));
-                        enemiesReaminingAlive = 9;
+                        distributedEnemies = Utility.DistributedSum(enemiesReaminingAlive, 4);
+                        StartCoroutine(SpawnEnemies(spawners[0], distributedEnemies[0], 0));
+                        StartCoroutine(SpawnEnemies(spawners[1], distributedEnemies[1], 3));
+                        StartCoroutine(SpawnEnemies(spawners[2], distributedEnemies[2], 3));
+                        StartCoroutine(SpawnEnemies(spawners[3], distributedEnemies[3], 3));
                         break;
                     case "4x2":
-                        StartCoroutine(SpawnEnemies(spawners[0], 5, 0));
-                        StartCoroutine(SpawnEnemies(spawners[1], 1, 3));
-                        StartCoroutine(SpawnEnemies(spawners[2], 1, 3));
-                        StartCoroutine(SpawnEnemies(spawners[3], 1, 3));
-                        StartCoroutine(SpawnEnemies(spawners[4], 1, 3));
-                        enemiesReaminingAlive = 9;
+                        distributedEnemies = Utility.DistributedSum(enemiesReaminingAlive, 5);
+                        StartCoroutine(SpawnEnemies(spawners[0], distributedEnemies[0], 0));
+                        StartCoroutine(SpawnEnemies(spawners[1], distributedEnemies[1], 3));
+                        StartCoroutine(SpawnEnemies(spawners[2], distributedEnemies[2], 3));
+                        StartCoroutine(SpawnEnemies(spawners[3], distributedEnemies[3], 3));
+                        StartCoroutine(SpawnEnemies(spawners[4], distributedEnemies[4], 3));
                         break;
                 }
             }
@@ -115,6 +122,7 @@ public class Spawner : MonoBehaviour
     IEnumerator SpawnEnemies(GameObject spawner, int enemiesToSpawn, float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
+
         // Instantiate Spawn Cross
         GameObject i_cross = Instantiate(crossSpawn, spawner.transform);
         Color spawnCrossColor = i_cross.GetComponent<SpriteRenderer>().color;
@@ -141,8 +149,14 @@ public class Spawner : MonoBehaviour
                 i_enemy.GetComponent<Enemy>().ResetAllEffect();
                 i_enemy.GetComponent<Enemy>().OnDeath += OnEnemyDeath;
 
+                // Spawn Elite
+                if (Utility.RandomBool(Utility.SumOfArray(eliteSpawnWeight)))
+                {
+                    string eliteType = eliteSpawnType[Utility.WeightPick(eliteSpawnWeight)];
+                    Debug.Log(eliteType);
+                }
+
             }
         });
-        
     }
 }
