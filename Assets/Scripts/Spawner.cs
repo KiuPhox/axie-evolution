@@ -6,7 +6,8 @@ using UnityEngine.Rendering;
 using TMPro;
 public class Spawner : MonoBehaviour
 {
-    public ChampionData enemyData;
+    public ChampionData seekerData;
+    public ChampionData speedData;
     public GameObject[] spawners;
     public GameObject crossSpawn;
     public float spawnRadius;
@@ -22,8 +23,8 @@ public class Spawner : MonoBehaviour
     ObjectPooler objectPooler;
     void Start()
     {
-        enemyData.health = 25f;
-        enemyData.damage = 8f;
+        seekerData.health = speedData.health = 25f;
+        seekerData.damage = speedData.damage = 8f;
         Utility.ShuffleArray(spawners);
         objectPooler = GetComponent<ObjectPooler>();
     }
@@ -102,8 +103,8 @@ public class Spawner : MonoBehaviour
             else
             {
                 GameManager.Instance.UpdateGameState(GameState.ChooseCard);
-                enemyData.health  = 25 + 15 * (GameManager.Instance.currentLevel - 1);
-                enemyData.damage = 8 + 3 * (GameManager.Instance.currentLevel - 1);
+                seekerData.health = speedData.health = 25 + 15 * (GameManager.Instance.currentLevel - 1);
+                seekerData.damage = speedData.damage = 8 + 3 * (GameManager.Instance.currentLevel - 1);
                 currentWaveNumber = 0;
             }
         }
@@ -135,11 +136,22 @@ public class Spawner : MonoBehaviour
             Destroy(i_cross);
             for (int i = 0; i < enemiesToSpawn; i++)
             {
+                // Spawn Elite
+                GameObject i_enemy;
+                if (Utility.RandomBool(Utility.SumOfArray(eliteSpawnWeight)))
+                {
+                    string eliteType = eliteSpawnType[Utility.WeightPick(eliteSpawnWeight)];
+                    Debug.Log(eliteType);
+                    i_enemy = ObjectPooler.Instance.GetPooledObject(eliteType);
+                }
+                else
+                {
+                    i_enemy = ObjectPooler.Instance.GetPooledObject("seeker");
+                }
+
                 float x = Random.Range(-spawnRadius, spawnRadius);
                 float y = Random.Range(-spawnRadius, spawnRadius);
                 Vector3 offsetSpawn = new Vector3(x, y, 0);
-
-                GameObject i_enemy = ObjectPooler.Instance.GetPooledObject();
 
                 i_enemy.SetActive(true);
                 i_enemy.GetComponent<Enemy>().SetCharacteristics();
@@ -149,13 +161,7 @@ public class Spawner : MonoBehaviour
                 i_enemy.GetComponent<Enemy>().ResetAllEffect();
                 i_enemy.GetComponent<Enemy>().OnDeath += OnEnemyDeath;
 
-                // Spawn Elite
-                if (Utility.RandomBool(Utility.SumOfArray(eliteSpawnWeight)))
-                {
-                    string eliteType = eliteSpawnType[Utility.WeightPick(eliteSpawnWeight)];
-                    Debug.Log(eliteType);
-                }
-
+                
             }
         });
     }

@@ -3253,7 +3253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11fc9c0b7612c84981e86130ce3de6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 1e3ebc4da49b49247ac99cc1d3986174, type: 2}
+  seekerData: {fileID: 11400000, guid: 1e3ebc4da49b49247ac99cc1d3986174, type: 2}
+  speedData: {fileID: 11400000, guid: a3ab3958e6dc0b54f8b289969b258b7c, type: 2}
   spawners:
   - {fileID: 762234300}
   - {fileID: 1209784102}
@@ -11019,10 +11020,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81af4c34b03c8be4c9e9b31e35b970c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObjects: []
-  objectToPool: {fileID: 9115612116787840764, guid: 7938fc34115a382449a9af144b6790d8,
-    type: 3}
-  amountToPool: 36
+  pools:
+  - tag: seeker
+    prefab: {fileID: 9115612116787840764, guid: 7938fc34115a382449a9af144b6790d8,
+      type: 3}
+    size: 20
+  - tag: speed
+    prefab: {fileID: 9115612116787840764, guid: 5616a638c48c1184a8c0c392fcc5a0e7,
+      type: 3}
+    size: 20
 --- !u!1 &2114047960
 GameObject:
   m_ObjectHideFlags: 0

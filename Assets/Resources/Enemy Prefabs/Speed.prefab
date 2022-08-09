@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: -6102390588975908851}
   - component: {fileID: 7988873573365912775}
   m_Layer: 10
-  m_Name: Enemy
+  m_Name: Speed
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerChampions: {fileID: 0}
   damagePopupHolder: {fileID: 0}
-  championData: {fileID: 11400000, guid: 1e3ebc4da49b49247ac99cc1d3986174, type: 2}
+  championData: {fileID: 11400000, guid: a3ab3958e6dc0b54f8b289969b258b7c, type: 2}
   immortalTime: 0
   currentLevel: 0
   health: 0
@@ -64,6 +64,7 @@ MonoBehaviour:
   stunTime: 0
   separationWeight: 0.6
   arriveWeight: 1
+  chuggerPushed: 0
 --- !u!50 &9115612116787840760
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6f58141e9f357e448fd2fa6f1afc1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: 3
+  maxVelocity: 10
   maxAcceleration: 10
   turnSpeed: 20
   targetRadius: 0.005

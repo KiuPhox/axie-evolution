@@ -5,10 +5,19 @@ using UnityEngine;
 public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler Instance;
-    public List<GameObject> pooledObjects;
-    public GameObject objectToPool;
-    public int amountToPool;
+    
+    [System.Serializable]
+    public class Pool
+    {
+        public string tag;
+        public GameObject prefab;
+        public int size;
+    }
 
+    public List<Pool> pools;
+    public Dictionary<string, List<GameObject>> poolDictionary;
+  
+    
     void Awake()
     {
         Instance = this;
@@ -16,24 +25,28 @@ public class ObjectPooler : MonoBehaviour
 
     void Start()
     {
-        pooledObjects = new List<GameObject>();
-        GameObject tmp;
-        for (int i = 0; i < amountToPool; i++)
-        {
-            tmp = Instantiate(objectToPool, transform);
-            tmp.SetActive(false);
-            pooledObjects.Add(tmp);
-        }
+        poolDictionary = new Dictionary<string, List<GameObject>>();
 
-        
-    }
-    public GameObject GetPooledObject()
-    {
-        for (int i = 0; i < amountToPool; i++)
+        foreach(Pool pool in pools)
         {
-            if (!pooledObjects[i].activeInHierarchy)
+            List<GameObject> objectPool = new List<GameObject>();
+            for (int i = 0; i < pool.size; i++)
             {
-                return pooledObjects[i];
+                GameObject obj = Instantiate(pool.prefab, transform);
+                obj.SetActive(false);
+                objectPool.Add(obj);
+            }
+
+            poolDictionary.Add(pool.tag, objectPool);
+        }
+    }
+    public GameObject GetPooledObject(string tag)
+    {
+        for (int i = 0; i < poolDictionary[tag].Count; i++)
+        {
+            if (!poolDictionary[tag][i].activeInHierarchy)
+            {
+                return poolDictionary[tag][i];
             }
         }
         return null;

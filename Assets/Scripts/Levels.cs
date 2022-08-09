@@ -62,7 +62,7 @@ public static class Level
         new float[] {30},
         new float[] {5, 5, 5, 5, 5, 5},
     };
-
+    /*
     public static string[][] levelToEliteSpawnType =
     {
         new string[] {"speed"},
@@ -82,6 +82,35 @@ public static class Level
         new string[] {"shooter"},
         new string[] {"speed", "exploder", "spawner"},
         new string[] {"speed", "exploder", "spawner", "shooter"},
+        new string[] {"spawner"},
+        new string[] {"headbutter", "tank"},
+        new string[] {"speed", "tank", "spawner"},
+        new string[] {"headbutter"},
+        new string[] {"speed", "headbutter", "tank"},
+        new string[] {"headbutter", "tank", "shooter"},
+        new string[] {"tank"},
+        new string[] {"speed", "exploder", "headbutter", "tank", "shooter", "spawner"},
+    };*/
+
+    public static string[][] levelToEliteSpawnType =
+    {
+        new string[] {"speed"},
+        new string[] {"speed", "speed"},
+        new string[] {"speed"},
+        new string[] {"speed", "speed"},
+        new string[] {"speed", "speed", "speed"},
+        new string[] {"speed"},
+        new string[] {"speed", "speed", "speed"},
+        new string[] {"speed", "speed", "speed", "speed"},
+        new string[] {"speed"},
+        new string[] {"speed", "speed"},
+        new string[] {"speed", "speed", "speed"},
+        new string[] {"speed"},
+        new string[] {"speed", "speed"},
+        new string[] {"speed", "speed"},
+        new string[] {"speed"},
+        new string[] {"speed", "speed", "speed"},
+        new string[] {"speed", "speed", "speed", "speed"},
         new string[] {"spawner"},
         new string[] {"headbutter", "tank"},
         new string[] {"speed", "tank", "spawner"},
