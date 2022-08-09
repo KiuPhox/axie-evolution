@@ -16,8 +16,8 @@ MonoBehaviour:
   axieID: 71412
   genes: 0x800000000000010001c1008002000000000100001000820400010014082040020001001008804006000100000840440800010010088082080001000410018302
   description: 
-  health: 25
-  damage: 8
+  health: 130
+  damage: 29
   defense: 0
   range: 10
   cooldownTime: 3
@@ -26,4 +26,4 @@ MonoBehaviour:
   projectile: {fileID: 897866155811430675, guid: 0da3ed2da5d06d543b4e8a0b9bdefac2,
     type: 3}
   weight: 0
-  attackAnimation: attack/melee/multi-attack
+  attackAnimation: attack/ranged/cast-high
