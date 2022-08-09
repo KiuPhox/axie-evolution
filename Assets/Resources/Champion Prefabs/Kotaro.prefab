@@ -231,11 +231,14 @@ MonoBehaviour:
   immortalTime: 1
   currentLevel: 0
   health: 0
+  maxHealth: 0
+  projectile: {fileID: 0}
   multipliers: []
   skeletonAnimation: {fileID: 0}
   reserve: 000000000000000000000000
-  speed: 3
-  spaceBetween: 0.2
   nextAttackTime: 0
-  isLoop: 0
   closestTarget: {fileID: 0}
+  critSlash: {fileID: 3611118393586328161, guid: a88fa408447e7b04d80917b8aba9d063,
+    type: 3}
+  normalSlash: {fileID: 3611118393586328161, guid: 243c3aaca5f1d304ba1b478bdd758131,
+    type: 3}

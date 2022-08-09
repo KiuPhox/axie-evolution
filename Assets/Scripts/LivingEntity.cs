@@ -20,7 +20,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
     [HideInInspector] public float maxHealth;
     protected float damage;
     protected float defense;
-    protected GameObject projectile;
+    [HideInInspector] public GameObject projectile;
     protected float cooldownTime;
 
     [HideInInspector] public float[] multipliers;

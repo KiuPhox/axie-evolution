@@ -29,10 +29,6 @@ public class Sword : Projectile
             transform.DOLocalRotate(new Vector3(0, 0, angle * 2), rotateDuration, RotateMode.LocalAxisAdd).SetEase(ease);
             
         }
-        else
-        {
-            Destroy(this.gameObject);
-        }
         Destroy(this.gameObject, lifeTime);
     }
 
