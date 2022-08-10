@@ -23,10 +23,10 @@ MonoBehaviour:
   damage: 10
   defense: 30
   range: 15
-  cooldownTime: 1.6
+  cooldownTime: 2.3
   tier: 3
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 6934294814816966548, guid: c84ce10221ac74645b5328ffb9086088,
     type: 3}
-  weight: 255
+  weight: 155
   attackAnimation: attack/ranged/cast-low

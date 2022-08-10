@@ -111,7 +111,7 @@ public static class Level
         new string[] {"speed"},
         new string[] {"speed", "shooter", "speed"},
         new string[] {"speed", "speed", "speed", "speed"},
-        new string[] {"spawner"},
+        new string[] {"shooter"},
         new string[] {"speed", "shooter"},
         new string[] {"speed", "shooter", "shooter"},
         new string[] {"shooter"},
