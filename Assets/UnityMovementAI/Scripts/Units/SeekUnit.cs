@@ -16,8 +16,7 @@ namespace UnityMovementAI
         {
             timeSeek = Random.Range(randomTimeSeek.x, randomTimeSeek.y) + Time.time;
             steeringBasics = GetComponent<SteeringBasics>();
-            accel = new Vector3(0, 0, 0);
-            targetPos = new Vector3(0, 30f, 0);
+            accel = new Vector3(0, 0f, 0);
         }
 
         void FixedUpdate()

@@ -10,20 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
-  m_Name: Ninja
+  m_Name: Nozzle
   m_EditorClassIdentifier: 
-  name: Ninja
+  name: Nozzle
   axieID: 636231
   genes: 0x80000000000010002000090c30800000001001428a0430200010014280080020001000c08818302000100081041450c000100141000400a000100141880c206
-  description: 'Throw '
-  health: 80
-  damage: 13
+  description: 'Shoots a knife chases enemy, deals 14 damage
+
+    Lvl 3: The knife
+    chains 2 times'
+  health: 55
+  damage: 14.6
   defense: 25
-  range: 10
-  cooldownTime: 1
+  range: 12
+  cooldownTime: 2.3
   tier: 2
   cardColor: {fileID: 11400000, guid: 0a3f7a685d2c01b4da8801c8e4c1ed4d, type: 2}
-  projectile: {fileID: 1768310633749735082, guid: 9828e5022db81194e81930e4ff1195e7,
+  projectile: {fileID: 2864012901176828561, guid: 2dcca3fa4a56a744d8920856f7e168ee,
     type: 3}
-  weight: 210
+  weight: 310
   attackAnimation: attack/melee/normal-attack
