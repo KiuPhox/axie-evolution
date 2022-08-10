@@ -16,11 +16,11 @@ MonoBehaviour:
   axieID: 71412
   genes: 0x800000000000010001c1008002000000000100001000820400010014082040020001001008804006000100000840440800010010088082080001000410018302
   description: 
-  health: 130
-  damage: 29
+  health: 220
+  damage: 47
   defense: 0
   range: 10
-  cooldownTime: 3
+  cooldownTime: 6
   tier: 0
   cardColor: {fileID: 0}
   projectile: {fileID: 897866155811430675, guid: 0da3ed2da5d06d543b4e8a0b9bdefac2,

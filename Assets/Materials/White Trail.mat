@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Red Trail
+  m_Name: White Trail
   m_Shader: {fileID: -6465566751694194690, guid: 802924a758876ab4badab2fa604f5673,
     type: 3}
   m_ShaderKeywords: 
@@ -27,7 +27,7 @@ Material:
     m_Floats:
     - DissolveScale: 60
     m_Colors:
-    - Color01: {r: 4.1396327, g: 15.813397, b: 3.5600843, a: 1}
-    - Color02: {r: 18.07059, g: 95.87451, b: 0, a: 1}
+    - Color01: {r: 82.97634, g: 73.230934, b: 47.359135, a: 1}
+    - Color02: {r: 0, g: 0, b: 0, a: 1}
     - DissolveSpeed: {r: -1, g: 0, b: 0, a: 0}
     - MainTexSpeed: {r: -8, g: 0, b: 0, a: 0}
