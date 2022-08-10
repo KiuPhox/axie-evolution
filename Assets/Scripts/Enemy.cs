@@ -26,6 +26,7 @@ public class Enemy : LivingEntity
     public float arriveWeight;
 
     [HideInInspector] public bool isStunned = false;
+    [HideInInspector] public bool isPoision = false;
     Vector3 accel = new Vector3(0, 0, 0);
 
     [HideInInspector] public bool chuggerPushed = false;

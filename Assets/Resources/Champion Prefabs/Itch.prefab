@@ -10,18 +10,17 @@ GameObject:
   m_Component:
   - component: {fileID: 9115612116787840766}
   - component: {fileID: 9115612116787840760}
-  - component: {fileID: 2779699213717962062}
-  - component: {fileID: -1280694848388994295}
-  - component: {fileID: -4478741519103468153}
-  - component: {fileID: 8563773296401646912}
-  - component: {fileID: -6112849182629986425}
-  - component: {fileID: -6102390588975908851}
-  - component: {fileID: 7988873573365912775}
-  - component: {fileID: -4293578326805898261}
-  - component: {fileID: -3110750534595453275}
-  m_Layer: 10
-  m_Name: Shooter
-  m_TagString: Enemy
+  - component: {fileID: 938564437}
+  - component: {fileID: -7314284888809316742}
+  - component: {fileID: -9065554866232925157}
+  - component: {fileID: 5002258361899416056}
+  - component: {fileID: 229891057775312365}
+  - component: {fileID: -4302891792240870032}
+  - component: {fileID: 2037589443931977346}
+  - component: {fileID: -8353522816411732916}
+  m_Layer: 0
+  m_Name: Itch
+  m_TagString: Champion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,16 +51,16 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &2779699213717962062
+--- !u!58 &938564437
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,7 +76,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.4}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-1280694848388994295
+--- !u!114 &-7314284888809316742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115612116787840764}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebaa085a30cb5543b3a9f4516b36cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: de53d22dde5d79c48b06003d387f9792, type: 2}
+  duration: 0.13
+--- !u!114 &-9065554866232925157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +109,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967291
   slopeLimit: 80
---- !u!114 &-4478741519103468153
+--- !u!114 &5002258361899416056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6f58141e9f357e448fd2fa6f1afc1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: 0
+  maxVelocity: 3.5
   maxAcceleration: 10
   turnSpeed: 20
   targetRadius: 0.005
@@ -116,21 +129,7 @@ MonoBehaviour:
   timeToTarget: 0.1
   smoothing: 1
   numSamplesForSmoothing: 5
---- !u!114 &8563773296401646912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b54d0c5e57344f4994540c2b983849a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sepMaxAcceleration: 25
-  maxSepDist: 1.4
---- !u!33 &-6112849182629986425
+--- !u!33 &229891057775312365
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +137,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9115612116787840764}
   m_Mesh: {fileID: 0}
---- !u!23 &-6102390588975908851
+--- !u!23 &-4302891792240870032
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,7 +155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e5178088692c94947adfcb256a98a3d6, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,7 +176,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &7988873573365912775
+--- !u!114 &2037589443931977346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,7 +213,7 @@ MonoBehaviour:
   _animationName: 
   loop: 0
   timeScale: 1
---- !u!114 &-4293578326805898261
+--- !u!114 &-8353522816411732916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,39 +222,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 9115612116787840764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6f1cd29682a35f4098ac4864a0d96fe, type: 3}
+  m_Script: {fileID: 11500000, guid: e9bd31e06c13ba24fa463dd5d72b14c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerChampions: {fileID: 0}
   damagePopupHolder: {fileID: 0}
-  championData: {fileID: 11400000, guid: 7e5ef9d8d5d62ea449619f1600fcbf65, type: 2}
-  immortalTime: 0
+  championData: {fileID: 11400000, guid: d1326c14f83afba49887ff0c231f7bc6, type: 2}
+  immortalTime: 1
   currentLevel: 0
   health: 0
   maxHealth: 0
   projectile: {fileID: 0}
   multipliers: []
   skeletonAnimation: {fileID: 0}
-  stunTime: 0
-  attackCooldownTime: 0
+  reserve: 000000000000000000000000
   nextAttackTime: 0
-  closestChampion: {fileID: 0}
-  separationWeight: 0
-  arriveWeight: 0.5
-  isStunned: 0
-  chuggerPushed: 0
---- !u!114 &-3110750534595453275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22a41feec586bae4ba2177d8457b7fa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wanderOffset: 0
-  wanderRadius: 0
-  wanderRate: 5
+  closestTarget: {fileID: 0}

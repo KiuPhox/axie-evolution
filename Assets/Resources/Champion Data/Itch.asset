@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
+  m_Name: Itch
+  m_EditorClassIdentifier: 
+  name: Itch
+  axieID: 11283451
+  genes: 0x2800000000000100034080d0c20800000001001408a0830a0001001428a1450a00010000300102040001000408a14504000100040881800c000100142840c508
+  description: 'Poisons enemy deals 10 damage 5 times
+
+    Lvl 3: Bigger size'
+  health: 100
+  damage: 10
+  defense: 30
+  range: 15
+  cooldownTime: 1.5
+  tier: 1
+  cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
+  projectile: {fileID: 6934294814816966548, guid: c84ce10221ac74645b5328ffb9086088,
+    type: 3}
+  weight: 280
+  attackAnimation: attack/ranged/cast-low
