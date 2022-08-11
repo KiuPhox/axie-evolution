@@ -94,12 +94,14 @@ public static class Level
 
     public static string[][] levelToEliteSpawnType =
     {
-        new string[] {"exploder"},
-        new string[] {"exploder", "exploder"},
-        new string[] {"exploder"},
-        new string[] {"exploder", "exploder"},
-        new string[] {"exploder", "exploder", "shooter"},
-        new string[] {"shooter"},
+        // Complete
+        new string[] {"speed"},
+        new string[] {"speed", "shooter"},
+        new string[] {"speed"},
+        new string[] {"speed", "exploder"},
+        new string[] {"speed", "exploder", "shooter"},
+        new string[] {"speed"},
+        // Complete
         new string[] {"speed", "shooter", "shooter"},
         new string[] {"speed", "shooter", "shooter", "speed"},
         new string[] {"speed"},
