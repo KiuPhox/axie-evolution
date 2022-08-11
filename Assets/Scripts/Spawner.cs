@@ -86,23 +86,23 @@ public class Spawner : MonoBehaviour
                     case "2x4":
                         distributedEnemies = Utility.DistributedSum(enemiesReaminingAlive, 3);
                         StartCoroutine(SpawnEnemies(spawners[0], distributedEnemies[0], 0));
-                        StartCoroutine(SpawnEnemies(spawners[1], distributedEnemies[1], 3));
-                        StartCoroutine(SpawnEnemies(spawners[2], distributedEnemies[2], 3));
+                        StartCoroutine(SpawnEnemies(spawners[1], distributedEnemies[1], 2.5f));
+                        StartCoroutine(SpawnEnemies(spawners[2], distributedEnemies[2], 2.5f));
                         break;
                     case "3x4":
                         distributedEnemies = Utility.DistributedSum(enemiesReaminingAlive, 4);
                         StartCoroutine(SpawnEnemies(spawners[0], distributedEnemies[0], 0));
-                        StartCoroutine(SpawnEnemies(spawners[1], distributedEnemies[1], 3));
-                        StartCoroutine(SpawnEnemies(spawners[2], distributedEnemies[2], 3));
-                        StartCoroutine(SpawnEnemies(spawners[3], distributedEnemies[3], 3));
+                        StartCoroutine(SpawnEnemies(spawners[1], distributedEnemies[1], 2.5f));
+                        StartCoroutine(SpawnEnemies(spawners[2], distributedEnemies[2], 2.5f));
+                        StartCoroutine(SpawnEnemies(spawners[3], distributedEnemies[3], 2.5f));
                         break;
                     case "4x2":
                         distributedEnemies = Utility.DistributedSum(enemiesReaminingAlive, 5);
                         StartCoroutine(SpawnEnemies(spawners[0], distributedEnemies[0], 0));
-                        StartCoroutine(SpawnEnemies(spawners[1], distributedEnemies[1], 3));
-                        StartCoroutine(SpawnEnemies(spawners[2], distributedEnemies[2], 3));
-                        StartCoroutine(SpawnEnemies(spawners[3], distributedEnemies[3], 3));
-                        StartCoroutine(SpawnEnemies(spawners[4], distributedEnemies[4], 3));
+                        StartCoroutine(SpawnEnemies(spawners[1], distributedEnemies[1], 2.5f));
+                        StartCoroutine(SpawnEnemies(spawners[2], distributedEnemies[2], 2.5f));
+                        StartCoroutine(SpawnEnemies(spawners[3], distributedEnemies[3], 2.5f));
+                        StartCoroutine(SpawnEnemies(spawners[4], distributedEnemies[4], 2.5f));
                         break;
                 }
             }
@@ -120,7 +120,7 @@ public class Spawner : MonoBehaviour
     private void OnEnemyDeath()
     {
         enemiesReaminingAlive--;
-        if (enemiesReaminingAlive == 0)
+        if (enemiesReaminingAlive <= 0)
         {
             isStarted = false;
         }

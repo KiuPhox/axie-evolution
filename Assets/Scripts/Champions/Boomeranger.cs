@@ -16,11 +16,16 @@ public class Boomeranger : Champion
             closestDistance = Vector2.Distance(transform.position, closestTarget.transform.position);
         }
         if (Time.time >= nextAttackTime)
-        {
-            nextAttackTime = Time.time + cooldownTime;
+        { 
             if (closestTarget != null && closestDistance <= championData.range && closestTarget)
             {
+                nextAttackTime = Time.time + cooldownTime;
                 StartCoroutine(ShootIE(0f));
+                if (currentLevel == 3)
+                { 
+                    StartCoroutine(ShootIE(0.5f));
+                    StartCoroutine(ShootIE(1f));
+                }
             }
         }
     }

@@ -30,5 +30,6 @@ public class DamagePopup : MonoBehaviour
     private void OnDestroy()
     {
         transform.DOKill();
+        GetComponent<TMP_Text>().DOKill();
     }
 }

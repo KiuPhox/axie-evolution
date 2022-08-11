@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+using UnityEngine.SceneManagement;
 public class ButtonHandler : MonoBehaviour
 {
     public void ClickButton()
@@ -21,7 +21,26 @@ public class ButtonHandler : MonoBehaviour
 
     public void DoneSelected()
     {
-        GameManager.Instance.UpdateGameState(GameState.GameStart);
+        PlayerChampions pc = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
+        if (pc.champions.Count > 0)
+        {
+            GameManager.Instance.UpdateGameState(GameState.GameStart);
+        }
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void Pause()
+    {
+        GameManager.Instance.TriggerPause();
     }
 
     public void Play()

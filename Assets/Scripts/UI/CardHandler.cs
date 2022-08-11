@@ -78,7 +78,7 @@ public class CardHandler : MonoBehaviour
     }
 
     public void DoneSelected()
-    {
+    {   
         GameManager.Instance.UpdateGameState(GameState.GameStart);
     }
 

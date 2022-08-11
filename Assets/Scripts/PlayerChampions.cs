@@ -81,6 +81,26 @@ public class PlayerChampions : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if (GameManager.Instance.State == GameState.GameStart)
+        {
+            int count = 0;
+            foreach (GameObject champion in champions)
+            {
+                if (champion.activeSelf)
+                {
+                    count++;
+                }
+            }
+            if (count == 0)
+            {
+                GameManager.Instance.UpdateGameState(GameState.GameOver);
+                Debug.Log("Game Over");
+            }
+        }
+    }
+
     public void ResetAllChampions()
     {
         foreach (GameObject champion in champions)
