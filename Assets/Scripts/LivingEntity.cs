@@ -93,7 +93,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
             {
                 TMP_Text i_damagePopup = Instantiate(damagePopup, transform.position, Quaternion.identity, damagePopupHolder.transform);
                 i_damagePopup.text = Mathf.RoundToInt(incomeDamage).ToString();
-                if (damagingEntity.CompareTag("Champion"))
+                if (damagingEntity != null && damagingEntity.CompareTag("Champion"))
                 {
                     i_damagePopup.color = damagingEntity.championData.cardColor.nameBoxColor;
                 }
