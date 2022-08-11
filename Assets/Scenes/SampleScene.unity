@@ -5677,7 +5677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -38.3, y: -42.4}
+  m_AnchoredPosition: {x: -38.30005, y: -42.400024}
   m_SizeDelta: {x: 47.882095, y: 52.466553}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &826247579
@@ -9373,7 +9373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89e302db47ebe4fbbca22807d2c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 1
+  currentLevel: 3
   playerChampions: {fileID: 993331035}
   generateChampionCard: {fileID: 995336675}
   spawner: {fileID: 510916121}
@@ -9754,7 +9754,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a9ab0a9a4e80b3046a03dc2c0c5ed791, type: 2}
   m_sharedMaterial: {fileID: -701288633849452313, guid: a9ab0a9a4e80b3046a03dc2c0c5ed791,
@@ -12629,6 +12629,10 @@ MonoBehaviour:
     size: 10
   - tag: shooter
     prefab: {fileID: 9115612116787840764, guid: 9ad73e023df0dee458a55efe610f6d70,
+      type: 3}
+    size: 10
+  - tag: exploder
+    prefab: {fileID: 9115612116787840764, guid: df8b38efe6ccd6548bd3714ef175058a,
       type: 3}
     size: 10
 --- !u!1 &2114047960

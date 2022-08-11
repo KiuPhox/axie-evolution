@@ -109,8 +109,8 @@ public class Spawner : MonoBehaviour
             else
             {
                 GameManager.Instance.UpdateGameState(GameState.ChooseCard);
-                seekerData.health = speedData.health = shooterData.health = 25 + 15 * (GameManager.Instance.currentLevel - 1);
-                seekerData.damage = speedData.damage = shooterData.damage = 8 + 3 * (GameManager.Instance.currentLevel - 1);
+                seekerData.health = speedData.health = shooterData.health = 20 + 10 * (GameManager.Instance.currentLevel - 1);
+                seekerData.damage = speedData.damage = shooterData.damage = 8 + 2 * (GameManager.Instance.currentLevel - 1);
                 currentWaveNumber = 0;
             }
         }

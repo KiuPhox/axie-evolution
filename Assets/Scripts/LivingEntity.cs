@@ -185,6 +185,10 @@ public class LivingEntity : MonoBehaviour, IDamageable
             OnDeath();
         }
         OnDeath = null;
+        if (championData.name == "Exploder")
+        {
+            Instantiate(championData.projectile, transform.position, Quaternion.identity);
+        }
         gameObject.SetActive(false);
     }
 

@@ -12,8 +12,6 @@ public class Shooter : Enemy
         {
             nextAttackTime = Time.time + attackCooldownTime;
             StartCoroutine(ShootIE(0f));
-            StartCoroutine(ShootIE(0.15f));
-            StartCoroutine(ShootIE(0.3f));
         }
     }
 

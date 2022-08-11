@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
+  m_Name: Exploder
+  m_EditorClassIdentifier: 
+  name: Exploder
+  axieID: 11386407
+  genes: 0x20000000000001000141c0a1030c0000000100102860430200010010108101040001000c18814506000100103061430a0001000c3061810a0001000018018302
+  description: 
+  health: 70
+  damage: 17
+  defense: 0
+  range: 10
+  cooldownTime: 1
+  tier: 0
+  cardColor: {fileID: 0}
+  projectile: {fileID: 5422674797381356968, guid: 2c07100a7385c4c408c0522a2c0ae3de,
+    type: 3}
+  weight: 0
+  attackAnimation: attack/melee/multi-attack
