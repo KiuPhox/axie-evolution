@@ -2088,8 +2088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b07907c6b1aac4097eb700e04b4f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionStrength: 0.03
-  rotationStrength: 0.03
+  positionStrength: 0.02
+  rotationStrength: 0.02
   shakeDuration: 0.1
   delay: 0
   timeReset: 5
