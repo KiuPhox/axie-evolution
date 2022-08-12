@@ -20,7 +20,7 @@ MonoBehaviour:
     Lvl 3: Throw rapidly'
   health: 80
   damage: 13
-  defense: 25
+  defense: 30
   range: 7
   cooldownTime: 2
   tier: 1

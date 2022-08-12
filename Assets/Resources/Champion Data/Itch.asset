@@ -21,12 +21,12 @@ MonoBehaviour:
     poisons 15 times'
   health: 100
   damage: 10
-  defense: 30
+  defense: 40
   range: 15
   cooldownTime: 2.3
   tier: 3
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 6934294814816966548, guid: c84ce10221ac74645b5328ffb9086088,
     type: 3}
-  weight: 155
+  weight: 290
   attackAnimation: attack/ranged/cast-low

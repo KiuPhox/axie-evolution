@@ -19,14 +19,14 @@ MonoBehaviour:
 
     Lvl 3: The knife
     chains 2 times'
-  health: 55
+  health: 60
   damage: 14.6
-  defense: 25
+  defense: 35
   range: 12
   cooldownTime: 2.3
   tier: 2
   cardColor: {fileID: 11400000, guid: 0a3f7a685d2c01b4da8801c8e4c1ed4d, type: 2}
   projectile: {fileID: 2864012901176828561, guid: 2dcca3fa4a56a744d8920856f7e168ee,
     type: 3}
-  weight: 310
+  weight: 390
   attackAnimation: attack/melee/normal-attack

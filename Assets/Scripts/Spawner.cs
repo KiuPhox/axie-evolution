@@ -160,7 +160,7 @@ public class Spawner : MonoBehaviour
                 Vector3 offsetSpawn = new Vector3(x, y, 0);
 
                 i_enemy.SetActive(true);
-                i_enemy.GetComponent<Enemy>().SetCharacteristics();
+                i_enemy.GetComponent<Enemy>().SetCharacteristicsForEnemy();
                 i_enemy.transform.SetParent(spawner.transform);
                 i_enemy.transform.position = spawner.transform.position;
                 i_enemy.transform.DOLocalMove(offsetSpawn, 0.2f);

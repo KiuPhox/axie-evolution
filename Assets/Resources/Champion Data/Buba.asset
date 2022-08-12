@@ -19,11 +19,11 @@ MonoBehaviour:
     \nLv.3: Double damage"
   health: 140
   damage: 15
-  defense: 40
+  defense: 35
   range: 3.5
   cooldownTime: 3.3
   tier: 2
-  cardColor: {fileID: 11400000, guid: 8305200c689e60e4c9b363deb4d0ce57, type: 2}
+  cardColor: {fileID: 11400000, guid: d1d64e9ddcff3b042a6c3c28cd139850, type: 2}
   projectile: {fileID: 1462327970484030, guid: f01c1eba69de19e44b04d8d651aaac37, type: 3}
-  weight: 110
+  weight: 190
   attackAnimation: attack/melee/tail-smash

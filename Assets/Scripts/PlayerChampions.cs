@@ -9,8 +9,7 @@ public class PlayerChampions : MonoBehaviour
     [SerializeField] UnitsUI unitsUI;
     [SerializeField] MoneyUI moneyUI;
 
-    Vector3 offset = new Vector3(-0.75f, 0f, 0f);
-    Vector3 shadowOffset = new Vector3(0, -0.6f, 0f);
+    public float[] squirl_m;
 
     public void AddChampion(GameObject choosedChampion)
     {
@@ -18,6 +17,30 @@ public class PlayerChampions : MonoBehaviour
         insChampion = Instantiate(choosedChampion, transform);
         insChampion.transform.position = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
         champions.Add(insChampion);
+        SetMutiplierValues();
+    }
+
+    private void SetMutiplierValues()
+    {
+        squirl_m = new float[] { 1, 1, 1 };
+        foreach (GameObject championGO in champions)
+        {
+            Champion champion = championGO.GetComponent<Champion>();
+            if (champion.championData.name == "Squirl")
+            {
+                squirl_m[0] = 1.2f;
+                squirl_m[1] = 1.2f;
+                if (champion.currentLevel == 3)
+                {
+                    Debug.Log("Yes");
+                    squirl_m[0] = 1.5f;
+                    squirl_m[1] = 1.5f;
+                    squirl_m[2] = 0.8f;
+                }
+                ResetAllChampions();
+                continue;
+            }
+        }
     }
 
     public bool CheckExistedChampion(GameObject choosedChampion)
@@ -79,6 +102,7 @@ public class PlayerChampions : MonoBehaviour
                 }
             }
         }
+        SetMutiplierValues();
     }
 
     public void Update()
@@ -131,6 +155,7 @@ public class PlayerChampions : MonoBehaviour
         moneyUI.isChanged = true;
         Destroy(champions[championIndex]);
         champions.RemoveAt(championIndex);
+        SetMutiplierValues();
         unitsUI.SetChampionsToUnit();
     }
 }

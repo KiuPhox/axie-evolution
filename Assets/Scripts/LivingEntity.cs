@@ -22,8 +22,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
     protected float defense;
     [HideInInspector] public GameObject projectile;
     protected float cooldownTime;
-
-    [HideInInspector] public float[] multipliers;
     
     protected bool dead;
 
@@ -48,12 +46,11 @@ public class LivingEntity : MonoBehaviour, IDamageable
             skeletonAnimation.state.SetAnimation(0, "draft/run-origin", true);
         }
         currentLevel = 1;
-        multipliers = new float[] { 1, 1, 1, 1 };
+        playerChampions = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
     }
 
     public virtual void Start()
     {
-        playerChampions = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
         damagePopup = Resources.Load("Prefabs/Damage Popup", typeof(TMP_Text)) as TMP_Text;
         damagePopupHolder = GameObject.Find("Text Holder");
         transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(-1f, 0f));
@@ -64,12 +61,22 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public void SetCharacteristics()
     {
-        maxHealth = championData.health * currentLevel * multipliers[0];
+        maxHealth = championData.health * currentLevel;
         health = maxHealth;
-        damage = championData.damage * currentLevel * multipliers[1];
-        defense = championData.defense * multipliers[2];
+        damage = championData.damage * currentLevel * playerChampions.squirl_m[0];
+        defense = championData.defense * playerChampions.squirl_m[1];
         projectile = championData.projectile;
-        cooldownTime = championData.cooldownTime * multipliers[3];
+        cooldownTime = championData.cooldownTime * playerChampions.squirl_m[2];
+    }
+
+    public void SetCharacteristicsForEnemy()
+    {
+        maxHealth = championData.health * currentLevel;
+        health = maxHealth;
+        damage = championData.damage * currentLevel;
+        defense = championData.defense;
+        projectile = championData.projectile;
+        cooldownTime = championData.cooldownTime;
     }
 
 

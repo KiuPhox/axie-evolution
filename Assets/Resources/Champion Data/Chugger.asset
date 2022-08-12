@@ -21,12 +21,12 @@ MonoBehaviour:
     200 damage if they hit wall'
   health: 175
   damage: 12
-  defense: 30
+  defense: 40
   range: 10
-  cooldownTime: 10
+  cooldownTime: 8
   tier: 3
   cardColor: {fileID: 11400000, guid: c192466b9f08ca04ab1f0f532a7249c9, type: 2}
   projectile: {fileID: 5420725915103826893, guid: 0b9b30b4b2b77604eb7af517b89b59bf,
     type: 3}
-  weight: 180
+  weight: 190
   attackAnimation: attack/melee/shrimp
