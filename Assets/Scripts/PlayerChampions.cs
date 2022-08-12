@@ -32,15 +32,14 @@ public class PlayerChampions : MonoBehaviour
                 squirl_m[1] = 1.2f;
                 if (champion.currentLevel == 3)
                 {
-                    Debug.Log("Yes");
                     squirl_m[0] = 1.5f;
                     squirl_m[1] = 1.5f;
                     squirl_m[2] = 0.8f;
                 }
-                ResetAllChampions();
                 continue;
             }
         }
+        ResetAllChampions();
     }
 
     public bool CheckExistedChampion(GameObject choosedChampion)

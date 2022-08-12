@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ObjectPooler : MonoBehaviour
 {
@@ -50,5 +51,16 @@ public class ObjectPooler : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public List<GameObject> GetEnemyPool()
+    {
+        return poolDictionary["seeker"].Concat(poolDictionary["shooter"]).ToList().Concat(poolDictionary["exploder"])
+            .ToList().Concat(poolDictionary["speed"]).ToList();
+    }
+
+    public GameObject GetPooledObjectIndex(string tag, int index)
+    {
+        return poolDictionary[tag][index];
     }
 }

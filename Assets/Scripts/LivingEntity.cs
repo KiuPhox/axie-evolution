@@ -37,7 +37,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public event System.Action OnDeath;
 
-    private void Awake()
+    public void Awake()
     {
         if (skeletonAnimation == null)
         {
@@ -198,7 +198,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
         }
         gameObject.SetActive(false);
     }
-
 
     private void OnDestroy()
     {

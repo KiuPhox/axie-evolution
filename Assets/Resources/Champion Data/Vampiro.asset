@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
+  m_Name: Vampiro
+  m_EditorClassIdentifier: 
+  name: Vampiro
+  axieID: 2562919
+  genes: 0x1000000000000100030120c08208000000010008084042020001000828a04002000100080840c208000100082041020200010008106182060001000818414206
+  description: '30% Lifesteal for random axie per enemy
+
+    Lvl 3: 50% Lifesteal'
+  health: 80
+  damage: 6
+  defense: 40
+  range: 4.5
+  cooldownTime: 1.6
+  tier: 1
+  cardColor: {fileID: 11400000, guid: 0a3f7a685d2c01b4da8801c8e4c1ed4d, type: 2}
+  projectile: {fileID: 2752637321356853906, guid: be410c456cca5d546be6968f6b2fcc38,
+    type: 3}
+  weight: 490
+  attackAnimation: attack/ranged/cast-multi

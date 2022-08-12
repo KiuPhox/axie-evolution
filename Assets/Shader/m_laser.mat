@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: m_laser
+  m_Shader: {fileID: -6465566751694194690, guid: 99d36bc570716e642be8967a2d35fa1b,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - MainTex:
+        m_Texture: {fileID: 2800000, guid: 440c62a575e309444aa92a1aebc9e302, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Mask:
+        m_Texture: {fileID: 2800000, guid: dabddeb86ca91604b8c3f8f8f9c185f2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - DissolveAmount: 0.43
+    - NoiseAmount: 0.2
+    - NoisePower: 2
+    - NoiseScale: 25
+    m_Colors:
+    - MainColor: {r: 11.984314, g: 11.984314, b: 11.984314, a: 1}
+    - MainSpeed: {r: -0.5, g: 0, b: 0, a: 0}
+    - NoiseSpeed: {r: -2, g: 1, b: 0, a: 0}
