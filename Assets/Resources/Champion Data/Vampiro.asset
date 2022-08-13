@@ -23,9 +23,9 @@ MonoBehaviour:
   defense: 40
   range: 4.5
   cooldownTime: 1.6
-  tier: 1
+  tier: 3
   cardColor: {fileID: 11400000, guid: 0a3f7a685d2c01b4da8801c8e4c1ed4d, type: 2}
   projectile: {fileID: 2752637321356853906, guid: be410c456cca5d546be6968f6b2fcc38,
     type: 3}
-  weight: 445
+  weight: 495
   attackAnimation: activity/eat-chew

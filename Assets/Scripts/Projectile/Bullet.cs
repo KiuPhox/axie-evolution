@@ -17,7 +17,6 @@ public class Bullet: Projectile
     {
         if (target != null) 
         {
-            Debug.Log("Yes");
             targetPos = target.transform.position;
             direction = targetPos - transform.position;
             RotateToDirection(direction);
