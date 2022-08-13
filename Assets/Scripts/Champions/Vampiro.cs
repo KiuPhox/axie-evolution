@@ -31,8 +31,8 @@ public class Vampiro : Champion
                     if (enemyPool[i].activeSelf)
                     {
                         bloodline.SetActive(true);
-                        bloodline.GetComponent<LineRenderer>().SetPosition(0, transform.position + offset);
-                        bloodline.GetComponent<LineRenderer>().SetPosition(1, enemyPool[i].transform.position + offset);
+                        bloodline.GetComponent<LineRenderer>().SetPosition(1, transform.position + offset);
+                        bloodline.GetComponent<LineRenderer>().SetPosition(0, enemyPool[i].transform.position + offset);
                     }
 
                 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using TMPro;
 public class GenerateChampionCard : MonoBehaviour
 {
     [HideInInspector] public bool isFisrtGenerated;
@@ -17,10 +18,11 @@ public class GenerateChampionCard : MonoBehaviour
     float accumlateWeights;
     ChampionData randomChampion;
    
-
     public MoneyUI moneyUI;
-    
+    public TMP_Text lockText;
 
+    bool isLocked = false;
+    
     private void Awake()
     {
         champions = Resources.LoadAll("Champion Data", typeof(ChampionData)).Cast<ChampionData>().ToArray();
@@ -51,17 +53,20 @@ public class GenerateChampionCard : MonoBehaviour
 
     public void GenerateCard()
     {
-        SoundManager.Instance.PlaySound(flipClip);
-
-        CalculateWeights();
-
-        for (int i = 0; i < cards.Length; i++)
+        if (!isLocked)
         {
-            randomChampion = champions[GetRandomChampionIndex()];
-            Debug.Log(randomChampion.name);
-            cards[i].gameObject.SetActive(true);
-            cards[i].transform.localScale = cards[i].originalScale;
-            cards[i].SetCardData(randomChampion);
+            SoundManager.Instance.PlaySound(flipClip);
+
+            CalculateWeights();
+
+            for (int i = 0; i < cards.Length; i++)
+            {
+                randomChampion = champions[GetRandomChampionIndex()];
+                Debug.Log(randomChampion.name);
+                cards[i].gameObject.SetActive(true);
+                cards[i].transform.localScale = cards[i].originalScale;
+                cards[i].SetCardData(randomChampion);
+            }
         }
     }
 
@@ -74,11 +79,24 @@ public class GenerateChampionCard : MonoBehaviour
 
     public void Reroll()
     {
-        if (moneyUI.startingMoney >= 2)
+        if (!isLocked && moneyUI.startingMoney >= 2)
         {
             moneyUI.startingMoney -= 2;
             moneyUI.isChanged = true;
             GenerateCard();
+        }
+    }
+
+    public void TriggerLock()
+    {
+        isLocked = !isLocked;
+        if (isLocked)
+        {
+            lockText.text = "Unlock";
+        }
+        else
+        {
+            lockText.text = "Lock";
         }
     }
 
