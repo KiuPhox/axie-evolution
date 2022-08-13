@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using TMPro;
+using UnityEngine.UI;
 public class GenerateChampionCard : MonoBehaviour
 {
     [HideInInspector] public bool isFisrtGenerated;
@@ -19,8 +20,12 @@ public class GenerateChampionCard : MonoBehaviour
     ChampionData randomChampion;
    
     public MoneyUI moneyUI;
-    public TMP_Text lockText;
 
+    [Header("Lock Button")]
+    public Image lockImage;
+    public TMP_Text lockText;
+    public Sprite lockSprite;
+    public Sprite unlockSprite;
     bool isLocked = false;
     
     private void Awake()
@@ -93,10 +98,12 @@ public class GenerateChampionCard : MonoBehaviour
         if (isLocked)
         {
             lockText.text = "Unlock";
+            lockImage.sprite = unlockSprite;
         }
         else
         {
             lockText.text = "Lock";
+            lockImage.sprite = lockSprite;
         }
     }
 

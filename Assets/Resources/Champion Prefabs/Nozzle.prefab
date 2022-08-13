@@ -228,12 +228,11 @@ MonoBehaviour:
   playerChampions: {fileID: 0}
   damagePopupHolder: {fileID: 0}
   championData: {fileID: 11400000, guid: 746bff35e58784046915eb72255691e9, type: 2}
-  immortalTime: 1
+  immortalTime: 0.8
   currentLevel: 0
   health: 0
   maxHealth: 0
   projectile: {fileID: 0}
-  multipliers: []
   skeletonAnimation: {fileID: 0}
   reserve: 000000000000000000000000
   nextAttackTime: 0

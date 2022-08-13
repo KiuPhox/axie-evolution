@@ -228,7 +228,7 @@ MonoBehaviour:
   playerChampions: {fileID: 0}
   damagePopupHolder: {fileID: 0}
   championData: {fileID: 11400000, guid: 4cd347f03007bf345bd5dc47f8fc2f06, type: 2}
-  immortalTime: 1
+  immortalTime: 0.8
   currentLevel: 0
   health: 0
   maxHealth: 0

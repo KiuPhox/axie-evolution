@@ -7221,7 +7221,10 @@ MonoBehaviour:
   - {fileID: 586475051}
   - {fileID: 22948047}
   moneyUI: {fileID: 1506518688}
+  lockImage: {fileID: 1657025671}
   lockText: {fileID: 59497552}
+  lockSprite: {fileID: 21300000, guid: 039ad6cc4341d9d4e92c5b12f9497b48, type: 3}
+  unlockSprite: {fileID: 21300000, guid: 4f2e5b6fdc1419b4ca2ae5235025ccb8, type: 3}
 --- !u!114 &995336676
 MonoBehaviour:
   m_ObjectHideFlags: 0
