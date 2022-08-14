@@ -17,6 +17,10 @@ public class Orb : Projectile
 
     void Start()
     {
+        if (holder.GetComponent<Champion>().currentLevel == 3)
+        {
+            damage *= 2;
+        }
         if (target != null)
         {
             targetPos = target.transform.position;
