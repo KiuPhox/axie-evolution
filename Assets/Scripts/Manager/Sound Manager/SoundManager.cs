@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
-    public Slider volumeSlider;
+    public VolumeSlider volumeSlider;
 
     [SerializeField] private AudioSource effectsSource;
     [SerializeField] private AudioSource healEffectSource;
@@ -16,7 +16,6 @@ public class SoundManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -26,7 +25,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        ChangeMasterVolume(volumeSlider.value / volumeSlider.maxValue);
+        ChangeMasterVolume(volumeSlider.volumeValue);
     }
 
     public void PlaySound (AudioClip clip)
@@ -42,6 +41,6 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeMasterVolume(float value)
     {
-        AudioListener.volume = value;
+        AudioListener.volume = value / 5f;
     }
 }

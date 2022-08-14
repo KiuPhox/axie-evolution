@@ -5,11 +5,39 @@ using UnityEngine.UI;
 
 public class VolumeSlider : MonoBehaviour
 {
-    [SerializeField] private Slider slider;
+    public Sprite[] volumeSprites;
+
+    public int volumeValue;
+    Image volumeImage;
 
     void Start()
     {
-        SoundManager.Instance.ChangeMasterVolume(slider.value / slider.maxValue);
-        slider.onValueChanged.AddListener(val => SoundManager.Instance.ChangeMasterVolume(val / slider.maxValue));
+        volumeImage = GetComponent<Image>();
+        ChangeVolumeSprite(volumeValue);
+    }
+
+    public void IncreaseVolume()
+    {
+        if (volumeValue < 5)
+        {
+            volumeValue++;
+            ChangeVolumeSprite(volumeValue);
+            SoundManager.Instance.ChangeMasterVolume(volumeValue);
+        }
+    }
+
+    public void DecreaseVolume()
+    {
+        if (volumeValue > 0)
+        {
+            volumeValue--;
+            ChangeVolumeSprite(volumeValue);
+            SoundManager.Instance.ChangeMasterVolume(volumeValue);
+        }
+    }
+
+    private void ChangeVolumeSprite(int volumeValue)
+    {
+        volumeImage.sprite = volumeSprites[volumeValue];
     }
 }
