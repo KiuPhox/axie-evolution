@@ -62,7 +62,7 @@ public static class Level
         new float[] {30},
         new float[] {5, 5, 5, 5, 5, 5},
     };
-    /*
+    
     public static string[][] levelToEliteSpawnType =
     {
         new string[] {"speed"},
@@ -71,57 +71,27 @@ public static class Level
         new string[] {"speed", "exploder"},
         new string[] {"speed", "exploder", "shooter"},
         new string[] {"speed"},
-        new string[] {"speed", "exploder", "headbutter"},
-        new string[] {"speed", "exploder", "headbutter", "shooter"},
+        new string[] {"speed", "exploder", "shooter"},
+        new string[] {"speed", "exploder", "exploder", "shooter"},
         new string[] {"shooter"},
-        new string[] {"exploder", "headbutter"},
-        new string[] {"exploder", "headbutter", "tank"},
+        new string[] {"exploder", "shooter"},
+        new string[] {"exploder", "shooter", "speed"},
         new string[] {"exploder"},
         new string[] {"speed", "shooter"},
-        new string[] {"speed", "spawner"},
-        new string[] {"shooter"},
-        new string[] {"speed", "exploder", "spawner"},
-        new string[] {"speed", "exploder", "spawner", "shooter"},
-        new string[] {"spawner"},
-        new string[] {"headbutter", "tank"},
-        new string[] {"speed", "tank", "spawner"},
-        new string[] {"headbutter"},
-        new string[] {"speed", "headbutter", "tank"},
-        new string[] {"headbutter", "tank", "shooter"},
-        new string[] {"tank"},
-        new string[] {"speed", "exploder", "headbutter", "tank", "shooter", "spawner"},
-    };*/
-
-    public static string[][] levelToEliteSpawnType =
-    {
-        // Complete
-        new string[] {"speed"},
-        new string[] {"speed", "shooter"},
-        new string[] {"speed"},
         new string[] {"speed", "exploder"},
+        new string[] {"shooter"},
         new string[] {"speed", "exploder", "shooter"},
-        new string[] {"speed"},
-        // Complete
-        new string[] {"speed", "shooter", "shooter"},
-        new string[] {"speed", "shooter", "shooter", "speed"},
-        new string[] {"speed"},
-        new string[] {"speed", "shooter"},
-        new string[] {"speed", "shooter", "speed"},
-        new string[] {"speed"},
-        new string[] {"speed", "shooter"},
-        new string[] {"speed", "shooter"},
-        new string[] {"speed"},
-        new string[] {"speed", "shooter", "speed"},
-        new string[] {"speed", "speed", "speed", "speed"},
+        new string[] {"speed", "exploder", "shooter", "shooter"},
         new string[] {"shooter"},
-        new string[] {"speed", "shooter"},
-        new string[] {"speed", "shooter", "shooter"},
+        new string[] { "speed", "exploder"},
+        new string[] {"speed", "exploder", "shooter"},
         new string[] {"shooter"},
-        new string[] {"speed", "shooter", "shooter"},
-        new string[] {"shooter", "shooter", "shooter"},
-        new string[] {"shooter"},
-        new string[] {"speed", "speed", "speed", "shooter", "shooter", "shooter"},
+        new string[] {"speed", "exploder", "shooter"},
+        new string[] { "speed", "exploder", "shooter"},
+        new string[] {"speed"},
+        new string[] {"speed", "exploder", "shooter", "speed", "shooter", "exploder"},
     };
+
 
     public static int[] levelToMaxWaves =
     {
@@ -138,30 +108,30 @@ public static class Level
     public static Vector2[] levelToMoneyRange =
     {
         new Vector2 (3, 3),
-        new Vector2 (3, 3),
-        new Vector2 (5, 6),
+        new Vector2 (3, 4),
         new Vector2 (4, 5),
-        new Vector2 (5, 8),
+        new Vector2 (5, 6),
+        new Vector2 (6, 8),
         new Vector2 (8, 10),
-        new Vector2 (8, 10), 
+        new Vector2 (10, 12), 
         new Vector2 (12, 14),
+        new Vector2 (14, 15),
+        new Vector2 (15, 15),
+        new Vector2 (15, 17),
+        new Vector2 (17, 18),
+        new Vector2 (14, 16),
+        new Vector2 (14, 17),
         new Vector2 (14, 18),
-        new Vector2 (10, 13),
-        new Vector2 (12, 15),
+        new Vector2 (18, 18),
         new Vector2 (18, 20),
-        new Vector2 (10, 14),
-        new Vector2 (12, 16),
-        new Vector2 (14, 18),
-        new Vector2 (12, 12),
-        new Vector2 (12, 15),
-        new Vector2 (20, 28), 
-        new Vector2 (10, 16),
-        new Vector2 (10, 18), 
+        new Vector2 (20, 24), 
+        new Vector2 (22, 26),
+        new Vector2 (24, 28), 
         new Vector2 (20, 28),
-        new Vector2 (32, 32),
-        new Vector2 (36, 36),
-        new Vector2 (48, 48),
-        new Vector2 (100, 100)
+        new Vector2 (30, 32),
+        new Vector2 (32, 36),
+        new Vector2 (36, 40),
+        new Vector2 (40, 50)
     };
 
     
