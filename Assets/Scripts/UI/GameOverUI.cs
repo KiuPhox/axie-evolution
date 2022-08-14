@@ -8,7 +8,7 @@ public class GameOverUI : MonoBehaviour
     public RectTransform rectTransform;
     void Start()
     {
-        rectTransform.DOLocalMoveY(150f, 1f).SetEase(Ease.OutBounce);
+        rectTransform.DOLocalMoveY(75f, 1f).SetEase(Ease.OutBounce);
     }
 
     private void OnDestroy()
