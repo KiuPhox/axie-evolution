@@ -24,7 +24,7 @@ public class PreferencesManager : MonoBehaviour
 
     public void LoadPrefs()
     {
-        int audioValue = PlayerPrefs.GetInt(audioKey, 0);
+        int audioValue = PlayerPrefs.GetInt(audioKey, 3);
         SoundManager.Instance.volumeSlider.volumeValue = audioValue;
     }
 }
