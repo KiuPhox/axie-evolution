@@ -15,9 +15,10 @@ MonoBehaviour:
   name: Vampiro
   axieID: 2562919
   genes: 0x1000000000000100030120c08208000000010008084042020001000828a04002000100080840c208000100082041020200010008106182060001000818414206
-  description: '30% Lifesteal for random axie per enemy
+  description: '<color=#FAE75A>30%</color> Lifesteal for random axie per enemy
 
-    Lvl 3: 50% Lifesteal'
+    Lvl
+    3: <color=#FAE75A>50%</color> Lifesteal'
   health: 80
   damage: 6
   defense: 40
@@ -27,5 +28,5 @@ MonoBehaviour:
   cardColor: {fileID: 11400000, guid: 0a3f7a685d2c01b4da8801c8e4c1ed4d, type: 2}
   projectile: {fileID: 2752637321356853906, guid: be410c456cca5d546be6968f6b2fcc38,
     type: 3}
-  weight: 495
+  weight: 400
   attackAnimation: activity/eat-chew

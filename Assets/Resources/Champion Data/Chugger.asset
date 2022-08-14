@@ -15,10 +15,10 @@ MonoBehaviour:
   name: Chugger
   axieID: 4529577
   genes: 0x200000000000010000c06020c2000000000100102080850a000100102881040a000100100880c4080001001018814408000100101880c406000100102880820c
-  description: 'Pushes enemies away and deals 12 damage
+  description: 'Pushes enemies away and deals <color=#FAE75A>12</color> damage
 
-    Lvl 3: Enemies take
-    200 damage if they hit wall'
+    Lvl
+    3: Enemies take <color=#FAE75A>200</color> damage if they hit wall'
   health: 175
   damage: 12
   defense: 40
@@ -28,5 +28,5 @@ MonoBehaviour:
   cardColor: {fileID: 11400000, guid: c192466b9f08ca04ab1f0f532a7249c9, type: 2}
   projectile: {fileID: 5420725915103826893, guid: 0b9b30b4b2b77604eb7af517b89b59bf,
     type: 3}
-  weight: 190
+  weight: 200
   attackAnimation: attack/melee/shrimp

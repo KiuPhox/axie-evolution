@@ -15,10 +15,10 @@ MonoBehaviour:
   name: Cure
   axieID: 140189
   genes: 0x200000000000000081c16041030800000001028810408104000102942880450a00010010306141040001028c2840430a0001000c28a1430a0001001418404006
-  description: 'Create an area that heal 1 axie 20% max HP
+  description: 'Create an area that heal 1 axie <color=#FAE75A>20%</color> max HP
 
-    Lvl 3: Heals faster,
-    bigger area and heals 2 axies'
+    Lvl
+    3: Heals faster, bigger area and heals 2 axies'
   health: 120
   damage: 0
   defense: 35

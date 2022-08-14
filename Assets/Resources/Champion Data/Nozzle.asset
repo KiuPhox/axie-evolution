@@ -15,10 +15,10 @@ MonoBehaviour:
   name: Nozzle
   axieID: 636231
   genes: 0x80000000000010002000090c30800000001001428a0430200010014280080020001000c08818302000100081041450c000100141000400a000100141880c206
-  description: 'Shoots a knife chases enemy, deals 14 damage
+  description: 'Shoots a knife chases enemy, deals <color=#FAE75A>14.6</color> damage
 
-    Lvl 3: The knife
-    chains 2 times'
+    Lvl
+    3: The knife chains <color=#FAE75A>2</color> times'
   health: 60
   damage: 14.6
   defense: 35
@@ -28,5 +28,5 @@ MonoBehaviour:
   cardColor: {fileID: 11400000, guid: 0a3f7a685d2c01b4da8801c8e4c1ed4d, type: 2}
   projectile: {fileID: 2864012901176828561, guid: 2dcca3fa4a56a744d8920856f7e168ee,
     type: 3}
-  weight: 390
+  weight: 400
   attackAnimation: attack/melee/normal-attack

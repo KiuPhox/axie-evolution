@@ -15,10 +15,10 @@ MonoBehaviour:
   name: Squirl
   axieID: 4157172
   genes: 0x10001c0407102100000000100002801400a00010000080043020001000010008004000100001080400400010000080040020001000028014508
-  description: '+20% damage and defense to all axie
+  description: '+<color=#FAE75A>20%</color> damage and defense to all axie
 
-    Lvl 3: +30% damage, defense,
-    attack speed'
+    Lvl
+    3: +<color=#FAE75A>30%</color> damage, defense, attack speed'
   health: 170
   damage: 0
   defense: 35

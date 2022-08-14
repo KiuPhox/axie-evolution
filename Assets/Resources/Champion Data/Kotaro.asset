@@ -15,8 +15,9 @@ MonoBehaviour:
   name: Kotaro
   axieID: 2582937
   genes: 0x800000000000010000804021030c0000000100042800820200010014100040040001000008404002000100001000850a00010000080040020001000008808404
-  description: 'Slash deals 25 damage. Every 3rd slash has 50% x2 crit. Lvl 3: 3rd
-    slash has 100% x3 crit.'
+  description: 'Slash deals <color=#FAE75A>25</color> damage. Every 3rd slash has
+    <color=#FAE75A>50% x2</color> crit. Lvl 3: 3rd slash has <color=#FAE75A>100%
+    x3</color> crit.'
   health: 130
   damage: 25
   defense: 40
@@ -26,5 +27,5 @@ MonoBehaviour:
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 3611118393586328161, guid: 243c3aaca5f1d304ba1b478bdd758131,
     type: 3}
-  weight: 290
+  weight: 300
   attackAnimation: attack/melee/normal-attack

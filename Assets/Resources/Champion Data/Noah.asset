@@ -15,10 +15,10 @@ MonoBehaviour:
   name: Noah
   axieID: 2043329
   genes: 0x8800000000000100030100e0831000000001001010610104000100140880800400010000088102060001000820818304000100141820440a0001000c1021010c
-  description: 'Heals an axie 20% max HP when it drop below 50%.
+  description: 'Heals an axie <color=#FAE75A>20%</color> max HP when it drop below
+    <color=#FAE75A>50%</color>.
 
-    Lvl 3: Heals
-    all axies'
+    Lvl 3: Heals all axies'
   health: 120
   damage: 0
   defense: 30
@@ -27,5 +27,5 @@ MonoBehaviour:
   tier: 1
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 100006, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
-  weight: 380
+  weight: 400
   attackAnimation: action/idle/random-03

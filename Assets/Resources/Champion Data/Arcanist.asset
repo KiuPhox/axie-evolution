@@ -15,10 +15,11 @@ MonoBehaviour:
   name: Arcanist
   axieID: 86809
   genes: 0x200000000000010001008040c20c00000001000c08808302000100001080420400010000180143060001018010008006000100000860c0020001000010004006
-  description: 'Throw a slow moving orb that deals <color=red>8</color> damage per
-    0.6 seconds.
+  description: 'Throw a slow moving orb that deals <color=#FAE75A>8</color> damage
+    per <color=#FAE75A>0.6</color> seconds.
 
-    Lvl 3: x2 damage.'
+    Lvl 3: <color=#FAE75A>x2</color>
+    damage.'
   health: 60
   damage: 8
   defense: 30
