@@ -15,7 +15,7 @@ public class CanvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class CanvasManager : MonoBehaviour
             waveCountUI.SetActive(true);
             unitsHolderUI.SetActive(true);
         }
-        else if (GameManager.Instance.State == GameState.GameOver)
+        else if (GameManager.Instance.State == GameState.GameOver || GameManager.Instance.State == GameState.GameVictory)
         {
             gameOverUI.SetActive(true);
         }

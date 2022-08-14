@@ -106,6 +106,10 @@ public class Spawner : MonoBehaviour
                         break;
                 }
             }
+            else if (currentLevel >= 25)
+            {
+                GameManager.Instance.UpdateGameState(GameState.GameVictory);
+            }
             else
             {
                 GameManager.Instance.UpdateGameState(GameState.ChooseCard);

@@ -56,6 +56,9 @@ public class GameManager : MonoBehaviour
             case GameState.ChooseCard:
                 HandleChooseCard();
                 break;
+            case GameState.GameVictory:
+                HandleGameVictory();
+                break;
             default:
                 break;
         }
@@ -107,7 +110,12 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    
+
+    private void HandleGameVictory()
+    {
+
+    }
+
     private void HandleChooseCard()
     {
         Time.timeScale = 1f;
@@ -128,4 +136,5 @@ public enum GameState
     ChooseCard,
     GamePause,
     GameOver,
+    GameVictory
 }
