@@ -20,7 +20,7 @@ MonoBehaviour:
 
     Lvl 3: <color=#FAE75A>x2</color>
     damage.'
-  health: 60
+  health: 80
   damage: 8
   defense: 30
   range: 10
