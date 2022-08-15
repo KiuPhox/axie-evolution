@@ -3658,7 +3658,7 @@ MonoBehaviour:
   seekerData: {fileID: 11400000, guid: 1e3ebc4da49b49247ac99cc1d3986174, type: 2}
   speedData: {fileID: 11400000, guid: a3ab3958e6dc0b54f8b289969b258b7c, type: 2}
   shooterData: {fileID: 11400000, guid: 7e5ef9d8d5d62ea449619f1600fcbf65, type: 2}
-  exploderData: {fileID: 0}
+  exploderData: {fileID: 11400000, guid: ad674cd21c9f35d46b89cf1786ec71c8, type: 2}
   spawners:
   - {fileID: 762234300}
   - {fileID: 1209784102}
@@ -10174,7 +10174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90df65ec466cb747bfbfed885635859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoney: 100
+  startingMoney: 0
   moneyText: {fileID: 1506518686}
   isChanged: 0
   coinClip: {fileID: 8300000, guid: fe3f102fa57ce6c49b7b3662a89d1fb1, type: 3}
