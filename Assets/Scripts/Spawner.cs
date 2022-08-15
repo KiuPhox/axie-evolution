@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
     public ChampionData seekerData;
     public ChampionData speedData;
     public ChampionData shooterData;
+    public ChampionData exploderData;
     public GameObject[] spawners;
     public GameObject crossSpawn;
     public float spawnRadius;
@@ -25,8 +26,8 @@ public class Spawner : MonoBehaviour
     ObjectPooler objectPooler;
     void Start()
     {
-        seekerData.health = speedData.health = shooterData.health = 20f;
-        seekerData.damage = speedData.damage = shooterData.damage = 8f;
+        seekerData.health = speedData.health = shooterData.health = exploderData.health = 20f;
+        seekerData.damage = speedData.damage = shooterData.damage = exploderData.damage = 8f;
         Utility.ShuffleArray(spawners);
         objectPooler = GetComponent<ObjectPooler>();
     }
@@ -113,8 +114,8 @@ public class Spawner : MonoBehaviour
             else
             {
                 GameManager.Instance.UpdateGameState(GameState.ChooseCard);
-                seekerData.health = speedData.health = shooterData.health = 20 + 12 * (GameManager.Instance.currentLevel - 1);
-                seekerData.damage = speedData.damage = shooterData.damage = 8 + 5 * (GameManager.Instance.currentLevel - 1);
+                seekerData.health = speedData.health = shooterData.health = exploderData.health = 20 + 12 * (GameManager.Instance.currentLevel - 1);
+                seekerData.damage = speedData.damage = shooterData.damage = exploderData.damage =  8 + 4 * (GameManager.Instance.currentLevel - 1);
                 currentWaveNumber = 0;
             }
         }

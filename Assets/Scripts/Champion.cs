@@ -12,7 +12,7 @@ public class Champion : LivingEntity
     [HideInInspector] public GameObject closestTarget;
 
     GameObject[] targets;
-    CameraHolder cameraHolder;
+    [HideInInspector] public CameraHolder cameraHolder;
     SteeringBasics steeringBasics;
 
     public override void Start()

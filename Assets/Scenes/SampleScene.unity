@@ -2223,8 +2223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b07907c6b1aac4097eb700e04b4f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionStrength: 0.02
-  rotationStrength: 0.02
+  positionStrength: 0.03
+  rotationStrength: 0.03
   shakeDuration: 0.1
   delay: 0
   timeReset: 5
@@ -3658,6 +3658,7 @@ MonoBehaviour:
   seekerData: {fileID: 11400000, guid: 1e3ebc4da49b49247ac99cc1d3986174, type: 2}
   speedData: {fileID: 11400000, guid: a3ab3958e6dc0b54f8b289969b258b7c, type: 2}
   shooterData: {fileID: 11400000, guid: 7e5ef9d8d5d62ea449619f1600fcbf65, type: 2}
+  exploderData: {fileID: 0}
   spawners:
   - {fileID: 762234300}
   - {fileID: 1209784102}
