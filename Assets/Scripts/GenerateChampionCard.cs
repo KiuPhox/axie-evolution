@@ -49,11 +49,12 @@ public class GenerateChampionCard : MonoBehaviour
             isFisrtGenerated = true;
             GenerateCard();
         }
-
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.G))
         {
             GenerateCard();
         }
+#endif
     }
 
     public void GenerateCard()
