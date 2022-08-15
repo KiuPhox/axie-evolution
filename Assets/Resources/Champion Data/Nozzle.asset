@@ -19,7 +19,7 @@ MonoBehaviour:
 
     Lvl
     3: The knife chains <color=#FAE75A>2</color> times'
-  health: 60
+  health: 80
   damage: 14.6
   defense: 35
   range: 12

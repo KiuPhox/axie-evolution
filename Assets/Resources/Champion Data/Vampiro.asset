@@ -19,7 +19,7 @@ MonoBehaviour:
 
     Lvl
     3: <color=#FAE75A>50%</color> Lifesteal'
-  health: 80
+  health: 85
   damage: 6
   defense: 40
   range: 4.5
