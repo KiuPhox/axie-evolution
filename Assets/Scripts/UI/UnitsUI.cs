@@ -80,7 +80,7 @@ public class UnitsUI : MonoBehaviour
 
         // Load Champion Level
         int level = champion.GetComponent<Champion>().currentLevel;
-        images[1].sprite = Resources.Load<Sprite>("Sprite/" + level + "star");
+        images[1].sprite = Resources.Load<Sprite>("Sprites/" + level + "star");
 
         // Load Remaning Units
         int unitRemaning;

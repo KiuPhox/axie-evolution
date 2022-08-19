@@ -15,7 +15,7 @@ public class ChampionData : ScriptableObject
     [PreviewField(120)]
     [HideLabel]
     public Sprite sprite;
-    
+
     [VerticalGroup("Game Data/Stats"), LabelWidth(100)]
     public float health;
     [VerticalGroup("Game Data/Stats"), LabelWidth(100)]
