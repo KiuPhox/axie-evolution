@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9115612116787840766}
   - component: {fileID: 9115612116787840760}
   - component: {fileID: 60428825}
-  - component: {fileID: 6106132229767211532}
   - component: {fileID: -2191126021654774415}
   - component: {fileID: 2442549019485669781}
   - component: {fileID: -3310634233716191162}
@@ -76,20 +75,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.4}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &6106132229767211532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ebaa085a30cb5543b3a9f4516b36cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashMaterial: {fileID: 2100000, guid: de53d22dde5d79c48b06003d387f9792, type: 2}
-  duration: 0.13
 --- !u!114 &-2191126021654774415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +222,7 @@ MonoBehaviour:
   reserve: 000000000000000000000000
   nextAttackTime: 0
   closestTarget: {fileID: 0}
+  cameraHolder: {fileID: 0}
   critSlash: {fileID: 3611118393586328161, guid: a88fa408447e7b04d80917b8aba9d063,
     type: 3}
   normalSlash: {fileID: 3611118393586328161, guid: 243c3aaca5f1d304ba1b478bdd758131,

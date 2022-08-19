@@ -71,7 +71,7 @@ public class UnitsUI : MonoBehaviour
         
 
         // Load Champion Image
-        images[0].sprite = Resources.Load<Sprite>("Sprite/" + champion.name.Replace("(Clone)", ""));
+        images[0].sprite = champion.GetComponent<Champion>().championData.sprite;
         images[0].SetNativeSize();
         RectTransform imageRT = images[0].GetComponent<RectTransform>();
         Vector2 originalSize = imageRT.sizeDelta;

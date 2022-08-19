@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class PlayerChampions : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class PlayerChampions : MonoBehaviour
     [SerializeField] UnitsUI unitsUI;
     [SerializeField] MoneyUI moneyUI;
 
+    [TableList]
+    public List<PlayerClass> playerClasses = new List<PlayerClass>();
+    
+    // Multipliers
+    [HideInInspector]
     public float[] squirl_m;
 
     public void AddChampion(GameObject choosedChampion)
@@ -23,9 +29,26 @@ public class PlayerChampions : MonoBehaviour
     private void SetMutiplierValues()
     {
         squirl_m = new float[] { 1, 1, 1 };
+        foreach (PlayerClass playerClass in playerClasses)
+        {
+            playerClass.value = 0;
+        }
+
         foreach (GameObject championGO in champions)
         {
             Champion champion = championGO.GetComponent<Champion>();
+            
+            foreach (Class @class in champion.championData.classes)
+            {
+                foreach (PlayerClass playerClass in playerClasses)
+                {
+                    if (playerClass._class == @class)
+                    {
+                        playerClass.value++;
+                    }
+                }
+            }
+
             if (champion.championData.name == "Squirl")
             {
                 squirl_m[0] = 1.2f;
@@ -39,6 +62,7 @@ public class PlayerChampions : MonoBehaviour
                 continue;
             }
         }
+
         ResetAllChampions();
     }
 
@@ -157,4 +181,11 @@ public class PlayerChampions : MonoBehaviour
         SetMutiplierValues();
         unitsUI.SetChampionsToUnit();
     }
+
+    [System.Serializable]
+    public class PlayerClass
+    {
+        public Class _class;
+        public int value;
+    };
 }

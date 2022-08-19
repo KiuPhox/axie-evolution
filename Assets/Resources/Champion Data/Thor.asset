@@ -13,20 +13,22 @@ MonoBehaviour:
   m_Name: Thor
   m_EditorClassIdentifier: 
   name: Thor
-  axieID: '9089733 '
-  genes: 0x800000000000010001c040e084080000000100100841000a0001000c10010008000100001041420a000100002801430200010000100080040001000020014008
   description: 'Deals <color=#FAE75A>11</color> damage and stuns enemies for <color=#FAE75A>3</color>
     seconds.
 
     Lvl 3: Double stun time.'
+  sprite: {fileID: 21300000, guid: 9d0397af48ad0054e896cb6bffdb2811, type: 3}
+  axieID: '9089733 '
+  genes: 0x800000000000010001c040e084080000000100100841000a0001000c10010008000100001041420a000100002801430200010000100080040001000020014008
   health: 140
   damage: 11
   defense: 35
   range: 12
   cooldownTime: 6
   tier: 2
-  cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 5466792084939744564, guid: c83bb02f343d2d640b920bdd492e9ab4,
     type: 3}
+  cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   weight: 400
   attackAnimation: attack/ranged/cast-multi
+  classes: 

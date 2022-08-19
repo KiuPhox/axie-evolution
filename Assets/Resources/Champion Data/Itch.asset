@@ -13,20 +13,22 @@ MonoBehaviour:
   m_Name: Itch
   m_EditorClassIdentifier: 
   name: Itch
-  axieID: 11283451
-  genes: 0x2800000000000100034080d0c20800000001001408a0830a0001001428a1450a00010000300102040001000408a14504000100040881800c000100142840c508
   description: 'Poisons enemy deals <color=#FAE75A>10</color> damage <color=#FAE75A>5</color>
     times
 
     Lvl 3: Bigger size and poisons <color=#FAE75A>15</color> times'
+  sprite: {fileID: 21300000, guid: 67e4fd5bdb7c3954296fa66eb4f0bb76, type: 3}
+  axieID: 11283451
+  genes: 0x2800000000000100034080d0c20800000001001408a0830a0001001428a1450a00010000300102040001000408a14504000100040881800c000100142840c508
   health: 100
   damage: 10
   defense: 40
   range: 15
   cooldownTime: 2.3
   tier: 3
-  cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   projectile: {fileID: 6934294814816966548, guid: c84ce10221ac74645b5328ffb9086088,
     type: 3}
+  cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
   weight: 300
   attackAnimation: attack/ranged/cast-low
+  classes: 05000000

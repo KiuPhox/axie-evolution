@@ -64,7 +64,7 @@ public class CardHandler : MonoBehaviour
         // Load Card Color Data
         images[0].color = cardColorData.color; // Body's color
         images[1].color = cardColorData.championBoxColor; // Champion Box's color
-        images[2].sprite = Resources.Load<Sprite>("Sprite/" + champion.name); // Champion's image
+        images[2].sprite = champion.sprite; // Champion's image
         LoadChampionImage(images[2]);
         images[3].color = cardColorData.nameBoxColor; // Name Box's color
         images[4].color = cardColorData.descriptionBoxColor; // Name Box's color

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9115612116787840766}
   - component: {fileID: 9115612116787840760}
   - component: {fileID: 938564437}
-  - component: {fileID: -7314284888809316742}
   - component: {fileID: -9065554866232925157}
   - component: {fileID: 5002258361899416056}
   - component: {fileID: 229891057775312365}
@@ -76,20 +75,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.4}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-7314284888809316742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ebaa085a30cb5543b3a9f4516b36cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashMaterial: {fileID: 2100000, guid: de53d22dde5d79c48b06003d387f9792, type: 2}
-  duration: 0.13
 --- !u!114 &-9065554866232925157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +222,7 @@ MonoBehaviour:
   reserve: 000000000000000000000000
   nextAttackTime: 0
   closestTarget: {fileID: 0}
+  cameraHolder: {fileID: 0}
   fiveBullets: {fileID: 7514972991084720664, guid: f1f7b6d28ec346f4684c7366a3db565f,
     type: 3}
   sevenBullets: {fileID: 5711042895656126521, guid: 8b72927f349b9f94da60a607b9af1c93,
