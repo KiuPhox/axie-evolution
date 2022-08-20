@@ -16,6 +16,7 @@ public class CardHandler : MonoBehaviour
 
     public MoneyUI moneyUI;
     public UnitsUI unitsUI;
+    public ClassesUI classesUI;
 
     public float maxUnits;
 
@@ -55,6 +56,7 @@ public class CardHandler : MonoBehaviour
             }
         }
         unitsUI.SetChampionsToUnit();
+        classesUI.SetClassToUnit();
     }
 
     public void SetCardData(ChampionData champion)
@@ -67,7 +69,18 @@ public class CardHandler : MonoBehaviour
         images[2].sprite = champion.sprite; // Champion's image
         LoadChampionImage(images[2]);
         images[3].color = cardColorData.nameBoxColor; // Name Box's color
-        images[4].color = cardColorData.descriptionBoxColor; // Name Box's color
+        images[4].color = cardColorData.descriptionBoxColor; // Description Box's color
+
+        // Class Circle
+        images[5].gameObject.SetActive(false);
+        images[7].gameObject.SetActive(false);
+
+        // Class Image
+        for (int i = 0; i < champion.classes.Count; i++)
+        {
+            images[2 * i + 5].gameObject.SetActive(true);
+            images[2 * i + 6].sprite = Resources.Load<Sprite>("Sprites/" + champion.classes[i].ToString().ToLower());
+        }
 
         // Load Champion Data
         _name.text = champion.name;

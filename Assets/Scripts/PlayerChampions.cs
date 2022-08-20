@@ -8,6 +8,7 @@ public class PlayerChampions : MonoBehaviour
     [HideInInspector] public GameObject choosedChampion;
     [HideInInspector] public List<GameObject> champions = new List<GameObject>();
     [SerializeField] UnitsUI unitsUI;
+    [SerializeField] ClassesUI classesUI;
     [SerializeField] MoneyUI moneyUI;
 
     [TableList]
@@ -180,6 +181,7 @@ public class PlayerChampions : MonoBehaviour
         champions.RemoveAt(championIndex);
         SetMutiplierValues();
         unitsUI.SetChampionsToUnit();
+        classesUI.SetClassToUnit();
     }
 
     [System.Serializable]

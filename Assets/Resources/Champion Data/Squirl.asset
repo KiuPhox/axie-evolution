@@ -18,17 +18,17 @@ MonoBehaviour:
     Lvl
     3: +<color=#FAE75A>30%</color> damage, defense, attack speed'
   sprite: {fileID: 21300000, guid: dca4dd0c07655c64ea0f6b7aac422db9, type: 3}
-  axieID: 4157172
-  genes: 0x10001c0407102100000000100002801400a00010000080043020001000010008004000100001080400400010000080040020001000028014508
   health: 170
   damage: 0
   defense: 35
   range: 12
   cooldownTime: 6
   tier: 2
+  axieID: 4157172
+  genes: 0x10001c0407102100000000100002801400a00010000080043020001000010008004000100001080400400010000080040020001000028014508
   projectile: {fileID: 5466792084939744564, guid: c83bb02f343d2d640b920bdd492e9ab4,
     type: 3}
   cardColor: {fileID: 11400000, guid: d1d64e9ddcff3b042a6c3c28cd139850, type: 2}
-  weight: 400
+  weight: 410
   attackAnimation: attack/ranged/cast-multi
-  classes: 
+  classes: 0600000008000000
