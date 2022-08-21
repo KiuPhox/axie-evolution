@@ -1,31 +1,57 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class GiderProjectile : Projectile
 {
+    public float explodeRange;
+    public GameObject explodeHit;
     public float lifeTime;
-    public GameObject giderFrame;
-    public GameObject giderGold;
+    public float stunTime;
 
-    void Start()
+    private bool isStun = false;
+
+
+    private void Start()
     {
-        transform.position = holder.transform.position;
-        Vector3 direction = target.transform.position - holder.transform.position;
-        RotateToDirection(direction);
-        giderFrame.transform.DOScaleY(0.15f, 0.2f);
-        Destroy(gameObject, lifeTime);
+        lifeTime += Time.time;
+        if(holder.GetComponent<Champion>().currentLevel == 3)
+        {
+            isStun = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Time.time >= lifeTime)
+        {
+            TakeDamageEnemyNearby();
+        }
     }
 
-    private void OnDestroy()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        giderFrame.transform.DOKill();
+        if (collision.CompareTag("Enemy"))
+        {
+            TakeDamageEnemyNearby();
+        }
+    }
+
+    void TakeDamageEnemyNearby()
+    {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject t in targets)
+        {
+            if (Vector2.Distance(transform.position, t.transform.position) <= explodeRange)
+            {
+                t.GetComponent<LivingEntity>().TakeDamage(damage, holder.GetComponent<LivingEntity>());
+                if (isStun)
+                {
+                    t.GetComponent<Enemy>().stunTime = stunTime;
+                }
+            }
+        }
+        Instantiate(explodeHit, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

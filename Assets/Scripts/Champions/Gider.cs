@@ -8,6 +8,11 @@ public class Gider : Champion
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(ShootIE(0));
+        }
+
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
         closestTarget = GetClosestTargetInList(targets);
         if (closestTarget != null)

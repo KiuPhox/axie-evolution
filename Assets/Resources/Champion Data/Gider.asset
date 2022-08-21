@@ -19,7 +19,7 @@ MonoBehaviour:
   health: 100
   damage: 16
   defense: 35
-  range: 10
+  range: 8
   cooldownTime: 3
   tier: 2
   axieID: 11378002
