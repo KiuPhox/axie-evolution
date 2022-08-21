@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
+  m_Name: Gider
+  m_EditorClassIdentifier: 
+  name: Gider
+  description: "launches molten gold that explodes dealing 30 damage \nLvl 3: Stun
+    enemy"
+  sprite: {fileID: 21300000, guid: 15298172db925f845bf3fdfc3f3c409c, type: 3}
+  health: 100
+  damage: 16
+  defense: 35
+  range: 5
+  cooldownTime: 4
+  tier: 2
+  axieID: 11378002
+  genes: 0x10000c000508408000000000304102081040001000410208402000003000820c008000100041021440a0001000408204108000100002841820c
+  projectile: {fileID: 2752637321356853906, guid: be410c456cca5d546be6968f6b2fcc38,
+    type: 3}
+  cardColor: {fileID: 11400000, guid: 8305200c689e60e4c9b363deb4d0ce57, type: 2}
+  weight: 305
+  attackAnimation: activity/eat-chew
+  classes: 0200000005000000

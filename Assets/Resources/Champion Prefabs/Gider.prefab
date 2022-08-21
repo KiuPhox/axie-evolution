@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 9115612116787840766}
   - component: {fileID: 9115612116787840760}
   - component: {fileID: 453100247}
-  - component: {fileID: 3807331376682860246}
-  - component: {fileID: -7759392196102006751}
-  - component: {fileID: -5415922275171396977}
-  - component: {fileID: 2385800740305868535}
-  - component: {fileID: -1607972968469611209}
-  - component: {fileID: -8010741895052021810}
+  - component: {fileID: -1129906671689916103}
+  - component: {fileID: -3413913364230368172}
+  - component: {fileID: -8746300722692620411}
+  - component: {fileID: 1141566414104011682}
+  - component: {fileID: 8467124800934247264}
+  - component: {fileID: 4407401929323706721}
   m_Layer: 0
-  m_Name: Thor
+  m_Name: Gider
   m_TagString: Champion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.4}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &3807331376682860246
+--- !u!114 &-1129906671689916103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +94,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 7987
   slopeLimit: 80
---- !u!114 &-7759392196102006751
+--- !u!114 &-3413913364230368172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +114,7 @@ MonoBehaviour:
   timeToTarget: 0.1
   smoothing: 1
   numSamplesForSmoothing: 5
---- !u!33 &-5415922275171396977
+--- !u!33 &-8746300722692620411
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9115612116787840764}
   m_Mesh: {fileID: 0}
---- !u!23 &2385800740305868535
+--- !u!23 &1141566414104011682
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +161,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-1607972968469611209
+--- !u!114 &8467124800934247264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,7 +198,7 @@ MonoBehaviour:
   _animationName: 
   loop: 0
   timeScale: 1
---- !u!114 &-8010741895052021810
+--- !u!114 &4407401929323706721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,13 +207,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9115612116787840764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88a5380620bbc2f459668f3d0f329619, type: 3}
+  m_Script: {fileID: 11500000, guid: 62ebf66a35eaade4e9ddbc6b1caf0bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerChampions: {fileID: 0}
   damagePopupHolder: {fileID: 0}
-  championData: {fileID: 11400000, guid: ddf7dbc00e381294680dc1546522e6bb, type: 2}
-  immortalTime: 0.8
+  championData: {fileID: 11400000, guid: 98ace9eed71690e40a450c4839d571da, type: 2}
+  immortalTime: 1
   currentLevel: 0
   health: 0
   maxHealth: 0
