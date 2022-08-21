@@ -33,6 +33,7 @@ public class PlayerChampions : MonoBehaviour
         foreach (PlayerClass playerClass in playerClasses)
         {
             playerClass.value = 0;
+            playerClass.isActive = false;
         }
 
         foreach (GameObject championGO in champions)
@@ -46,6 +47,10 @@ public class PlayerChampions : MonoBehaviour
                     if (playerClass._class == @class)
                     {
                         playerClass.value++;
+                    }
+                    if (playerClass.value >= 2)
+                    {
+                        playerClass.isActive = true;
                     }
                 }
             }
@@ -189,5 +194,6 @@ public class PlayerChampions : MonoBehaviour
     {
         public Class _class;
         public int value;
+        public bool isActive;
     };
 }

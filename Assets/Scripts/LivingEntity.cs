@@ -67,6 +67,17 @@ public class LivingEntity : MonoBehaviour, IDamageable
         defense = championData.defense * playerChampions.squirl_m[1];
         projectile = championData.projectile;
         cooldownTime = championData.cooldownTime * playerChampions.squirl_m[2];
+
+        foreach (Class @class in championData.classes)
+        {
+            foreach(var playerClass in playerChampions.playerClasses)
+            {
+                if (playerClass._class == @class && playerClass.isActive)
+                {
+                    // Buff Specific Class
+                }
+            }
+        }
     }
 
     public void SetCharacteristicsForEnemy()
