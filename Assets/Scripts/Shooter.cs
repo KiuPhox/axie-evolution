@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shooter : Enemy
 {
-    private void Update()
+    public new void Update()
     {
         if (GameManager.Instance.State == GameState.GameStart)
         {

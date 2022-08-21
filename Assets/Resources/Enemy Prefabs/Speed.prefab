@@ -59,11 +59,16 @@ MonoBehaviour:
   currentLevel: 0
   health: 0
   maxHealth: 0
-  multipliers: []
+  projectile: {fileID: 0}
   skeletonAnimation: {fileID: 0}
   stunTime: 0
+  attackCooldownTime: 0
+  nextAttackTime: 0
+  closestChampion: {fileID: 0}
   separationWeight: 0.6
   arriveWeight: 1
+  isStunned: 0
+  isPoision: 0
   chuggerPushed: 0
 --- !u!50 &9115612116787840760
 Rigidbody2D:
@@ -119,7 +124,7 @@ MonoBehaviour:
   groundFollowDistance: 0.1
   groundCheckMask:
     serializedVersion: 2
-    m_Bits: 4294967291
+    m_Bits: 7987
   slopeLimit: 80
 --- !u!114 &-4478741519103468153
 MonoBehaviour:

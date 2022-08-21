@@ -94,7 +94,7 @@ MonoBehaviour:
   groundFollowDistance: 0.1
   groundCheckMask:
     serializedVersion: 2
-    m_Bits: 4294967291
+    m_Bits: 7987
   slopeLimit: 80
 --- !u!114 &-4478741519103468153
 MonoBehaviour:
@@ -234,7 +234,6 @@ MonoBehaviour:
   health: 0
   maxHealth: 0
   projectile: {fileID: 0}
-  multipliers: []
   skeletonAnimation: {fileID: 0}
   stunTime: 0
   attackCooldownTime: 0
@@ -243,6 +242,7 @@ MonoBehaviour:
   separationWeight: 0
   arriveWeight: 0.5
   isStunned: 0
+  isPoision: 0
   chuggerPushed: 0
 --- !u!114 &-3110750534595453275
 MonoBehaviour:

@@ -42,7 +42,7 @@ public class Enemy : LivingEntity
         separation = GetComponent<Separation>();
     }
 
-    private void Update()
+    public virtual void Update()
     {
         closestChampion = GetClosestTargetInList(playerChampions.champions);
         if (closestChampion != null && !isStunned)
