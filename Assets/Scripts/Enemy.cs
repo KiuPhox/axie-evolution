@@ -127,7 +127,7 @@ public class Enemy : LivingEntity
             {
                 nextAttackTime = Time.time + attackCooldownTime;
                 targetEntity = collision.gameObject.GetComponent<LivingEntity>();
-                targetEntity.TakeDamage(championData.damage, GetComponent<LivingEntity>());
+                targetEntity.TakeDamage(damage, GetComponent<LivingEntity>());
                 StartCoroutine(AttackIE());
             }
         }

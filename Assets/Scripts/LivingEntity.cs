@@ -56,7 +56,10 @@ public class LivingEntity : MonoBehaviour, IDamageable
         transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(-1f, 0f));
         healClip = Resources.Load<AudioClip>("Audio/Heal");
         unitsUI = GameObject.Find("Units Holder").GetComponent<UnitsUI>();
-        SetCharacteristics();
+        if (gameObject.CompareTag("Champion"))
+        {
+            SetCharacteristics();
+        }
     }
 
     public void SetCharacteristics()
@@ -82,9 +85,9 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public void SetCharacteristicsForEnemy()
     {
-        maxHealth = championData.health * currentLevel;
+        maxHealth = championData.health + 12 * (GameManager.Instance.currentLevel - 1);
         health = maxHealth;
-        damage = championData.damage * currentLevel;
+        damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1);
         defense = championData.defense;
         projectile = championData.projectile;
         cooldownTime = championData.cooldownTime;

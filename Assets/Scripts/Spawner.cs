@@ -22,21 +22,29 @@ public class Spawner : MonoBehaviour
     int enemiesReaminingAlive;
 
     [HideInInspector] public bool isStarted = false;
-
-    ObjectPooler objectPooler;
+    bool bossKilled = false;
     void Start()
     {
-        seekerData.health = speedData.health = shooterData.health = exploderData.health = 20f;
-        seekerData.damage = speedData.damage = shooterData.damage = exploderData.damage = 8f;
+        //seekerData.health = speedData.health = shooterData.health = exploderData.health = 20f;
+        //seekerData.damage = speedData.damage = shooterData.damage = exploderData.damage = 8f;
         Utility.ShuffleArray(spawners);
-        objectPooler = GetComponent<ObjectPooler>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.State == GameState.GameStart && !isStarted)
+        if (bossKilled)
         {
+            if (enemiesReaminingAlive <= 0)
+            {
+                bossKilled = false;
+                GameManager.Instance.UpdateGameState(GameState.ChooseCard);
+                currentWaveNumber = 0;
+            }
+        }
+        else if (GameManager.Instance.State == GameState.GameStart && !isStarted)
+        {
+            bossKilled = false;
             isStarted = true;
             NextWave();
         }
@@ -58,6 +66,12 @@ public class Spawner : MonoBehaviour
 
             currentWaveNumber++;
             waveCount.text = "Wave: " + currentWaveNumber + "/" + maxWaves;
+
+            if (currentLevel % 5 == 0)
+            {
+                StartCoroutine(SpawnBoss(spawners[0], 0f));
+            }
+
             if (currentWaveNumber - 1 < maxWaves)
             {
                 Utility.ShuffleArray(spawners);
@@ -65,7 +79,7 @@ public class Spawner : MonoBehaviour
                 string[] spawnTypes = { "4", "4+4", "4+4+4", "2x4", "3x4", "4x2"};
                 string spawnType = spawnTypes[Utility.WeightPick(new float[] { 20, 20, 10, 15, 10, 15 })];
 
-                enemiesReaminingAlive =  8 + Mathf.FloorToInt((float)GameManager.Instance.currentLevel / 2f);
+                enemiesReaminingAlive =  8 + Mathf.FloorToInt((float)currentLevel / 2f);
                 int[] distributedEnemies;
 
                 switch (spawnType)
@@ -114,8 +128,6 @@ public class Spawner : MonoBehaviour
             else
             {
                 GameManager.Instance.UpdateGameState(GameState.ChooseCard);
-                seekerData.health = speedData.health = shooterData.health = exploderData.health = 20 + 12 * (GameManager.Instance.currentLevel - 1);
-                seekerData.damage = speedData.damage = shooterData.damage = exploderData.damage =  8 + 4 * (GameManager.Instance.currentLevel - 1);
                 currentWaveNumber = 0;
             }
         }
@@ -131,6 +143,36 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    private void OnBossDeath()
+    {
+        bossKilled = true;
+        Debug.Log("Yes");
+    }
+
+    IEnumerator SpawnBoss(GameObject spawner, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        // Instantiate Spawn Cross
+        GameObject i_cross = Instantiate(crossSpawn, spawner.transform);
+        Color spawnCrossColor = i_cross.GetComponent<SpriteRenderer>().color;
+        spawnCrossColor.a = 0f;
+        i_cross.GetComponent<SpriteRenderer>().color = spawnCrossColor;
+
+        i_cross.GetComponent<SpriteRenderer>().DOFade(1f, 0.2f).SetLoops(8, LoopType.Yoyo).SetDelay(0.5f).OnComplete(() =>
+        {
+            Destroy(i_cross);
+
+            
+            GameObject i_boss = ObjectPooler.Instance.GetPooledObject("b_seeker");
+
+            i_boss.SetActive(true);
+            i_boss.GetComponent<LivingEntity>().SetCharacteristicsForEnemy();
+            i_boss.transform.SetParent(spawner.transform);
+            i_boss.transform.position = spawner.transform.position;
+            i_boss.GetComponent<Enemy>().ResetAllEffect();
+            i_boss.GetComponent<Enemy>().OnDeath += OnBossDeath;
+        });
+    }
     IEnumerator SpawnEnemies(GameObject spawner, int enemiesToSpawn, float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
@@ -165,14 +207,12 @@ public class Spawner : MonoBehaviour
                 Vector3 offsetSpawn = new Vector3(x, y, 0);
 
                 i_enemy.SetActive(true);
-                i_enemy.GetComponent<Enemy>().SetCharacteristicsForEnemy();
+                i_enemy.GetComponent<LivingEntity>().SetCharacteristicsForEnemy();
                 i_enemy.transform.SetParent(spawner.transform);
                 i_enemy.transform.position = spawner.transform.position;
                 i_enemy.transform.DOLocalMove(offsetSpawn, 0.2f);
                 i_enemy.GetComponent<Enemy>().ResetAllEffect();
                 i_enemy.GetComponent<Enemy>().OnDeath += OnEnemyDeath;
-
-                
             }
         });
     }

@@ -6,12 +6,15 @@ public class Shooter : Enemy
 {
     private void Update()
     {
-        closestChampion = GetClosestTargetInList(playerChampions.champions);
-        FlipBaseOnTargetPos(closestChampion.transform.position);
-        if (Time.time > nextAttackTime && !isStunned)
+        if (GameManager.Instance.State == GameState.GameStart)
         {
-            nextAttackTime = Time.time + attackCooldownTime;
-            StartCoroutine(ShootIE(0f));
+            closestChampion = GetClosestTargetInList(playerChampions.champions);
+            FlipBaseOnTargetPos(closestChampion.transform.position);
+            if (Time.time > nextAttackTime && !isStunned)
+            {
+                nextAttackTime = Time.time + attackCooldownTime;
+                StartCoroutine(ShootIE(0f));
+            }
         }
     }
 
