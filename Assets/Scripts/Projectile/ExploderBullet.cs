@@ -8,11 +8,14 @@ public class ExploderBullet : MonoBehaviour
     public ChampionData championData;
     public float speed;
     public float moveTime;
+
+    float damage;
     private void Start()
     {
-        transform.DOScaleX(0.25f, 0.1f).SetEase(Ease.Linear).SetLoops(20, LoopType.Yoyo);
+        transform.DOScaleX(0.25f, 0.1f).SetEase(Ease.Linear).SetLoops(4, LoopType.Yoyo);
         moveTime += Time.time;
         Destroy(gameObject, 4f);
+        damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1);
     }
 
     private void Update()
@@ -27,7 +30,7 @@ public class ExploderBullet : MonoBehaviour
     {
         if (collision.CompareTag("Champion"))
         {
-            collision.GetComponent<LivingEntity>().TakeDamage(championData.damage, null);
+            collision.GetComponent<LivingEntity>().TakeDamage(damage, null);
             Destroy(gameObject);
         }
     }

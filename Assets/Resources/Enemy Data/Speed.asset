@@ -13,16 +13,18 @@ MonoBehaviour:
   m_Name: Speed
   m_EditorClassIdentifier: 
   name: Speed
-  axieID: 2582937
-  genes: 0x1800000000000100603000b0c204000000010014106083020001000c206083020001000c1861430a0001000c1060810c0001000c306183040001000c20610204
   description: 
-  health: 85
-  damage: 20
+  sprite: {fileID: 0}
+  health: 20
+  damage: 8
   defense: 0
   range: 10
   cooldownTime: 1
   tier: 0
-  cardColor: {fileID: 0}
+  axieID: 2582937
+  genes: 0x1800000000000100603000b0c204000000010014106083020001000c206083020001000c1861430a0001000c1060810c0001000c306183040001000c20610204
   projectile: {fileID: 0}
+  cardColor: {fileID: 0}
   weight: 0
   attackAnimation: attack/melee/multi-attack
+  classes: 

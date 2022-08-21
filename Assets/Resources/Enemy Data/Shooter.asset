@@ -13,17 +13,19 @@ MonoBehaviour:
   m_Name: Shooter
   m_EditorClassIdentifier: 
   name: Shooter
-  axieID: 71412
-  genes: 0x800000000000010001c1008002000000000100001000820400010014082040020001001008804006000100000840440800010010088082080001000410018302
   description: 
-  health: 220
-  damage: 47
+  sprite: {fileID: 0}
+  health: 20
+  damage: 8
   defense: 0
   range: 10
   cooldownTime: 6
   tier: 0
-  cardColor: {fileID: 0}
+  axieID: 71412
+  genes: 0x800000000000010001c1008002000000000100001000820400010014082040020001001008804006000100000840440800010010088082080001000410018302
   projectile: {fileID: 897866155811430675, guid: 0da3ed2da5d06d543b4e8a0b9bdefac2,
     type: 3}
+  cardColor: {fileID: 0}
   weight: 0
   attackAnimation: attack/ranged/cast-high
+  classes: 
