@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Gider
   m_EditorClassIdentifier: 
   name: Gider
-  description: "Launches bullet that explodes dealing 30 damage \nLvl 3: Stun enemy
-    for 2 second"
+  description: "Launches bullet that explodes dealing <color=#FAE75A>30</color> damage
+    \nLvl 3: Stun enemy for <color=#FAE75A>2</color> second"
   sprite: {fileID: 21300000, guid: 15298172db925f845bf3fdfc3f3c409c, type: 3}
   health: 100
   damage: 30
