@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Gider
   m_EditorClassIdentifier: 
   name: Gider
-  description: "launches molten gold that explodes dealing 30 damage \nLvl 3: Stun
-    enemy"
+  description: "Launches bullet that explodes dealing 30 damage \nLvl 3: Stun enemy
+    for 2 second"
   sprite: {fileID: 21300000, guid: 15298172db925f845bf3fdfc3f3c409c, type: 3}
   health: 100
-  damage: 16
+  damage: 30
   defense: 35
-  range: 8
+  range: 7.5
   cooldownTime: 3
   tier: 2
   axieID: 11378002
@@ -27,6 +27,6 @@ MonoBehaviour:
   projectile: {fileID: 3562282879768038691, guid: 7f5327d40bd1c994a8d574294d643a36,
     type: 3}
   cardColor: {fileID: 11400000, guid: 8305200c689e60e4c9b363deb4d0ce57, type: 2}
-  weight: 305
+  weight: 300
   attackAnimation: activity/eat-chew
   classes: 0200000005000000
