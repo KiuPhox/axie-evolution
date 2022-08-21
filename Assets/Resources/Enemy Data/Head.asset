@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
+  m_Name: Head
+  m_EditorClassIdentifier: 
+  name: Head
+  description: 
+  sprite: {fileID: 0}
+  health: 20
+  damage: 8
+  defense: 0
+  range: 10
+  cooldownTime: 1
+  tier: 0
+  axieID: 247
+  genes: 0x3000141a0d0c00c00000001000c102081020001000408a0800400010004188040020001000018408202000100001000c4040001000c10604406
+  projectile: {fileID: 0}
+  cardColor: {fileID: 0}
+  weight: 0
+  attackAnimation: attack/melee/multi-attack
+  classes: 

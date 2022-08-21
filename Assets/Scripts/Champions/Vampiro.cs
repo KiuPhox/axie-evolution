@@ -25,7 +25,6 @@ public class Vampiro : Champion
             GameObject bloodline = ObjectPooler.Instance.GetPooledObjectIndex("bloodline", i);
             if (enemyPool[i].activeSelf)
             {
-                
                 if (Vector2.Distance(enemyPool[i].transform.position, transform.position) <= championData.range)
                 {
                     if (enemyPool[i].activeSelf)
@@ -48,7 +47,7 @@ public class Vampiro : Champion
         }
 
 
-            if (Time.time >= nextAttackTime)
+        if (Time.time >= nextAttackTime)
         {
             foreach (GameObject enemy in enemies)
             {

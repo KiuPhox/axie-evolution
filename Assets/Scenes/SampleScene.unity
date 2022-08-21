@@ -11830,7 +11830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89e302db47ebe4fbbca22807d2c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 4
+  currentLevel: 7
   playerChampions: {fileID: 993331035}
   generateChampionCard: {fileID: 995336675}
   spawner: {fileID: 510916121}
@@ -16529,14 +16529,18 @@ MonoBehaviour:
     prefab: {fileID: 9115612116787840764, guid: df8b38efe6ccd6548bd3714ef175058a,
       type: 3}
     size: 10
-  - tag: bloodline
-    prefab: {fileID: 2752637321356853906, guid: be410c456cca5d546be6968f6b2fcc38,
-      type: 3}
-    size: 50
   - tag: b_seeker
     prefab: {fileID: 9115612116787840764, guid: d930a20d7938d0541a6b8b23bb85c39e,
       type: 3}
     size: 1
+  - tag: head
+    prefab: {fileID: 9115612116787840764, guid: 7f8f647ef4aaf994097c4f8f8786188d,
+      type: 3}
+    size: 10
+  - tag: bloodline
+    prefab: {fileID: 2752637321356853906, guid: be410c456cca5d546be6968f6b2fcc38,
+      type: 3}
+    size: 61
 --- !u!1 &2114047960
 GameObject:
   m_ObjectHideFlags: 0
