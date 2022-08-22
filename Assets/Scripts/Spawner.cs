@@ -25,8 +25,6 @@ public class Spawner : MonoBehaviour
     bool bossKilled = false;
     void Start()
     {
-        //seekerData.health = speedData.health = shooterData.health = exploderData.health = 20f;
-        //seekerData.damage = speedData.damage = shooterData.damage = exploderData.damage = 8f;
         Utility.ShuffleArray(spawners);
     }
 

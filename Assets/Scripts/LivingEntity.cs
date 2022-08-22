@@ -82,7 +82,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public void SetCharacteristicsForEnemy()
     {
-        maxHealth = championData.health + 12 * (GameManager.Instance.currentLevel - 1);
+        maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1);
         health = maxHealth;
         damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1);
         defense = championData.defense;
@@ -92,7 +92,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public void SetCharacteristicsForBoss()
     {
-        maxHealth = championData.health + 12 * (GameManager.Instance.currentLevel - 1) * 2;
+        maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1) * 2;
         health = maxHealth;
         damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1) * 2;
         defense = championData.defense;
