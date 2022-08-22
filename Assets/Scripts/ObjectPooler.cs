@@ -59,8 +59,10 @@ public class ObjectPooler : MonoBehaviour
     public List<GameObject> GetEnemyPool()
     {
         return poolDictionary["seeker"].Concat(poolDictionary["shooter"]).ToList().Concat(poolDictionary["exploder"])
-            .ToList().Concat(poolDictionary["speed"]).ToList().Concat(poolDictionary["head"])
-            .ToList().Concat(poolDictionary["b_seeker"]).ToList();
+            .ToList().Concat(poolDictionary["speed"]).ToList().Concat(poolDictionary["header"])
+            .ToList().Concat(poolDictionary["b_seeker"]).ToList().Concat(poolDictionary["b_shooter"]).ToList()
+            .Concat(poolDictionary["b_exploder"]).ToList().Concat(poolDictionary["b_speed"]).ToList()
+            .Concat(poolDictionary["b_header"]).ToList();
     }
 
     public GameObject GetPooledObjectIndex(string tag, int index)
