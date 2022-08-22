@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9115612116787840766}
-  - component: {fileID: 7331186197344803405}
   - component: {fileID: 9115612116787840760}
   - component: {fileID: 2779699213717962062}
   - component: {fileID: -1280694848388994295}
@@ -19,8 +18,9 @@ GameObject:
   - component: {fileID: -6112849182629986425}
   - component: {fileID: -6102390588975908851}
   - component: {fileID: 7988873573365912775}
+  - component: {fileID: -5438181640997598876}
   m_Layer: 10
-  m_Name: b_Seeker
+  m_Name: Header
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,41 +35,11 @@ Transform:
   m_GameObject: {fileID: 9115612116787840764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7331186197344803405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115612116787840764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d3f88fe1e2664a478d0748f29d0b267, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerChampions: {fileID: 0}
-  damagePopupHolder: {fileID: 0}
-  championData: {fileID: 11400000, guid: 1e3ebc4da49b49247ac99cc1d3986174, type: 2}
-  immortalTime: 0
-  currentLevel: 0
-  health: 0
-  maxHealth: 0
-  projectile: {fileID: 0}
-  skeletonAnimation: {fileID: 0}
-  stunTime: 0
-  attackCooldownTime: 0
-  nextAttackTime: 0
-  closestChampion: {fileID: 0}
-  separationWeight: 0.6
-  arriveWeight: 1
-  isStunned: 0
-  isPoision: 0
-  chuggerPushed: 0
 --- !u!50 &9115612116787840760
 Rigidbody2D:
   serializedVersion: 4
@@ -259,3 +229,35 @@ MonoBehaviour:
   _animationName: 
   loop: 0
   timeScale: 1
+--- !u!114 &-5438181640997598876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115612116787840764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea8fb6a6d06d644097f926a78c0a44b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerChampions: {fileID: 0}
+  damagePopupHolder: {fileID: 0}
+  championData: {fileID: 11400000, guid: 5750423c894dd334aa275c6abd2ea373, type: 2}
+  immortalTime: 1
+  currentLevel: 0
+  health: 0
+  maxHealth: 0
+  projectile: {fileID: 0}
+  skeletonAnimation: {fileID: 0}
+  stunTime: 0
+  attackCooldownTime: 0
+  nextAttackTime: 0
+  closestChampion: {fileID: 0}
+  separationWeight: 0.6
+  arriveWeight: 10
+  isStunned: 0
+  isPoision: 0
+  chuggerPushed: 0
+  dashTime: 6
+  chargeTime: 1

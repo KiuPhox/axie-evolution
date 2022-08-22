@@ -11830,7 +11830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89e302db47ebe4fbbca22807d2c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 5
+  currentLevel: 10
   playerChampions: {fileID: 993331035}
   generateChampionCard: {fileID: 995336675}
   spawner: {fileID: 510916121}
@@ -16529,18 +16529,34 @@ MonoBehaviour:
     prefab: {fileID: 9115612116787840764, guid: df8b38efe6ccd6548bd3714ef175058a,
       type: 3}
     size: 10
-  - tag: b_seeker
-    prefab: {fileID: 9115612116787840764, guid: d930a20d7938d0541a6b8b23bb85c39e,
-      type: 3}
-    size: 1
-  - tag: head
+  - tag: header
     prefab: {fileID: 9115612116787840764, guid: 7f8f647ef4aaf994097c4f8f8786188d,
       type: 3}
     size: 10
   - tag: bloodline
     prefab: {fileID: 2752637321356853906, guid: be410c456cca5d546be6968f6b2fcc38,
       type: 3}
-    size: 61
+    size: 65
+  - tag: b_seeker
+    prefab: {fileID: 9115612116787840764, guid: d930a20d7938d0541a6b8b23bb85c39e,
+      type: 3}
+    size: 1
+  - tag: b_exploder
+    prefab: {fileID: 9115612116787840764, guid: 2a742f8aa741ae043b33e0ff2f9dba37,
+      type: 3}
+    size: 1
+  - tag: b_header
+    prefab: {fileID: 9115612116787840764, guid: a007c247e9bed1141a57df9138e7f6a9,
+      type: 3}
+    size: 1
+  - tag: b_shooter
+    prefab: {fileID: 9115612116787840764, guid: 1bedef1019f41574baa789586c7d5196,
+      type: 3}
+    size: 1
+  - tag: b_speed
+    prefab: {fileID: 9115612116787840764, guid: 057b3a363fbdf5645b329ac2e6309cb5,
+      type: 3}
+    size: 1
 --- !u!1 &2114047960
 GameObject:
   m_ObjectHideFlags: 0

@@ -93,6 +93,16 @@ public class LivingEntity : MonoBehaviour, IDamageable
         cooldownTime = championData.cooldownTime;
     }
 
+    public void SetCharacteristicsForBoss()
+    {
+        maxHealth = championData.health + 12 * (GameManager.Instance.currentLevel - 1) * 2;
+        health = maxHealth;
+        damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1) * 2;
+        defense = championData.defense;
+        projectile = championData.projectile;
+        cooldownTime = championData.cooldownTime * 0.9f;
+    }
+
 
     public virtual void TakeDamage(float damage, LivingEntity damagingEntity)
     {

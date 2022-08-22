@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: -6102390588975908851}
   - component: {fileID: 7988873573365912775}
   m_Layer: 10
-  m_Name: b_Seeker
+  m_Name: b_Exploder
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerChampions: {fileID: 0}
   damagePopupHolder: {fileID: 0}
-  championData: {fileID: 11400000, guid: 1e3ebc4da49b49247ac99cc1d3986174, type: 2}
+  championData: {fileID: 11400000, guid: ad674cd21c9f35d46b89cf1786ec71c8, type: 2}
   immortalTime: 0
   currentLevel: 0
   health: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   groundFollowDistance: 0.1
   groundCheckMask:
     serializedVersion: 2
-    m_Bits: 7987
+    m_Bits: 4294967291
   slopeLimit: 80
 --- !u!114 &-4478741519103468153
 MonoBehaviour:

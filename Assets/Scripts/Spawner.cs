@@ -162,11 +162,30 @@ public class Spawner : MonoBehaviour
         {
             Destroy(i_cross);
 
+            string bossTag = "";
+
+            switch (GameManager.Instance.currentLevel){
+                case 5:
+                    bossTag = "b_seeker";
+                    break;
+                case 10:
+                    bossTag = "b_speed";
+                    break;
+                case 15:
+                    bossTag = "b_shooter";
+                    break;
+                case 20:
+                    bossTag = "b_exploder";
+                    break;
+                case 25:
+                    bossTag = "b_header";
+                    break;
+            }
             
-            GameObject i_boss = ObjectPooler.Instance.GetPooledObject("b_seeker");
+            GameObject i_boss = ObjectPooler.Instance.GetPooledObject(bossTag);
 
             i_boss.SetActive(true);
-            i_boss.GetComponent<LivingEntity>().SetCharacteristicsForEnemy();
+            i_boss.GetComponent<LivingEntity>().SetCharacteristicsForBoss();
             i_boss.transform.SetParent(spawner.transform);
             i_boss.transform.position = spawner.transform.position;
             i_boss.GetComponent<Enemy>().ResetAllEffect();
