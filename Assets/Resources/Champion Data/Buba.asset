@@ -16,16 +16,16 @@ MonoBehaviour:
   description: "Smash ground deals <color=#FAE75A>15</color> damage, gets extra <color=#FAE75A>2</color>
     damage per enemy hit. \nLv.3: Double damage"
   sprite: {fileID: 21300000, guid: 70703bfaef0d0a04b99f2087823902f3, type: 3}
-  axieID: 2754146
-  genes: 0x1000081207104080000000100140801400a0001000c108040020001000008008002000100141020800400010000286103020001000030014004
   health: 140
   damage: 15
   defense: 35
   range: 3.5
   cooldownTime: 3.3
   tier: 2
+  axieID: 2754146
+  genes: 0x1000081207104080000000100140801400a0001000c108040020001000008008002000100141020800400010000286103020001000030014004
   projectile: {fileID: 1462327970484030, guid: f01c1eba69de19e44b04d8d651aaac37, type: 3}
   cardColor: {fileID: 11400000, guid: d1d64e9ddcff3b042a6c3c28cd139850, type: 2}
-  weight: 200
+  weight: 175
   attackAnimation: attack/melee/tail-smash
-  classes: 
+  classes: 0000000001000000
