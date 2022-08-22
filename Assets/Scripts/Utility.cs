@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class Utility
@@ -65,6 +66,11 @@ public static class Utility
         }
         
         return -1;
+    }
+
+    public static T RandomPick<T>(List<T> list)
+    {
+        return list[Random.Range(0, list.Count)];
     }
 
     public static int[] DistributedSum(int sum, int n)

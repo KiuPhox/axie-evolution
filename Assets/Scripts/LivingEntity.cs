@@ -30,8 +30,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
     TMP_Text damagePopup;
 
     [HideInInspector] public SkeletonAnimation skeletonAnimation;
-    
-    private AudioClip healClip;
 
     float nextImmortalTime;
 
@@ -54,7 +52,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
         damagePopup = Resources.Load("Prefabs/Damage Popup", typeof(TMP_Text)) as TMP_Text;
         damagePopupHolder = GameObject.Find("Text Holder");
         transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(-1f, 0f));
-        healClip = Resources.Load<AudioClip>("Audio/Heal");
         unitsUI = GameObject.Find("Units Holder").GetComponent<UnitsUI>();
         if (gameObject.CompareTag("Champion"))
         {
@@ -220,6 +217,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             Instantiate(championData.projectile, transform.position, Quaternion.identity);
         }
+        SoundManager.Instance.PlayDeathSound();
         gameObject.SetActive(false);
     }
 

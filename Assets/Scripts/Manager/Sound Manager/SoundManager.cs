@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
     public VolumeSlider volumeSlider;
+    public List<AudioClip> deathClips = new List<AudioClip>();
 
     [SerializeField] private AudioSource effectsSource;
     [SerializeField] private AudioSource healEffectSource;
@@ -30,11 +31,19 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound (AudioClip clip)
     {
+        effectsSource.pitch = Random.Range(0.95f, 1.05f);
         effectsSource.PlayOneShot(clip);
+    }
+
+    public void PlayDeathSound()
+    {
+        effectsSource.pitch = Random.Range(0.9f, 1.1f);
+        effectsSource.PlayOneShot(Utility.RandomPick(deathClips));
     }
 
     public void PlayHealSound()
     {
+        effectsSource.pitch = Random.Range(0.95f, 1.05f);
         healEffectSource.Play();
     }
 

@@ -38,7 +38,7 @@ public class Head : Enemy
         yield return new WaitForSeconds(0.2f);
         SB.maxVelocity = 50;
         damage *= 1.2f;
-        DOTween.To(() => SB.maxVelocity, x => SB.maxVelocity = x, 3, 0.5f).SetDelay(0.5f).OnComplete(() =>
+        DOTween.To(() => SB.maxVelocity, x => SB.maxVelocity = x, 2, 0.5f).SetDelay(0.5f).OnComplete(() =>
         {
             damage /= 1.2f;
         });

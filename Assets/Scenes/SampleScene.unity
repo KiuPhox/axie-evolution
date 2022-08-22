@@ -15770,6 +15770,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 1762980727}
+  deathClips:
+  - {fileID: 8300000, guid: b0db430d0c4157b419977d0339aedaf9, type: 3}
+  - {fileID: 8300000, guid: 371d6af29543d0445949690a40535c94, type: 3}
   effectsSource: {fileID: 262392542}
   healEffectSource: {fileID: 898976201}
 --- !u!4 &1988675162
