@@ -35,7 +35,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public event System.Action OnDeath;
 
-    public void Awake()
+    public virtual void Awake()
     {
         if (skeletonAnimation == null)
         {
@@ -61,21 +61,23 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public void SetCharacteristics()
     {
-        maxHealth = championData.health * currentLevel;
+        maxHealth = championData.health * currentLevel * playerChampions.plantHealth_m;
         health = maxHealth;
         damage = championData.damage * currentLevel * playerChampions.squirl_m[0];
-        defense = championData.defense * playerChampions.squirl_m[1];
+        defense = championData.defense * playerChampions.squirl_m[1] * playerChampions.beastDfs_m;
         projectile = championData.projectile;
         cooldownTime = championData.cooldownTime * playerChampions.squirl_m[2];
 
         foreach (Class @class in championData.classes)
         {
-            foreach(var playerClass in playerChampions.playerClasses)
+            switch (@class)
             {
-                if (playerClass._class == @class && playerClass.isActive)
-                {
-                    // Buff Specific Class
-                }
+                case Class.Bird:
+                    cooldownTime *= playerChampions.birdCooldown_m;
+                    break;
+                case Class.Bug:
+                    damage *= playerChampions.bugDmg_m;
+                    break;
             }
         }
     }

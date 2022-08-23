@@ -8154,6 +8154,10 @@ MonoBehaviour:
   - 1
   - 1
   - 1
+  beastDfs_m: 0
+  aquaticSlow_m: 0
+  birdCooldown_m: 0
+  plantHealth_m: 0
 --- !u!1 &995336670
 GameObject:
   m_ObjectHideFlags: 0
@@ -11830,7 +11834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89e302db47ebe4fbbca22807d2c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 5
+  currentLevel: 10
   playerChampions: {fileID: 993331035}
   generateChampionCard: {fileID: 995336675}
   spawner: {fileID: 510916121}

@@ -15,9 +15,12 @@ public class PlayerChampions : MonoBehaviour
     public List<PlayerClass> playerClasses = new List<PlayerClass>();
     
     // Multipliers
-    [HideInInspector]
-    public float[] squirl_m;
-
+    [HideInInspector] public float[] squirl_m;
+    [HideInInspector] public float beastDfs_m;
+    [HideInInspector] public float aquaticSlow_m;
+    [HideInInspector] public float birdCooldown_m;
+    [HideInInspector] public float plantHealth_m;
+    [HideInInspector] public float bugDmg_m;
     public void AddChampion(GameObject choosedChampion)
     {
         GameObject insChampion;
@@ -30,6 +33,12 @@ public class PlayerChampions : MonoBehaviour
     private void SetMutiplierValues()
     {
         squirl_m = new float[] { 1, 1, 1 };
+        beastDfs_m = 1;
+        aquaticSlow_m = 1;
+        birdCooldown_m = 1;
+        plantHealth_m = 1;
+        bugDmg_m = 1;
+
         foreach (PlayerClass playerClass in playerClasses)
         {
             playerClass.value = 0;
@@ -48,9 +57,28 @@ public class PlayerChampions : MonoBehaviour
                     {
                         playerClass.value++;
                     }
-                    if (playerClass.value >= 2)
+
+                    if (playerClass.value >= 3)
                     {
                         playerClass.isActive = true;
+                        switch (playerClass._class)
+                        {
+                            case Class.Beast:
+                                beastDfs_m = 1.3f;
+                                break;
+                            case Class.Bird:
+                                birdCooldown_m = 0.7f;
+                                break;
+                            case Class.Aquatic:
+                                aquaticSlow_m = 0.7f;
+                                break;
+                            case Class.Plant:
+                                plantHealth_m = 1.25f;
+                                break;
+                            case Class.Bug:
+                                bugDmg_m = 1.25f;
+                                break;
+                        }
                     }
                 }
             }

@@ -31,13 +31,20 @@ public class Enemy : LivingEntity
 
     [HideInInspector] public bool chuggerPushed = false;
     float chuggerTime = 2f;
+    float originalVelocity;
+    public override void Awake()
+    {
+        base.Awake();
+        steeringBasics = GetComponent<SteeringBasics>();
+        originalVelocity = steeringBasics.maxVelocity;
+    }
+
 
     public override void Start()
     {
         base.Start();
-
         attackCooldownTime = cooldownTime;
-        steeringBasics = GetComponent<SteeringBasics>();
+        originalVelocity = steeringBasics.maxVelocity;
         wander = GetComponent<Wander1>();
         separation = GetComponent<Separation>();
     }
@@ -107,6 +114,7 @@ public class Enemy : LivingEntity
         stunTime = 0;
         chuggerPushed = false;
         skeletonAnimation.state.SetAnimation(0, "draft/run-origin", true);
+        GetComponent<SteeringBasics>().maxVelocity = originalVelocity * playerChampions.aquaticSlow_m;
     }
 
     public void SetEffectSpeed(float effectSpeed)

@@ -45,6 +45,6 @@ public class ClassesUI : MonoBehaviour
         // Load Class Image
         images[1].sprite = Resources.Load<Sprite>("Sprites/" + playerClass._class.ToString().ToLower());
         // Load Class Value
-        class_text.text = playerClass.value + "/2";
+        class_text.text = playerClass.value + "/3";
     }
 }
