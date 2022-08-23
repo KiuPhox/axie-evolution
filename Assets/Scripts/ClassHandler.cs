@@ -4,12 +4,12 @@ using UnityEngine;
 using TMPro;
 public class ClassHandler : MonoBehaviour
 {
-    string beast = "Increase 30% defense for all axies";
-    string aquatic = "Slow enemies for 30%";
-    string bug = "Increase 30% damage for Bug class axie";
-    string bird = "Descrease 30% attack speed for Bird class axie";
-    string plant = "Increase 25% max health for all axies";
-    string reptile = "Ignore enemies sheild";
+    string beast = "<color=#FAE75A>Beast Effect:</color> Increase 30% defense for all axies";
+    string aquatic = "<color=#FAE75A>Aquatic Effect:</color> Slow enemies for 30%";
+    string bug = "<color=#FAE75A>Bug Effect:</color> Increase 30% damage for Bug class axie";
+    string bird = "<color=#FAE75A>Bird Effect:</color> Descrease 30% attack speed for Bird class axie";
+    string plant = "<color=#FAE75A>Plant Effect:</color> Increase 25% max health for all axies";
+    string reptile = "<color=#FAE75A>Reptile Effect:</color> Ignore enemies sheild";
 
     public GameObject classDescriptionUI;
     public TMP_Text descriptionText;
