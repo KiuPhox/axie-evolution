@@ -21,6 +21,7 @@ public class PlayerChampions : MonoBehaviour
     [HideInInspector] public float birdCooldown_m;
     [HideInInspector] public float plantHealth_m;
     [HideInInspector] public float bugDmg_m;
+
     public void AddChampion(GameObject choosedChampion)
     {
         GameObject insChampion;
