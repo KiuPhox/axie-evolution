@@ -87,9 +87,14 @@ public class LivingEntity : MonoBehaviour, IDamageable
         maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1);
         health = maxHealth;
         damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1);
-        defense = championData.defense;
+        defense = championData.defense + 1.6f * (GameManager.Instance.currentLevel - 1);
         projectile = championData.projectile;
         cooldownTime = championData.cooldownTime;
+
+        if (playerChampions.reptileIgnoreShield)
+        {
+            defense = 0;
+        }
     }
 
     public void SetCharacteristicsForBoss()
@@ -97,9 +102,14 @@ public class LivingEntity : MonoBehaviour, IDamageable
         maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1) * 2;
         health = maxHealth;
         damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1) * 2;
-        defense = championData.defense;
+        defense = championData.defense + 1.6f * (GameManager.Instance.currentLevel - 1) * 2;
         projectile = championData.projectile;
         cooldownTime = championData.cooldownTime * 0.9f;
+
+        if (playerChampions.reptileIgnoreShield)
+        {
+            defense = 0;
+        }
     }
 
 
@@ -110,6 +120,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
             nextImmortalTime = Time.time + immortalTime;
 
             float incomeDamage = damage * (100 / (100 + defense));
+
             health -= incomeDamage;
 
             // Health Bar

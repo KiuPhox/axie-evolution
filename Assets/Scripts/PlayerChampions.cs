@@ -21,6 +21,7 @@ public class PlayerChampions : MonoBehaviour
     [HideInInspector] public float birdCooldown_m;
     [HideInInspector] public float plantHealth_m;
     [HideInInspector] public float bugDmg_m;
+    [HideInInspector] public bool reptileIgnoreShield;
 
     public void AddChampion(GameObject choosedChampion)
     {
@@ -39,6 +40,7 @@ public class PlayerChampions : MonoBehaviour
         birdCooldown_m = 1;
         plantHealth_m = 1;
         bugDmg_m = 1;
+        reptileIgnoreShield = false;
 
         foreach (PlayerClass playerClass in playerClasses)
         {
@@ -78,6 +80,9 @@ public class PlayerChampions : MonoBehaviour
                                 break;
                             case Class.Bug:
                                 bugDmg_m = 1.25f;
+                                break;
+                            case Class.Reptile:
+                                reptileIgnoreShield = true;
                                 break;
                         }
                     }

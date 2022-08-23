@@ -7,6 +7,7 @@ public class ClassesUI : MonoBehaviour
 {
     public PlayerChampions playerChampions;
     public GameObject[] units;
+
     void Start()
     {
         DisableAllClasses();
@@ -33,12 +34,12 @@ public class ClassesUI : MonoBehaviour
                 index++;
             }
         }
-        
     }
 
     public void LoadClassUnit(GameObject unit, PlayerChampions.PlayerClass playerClass)
     {
         unit.SetActive(true);
+        unit.name = playerClass._class.ToString();
         Image[] images = unit.GetComponentsInChildren<Image>();
         TMP_Text class_text = unit.GetComponentInChildren<TMP_Text>();
 

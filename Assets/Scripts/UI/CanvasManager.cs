@@ -40,7 +40,7 @@ public class CanvasManager : MonoBehaviour
             waveCountUI.SetActive(false);
             unitsHolderUI.SetActive(false);
             idleMenuUI.SetActive(false);
-            classesHolderUI.SetActive(false);
+            classesHolderUI.SetActive(true);
         }
         else if (GameManager.Instance.State == GameState.GameStart)
         {
@@ -49,7 +49,7 @@ public class CanvasManager : MonoBehaviour
             moneyBoxUI.SetActive(false);
             waveCountUI.SetActive(true);
             unitsHolderUI.SetActive(true);
-            classesHolderUI.SetActive(true);
+            classesHolderUI.SetActive(false);
         }
         else if (GameManager.Instance.State == GameState.GameOver || GameManager.Instance.State == GameState.GameVictory)
         {
