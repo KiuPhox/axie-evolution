@@ -22,6 +22,7 @@ public class CardHandler : MonoBehaviour
 
     Image[] images;
     [HideInInspector] public Vector2 originalScale;
+
     private void Start()
     {
         images = GetComponentsInChildren<Image>();
@@ -30,46 +31,65 @@ public class CardHandler : MonoBehaviour
 
     public void SelectChampion()
     {
-        GameObject choosedChampion = Resources.Load("Champion Prefabs/" + _name.text) as GameObject;
-
-        if (pc.GetChampionLevel(choosedChampion) == 3)
-            return;
-
-        if (moneyUI.startingMoney >= int.Parse(_tier.text))
+        if (GameManager.Instance.State == GameState.ChooseCard)
         {
-            // Fix max level 3
-            if (!pc.CheckExistedChampion(choosedChampion))
+            GameObject choosedChampion = Resources.Load("Champion Prefabs/" + _name.text) as GameObject;
+
+            if (pc.GetChampionLevel(choosedChampion) == 3)
+                return;
+
+            if (moneyUI.startingMoney >= int.Parse(_tier.text))
             {
-                if (pc.champions.Count < maxUnits)
+                // Fix max level 3
+                if (!pc.CheckExistedChampion(choosedChampion))
                 {
-                    pc.AddChampion(choosedChampion);
+                    if (pc.champions.Count < maxUnits)
+                    {
+                        pc.AddChampion(choosedChampion);
+                        moneyUI.startingMoney -= int.Parse(_tier.text);
+                        moneyUI.isChanged = true;
+                        gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
                     moneyUI.startingMoney -= int.Parse(_tier.text);
                     moneyUI.isChanged = true;
                     gameObject.SetActive(false);
                 }
             }
-            else
-            {
-                moneyUI.startingMoney -= int.Parse(_tier.text);
-                moneyUI.isChanged = true;
-                gameObject.SetActive(false);
-            }
+            unitsUI.SetChampionsToUnit();
+            classesUI.SetClassToUnit();
         }
-        unitsUI.SetChampionsToUnit();
-        classesUI.SetClassToUnit();
+        else
+        {
+            pc.playerItems.Add(_name.text);
+            foreach(var t in Level.Items)
+            {
+                if (t.name == _name.text)
+                {
+                    Level.Items.Remove(t);
+                    break;
+                }
+            }
+            GameManager.Instance.UpdateGameState(GameState.ChooseCard);
+        }
     }
 
-    public void SetCardData(ChampionData champion)
+    public void SetCardChampionData(ChampionData champion)
     {
         CardColorData cardColorData = champion.cardColor;
 
+        foreach (Image image in images)
+        {
+            image.gameObject.SetActive(true);
+        } 
+
         // Load Card Color Data
-        images[0].color = cardColorData.color; // Body's color
-        images[1].color = cardColorData.championBoxColor; // Champion Box's color
+        LoadCardColorData(cardColorData);
+
         images[2].sprite = champion.sprite; // Champion's image
         LoadChampionImage(images[2]);
-        images[3].color = cardColorData.nameBoxColor; // Name Box's color
-        images[4].color = cardColorData.descriptionBoxColor; // Description Box's color
 
         // Class Circle
         images[5].gameObject.SetActive(false);
@@ -89,6 +109,41 @@ public class CardHandler : MonoBehaviour
         _damage.text = champion.damage.ToString();
         _tier.text = champion.tier.ToString();
     }
+
+    public void SetCardItem(Level.Item item)
+    {
+        foreach (Image image in images)
+        {
+            image.gameObject.SetActive(true);
+        }
+
+        images[5].gameObject.SetActive(false);
+        images[7].gameObject.SetActive(false);
+        images[9].gameObject.SetActive(false);
+        images[10].gameObject.SetActive(false);
+
+        CardColorData cardColorData = Resources.Load<CardColorData>("Card Color Data/" + item.color);
+        LoadCardColorData(cardColorData);
+
+        // Load Item Data
+        _name.text = item.name;
+        _description.text = item.description;
+        _tier.text = (GameManager.Instance.currentLevel - 1).ToString();
+    }
+
+    private void LoadCardColorData(CardColorData cardColorData)
+    {
+        if (cardColorData != null)
+        {
+            images[0].color = cardColorData.color; // Body's color
+            images[1].color = cardColorData.championBoxColor; // Champion Box's color
+
+            images[3].color = cardColorData.nameBoxColor; // Name Box's color
+            images[4].color = cardColorData.descriptionBoxColor; // Description Box's color
+        }
+    }
+
+
 
     public void DoneSelected()
     {   

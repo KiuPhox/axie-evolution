@@ -8461,6 +8461,7 @@ MonoBehaviour:
   - _class: 8
     value: 0
     isActive: 0
+  playerItems: []
   squirl_m:
   - 1
   - 1
@@ -12266,7 +12267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89e302db47ebe4fbbca22807d2c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 10
+  currentLevel: 5
   playerChampions: {fileID: 993331035}
   generateChampionCard: {fileID: 995336675}
   spawner: {fileID: 510916121}

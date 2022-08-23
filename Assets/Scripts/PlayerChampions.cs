@@ -13,7 +13,9 @@ public class PlayerChampions : MonoBehaviour
 
     [TableList]
     public List<PlayerClass> playerClasses = new List<PlayerClass>();
-    
+
+    public List<string> playerItems = new List<string>();
+
     // Multipliers
     [HideInInspector] public float[] squirl_m;
     [HideInInspector] public float beastDfs_m;

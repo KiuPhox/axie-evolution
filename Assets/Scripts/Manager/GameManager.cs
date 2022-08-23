@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
     {
         DOTween.SetTweensCapacity(500, 150);
         UpdateGameState(GameState.Idle);
+        if (currentLevel != 1 && currentLevel % 5 == 1)
+        {
+            UpdateGameState(GameState.ChooseItem);
+        }
     }
 
     public void UpdateGameState(GameState newState)
@@ -55,6 +59,9 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.ChooseCard:
                 HandleChooseCard();
+                break;
+            case GameState.ChooseItem:
+                HandleChooseItem();
                 break;
             case GameState.GameVictory:
                 HandleGameVictory();
@@ -122,6 +129,21 @@ public class GameManager : MonoBehaviour
         playerChampions.ResetAllChampions();
         if (previousState != GameState.GamePause && generateChampionCard.isFisrtGenerated)
         {
+            if (previousState != GameState.ChooseItem)
+            {
+                currentLevel++;
+            }
+            generateChampionCard.EarnMoney();
+            generateChampionCard.GenerateCard();
+        }
+    }
+
+    private void HandleChooseItem()
+    {
+        Time.timeScale = 1f;
+        playerChampions.ResetAllChampions();
+        if (previousState != GameState.GamePause && generateChampionCard.isFisrtGenerated)
+        {
             currentLevel++;
             generateChampionCard.EarnMoney();
             generateChampionCard.GenerateCard();
@@ -134,6 +156,7 @@ public enum GameState
     Idle,   
     GameStart,
     ChooseCard,
+    ChooseItem,
     GamePause,
     GameOver,
     GameVictory

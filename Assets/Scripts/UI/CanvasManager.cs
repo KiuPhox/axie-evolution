@@ -22,7 +22,7 @@ public class CanvasManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.State == GameState.ChooseCard)
+        if (GameManager.Instance.State == GameState.ChooseCard || GameManager.Instance.State == GameState.ChooseItem)
         {
             chooseCardUI.SetActive(true);
             pauseMenuUI.SetActive(false);

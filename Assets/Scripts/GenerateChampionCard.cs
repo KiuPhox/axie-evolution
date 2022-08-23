@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using TMPro;
 using UnityEngine.UI;
+
 public class GenerateChampionCard : MonoBehaviour
 {
     [HideInInspector] public bool isFisrtGenerated;
@@ -27,7 +28,9 @@ public class GenerateChampionCard : MonoBehaviour
     public Sprite lockSprite;
     public Sprite unlockSprite;
     bool isLocked = false;
-    
+
+    List<Level.Item> itemsGenerated = new List<Level.Item>();
+
     private void Awake()
     {
         champions = Resources.LoadAll("Champion Data", typeof(ChampionData)).Cast<ChampionData>().ToArray();
@@ -65,13 +68,28 @@ public class GenerateChampionCard : MonoBehaviour
 
             CalculateWeights();
 
+            itemsGenerated = new List<Level.Item>();
+
             for (int i = 0; i < cards.Length; i++)
             {
-                randomChampion = champions[GetRandomChampionIndex()];
-                Debug.Log(randomChampion.name);
                 cards[i].gameObject.SetActive(true);
                 cards[i].transform.localScale = cards[i].originalScale;
-                cards[i].SetCardData(randomChampion);
+
+                if (GameManager.Instance.State == GameState.ChooseItem)
+                { 
+                    var randomItem = Level.Items.ElementAt(Random.Range(0, Level.Items.Count));
+                    while (itemsGenerated.Contains(randomItem))
+                    {
+                        randomItem = Level.Items.ElementAt(Random.Range(0, Level.Items.Count));
+                    }
+                    itemsGenerated.Add(randomItem);
+                    cards[i].SetCardItem(randomItem);
+                }
+                else
+                {
+                    randomChampion = champions[GetRandomChampionIndex()];
+                    cards[i].SetCardChampionData(randomChampion);
+                }
             }
         }
     }

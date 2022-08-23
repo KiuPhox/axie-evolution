@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
             if (enemiesReaminingAlive <= 0)
             {
                 bossKilled = false;
-                GameManager.Instance.UpdateGameState(GameState.ChooseCard);
+                GameManager.Instance.UpdateGameState(GameState.ChooseItem);
                 currentWaveNumber = 0;
             }
         }
