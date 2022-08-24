@@ -20,6 +20,8 @@ public class CardHandler : MonoBehaviour
 
     public float maxUnits;
 
+    public Sprite originalSprite;
+
     Image[] images;
     [HideInInspector] public Vector2 originalScale;
 
@@ -83,11 +85,13 @@ public class CardHandler : MonoBehaviour
         foreach (Image image in images)
         {
             image.gameObject.SetActive(true);
-        } 
+        }
+        Debug.Log(images.Length);
 
         // Load Card Color Data
         LoadCardColorData(cardColorData);
 
+        images[0].sprite = originalSprite;
         images[2].sprite = champion.sprite; // Champion's image
         LoadChampionImage(images[2]);
 
@@ -117,13 +121,20 @@ public class CardHandler : MonoBehaviour
             image.gameObject.SetActive(true);
         }
 
+        images[0].gameObject.SetActive(true);
+        images[0].sprite = Resources.Load<Sprite>("Sprites/" + item.name);
+        images[0].color = Color.white;
+
+        Color invisibleColor = new Color(0, 0, 0, 0);
+
+        images[1].gameObject.SetActive(false);
+        images[3].color = invisibleColor;
+        images[4].color = invisibleColor;
         images[5].gameObject.SetActive(false);
         images[7].gameObject.SetActive(false);
         images[9].gameObject.SetActive(false);
         images[10].gameObject.SetActive(false);
-
-        CardColorData cardColorData = Resources.Load<CardColorData>("Card Color Data/" + item.color);
-        LoadCardColorData(cardColorData);
+        images[11].color = invisibleColor;
 
         // Load Item Data
         _name.text = item.name;
@@ -140,6 +151,7 @@ public class CardHandler : MonoBehaviour
 
             images[3].color = cardColorData.nameBoxColor; // Name Box's color
             images[4].color = cardColorData.descriptionBoxColor; // Description Box's color
+            images[11].color = Color.white;
         }
     }
 

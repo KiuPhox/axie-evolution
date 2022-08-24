@@ -41,7 +41,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         if (skeletonAnimation == null)
         {
             skeletonAnimation = GetComponent<SkeletonAnimation>();
-            if (championData.bodies.Count > 7)
+            if (championData.classValue != 0)
             {
                 BuildAxie();
             }
