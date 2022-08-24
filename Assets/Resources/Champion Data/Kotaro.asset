@@ -33,20 +33,21 @@ MonoBehaviour:
   classes: 0000000005000000
   bodies:
   - class: 0
+    value: 2
+  - class: 3
+    value: 6
+  - class: 0
+    value: 2
+  - class: 3
     value: 10
   - class: 0
-    value: 10
+    value: 4
+  - class: 5
+    value: 12
   - class: 0
+    value: 2
+  - class: 3
     value: 10
-  - class: 0
-    value: 10
-  - class: 0
-    value: 10
-  - class: 0
-    value: 10
-  - class: 0
-    value: 10
-  - class: 0
-    value: 10
-  - class: 0
-    value: 10
+  characterClass: 1
+  classValue: 10
+  specialBody: 3
