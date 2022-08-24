@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using System;
 
 [CreateAssetMenu(fileName = "New Champion Data", menuName = "Champion Data")]
 public class ChampionData : ScriptableObject
@@ -38,7 +39,33 @@ public class ChampionData : ScriptableObject
     public string attackAnimation;
 
     public List<Class> classes = new List<Class>();
+    [TableList]
+    public List<Body> bodies = new List<Body>();
+    public AxieCore.AxieMixer.CharacterClass characterClass;
+    public int classValue;
+    public SpecialBody specialBody;
 }
+
+[Serializable]
+public class Body
+{
+    public Class @class;
+    [TableColumnWidth(50)]
+    public int value;
+}
+
+public enum SpecialBody
+{
+    Normal,
+    Bigyak,
+    Curly,
+    Fuzzy,
+    Spiky,
+    Sumo,
+    Wetdog,
+}
+
+
 
 public enum Class{
    Beast,

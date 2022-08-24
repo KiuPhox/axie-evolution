@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 using DG.Tweening;
 using TMPro;
 using Spine.Unity;
+using AxieCore.AxieMixer;
 using AxieMixer.Unity;
 using Spine;
 public class LivingEntity : MonoBehaviour, IDamageable
@@ -40,7 +41,14 @@ public class LivingEntity : MonoBehaviour, IDamageable
         if (skeletonAnimation == null)
         {
             skeletonAnimation = GetComponent<SkeletonAnimation>();
-            Mixer.SpawnSkeletonAnimation(skeletonAnimation, championData.axieID, championData.genes);
+            if (championData.bodies.Count > 7)
+            {
+                BuildAxie();
+            }
+            else
+            {
+                Mixer.SpawnSkeletonAnimation(skeletonAnimation, championData.axieID, championData.genes);
+            }
             skeletonAnimation.state.SetAnimation(0, "draft/run-origin", true);
         }
         currentLevel = 1;
@@ -237,5 +245,46 @@ public class LivingEntity : MonoBehaviour, IDamageable
     private void OnDestroy()
     {
         transform.DOKill();
+    }
+
+    private void BuildAxie()
+    {
+        var adultCombo = new Dictionary<string, string> {
+            {"back", championData.bodies[0].@class.ToString().ToLower() + "-0" + championData.bodies[0].value.ToString()},
+            {"body", "body-" + championData.specialBody.ToString().ToLower()},
+            {"ears", championData.bodies[1].@class.ToString().ToLower() + "-0" + championData.bodies[1].value.ToString()},
+            {"ear", championData.bodies[2].@class.ToString().ToLower() + "-0" + championData.bodies[2].value.ToString()},
+            {"eyes", championData.bodies[3].@class.ToString().ToLower() + "-0" + championData.bodies[3].value.ToString()},
+            {"horn", championData.bodies[4].@class.ToString().ToLower() + "-0" + championData.bodies[4].value.ToString()},
+            {"mouth", championData.bodies[5].@class.ToString().ToLower() + "-0" + championData.bodies[5].value.ToString()},
+            {"tail", championData.bodies[6].@class.ToString().ToLower() + "-0" + championData.bodies[6].value.ToString()},
+            {"body-class", championData.bodies[7].@class.ToString().ToLower()},
+            {"body-id", " 2727 "},
+        };
+
+        adultCombo["back"] = adultCombo["back"].Replace("-010", "-10").Replace("-012", "-12");
+        adultCombo["ears"] = adultCombo["ears"].Replace("-010", "-10").Replace("-012", "-12");
+        adultCombo["ear"] = adultCombo["ear"].Replace("-010", "-10").Replace("-012", "-12");
+        adultCombo["eyes"] = adultCombo["eyes"].Replace("-010", "-10").Replace("-012", "-12").Replace("-06", "-02").Replace("-12", "-04"); ;
+        adultCombo["horn"] = adultCombo["horn"].Replace("-010", "-10").Replace("-012", "-12");
+        adultCombo["mouth"] = adultCombo["mouth"].Replace("-010", "-10").Replace("-012", "-12").Replace("-06", "-02").Replace("-12", "-04"); ;
+        adultCombo["tail"] = adultCombo["tail"].Replace("-010", "-10").Replace("-012", "-12");
+
+        Debug.Log(adultCombo["back"] + " " + adultCombo["body"] + " " + adultCombo["ears"]
+                    + " " + adultCombo["ear"] + " " + adultCombo["eyes"] + " " + adultCombo["horn"]
+                    + " " + adultCombo["mouth"] + " " + adultCombo["tail"] + " " + adultCombo["body-class"]);
+
+        float scale = 0.0016f;
+        byte colorVariant = (byte)Mixer.Builder.GetSampleColorVariant(championData.characterClass, championData.classValue);
+        var result = Mixer.Builder.BuildSpineAdultCombo(adultCombo, colorVariant, scale);
+        skeletonAnimation.skeletonDataAsset = result.skeletonDataAsset;
+        skeletonAnimation.Initialize(true);
+        if (result.adultCombo.ContainsKey("body") &&
+            result.adultCombo["body"].Contains("mystic") &&
+            result.adultCombo.TryGetValue("body-class", out var bodyClass) &&
+            result.adultCombo.TryGetValue("body-id", out var bodyId))
+        {
+            skeletonAnimation.gameObject.AddComponent<MysticIdController>().Init(bodyClass, bodyId);
+        }
     }
 }

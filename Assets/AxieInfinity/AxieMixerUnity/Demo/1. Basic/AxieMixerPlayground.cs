@@ -166,8 +166,15 @@ namespace Game
                     {"body-id", " 2727 " },
                 };
 
+                
+
                 float scale = 0.0018f;
                 byte colorVariant = (byte)builder.GetSampleColorVariant(characterClass, classValue);
+
+                Debug.Log(adultCombo["back"] + " " + adultCombo["body"] + " " + adultCombo["ears"]
+                    + " " + adultCombo["ear"] + " " + adultCombo["eyes"] + " " + adultCombo["horn"]
+                    + " " + adultCombo["mouth"] + " " + adultCombo["tail"] + " " + adultCombo["body-class"]
+                    + " " + characterClass + " " + classValue);
 
                 var builderResult = builder.BuildSpineAdultCombo(adultCombo, colorVariant, scale);
 
