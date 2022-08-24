@@ -163,6 +163,35 @@ public static class Level
         new Item("Hardening", "+50% defense to all axies for every an axie dies")
     };
 
+    public static List<Item> DescriptionItems = new List<Item>
+    {
+        new Item("Amplify", "+20% AoE damage"),
+        new Item("Resonance" , "All AoE attacks deal +3% damage per unit hit"),
+        new Item("Ballista", "+20% projectile damage"),
+        new Item("Crucio", "Taking damage also shares that across all enemies at 20% its value"),
+        new Item("Kinetic Bomb", "When an axie dies it explodes, pushing enemies away"),
+        new Item("Porcupine", "When an axie dies it explodes, releasing piercing and ricocheting projectiles"),
+        new Item("Last Stand", "The last unit alive is fully healed and receives a +20% bonus to all stats"),
+        new Item("Seeping", "Enemies taking DoT damage have -15% defense"),
+        new Item("Deceleration", "Enemies taking DoT damage have -15% movement speed"),
+        new Item("Annihilation", "When a bird dies deal its DoT damage to all enemies for 3 seconds"),
+        new Item("Blunt", "Projectile have +10% chance to knockback"),
+        new Item("Chronomancy", "Aquatic cast their spells 15% faster"),
+        new Item("Barrage", "30% chance to create secondary AoE on AoE hit"),
+        new Item("Enchanted", "+33% attack speed to a random axie"),
+        new Item("Beastar", "All beasts have up to +50% attack speed based on missing HP"),
+        new Item("Blessing", "+20% healing effectiveness"),
+        new Item("Intimidation", "Enemies spawn with -20% max HP"),
+        new Item("Vulnerability", "Enemies take +10 damage"),
+        new Item("Temporal", "Enemies are 10 slower"),
+        new Item("Ceremonial", "Killing an enemy fires a dagger"),
+        new Item("Critical", "15% chance for attacks to critically strike, dealing 2x damage"),
+        new Item("Kinetic Strike", "20% chance for attacks to push enemies away with high force"),
+        new Item("Stunning", "16% chance for attacks to stun for 2 seconds"),
+        new Item("Culling", "Instantly kill enemy if below 20% max HP"),
+        new Item("Hardening", "+50% defense to all axies for every an axie dies")
+    };
+
     public class Item
     {
         public string name;

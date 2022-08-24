@@ -17,6 +17,7 @@ public class CardHandler : MonoBehaviour
     public MoneyUI moneyUI;
     public UnitsUI unitsUI;
     public ClassesUI classesUI;
+    public ItemsUI itemsUI;
 
     public float maxUnits;
 
@@ -66,6 +67,7 @@ public class CardHandler : MonoBehaviour
         else
         {
             pc.playerItems.Add(_name.text);
+            itemsUI.SetItemToUnit();
             foreach(var t in Level.Items)
             {
                 if (t.name == _name.text)

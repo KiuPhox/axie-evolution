@@ -12,6 +12,7 @@ public class CanvasManager : MonoBehaviour
     public GameObject unitsHolderUI;
     public GameObject gameOverUI;
     public GameObject classesHolderUI;
+    public GameObject itemsHolderUI;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class CanvasManager : MonoBehaviour
             waveCountUI.SetActive(false);
             unitsHolderUI.SetActive(true);
             classesHolderUI.SetActive(true);
+            itemsHolderUI.SetActive(true);
         }
         else if (GameManager.Instance.State == GameState.GamePause)
         {
@@ -41,6 +43,7 @@ public class CanvasManager : MonoBehaviour
             unitsHolderUI.SetActive(false);
             idleMenuUI.SetActive(false);
             classesHolderUI.SetActive(true);
+            itemsHolderUI.SetActive(true);
         }
         else if (GameManager.Instance.State == GameState.GameStart)
         {
@@ -50,6 +53,7 @@ public class CanvasManager : MonoBehaviour
             waveCountUI.SetActive(true);
             unitsHolderUI.SetActive(true);
             classesHolderUI.SetActive(false);
+            itemsHolderUI.SetActive(false);
         }
         else if (GameManager.Instance.State == GameState.GameOver || GameManager.Instance.State == GameState.GameVictory)
         {
