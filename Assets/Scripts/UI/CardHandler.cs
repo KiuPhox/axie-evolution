@@ -88,7 +88,6 @@ public class CardHandler : MonoBehaviour
         {
             image.gameObject.SetActive(true);
         }
-        Debug.Log(images.Length);
 
         // Load Card Color Data
         LoadCardColorData(cardColorData);

@@ -69,12 +69,12 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public void SetCharacteristics()
     {
-        maxHealth = championData.health * currentLevel * playerChampions.plantHealth_m;
+        maxHealth = championData.health * currentLevel * playerChampions.plantHealth_m * playerChampions.lastStand_m;
         health = maxHealth;
-        damage = championData.damage * currentLevel * playerChampions.squirl_m[0];
-        defense = championData.defense * playerChampions.squirl_m[1] * playerChampions.beastDfs_m;
+        damage = championData.damage * currentLevel * playerChampions.squirl_m[0] * playerChampions.lastStand_m;
+        defense = championData.defense * playerChampions.squirl_m[1] * playerChampions.beastDfs_m * playerChampions.lastStand_m;
         projectile = championData.projectile;
-        cooldownTime = championData.cooldownTime * playerChampions.squirl_m[2];
+        cooldownTime = championData.cooldownTime * playerChampions.squirl_m[2] * (2 - playerChampions.lastStand_m);
 
         foreach (Class @class in championData.classes)
         {
@@ -168,7 +168,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
             skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
         }
 
-        if (playerChampions.playerItems.Contains("Culling") && health / maxHealth <= 0.2f)
+        if (gameObject.CompareTag("Enemy") && playerChampions.playerItems.Contains("Culling") && health / maxHealth <= 0.2f)
         {
             Die();
         }
@@ -260,7 +260,28 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             Instantiate(championData.projectile, transform.position, Quaternion.identity);
         }
+        if (playerChampions.playerItems.Contains("Last Stand") && gameObject.CompareTag("Champion"))
+        {
+            int count = 0;
+            Champion champion = new Champion();
+            foreach(GameObject championGO in playerChampions.champions)
+            {
+                if (championGO.activeSelf && championGO != this.gameObject)
+                {
+                    champion = championGO.GetComponent<Champion>();
+                    count++;
+                }
+            }
+            Debug.Log(count);
+            if (count == 1)
+            {
+                Debug.Log("Yes1");
+                playerChampions.lastStand_m = 1.2f;
+                champion.SetCharacteristics();
+            }
+        }
         SoundManager.Instance.PlayDeathSound();
+
         gameObject.SetActive(false);
     }
 

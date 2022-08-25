@@ -32,6 +32,7 @@ public class PlayerChampions : MonoBehaviour
     [HideInInspector] public float intimidation_m;
     [HideInInspector] public float blessing_m;
     [HideInInspector] public float vulnerability_m;
+    [HideInInspector] public float lastStand_m;
 
     public void AddChampion(GameObject choosedChampion)
     {
@@ -55,6 +56,7 @@ public class PlayerChampions : MonoBehaviour
         intimidation_m = 1;
         blessing_m = 1;
         vulnerability_m = 1;
+        lastStand_m = 1;
 
         foreach (PlayerClass playerClass in playerClasses)
         {
