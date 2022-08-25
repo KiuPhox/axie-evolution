@@ -37,6 +37,8 @@ public class ChampionData : ScriptableObject
     public CardColorData cardColor;
     [HideInInspector] public float weight;
     public string attackAnimation;
+    public DamagingType damagingType;
+
 
     public List<Class> classes = new List<Class>();
     [TableList]
@@ -66,7 +68,13 @@ public enum SpecialBody
 }
 
 
-
+public enum DamagingType
+{
+    Range,
+    Melee,
+    Aoe,
+    Dot
+}
 public enum Class{
    Beast,
    Aquatic,

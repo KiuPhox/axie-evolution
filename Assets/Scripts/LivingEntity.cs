@@ -22,8 +22,8 @@ public class LivingEntity : MonoBehaviour, IDamageable
     protected float damage;
     protected float defense;
     [HideInInspector] public GameObject projectile;
-    protected float cooldownTime;
-    
+    public float cooldownTime;
+    [HideInInspector] public bool isEnchanted = false;
     protected bool dead;
 
     UnitsUI unitsUI;
@@ -75,6 +75,20 @@ public class LivingEntity : MonoBehaviour, IDamageable
         defense = championData.defense * playerChampions.squirl_m[1] * playerChampions.beastDfs_m * playerChampions.lastStand_m;
         projectile = championData.projectile;
         cooldownTime = championData.cooldownTime * playerChampions.squirl_m[2] * (2 - playerChampions.lastStand_m);
+        
+        if (isEnchanted)
+        {
+            cooldownTime *= playerChampions.enchanted_m;
+        }
+
+        if (championData.damagingType == DamagingType.Aoe)
+        {
+            damage *= playerChampions.amplify_m;
+        }
+        if (championData.damagingType == DamagingType.Range)
+        {
+            damage *= playerChampions.ballista_m;
+        }
 
         foreach (Class @class in championData.classes)
         {

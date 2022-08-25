@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
         {
             spawner.isStarted = false;
         }
+        playerChampions.SetMutiplierValues();
     }
 
     private void HandleGamePause()

@@ -33,6 +33,9 @@ public class PlayerChampions : MonoBehaviour
     [HideInInspector] public float blessing_m;
     [HideInInspector] public float vulnerability_m;
     [HideInInspector] public float lastStand_m;
+    [HideInInspector] public float amplify_m;
+    [HideInInspector] public float ballista_m;
+    [HideInInspector] public float enchanted_m;
 
     public void AddChampion(GameObject choosedChampion)
     {
@@ -43,7 +46,7 @@ public class PlayerChampions : MonoBehaviour
         SetMutiplierValues();
     }
 
-    private void SetMutiplierValues()
+    public void SetMutiplierValues()
     {
         squirl_m = new float[] { 1, 1, 1 };
         beastDfs_m = 1;
@@ -57,6 +60,9 @@ public class PlayerChampions : MonoBehaviour
         blessing_m = 1;
         vulnerability_m = 1;
         lastStand_m = 1;
+        amplify_m = 1;
+        ballista_m = 1;
+        enchanted_m = 1;
 
         foreach (PlayerClass playerClass in playerClasses)
         {
@@ -67,7 +73,8 @@ public class PlayerChampions : MonoBehaviour
         foreach (GameObject championGO in champions)
         {
             Champion champion = championGO.GetComponent<Champion>();
-            
+            champion.isEnchanted = false;
+
             // Class Multipliers
             foreach (Class @class in champion.championData.classes)
             {
@@ -120,25 +127,35 @@ public class PlayerChampions : MonoBehaviour
                 }
                 continue;
             }
-
-            // Item Multipliers
-            foreach (var playerItem in playerItems)
+        }
+        // Item Multipliers
+        foreach (var playerItem in playerItems)
+        {
+            switch (playerItem)
             {
-                switch (playerItem)
-                {
-                    case "Temporal":
-                        temporal_m = 0.9f;
-                        break;
-                    case "Intimidation":
-                        intimidation_m = 0.9f;
-                        break;
-                    case "Blessing":
-                        blessing_m = 1.2f;
-                        break;
-                    case "Vulnerability":
-                        vulnerability_m = 1.1f;
-                        break;
-                }
+                case "Temporal":
+                    temporal_m = 0.9f;
+                    break;
+                case "Intimidation":
+                    intimidation_m = 0.9f;
+                    break;
+                case "Blessing":
+                    blessing_m = 1.2f;
+                    break;
+                case "Vulnerability":
+                    vulnerability_m = 1.1f;
+                    break;
+                case "Amplify":
+                    amplify_m = 1.2f;
+                    break;
+                case "Ballista":
+                    ballista_m = 1.2f;
+                    break;
+                case "Enchanted":
+                    enchanted_m = 0.67f;
+                    Debug.Log("Yes");
+                    Utility.RandomPick(champions).GetComponent<Champion>().isEnchanted = true;
+                    break;
             }
         }
 
