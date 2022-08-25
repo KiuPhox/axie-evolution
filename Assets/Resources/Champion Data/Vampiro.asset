@@ -29,6 +29,11 @@ MonoBehaviour:
   projectile: {fileID: 2752637321356853906, guid: be410c456cca5d546be6968f6b2fcc38,
     type: 3}
   cardColor: {fileID: 11400000, guid: 0a3f7a685d2c01b4da8801c8e4c1ed4d, type: 2}
-  weight: 490
+  weight: 460
   attackAnimation: activity/eat-chew
+  damagingType: 3
   classes: 0300000004000000
+  bodies: []
+  characterClass: 0
+  classValue: 0
+  specialBody: 0

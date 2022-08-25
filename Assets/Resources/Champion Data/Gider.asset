@@ -29,4 +29,9 @@ MonoBehaviour:
   cardColor: {fileID: 11400000, guid: 8305200c689e60e4c9b363deb4d0ce57, type: 2}
   weight: 300
   attackAnimation: activity/eat-chew
+  damagingType: 2
   classes: 00000000
+  bodies: []
+  characterClass: 0
+  classValue: 0
+  specialBody: 0
