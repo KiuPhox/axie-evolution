@@ -16,14 +16,22 @@ public class PlayerChampions : MonoBehaviour
 
     public List<string> playerItems = new List<string>();
 
-    // Multipliers
+    // Champion Multipliers
     [HideInInspector] public float[] squirl_m;
+
+    // Class Multipliers
     [HideInInspector] public float beastDfs_m;
     [HideInInspector] public float aquaticSlow_m;
     [HideInInspector] public float birdCooldown_m;
     [HideInInspector] public float plantHealth_m;
     [HideInInspector] public float bugDmg_m;
     [HideInInspector] public bool reptileIgnoreShield;
+
+    // Item Multipliers
+    [HideInInspector] public float temporal_m;
+    [HideInInspector] public float intimidation_m;
+    [HideInInspector] public float blessing_m;
+    [HideInInspector] public float vulnerability_m;
 
     public void AddChampion(GameObject choosedChampion)
     {
@@ -43,6 +51,10 @@ public class PlayerChampions : MonoBehaviour
         plantHealth_m = 1;
         bugDmg_m = 1;
         reptileIgnoreShield = false;
+        temporal_m = 1;
+        intimidation_m = 1;
+        blessing_m = 1;
+        vulnerability_m = 1;
 
         foreach (PlayerClass playerClass in playerClasses)
         {
@@ -54,6 +66,7 @@ public class PlayerChampions : MonoBehaviour
         {
             Champion champion = championGO.GetComponent<Champion>();
             
+            // Class Multipliers
             foreach (Class @class in champion.championData.classes)
             {
                 foreach (PlayerClass playerClass in playerClasses)
@@ -75,7 +88,7 @@ public class PlayerChampions : MonoBehaviour
                                 birdCooldown_m = 0.7f;
                                 break;
                             case Class.Aquatic:
-                                aquaticSlow_m = 0.7f;
+                                aquaticSlow_m = 0.85f;
                                 break;
                             case Class.Plant:
                                 plantHealth_m = 1.25f;
@@ -91,6 +104,8 @@ public class PlayerChampions : MonoBehaviour
                 }
             }
 
+            
+            // Champion Multipliers
             if (champion.championData.name == "Squirl")
             {
                 squirl_m[0] = 1.2f;
@@ -102,6 +117,26 @@ public class PlayerChampions : MonoBehaviour
                     squirl_m[2] = 0.8f;
                 }
                 continue;
+            }
+
+            // Item Multipliers
+            foreach (var playerItem in playerItems)
+            {
+                switch (playerItem)
+                {
+                    case "Temporal":
+                        temporal_m = 0.9f;
+                        break;
+                    case "Intimidation":
+                        intimidation_m = 0.9f;
+                        break;
+                    case "Blessing":
+                        blessing_m = 1.2f;
+                        break;
+                    case "Vulnerability":
+                        vulnerability_m = 1.1f;
+                        break;
+                }
             }
         }
 

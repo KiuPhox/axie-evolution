@@ -9014,6 +9014,10 @@ MonoBehaviour:
   plantHealth_m: 0
   bugDmg_m: 0
   reptileIgnoreShield: 0
+  temporal_m: 0
+  intimidation_m: 0
+  blessing_m: 0
+  vulnerability_m: 0
 --- !u!1 &995336670
 GameObject:
   m_ObjectHideFlags: 0

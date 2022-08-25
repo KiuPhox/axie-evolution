@@ -86,13 +86,19 @@ public class LivingEntity : MonoBehaviour, IDamageable
                 case Class.Bug:
                     damage *= playerChampions.bugDmg_m;
                     break;
+                case Class.Aquatic:
+                    if (playerChampions.playerItems.Contains("Chronomancy"))
+                    {
+                        cooldownTime *= 0.85f;
+                    }
+                    break;
             }
         }
     }
 
     public void SetCharacteristicsForEnemy()
     {
-        maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1);
+        maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1) * playerChampions.intimidation_m;
         health = maxHealth;
         damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1);
         defense = championData.defense + 1.6f * (GameManager.Instance.currentLevel - 1);
@@ -107,7 +113,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public void SetCharacteristicsForBoss()
     {
-        maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1) * 2;
+        maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1) * playerChampions.intimidation_m * 2;
         health = maxHealth;
         damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1) * 2;
         defense = championData.defense + 1.6f * (GameManager.Instance.currentLevel - 1) * 2;
@@ -129,11 +135,21 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
             float incomeDamage = damage * (100 / (100 + defense));
 
-            health -= incomeDamage;
-
-            // Health Bar
-            if (this.tag == "Champion")
+            if (CompareTag("Enemy"))
             {
+                if (playerChampions.playerItems.Contains("Stunning") && Utility.RandomBool(10f))
+                {
+                    GetComponent<Enemy>().stunTime = 2f;
+                }
+                if (playerChampions.playerItems.Contains("Critical") && Utility.RandomBool(15f))
+                {
+                    incomeDamage *= 2f;
+                }
+                health -= incomeDamage * playerChampions.vulnerability_m;
+            }
+            else
+            {
+                health -= incomeDamage;
                 unitsUI.LoadHealthbar(this.gameObject, health, maxHealth);
             }
 
@@ -152,7 +168,11 @@ public class LivingEntity : MonoBehaviour, IDamageable
             skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
         }
 
-        if (health <= 0)
+        if (playerChampions.playerItems.Contains("Culling") && health / maxHealth <= 0.2f)
+        {
+            Die();
+        }
+        else if (health <= 0)
         {
             Die();
         }
@@ -163,7 +183,9 @@ public class LivingEntity : MonoBehaviour, IDamageable
         GameObject vfx_heal = Resources.Load("Prefabs/vfx_heal") as GameObject;
         Instantiate(vfx_heal, transform.position, Quaternion.identity);
         vfx_heal.GetComponent<HealEffect>().target = this.gameObject;
-        health += healAmount;
+
+        health += healAmount * playerChampions.blessing_m;
+
         if (health > maxHealth)
         {
             health = maxHealth;

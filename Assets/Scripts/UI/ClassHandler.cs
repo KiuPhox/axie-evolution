@@ -5,7 +5,7 @@ using TMPro;
 public class ClassHandler : MonoBehaviour
 {
     string beast = "<color=#FAE75A>Beast Effect:</color> Increase 30% defense for all axies";
-    string aquatic = "<color=#2FD4FD>Aquatic Effect:</color> Slow enemies for 30%";
+    string aquatic = "<color=#2FD4FD>Aquatic Effect:</color> Slow enemies for 15%";
     string bug = "<color=#FD2423>Bug Effect:</color> Increase 30% damage for Bug class axie";
     string bird = "<color=#F64FA9>Bird Effect:</color> Descrease 30% attack speed for Bird class axie";
     string plant = "<color=#5FE722>Plant Effect:</color> Increase 25% max health for all axies";

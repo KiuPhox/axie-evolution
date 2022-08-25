@@ -114,7 +114,7 @@ public class Enemy : LivingEntity
         stunTime = 0;
         chuggerPushed = false;
         skeletonAnimation.state.SetAnimation(0, "draft/run-origin", true);
-        GetComponent<SteeringBasics>().maxVelocity = originalVelocity * playerChampions.aquaticSlow_m;
+        GetComponent<SteeringBasics>().maxVelocity = originalVelocity * playerChampions.aquaticSlow_m * playerChampions.temporal_m;
     }
 
     public void SetEffectSpeed(float effectSpeed)
