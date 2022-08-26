@@ -9320,6 +9320,7 @@ MonoBehaviour:
   classesHolderUI: {fileID: 1947682394}
   itemsHolderUI: {fileID: 1729014856}
   chooseOneUI: {fileID: 1349649998}
+  rerollButtonUI: {fileID: 1166359674}
 --- !u!1 &1023263346
 GameObject:
   m_ObjectHideFlags: 0

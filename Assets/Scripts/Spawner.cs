@@ -23,6 +23,7 @@ public class Spawner : MonoBehaviour
 
     [HideInInspector] public bool isStarted = false;
     bool bossKilled = false;
+    bool isSpawnBoss = false;
     void Start()
     {
         Utility.ShuffleArray(spawners);
@@ -36,6 +37,7 @@ public class Spawner : MonoBehaviour
             if (enemiesReaminingAlive <= 0)
             {
                 bossKilled = false;
+                isSpawnBoss = false;
                 GameManager.Instance.UpdateGameState(GameState.ChooseItem);
                 currentWaveNumber = 0;
             }
@@ -65,8 +67,10 @@ public class Spawner : MonoBehaviour
             currentWaveNumber++;
             waveCount.text = "Wave: " + currentWaveNumber + "/" + maxWaves;
 
-            if (currentLevel % 5 == 0)
+            if (currentLevel % 5 == 0 && !isSpawnBoss)
             {
+
+                isSpawnBoss = true;
                 StartCoroutine(SpawnBoss(spawners[0], 0f));
             }
 

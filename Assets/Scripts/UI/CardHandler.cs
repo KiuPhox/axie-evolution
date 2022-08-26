@@ -140,7 +140,7 @@ public class CardHandler : MonoBehaviour
         // Load Item Data
         _name.text = item.name;
         _description.text = item.description;
-        _tier.text = (GameManager.Instance.currentLevel - 1).ToString();
+        _tier.text = "0";
     }
 
     private void LoadCardColorData(CardColorData cardColorData)

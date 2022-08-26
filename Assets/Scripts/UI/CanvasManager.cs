@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class CanvasManager : MonoBehaviour
 {
     public GameObject moneyBoxUI;
@@ -14,6 +14,7 @@ public class CanvasManager : MonoBehaviour
     public GameObject classesHolderUI;
     public GameObject itemsHolderUI;
     public GameObject chooseOneUI;
+    public GameObject rerollButtonUI;
 
     // Start is called before the first frame update
     void Start()
@@ -37,9 +38,11 @@ public class CanvasManager : MonoBehaviour
             if (GameManager.Instance.State == GameState.ChooseCard)
             {
                 chooseOneUI.SetActive(false);
+                rerollButtonUI.GetComponentInChildren<TMP_Text>().text = "Reroll: 2";
             }
             else if (GameManager.Instance.State == GameState.ChooseItem)
             {
+                rerollButtonUI.GetComponentInChildren<TMP_Text>().text = "Reroll: " + (GameManager.Instance.currentLevel - 1).ToString();
                 chooseOneUI.SetActive(true);
             }
         }

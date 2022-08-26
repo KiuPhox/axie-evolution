@@ -103,9 +103,12 @@ public class GenerateChampionCard : MonoBehaviour
 
     public void Reroll()
     {
-        if (!isLocked && moneyUI.startingMoney >= 2)
+        int moneyReroll = 2;
+        if (GameManager.Instance.State == GameState.ChooseItem)
+            moneyReroll = GameManager.Instance.currentLevel - 1;
+        if (!isLocked && moneyUI.startingMoney >= moneyReroll)
         {
-            moneyUI.startingMoney -= 2;
+            moneyUI.startingMoney -= moneyReroll;
             moneyUI.isChanged = true;
             GenerateCard();
         }

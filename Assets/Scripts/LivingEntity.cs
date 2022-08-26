@@ -127,10 +127,10 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public void SetCharacteristicsForBoss()
     {
-        maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1) * playerChampions.intimidation_m * 2;
+        maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1) * playerChampions.intimidation_m * 3;
         health = maxHealth;
         damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1) * 2;
-        defense = championData.defense + 1.6f * (GameManager.Instance.currentLevel - 1) * 2;
+        defense = championData.defense + 1.6f * (GameManager.Instance.currentLevel - 1) * 3;
         projectile = championData.projectile;
         cooldownTime = championData.cooldownTime * 0.9f;
 
