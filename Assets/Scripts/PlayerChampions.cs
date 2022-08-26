@@ -36,6 +36,7 @@ public class PlayerChampions : MonoBehaviour
     [HideInInspector] public float amplify_m;
     [HideInInspector] public float ballista_m;
     [HideInInspector] public float enchanted_m;
+    [HideInInspector] public bool beastar_m;
 
     public void AddChampion(GameObject choosedChampion)
     {
@@ -63,6 +64,7 @@ public class PlayerChampions : MonoBehaviour
         amplify_m = 1;
         ballista_m = 1;
         enchanted_m = 1;
+        beastar_m = false;
 
         foreach (PlayerClass playerClass in playerClasses)
         {
@@ -155,6 +157,9 @@ public class PlayerChampions : MonoBehaviour
                     enchanted_m = 0.67f;
                     Debug.Log("Yes");
                     Utility.RandomPick(champions).GetComponent<Champion>().isEnchanted = true;
+                    break;
+                case "Beastar":
+                    beastar_m = true;
                     break;
             }
         }

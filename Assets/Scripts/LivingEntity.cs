@@ -23,6 +23,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
     protected float defense;
     [HideInInspector] public GameObject projectile;
     public float cooldownTime;
+    float cooldownTime_o;
     [HideInInspector] public bool isEnchanted = false;
     protected bool dead;
 
@@ -108,6 +109,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
                     break;
             }
         }
+        cooldownTime_o = cooldownTime;
     }
 
     public void SetCharacteristicsForEnemy()
@@ -164,6 +166,10 @@ public class LivingEntity : MonoBehaviour, IDamageable
             else
             {
                 health -= incomeDamage;
+                if (playerChampions.beastar_m && championData.classes.Contains(Class.Beast))
+                {
+                    cooldownTime = cooldownTime_o * (1 - (1 - health / maxHealth) * 0.5f);
+                }
                 unitsUI.LoadHealthbar(this.gameObject, health, maxHealth);
             }
 
@@ -289,7 +295,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
             Debug.Log(count);
             if (count == 1)
             {
-                Debug.Log("Yes1");
                 playerChampions.lastStand_m = 1.2f;
                 champion.SetCharacteristics();
             }

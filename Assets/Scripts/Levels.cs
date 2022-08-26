@@ -150,7 +150,7 @@ public static class Level
         new Item("Chronomancy", "Aquatic cast their spells 15% faster"), // Done
         new Item("Barrage", "30% chance to create secondary AoE on AoE hit"),
         new Item("Enchanted", "+33% attack speed to a random axie every level"), // Done
-        new Item("Beastar", "All beasts have up to +50% attack speed based on missing HP"),
+        new Item("Beastar", "All beasts have up to +50% attack speed based on missing HP"), // Done
         new Item("Blessing", "+20% healing effectiveness"), // Done
         new Item("Intimidation", "Enemies spawn with -20% max HP"), // Done
         new Item("Vulnerability", "Enemies take +10% damage"), // Done
