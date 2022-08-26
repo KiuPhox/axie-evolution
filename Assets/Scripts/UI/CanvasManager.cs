@@ -13,6 +13,7 @@ public class CanvasManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject classesHolderUI;
     public GameObject itemsHolderUI;
+    public GameObject chooseOneUI;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,14 @@ public class CanvasManager : MonoBehaviour
             unitsHolderUI.SetActive(true);
             classesHolderUI.SetActive(true);
             itemsHolderUI.SetActive(true);
+            if (GameManager.Instance.State == GameState.ChooseCard)
+            {
+                chooseOneUI.SetActive(false);
+            }
+            else if (GameManager.Instance.State == GameState.ChooseItem)
+            {
+                chooseOneUI.SetActive(true);
+            }
         }
         else if (GameManager.Instance.State == GameState.GamePause)
         {
