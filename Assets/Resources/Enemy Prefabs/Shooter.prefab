@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 9115612116787840764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,9 +74,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.4}
+  m_Offset: {x: 0, y: 8.76}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 4.9
 --- !u!114 &-1280694848388994295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e5178088692c94947adfcb256a98a3d6, type: 2}
+  - {fileID: 2100000, guid: f3b19e168ba2b4f5aab1b1de314caaa0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: 648d8617c47bd4562b8ab27f94baf779, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
@@ -234,6 +234,8 @@ MonoBehaviour:
   health: 0
   maxHealth: 0
   projectile: {fileID: 0}
+  cooldownTime: 0
+  isEnchanted: 0
   skeletonAnimation: {fileID: 0}
   stunTime: 0
   attackCooldownTime: 0

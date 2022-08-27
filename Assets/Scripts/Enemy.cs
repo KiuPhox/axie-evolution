@@ -47,6 +47,7 @@ public class Enemy : LivingEntity
         originalVelocity = steeringBasics.maxVelocity;
         wander = GetComponent<Wander1>();
         separation = GetComponent<Separation>();
+        nextAttackTime = Time.time + Random.Range(0, attackCooldownTime);
     }
 
     public virtual void Update()
@@ -113,7 +114,7 @@ public class Enemy : LivingEntity
     {
         stunTime = 0;
         chuggerPushed = false;
-        skeletonAnimation.state.SetAnimation(0, "draft/run-origin", true);
+        skeletonAnimation.state.SetAnimation(0, "action/move-forward", true);
         GetComponent<SteeringBasics>().maxVelocity = originalVelocity * playerChampions.aquaticSlow_m * playerChampions.temporal_m;
     }
 
@@ -144,7 +145,7 @@ public class Enemy : LivingEntity
     IEnumerator AttackIE()
     {
         skeletonAnimation.state.SetAnimation(0, championData.attackAnimation, false);
-        skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
+        skeletonAnimation.state.AddAnimation(0, "action/move-forward", true, 0);
         yield return new WaitForSeconds(0.5f);
     }
 

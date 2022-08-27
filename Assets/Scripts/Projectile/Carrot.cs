@@ -17,7 +17,7 @@ public class Carrot : Projectile
     {
         if (target != null) 
         {
-            targetPos = target.transform.position;
+            targetPos = target.transform.position + new Vector3(0, 0.5f, 0);
             direction = targetPos - transform.position;
             RotateToDirection(direction);
             ParticleSystem i_leaf = Instantiate(leafEffect, transform.position, transform.rotation);

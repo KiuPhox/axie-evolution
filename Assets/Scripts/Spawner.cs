@@ -189,7 +189,7 @@ public class Spawner : MonoBehaviour
             i_boss.SetActive(true);
             i_boss.GetComponent<LivingEntity>().SetCharacteristicsForBoss();
             i_boss.transform.SetParent(spawner.transform);
-            i_boss.transform.position = spawner.transform.position;
+            i_boss.transform.position = spawner.transform.position + new Vector3(0, 0, Random.Range(-0.1f, 0.1f));
             i_boss.GetComponent<Enemy>().ResetAllEffect();
             i_boss.GetComponent<Enemy>().OnDeath += OnBossDeath;
         });

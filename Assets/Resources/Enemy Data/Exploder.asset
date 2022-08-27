@@ -27,5 +27,10 @@ MonoBehaviour:
     type: 3}
   cardColor: {fileID: 0}
   weight: 0
-  attackAnimation: attack/melee/multi-attack
+  attackAnimation: attack/melee/normal-attack
+  damagingType: 0
   classes: 
+  bodies: []
+  characterClass: 0
+  classValue: 0
+  specialBody: 0

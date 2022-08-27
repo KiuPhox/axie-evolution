@@ -13376,7 +13376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89e302db47ebe4fbbca22807d2c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 5
+  currentLevel: 1
   playerChampions: {fileID: 993331035}
   generateChampionCard: {fileID: 995336675}
   spawner: {fileID: 510916121}
@@ -18972,23 +18972,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - tag: seeker
-    prefab: {fileID: 5895184574015472863, guid: 4104708f684f6b742b222da139b32eb9,
+    prefab: {fileID: 8727119006924210473, guid: a1fb54c51c017b24eb5970adb341276f,
       type: 3}
     size: 20
-  - tag: speed
-    prefab: {fileID: 9115612116787840764, guid: 5616a638c48c1184a8c0c392fcc5a0e7,
-      type: 3}
-    size: 10
   - tag: shooter
-    prefab: {fileID: 9115612116787840764, guid: 9ad73e023df0dee458a55efe610f6d70,
+    prefab: {fileID: 9115612116787840764, guid: 0657035d0a9a1a148bbc549bdb88f49c,
       type: 3}
     size: 10
   - tag: exploder
-    prefab: {fileID: 9115612116787840764, guid: df8b38efe6ccd6548bd3714ef175058a,
+    prefab: {fileID: 9115612116787840764, guid: afc3d3b481f98a542953458a3eb46e0d,
+      type: 3}
+    size: 10
+  - tag: speed
+    prefab: {fileID: 9115612116787840764, guid: b31c623b37599164d8472223e8f918b3,
       type: 3}
     size: 10
   - tag: header
-    prefab: {fileID: 9115612116787840764, guid: 7f8f647ef4aaf994097c4f8f8786188d,
+    prefab: {fileID: 9115612116787840764, guid: 6eef488076d4c154898aead0fa026c30,
       type: 3}
     size: 10
   - tag: bloodline
@@ -18996,23 +18996,23 @@ MonoBehaviour:
       type: 3}
     size: 65
   - tag: b_seeker
-    prefab: {fileID: 9115612116787840764, guid: d930a20d7938d0541a6b8b23bb85c39e,
+    prefab: {fileID: 8727119006924210473, guid: bd09d8f1e6252eb49ad5d5ba5f3c816e,
       type: 3}
     size: 1
   - tag: b_exploder
-    prefab: {fileID: 9115612116787840764, guid: 2a742f8aa741ae043b33e0ff2f9dba37,
+    prefab: {fileID: 9115612116787840764, guid: 87d03a7bdab6036429d17dd753e0d2b7,
       type: 3}
     size: 1
   - tag: b_header
-    prefab: {fileID: 9115612116787840764, guid: a007c247e9bed1141a57df9138e7f6a9,
+    prefab: {fileID: 9115612116787840764, guid: f5d359a1a866a7e4c87a714372476d49,
       type: 3}
     size: 1
   - tag: b_shooter
-    prefab: {fileID: 9115612116787840764, guid: 1bedef1019f41574baa789586c7d5196,
+    prefab: {fileID: 9115612116787840764, guid: 2ee24679fd0ad7046a9b848d1f6a2a39,
       type: 3}
     size: 1
   - tag: b_speed
-    prefab: {fileID: 9115612116787840764, guid: 057b3a363fbdf5645b329ac2e6309cb5,
+    prefab: {fileID: 9115612116787840764, guid: 75d6d33a346e9fc41a7038173f79647a,
       type: 3}
     size: 1
 --- !u!1 &2107332419

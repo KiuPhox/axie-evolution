@@ -42,15 +42,23 @@ public class LivingEntity : MonoBehaviour, IDamageable
         if (skeletonAnimation == null)
         {
             skeletonAnimation = GetComponent<SkeletonAnimation>();
-            if (championData.classValue != 0)
+            if (CompareTag("Champion"))
             {
-                BuildAxie();
+                if (championData.classValue != 0)
+                {
+                    BuildAxie();
+                }
+                else
+                {
+                    Mixer.SpawnSkeletonAnimation(skeletonAnimation, championData.axieID, championData.genes);
+                }
+            
+                skeletonAnimation.state.SetAnimation(0, "draft/run-origin", true);
             }
             else
             {
-                Mixer.SpawnSkeletonAnimation(skeletonAnimation, championData.axieID, championData.genes);
+                //skeletonAnimation.state.SetAnimation(0, "action/move-forward", true);
             }
-            skeletonAnimation.state.SetAnimation(0, "draft/run-origin", true);
         }
         currentLevel = 1;
         playerChampions = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
@@ -162,6 +170,8 @@ public class LivingEntity : MonoBehaviour, IDamageable
                     incomeDamage *= 2f;
                 }
                 health -= incomeDamage * playerChampions.vulnerability_m;
+                skeletonAnimation.state.SetAnimation(0, "defense/hit-by-normal", false);
+                skeletonAnimation.state.AddAnimation(0, "action/move-forward", true, 0);
             }
             else
             {
@@ -171,6 +181,8 @@ public class LivingEntity : MonoBehaviour, IDamageable
                     cooldownTime = cooldownTime_o * (1 - (1 - health / maxHealth) * 0.5f);
                 }
                 unitsUI.LoadHealthbar(this.gameObject, health, maxHealth);
+                skeletonAnimation.state.SetAnimation(0, "defense/hit-by-ranged-attack", false);
+                skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
             }
 
             // Damage Popup
@@ -184,8 +196,8 @@ public class LivingEntity : MonoBehaviour, IDamageable
                 }
             }
 
-            skeletonAnimation.state.SetAnimation(0, "defense/hit-by-ranged-attack", false);
-            skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
+
+            
         }
 
         if (gameObject.CompareTag("Enemy") && playerChampions.playerItems.Contains("Culling") && health / maxHealth <= 0.2f)
@@ -277,11 +289,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
         }
         OnDeath = null;
 
-        if (championData.name == "Exploder")
-        {
-            Instantiate(championData.projectile, transform.position, Quaternion.identity);
-        }
-
         if (gameObject.CompareTag("Champion"))
         {
             if (playerChampions.playerItems.Contains("Last Stand"))
@@ -320,7 +327,16 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
         SoundManager.Instance.PlayDeathSound();
 
-        gameObject.SetActive(false);
+        if (championData.name == "Exploder")
+        {
+            Instantiate(championData.projectile, transform.position, Quaternion.identity);
+            gameObject.SetActive(false);
+        }
+
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnDestroy()

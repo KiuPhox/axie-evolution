@@ -42,7 +42,7 @@ public class Electricity : Projectile
                 t.GetComponent<Enemy>().stunTime = stunTime;
                 t.GetComponent<LivingEntity>().TakeDamage(damage, holder.GetComponent<LivingEntity>());
                 t.GetComponent<LivingEntity>().skeletonAnimation.state.SetAnimation(0, "battle/get-debuff", false);
-                t.GetComponent<LivingEntity>().skeletonAnimation.state.AddAnimation(0, "draft/run-origin", false, 0f);
+                t.GetComponent<LivingEntity>().skeletonAnimation.state.AddAnimation(0, "action/move-forward", true, 0f);
             }
         }
     }

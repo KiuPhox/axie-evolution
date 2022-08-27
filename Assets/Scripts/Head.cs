@@ -33,8 +33,8 @@ public class Head : Enemy
         SteeringBasics SB = GetComponent<SteeringBasics>();
         SB.maxVelocity = 0;
         yield return new WaitForSeconds(chargeTime);
-        skeletonAnimation.state.SetAnimation(0, "attack/melee/horn-gore", false);
-        skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
+        skeletonAnimation.state.SetAnimation(0, "action/idle/random-01", false);
+        skeletonAnimation.state.AddAnimation(0, "action/move-forward", true, 0);
         yield return new WaitForSeconds(0.2f);
         SB.maxVelocity = 50;
         damage *= 1.2f;
