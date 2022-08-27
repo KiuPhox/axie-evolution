@@ -16,6 +16,7 @@ public class CanvasManager : MonoBehaviour
     public GameObject rerollButtonUI;
     public GameObject acceptButtonUI;
     public GameObject pauseButtonUI;
+    public GameObject bossHealthBarUI;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class CanvasManager : MonoBehaviour
             classesHolderUI.SetActive(true);
             itemsHolderUI.SetActive(true);
             pauseButtonUI.SetActive(true);
+            bossHealthBarUI.SetActive(false);
             if (GameManager.Instance.State == GameState.ChooseCard)
             {
                 acceptButtonUI.SetActive(true);
@@ -70,6 +72,14 @@ public class CanvasManager : MonoBehaviour
             classesHolderUI.SetActive(false);
             itemsHolderUI.SetActive(false);
             pauseButtonUI.SetActive(true);
+            if (GameManager.Instance.currentLevel % 5 == 0)
+            {
+                bossHealthBarUI.SetActive(true);
+            }
+            else
+            {
+                bossHealthBarUI.SetActive(false);
+            }
         }
         else if (GameManager.Instance.State == GameState.GameOver || GameManager.Instance.State == GameState.GameVictory)
         {
