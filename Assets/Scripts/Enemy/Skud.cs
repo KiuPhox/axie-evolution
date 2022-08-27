@@ -32,6 +32,7 @@ public class Skud : Enemy
         if (Vector2.Distance(transform.position, targetPos) < 0.5f && !isUsedEffect)
         {
             isUsedEffect = true;
+            
             skeletonAnimation.state.SetAnimation(0, "attack/ranged/cast-high", false);
             skeletonAnimation.state.AddAnimation(0, "action/idle/normal", true, 0);
             positions = new List<Vector3>();
@@ -55,6 +56,7 @@ public class Skud : Enemy
                 currentPos = new Vector3(Random.Range(-6f, 6f), Random.Range(-3f, 3f), 0);
             }
         }
+        
         positions.Add(currentPos);
         GameObject i_projectile = Instantiate(championData.projectile, currentPos, Quaternion.identity);
         i_projectile.GetComponent<Projectile>().damage = damage;

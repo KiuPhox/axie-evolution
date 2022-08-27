@@ -60,7 +60,7 @@ public class Despo : Champion
         skeletonAnimation.state.AddAnimation(0, "draft/run-origin", true, 0);
         yield return new WaitForSeconds(timeDelay);
         yield return new WaitForSeconds(0.4f);
-        cameraHolder.Shake();
+        cameraHolder.Shake(1f);
         DespoShoot();
     }
 }

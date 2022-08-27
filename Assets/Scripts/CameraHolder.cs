@@ -19,10 +19,10 @@ public class CameraHolder : MonoBehaviour
             ResetCameraTransform();
         }
     }
-    public void Shake()
+    public void Shake(float multiplier)
     {
-        transform.DOShakePosition(shakeDuration, positionStrength, fadeOut: true).SetDelay(delay);
-        transform.DOShakeRotation(shakeDuration, rotationStrength, fadeOut: true).SetDelay(delay);
+        transform.DOShakePosition(shakeDuration * multiplier, positionStrength * multiplier, fadeOut: true).SetDelay(delay);
+        transform.DOShakeRotation(shakeDuration * multiplier, rotationStrength * multiplier, fadeOut: true).SetDelay(delay);
     }
 
     private void ResetCameraTransform()

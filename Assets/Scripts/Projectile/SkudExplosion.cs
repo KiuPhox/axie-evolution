@@ -12,8 +12,10 @@ public class SkudExplosion : Projectile
     {
         SR = GetComponent<SpriteRenderer>();
         transform.DOScale(1f, 1f).SetEase(Ease.Linear);
-        SR.DOFade(0.5f, 1f).SetEase(Ease.Linear).OnComplete(() =>
+        transform.DOLocalRotate(new Vector3(0, 0, 160f), 1f, RotateMode.LocalAxisAdd).SetEase(Ease.Linear);
+        SR.DOFade(1f, 1f).SetEase(Ease.Linear).OnComplete(() =>
         {
+            GameObject.Find("Camera Holder").GetComponent<CameraHolder>().Shake(5f);
             skud_VFX.SetActive(true);
             SR.DOFade(0, 0.2f).SetEase(Ease.Linear);
             GameObject[] champions = GameObject.FindGameObjectsWithTag("Champion");
