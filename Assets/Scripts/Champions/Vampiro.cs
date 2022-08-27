@@ -47,6 +47,7 @@ public class Vampiro : Champion
         }
 
 
+
         if (Time.time >= nextAttackTime)
         {
             foreach (GameObject enemy in enemies)
@@ -74,7 +75,6 @@ public class Vampiro : Champion
             }
         }
     }
-
     private IEnumerator HealIE(GameObject targetToHeal)
     {
         skeletonAnimation.state.SetAnimation(0, championData.attackAnimation, false);

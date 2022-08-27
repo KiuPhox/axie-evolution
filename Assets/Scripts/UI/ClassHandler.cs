@@ -14,6 +14,12 @@ public class ClassHandler : MonoBehaviour
     public GameObject classDescriptionUI;
     public TMP_Text descriptionText;
 
+    PlayerChampions playerChampions;
+    private void Awake()
+    {
+        playerChampions = GameObject.Find("Champions Holder").GetComponent<PlayerChampions>();
+    }
+
     public void ShowDescriptionClass()
     {
         classDescriptionUI.SetActive(true);
@@ -41,6 +47,17 @@ public class ClassHandler : MonoBehaviour
         }
         descriptionText.text = description;
 
+        foreach(GameObject championGO in playerChampions.champions)
+        {
+            List<Class> classes = championGO.GetComponent<Champion>().championData.classes;
+            foreach (var @class in classes)
+            {
+                if (@class.ToString() == gameObject.name)
+                {
+                    Debug.Log(championGO.name);
+                }
+            }
+        }
     }
 
     public void DisableDescriptionClass()

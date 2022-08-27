@@ -15,10 +15,18 @@ public class BackgroundUI : MonoBehaviour
     public float fadeBetweenTime;
 
     float nextFadeTime;
-    int spriteIndex = 0;
-    private void Start()
+    int spriteIndex = 1;
+    private void Awake()
     {
+        nextFadeTime = 0f;
         nextFadeTime = Time.time + fadeBetweenTime;
+        firstBg.GetComponent<RectTransform>().DOScale(1.1f, fadeBetweenTime).SetEase(Ease.Linear);
+        firstBg.DOFade(0f, fadeDuration).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            firstBg.GetComponent<RectTransform>().DOScale(1f, 0f).SetEase(Ease.Linear);
+        });
+        secondBg.GetComponent<RectTransform>().DOScale(1f, 0f).SetEase(Ease.Linear);
+        secondBg.GetComponent<RectTransform>().DOScale(1.1f, fadeBetweenTime).SetEase(Ease.Linear);
     }
 
     // Update is called once per frame
@@ -36,12 +44,21 @@ public class BackgroundUI : MonoBehaviour
             firstBg.color = Color.white;
             firstBg.sprite = secondBg.sprite;
             secondBg.sprite = bgSprites[spriteIndex];
-            firstBg.DOFade(0f, fadeDuration);
-            secondBg.GetComponent<RectTransform>().DOScale(1f, 0f).OnComplete(() =>
+
+            firstBg.GetComponent<RectTransform>().DOScale(1.1f, fadeBetweenTime).SetEase(Ease.Linear);
+            firstBg.DOFade(0f, fadeDuration).SetEase(Ease.Linear).OnComplete(() =>
             {
-                secondBg.GetComponent<RectTransform>().DOScale(1.1f, fadeBetweenTime).SetEase(Ease.Linear);
+                firstBg.GetComponent<RectTransform>().DOScale(1f, 0f).SetEase(Ease.Linear);
             });
-            
+            secondBg.GetComponent<RectTransform>().DOScale(1f, 0f).SetEase(Ease.Linear);
+            secondBg.GetComponent<RectTransform>().DOScale(1.1f, fadeBetweenTime).SetEase(Ease.Linear);
         }
+    }
+
+    private void OnDestroy()
+    {
+        firstBg.GetComponent<RectTransform>().DOKill();
+        secondBg.GetComponent<RectTransform>().DOKill();
+        firstBg.DOKill();
     }
 }

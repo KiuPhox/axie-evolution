@@ -36,7 +36,7 @@ public class Boomerang : Projectile
     {
         transform.Translate(direction.normalized * currentSpeed * Time.deltaTime, Space.World);
        
-        if (holder == null)
+        if (!holder.activeSelf)
         {
             Destroy(this.gameObject);
         }

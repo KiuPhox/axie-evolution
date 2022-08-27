@@ -303,6 +303,12 @@ public class LivingEntity : MonoBehaviour, IDamageable
                     champion.SetCharacteristics();
                 }
             }
+
+            if (championData.name == "Vampiro")
+            {
+                ObjectPooler.Instance.DisableAllObjects("bloodline");
+            }
+
             foreach (GameObject championGO in playerChampions.champions)
             {
                 if (championGO.activeSelf && championGO != this.gameObject)

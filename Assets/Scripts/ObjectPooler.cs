@@ -65,6 +65,14 @@ public class ObjectPooler : MonoBehaviour
             .Concat(poolDictionary["b_header"]).ToList();
     }
 
+    public void DisableAllObjects(string tag)
+    {
+        for (int i = 0; i < poolDictionary[tag].Count; i++)
+        {
+            poolDictionary[tag][i].SetActive(false);
+        }
+    }
+
     public GameObject GetPooledObjectIndex(string tag, int index)
     {
         return poolDictionary[tag][index];
