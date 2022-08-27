@@ -13,7 +13,6 @@ public class CanvasManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject classesHolderUI;
     public GameObject itemsHolderUI;
-    public GameObject chooseOneUI;
     public GameObject rerollButtonUI;
     public GameObject acceptButtonUI;
     public GameObject pauseButtonUI;
@@ -40,14 +39,12 @@ public class CanvasManager : MonoBehaviour
             pauseButtonUI.SetActive(true);
             if (GameManager.Instance.State == GameState.ChooseCard)
             {
-                chooseOneUI.SetActive(false);
                 acceptButtonUI.SetActive(true);
                 rerollButtonUI.GetComponentInChildren<TMP_Text>().text = "Reroll: 2";
             }
             else if (GameManager.Instance.State == GameState.ChooseItem)
             {
                 rerollButtonUI.GetComponentInChildren<TMP_Text>().text = "Reroll: " + (GameManager.Instance.currentLevel - 1).ToString();
-                chooseOneUI.SetActive(true);
                 acceptButtonUI.SetActive(false);
             }
         }

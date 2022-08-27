@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-using DG.Tweening;
 using UnityMovementAI;
 
 
@@ -14,20 +12,20 @@ public class Enemy : LivingEntity
 
     LivingEntity targetEntity;
     [HideInInspector] public GameObject closestChampion;
-    
 
-    SteeringBasics steeringBasics;
-    Wander1 wander;
-    Separation separation;
 
-    List<MovementAIRigidbody> otherEnemies;
+    [HideInInspector] public SteeringBasics steeringBasics;
+    [HideInInspector] public Wander1 wander;
+    [HideInInspector] public Separation separation;
+
+    [HideInInspector] public List<MovementAIRigidbody> otherEnemies;
 
     public float separationWeight;
     public float arriveWeight;
 
     [HideInInspector] public bool isStunned = false;
     [HideInInspector] public bool isPoision = false;
-    Vector3 accel = new Vector3(0, 0, 0);
+    [HideInInspector] public Vector3 accel = new Vector3(0, 0, 0);
 
     [HideInInspector] public bool chuggerPushed = false;
     float chuggerTime = 2f;
@@ -99,8 +97,8 @@ public class Enemy : LivingEntity
             accel += separation.GetSteering(otherEnemies) * separationWeight;
             if (closestChampion != null && !isStunned)
             {
-                accel += steeringBasics.Arrive(closestChampion.transform.position) * arriveWeight;
-            }
+                FollowTarget(closestChampion.transform.position);
+            } 
         }
 
         else if (isStunned)
@@ -108,6 +106,11 @@ public class Enemy : LivingEntity
             accel = steeringBasics.Arrive(transform.position);
         }
         steeringBasics.Steer(accel);
+    }
+
+    public void FollowTarget(Vector3 targetPos)
+    {
+        accel += steeringBasics.Arrive(targetPos) * arriveWeight;
     }
 
     public void ResetAllEffect()

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 159265d818c1cdf4ebc927246e2e8287, type: 3}
-  m_Name: Seeker
+  m_Name: Luxer
   m_EditorClassIdentifier: 
-  name: Seeker
+  name: Luxer
   description: 
   sprite: {fileID: 0}
   health: 25
@@ -23,7 +23,7 @@ MonoBehaviour:
   tier: 0
   axieID: 455137
   genes: 0x3000081809044080000000100140800850200010010100084020001000008604106000100001820810200010010082081040001000010208406
-  projectile: {fileID: 471032845143315104, guid: cf482f7ac0c668f41a26de6a89a08483,
+  projectile: {fileID: 8079644880997990891, guid: 40bf4b09f39935f4ca810d191cbcf57f,
     type: 3}
   cardColor: {fileID: 0}
   weight: 0

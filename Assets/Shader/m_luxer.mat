@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_laser
+  m_Name: m_luxer
   m_Shader: {fileID: -6465566751694194690, guid: 99d36bc570716e642be8967a2d35fa1b,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -29,11 +29,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - DissolveAmount: 0.43
-    - NoiseAmount: 0.2
-    - NoisePower: 2
+    - DissolveAmount: 0.066
+    - NoiseAmount: 0.034
+    - NoisePower: 6.6
     - NoiseScale: 25
     m_Colors:
-    - MainColor: {r: 11.984314, g: 11.984314, b: 11.984314, a: 1}
-    - MainSpeed: {r: -0.5, g: 0, b: 0, a: 0}
-    - NoiseSpeed: {r: -2, g: 1, b: 0, a: 0}
+    - MainColor: {r: 1.7007382, g: 1.0988859, b: 13.703752, a: 1}
+    - MainSpeed: {r: -1, g: 0, b: 0, a: 0}
+    - NoiseSpeed: {r: 0, g: 0, b: 0, a: 0}

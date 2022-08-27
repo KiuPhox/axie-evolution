@@ -26,7 +26,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   cardColor: {fileID: 0}
   weight: 0
-  attackAnimation: attack/melee/normal-attack
+  attackAnimation: attack/melee/normal-attack-01
   damagingType: 0
   classes: 
   bodies: []

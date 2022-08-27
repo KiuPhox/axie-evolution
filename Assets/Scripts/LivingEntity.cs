@@ -139,7 +139,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
     {
         maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1) * playerChampions.intimidation_m * 3;
         health = maxHealth;
-        damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1) * 2;
+        damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1) * 3;
         defense = championData.defense + 1.6f * (GameManager.Instance.currentLevel - 1) * 3;
         projectile = championData.projectile;
         cooldownTime = championData.cooldownTime * 0.9f;
@@ -171,7 +171,12 @@ public class LivingEntity : MonoBehaviour, IDamageable
                 }
                 health -= incomeDamage * playerChampions.vulnerability_m;
                 skeletonAnimation.state.SetAnimation(0, "defense/hit-by-normal", false);
-                skeletonAnimation.state.AddAnimation(0, "action/move-forward", true, 0);
+                if (championData.name == "Luxer" || championData.name == "Gali")
+                {
+                    skeletonAnimation.state.AddAnimation(0, "action/idle/normal", true, 0);
+                }
+                else
+                    skeletonAnimation.state.AddAnimation(0, "action/move-forward", true, 0);
             }
             else
             {
@@ -332,7 +337,23 @@ public class LivingEntity : MonoBehaviour, IDamageable
             Instantiate(championData.projectile, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
         }
-
+        else if (championData.name == "Skud")
+        {
+            GameObject i_dieGO = ObjectPooler.Instance.GetPooledObject("skud_die");
+            i_dieGO.SetActive(true);
+            i_dieGO.transform.position = transform.position;
+            i_dieGO.GetComponent<SkeletonAnimation>().state.SetAnimation(0, "defense/hit-die", false);
+            i_dieGO.GetComponent<SkeletonAnimation>().state.AddAnimation(0, "action/idle/die", true, 0f);
+            gameObject.SetActive(false);
+        }
+        else if (championData.name == "Luxer")
+        {
+            GameObject i_dieGO = ObjectPooler.Instance.GetPooledObject("luxer_die");
+            i_dieGO.SetActive(true);
+            i_dieGO.transform.position = transform.position;
+            i_dieGO.GetComponent<SkeletonAnimation>().state.SetAnimation(0, "defense/hit-die", false);
+            gameObject.SetActive(false);
+        }
         else
         {
             gameObject.SetActive(false);

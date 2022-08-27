@@ -143,6 +143,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         playerChampions.ResetAllChampions();
+        ObjectPooler.Instance.DisableAllObjects("skud_die");
+        ObjectPooler.Instance.DisableAllObjects("luxer_die");
         if (previousState != GameState.GamePause && generateChampionCard.isFisrtGenerated)
         {
             currentLevel++;
