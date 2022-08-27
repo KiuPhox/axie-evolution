@@ -60,7 +60,12 @@ public class SeekKnife : Projectile
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<LivingEntity>().TakeDamage(damage, holder.GetComponent<LivingEntity>());
+            if (holder == null)
+            {
+                collision.GetComponent<LivingEntity>().TakeDamage(damage, null);
+            }
+            else 
+                collision.GetComponent<LivingEntity>().TakeDamage(damage, holder.GetComponent<LivingEntity>());
             SoundManager.Instance.PlaySound(knifeSlice);
         }
     }

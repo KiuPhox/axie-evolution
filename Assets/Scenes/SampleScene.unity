@@ -9142,6 +9142,9 @@ MonoBehaviour:
   enchanted_m: 0
   beastar_m: 0
   hardening_m: 0
+  barrage_m: 0
+  crucio_m: 0
+  ceremonial_m: 0
 --- !u!1 &995336670
 GameObject:
   m_ObjectHideFlags: 0
@@ -13344,7 +13347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89e302db47ebe4fbbca22807d2c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 5
+  currentLevel: 1
   playerChampions: {fileID: 993331035}
   generateChampionCard: {fileID: 995336675}
   spawner: {fileID: 510916121}

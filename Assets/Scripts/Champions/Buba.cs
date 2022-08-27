@@ -21,6 +21,10 @@ public class Buba : Champion
             {
                 nextAttackTime = Time.time + cooldownTime;
                 StartCoroutine(ShootIE(0f));
+                if (playerChampions.barrage_m && Utility.RandomBool(20))
+                {
+                    StartCoroutine(ShootIE(0.5f));
+                }
             }
         }
     }

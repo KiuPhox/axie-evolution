@@ -26,6 +26,10 @@ public class Gider : Champion
             {
                 StartCoroutine(ShootIE(0));
                 nextAttackTime = Time.time + cooldownTime;
+                if (playerChampions.barrage_m && Utility.RandomBool(20))
+                {
+                    StartCoroutine(ShootIE(0.5f));
+                }
             }
         }
     }

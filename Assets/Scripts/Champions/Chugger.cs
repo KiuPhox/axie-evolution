@@ -21,6 +21,10 @@ public class Chugger : Champion
             {
                 nextAttackTime = Time.time + cooldownTime;
                 StartCoroutine(ShootIE(0.5f));
+                if (playerChampions.barrage_m && Utility.RandomBool(20))
+                {
+                    StartCoroutine(ShootIE(1.5f));
+                }
             }
         }
     }

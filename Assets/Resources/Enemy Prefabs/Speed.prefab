@@ -67,10 +67,15 @@ MonoBehaviour:
   attackCooldownTime: 0
   nextAttackTime: 0
   closestChampion: {fileID: 0}
+  steeringBasics: {fileID: 0}
+  wander: {fileID: 0}
+  separation: {fileID: 0}
+  otherEnemies: []
   separationWeight: 0.6
   arriveWeight: 1
   isStunned: 0
   isPoision: 0
+  accel: {x: 0, y: 0, z: 0}
   chuggerPushed: 0
 --- !u!50 &9115612116787840760
 Rigidbody2D:
@@ -106,9 +111,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.4}
+  m_Offset: {x: 0, y: 1.6676631}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.767663
 --- !u!114 &-1280694848388994295
 MonoBehaviour:
   m_ObjectHideFlags: 0

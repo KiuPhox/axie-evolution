@@ -137,10 +137,10 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public void SetCharacteristicsForBoss()
     {
-        maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1) * playerChampions.intimidation_m * 3;
+        maxHealth = championData.health + 15 * (GameManager.Instance.currentLevel - 1) * playerChampions.intimidation_m * 3f;
         health = maxHealth;
-        damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1) * 3;
-        defense = championData.defense + 1.6f * (GameManager.Instance.currentLevel - 1) * 3;
+        damage = championData.damage + 4 * (GameManager.Instance.currentLevel - 1) * 2f;
+        defense = championData.defense + 1.6f * (GameManager.Instance.currentLevel - 1) * 3f;
         projectile = championData.projectile;
         cooldownTime = championData.cooldownTime * 0.9f;
 
@@ -184,6 +184,14 @@ public class LivingEntity : MonoBehaviour, IDamageable
                 if (playerChampions.beastar_m && championData.classes.Contains(Class.Beast))
                 {
                     cooldownTime = cooldownTime_o * (1 - (1 - health / maxHealth) * 0.5f);
+                }
+                if (playerChampions.crucio_m)
+                {
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach (GameObject enemy in enemies)
+                    {
+                        enemy.GetComponent<LivingEntity>().TakeDamage(incomeDamage * 0.2f, this);
+                    }
                 }
                 unitsUI.LoadHealthbar(this.gameObject, health, maxHealth);
                 skeletonAnimation.state.SetAnimation(0, "defense/hit-by-ranged-attack", false);
@@ -329,7 +337,17 @@ public class LivingEntity : MonoBehaviour, IDamageable
                 }
             }
         }
-
+        else
+        {
+            if (playerChampions.ceremonial_m)
+            {
+                GameObject load_Dagger = Resources.Load<GameObject>("Prefabs/Seek Knife");
+                GameObject i_dagger = Instantiate(load_Dagger, transform.position, Quaternion.identity);
+                i_dagger.GetComponent<Projectile>().damage = 5f;
+                i_dagger.GetComponent<SeekKnife>().lifeTime = 3.5f;
+                i_dagger.GetComponent<Projectile>().holder = null;
+            }
+        }
         SoundManager.Instance.PlayDeathSound();
 
         if (championData.name == "Exploder")

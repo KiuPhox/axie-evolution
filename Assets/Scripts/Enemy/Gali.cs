@@ -75,6 +75,14 @@ public class Gali : Enemy
     {
         yield return new WaitForSeconds(delayTime);
         GameObject i_slide = Instantiate(championData.projectile, transform.position + new Vector3(0f, 0.5f, 0f), Quaternion.identity);
+        GameObject[] championGOs = GameObject.FindGameObjectsWithTag("Champion");
+        foreach (GameObject championGO in championGOs)
+        {
+            if (Vector2.Distance(championGO.transform.position, transform.position) < 5f)
+            {
+                championGO.GetComponent<LivingEntity>().TakeDamage(damage, null);
+            }
+        }
         Destroy(i_slide, 1f);
     }
     

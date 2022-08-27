@@ -38,6 +38,9 @@ public class PlayerChampions : MonoBehaviour
     [HideInInspector] public float enchanted_m;
     [HideInInspector] public bool beastar_m;
     [HideInInspector] public float hardening_m;
+    [HideInInspector] public bool barrage_m;
+    [HideInInspector] public bool crucio_m;
+    [HideInInspector] public bool ceremonial_m;
 
     public void AddChampion(GameObject choosedChampion)
     {
@@ -51,22 +54,10 @@ public class PlayerChampions : MonoBehaviour
     public void SetMutiplierValues()
     {
         squirl_m = new float[] { 1, 1, 1 };
-        beastDfs_m = 1;
-        aquaticSlow_m = 1;
-        birdCooldown_m = 1;
-        plantHealth_m = 1;
-        bugDmg_m = 1;
-        reptileIgnoreShield = false;
-        temporal_m = 1;
-        intimidation_m = 1;
-        blessing_m = 1;
-        vulnerability_m = 1;
-        lastStand_m = 1;
-        amplify_m = 1;
-        ballista_m = 1;
-        enchanted_m = 1;
-        beastar_m = false;
-        hardening_m = 1;
+        beastDfs_m = aquaticSlow_m = birdCooldown_m = plantHealth_m = bugDmg_m = 1;
+        temporal_m = intimidation_m = blessing_m = vulnerability_m = lastStand_m = 1;
+        amplify_m = ballista_m = enchanted_m = hardening_m = 1;
+        reptileIgnoreShield = beastar_m = barrage_m = crucio_m = ceremonial_m = false;
 
         foreach (PlayerClass playerClass in playerClasses)
         {
@@ -166,6 +157,16 @@ public class PlayerChampions : MonoBehaviour
                 case "Hardening":
                     hardening_m = 1.5f;
                     break;
+                case "Barrage":
+                    barrage_m = true;
+                    break;
+                case "Crucio":
+                    crucio_m = true;
+                    break;
+                case "Ceremonial":
+                    ceremonial_m = true;
+                    break;
+
             }
         }
 
