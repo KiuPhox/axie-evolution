@@ -98,13 +98,13 @@ public class CardHandler : MonoBehaviour
 
         // Class Circle
         images[5].gameObject.SetActive(false);
-        images[7].gameObject.SetActive(false);
+        images[6].gameObject.SetActive(false);
 
         // Class Image
         for (int i = 0; i < champion.classes.Count; i++)
         {
-            images[2 * i + 5].gameObject.SetActive(true);
-            images[2 * i + 6].sprite = Resources.Load<Sprite>("Sprites/" + champion.classes[i].ToString().ToLower());
+            images[i + 5].gameObject.SetActive(true);
+            images[i + 5].sprite = Resources.Load<Sprite>("Sprites/" + champion.classes[i].ToString().ToLower());
         }
 
         // Load Champion Data
@@ -132,10 +132,10 @@ public class CardHandler : MonoBehaviour
         images[3].color = invisibleColor;
         images[4].color = invisibleColor;
         images[5].gameObject.SetActive(false);
+        images[6].gameObject.SetActive(false);
         images[7].gameObject.SetActive(false);
-        images[9].gameObject.SetActive(false);
-        images[10].gameObject.SetActive(false);
-        images[11].color = invisibleColor;
+        images[8].gameObject.SetActive(false);
+        images[9].color = invisibleColor;
 
         // Load Item Data
         _name.text = item.name;
@@ -152,7 +152,7 @@ public class CardHandler : MonoBehaviour
 
             images[3].color = cardColorData.nameBoxColor; // Name Box's color
             images[4].color = cardColorData.descriptionBoxColor; // Description Box's color
-            images[11].color = Color.white;
+            images[9].color = Color.white;
         }
     }
 

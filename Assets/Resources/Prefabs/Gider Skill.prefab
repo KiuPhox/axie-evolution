@@ -376,7 +376,8 @@ MonoBehaviour:
   target: {fileID: 0}
   holder: {fileID: 0}
   explodeRange: 2.5
-  explodeHit: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
+  explodeHit: {fileID: 3388944211059982515, guid: a6437071fe47dab4cb0b47a23e25bed1,
+    type: 3}
   lifeTime: 0.27
   stunTime: 2
 --- !u!61 &3474482650530304665

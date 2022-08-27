@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1803527682}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.4, z: 0}
-  m_LocalScale: {x: 2.2, y: 2.2, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 2864012901176828560}
   m_RootOrder: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   groundFollowDistance: 0.1
   groundCheckMask:
     serializedVersion: 2
-    m_Bits: 4294967291
+    m_Bits: 7987
   slopeLimit: 80
 --- !u!50 &2864012901176828588
 Rigidbody2D:

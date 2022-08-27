@@ -44,7 +44,7 @@ public class ClassesUI : MonoBehaviour
         TMP_Text class_text = unit.GetComponentInChildren<TMP_Text>();
 
         // Load Class Image
-        images[1].sprite = Resources.Load<Sprite>("Sprites/" + playerClass._class.ToString().ToLower());
+        images[1].sprite = Resources.Load<Sprite>("Sprites/mini-" + playerClass._class.ToString().ToLower());
         // Load Class Value
         class_text.text = playerClass.value + "/3";
     }

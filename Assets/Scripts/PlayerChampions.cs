@@ -37,6 +37,7 @@ public class PlayerChampions : MonoBehaviour
     [HideInInspector] public float ballista_m;
     [HideInInspector] public float enchanted_m;
     [HideInInspector] public bool beastar_m;
+    [HideInInspector] public float hardening_m;
 
     public void AddChampion(GameObject choosedChampion)
     {
@@ -65,6 +66,7 @@ public class PlayerChampions : MonoBehaviour
         ballista_m = 1;
         enchanted_m = 1;
         beastar_m = false;
+        hardening_m = 1;
 
         foreach (PlayerClass playerClass in playerClasses)
         {
@@ -160,6 +162,9 @@ public class PlayerChampions : MonoBehaviour
                     break;
                 case "Beastar":
                     beastar_m = true;
+                    break;
+                case "Hardening":
+                    hardening_m = 1.5f;
                     break;
             }
         }

@@ -276,29 +276,42 @@ public class LivingEntity : MonoBehaviour, IDamageable
             OnDeath();
         }
         OnDeath = null;
+
         if (championData.name == "Exploder")
         {
             Instantiate(championData.projectile, transform.position, Quaternion.identity);
         }
-        if (playerChampions.playerItems.Contains("Last Stand") && gameObject.CompareTag("Champion"))
+
+        if (gameObject.CompareTag("Champion"))
         {
-            int count = 0;
-            Champion champion = new Champion();
-            foreach(GameObject championGO in playerChampions.champions)
+            if (playerChampions.playerItems.Contains("Last Stand"))
+            {
+                int count = 0;
+                Champion champion = new Champion();
+                foreach (GameObject championGO in playerChampions.champions)
+                {
+                    if (championGO.activeSelf && championGO != this.gameObject)
+                    {
+                        champion = championGO.GetComponent<Champion>();
+                        Debug.Log(champion.defense);
+                        count++;
+                    }
+                }
+                if (count == 1)
+                {
+                    playerChampions.lastStand_m = 1.2f;
+                    champion.SetCharacteristics();
+                }
+            }
+            foreach (GameObject championGO in playerChampions.champions)
             {
                 if (championGO.activeSelf && championGO != this.gameObject)
                 {
-                    champion = championGO.GetComponent<Champion>();
-                    count++;
+                    championGO.GetComponent<Champion>().defense *= playerChampions.hardening_m;
                 }
             }
-            Debug.Log(count);
-            if (count == 1)
-            {
-                playerChampions.lastStand_m = 1.2f;
-                champion.SetCharacteristics();
-            }
         }
+
         SoundManager.Instance.PlayDeathSound();
 
         gameObject.SetActive(false);

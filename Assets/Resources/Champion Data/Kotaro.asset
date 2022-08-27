@@ -28,8 +28,9 @@ MonoBehaviour:
   projectile: {fileID: 3611118393586328161, guid: 243c3aaca5f1d304ba1b478bdd758131,
     type: 3}
   cardColor: {fileID: 11400000, guid: c5266bb105130744baa8a02ee6f6c5c8, type: 2}
-  weight: 340
+  weight: 315
   attackAnimation: attack/melee/normal-attack
+  damagingType: 0
   classes: 0000000005000000
   bodies:
   - class: 0
@@ -49,5 +50,5 @@ MonoBehaviour:
   - class: 3
     value: 10
   characterClass: 1
-  classValue: 0
+  classValue: 10
   specialBody: 3

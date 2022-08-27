@@ -15,6 +15,7 @@ public class CanvasManager : MonoBehaviour
     public GameObject itemsHolderUI;
     public GameObject chooseOneUI;
     public GameObject rerollButtonUI;
+    public GameObject acceptButtonUI;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +39,14 @@ public class CanvasManager : MonoBehaviour
             if (GameManager.Instance.State == GameState.ChooseCard)
             {
                 chooseOneUI.SetActive(false);
+                acceptButtonUI.SetActive(true);
                 rerollButtonUI.GetComponentInChildren<TMP_Text>().text = "Reroll: 2";
             }
             else if (GameManager.Instance.State == GameState.ChooseItem)
             {
                 rerollButtonUI.GetComponentInChildren<TMP_Text>().text = "Reroll: " + (GameManager.Instance.currentLevel - 1).ToString();
                 chooseOneUI.SetActive(true);
+                acceptButtonUI.SetActive(false);
             }
         }
         else if (GameManager.Instance.State == GameState.GamePause)
