@@ -177,7 +177,7 @@ public class Spawner : MonoBehaviour
                     bossTag = "b_shooter";
                     break;
                 case 20:
-                    bossTag = "b_exploder";
+                    bossTag = "b_seeker";
                     break;
                 case 25:
                     bossTag = "b_header";

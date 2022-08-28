@@ -16,7 +16,7 @@ public class BossHealthBar : MonoBehaviour
     void Update()
     {
         GameObject boss = new GameObject();
-        if (GameManager.Instance.currentLevel == 5)
+        if (GameManager.Instance.currentLevel == 5 || GameManager.Instance.currentLevel == 20)
         {
             boss = GameObject.Find("Skud(Clone)");
         }

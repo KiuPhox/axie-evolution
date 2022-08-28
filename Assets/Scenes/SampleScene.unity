@@ -12332,7 +12332,6 @@ GameObject:
   - component: {fileID: 1383433865}
   - component: {fileID: 1383433867}
   - component: {fileID: 1383433866}
-  - component: {fileID: 1383433868}
   m_Layer: 5
   m_Name: Wave Box
   m_TagString: Untagged
@@ -12397,19 +12396,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383433864}
   m_CullTransparentMesh: 0
---- !u!114 &1383433868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383433864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b41c48b642c444daedb797926ecfc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossHealth: {fileID: 0}
 --- !u!1 &1389585482
 GameObject:
   m_ObjectHideFlags: 0
@@ -13347,7 +13333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89e302db47ebe4fbbca22807d2c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 1
+  currentLevel: 20
   playerChampions: {fileID: 993331035}
   generateChampionCard: {fileID: 995336675}
   spawner: {fileID: 510916121}
