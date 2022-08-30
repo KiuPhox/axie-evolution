@@ -137,16 +137,16 @@ public static class Level
     public static List<Item> Items = new List<Item>
     {
         new Item("Amplify", "+20% AoE damage"), // Done
-        new Item("Resonance" , "All AoE attacks deal +3% damage per unit hit"),
+        //new Item("Resonance" , "All AoE attacks deal +3% damage per unit hit"),
         new Item("Ballista", "+20% projectile damage"), // Done
         new Item("Crucio", "Taking damage also shares that across all enemies at 20% its value"), // Done
-        new Item("Kinetic Bomb", "When an axie dies it explodes, pushing enemies away"),
-        new Item("Porcupine", "When an axie dies it explodes, releasing piercing and ricocheting projectiles"),        
+        //new Item("Kinetic Bomb", "When an axie dies it explodes, pushing enemies away"),
+        //new Item("Porcupine", "When an axie dies it explodes, releasing piercing and ricocheting projectiles"),        
         new Item("Last Stand", "The last axie alive is fully healed and receives a +20% bonus to all stats"), // Done
-        new Item("Seeping", "Enemies taking DoT damage have -15% defense"),
-        new Item("Deceleration", "Enemies taking DoT damage have -15% movement speed"),
-        new Item("Annihilation", "When a bird dies deal its DoT damage to all enemies for 3 seconds"),
-        new Item("Blunt", "Projectile have +10% chance to knockback"),
+        //new Item("Seeping", "Enemies taking DoT damage have -15% defense"),
+        //new Item("Deceleration", "Enemies taking DoT damage have -15% movement speed"),
+        //new Item("Annihilation", "When a bird dies deal its DoT damage to all enemies for 3 seconds"),
+        //new Item("Blunt", "Projectile have +10% chance to knockback"),
         new Item("Chronomancy", "Aquatic cast their spells 15% faster"), // Done
         new Item("Barrage", "20% chance to create secondary AoE on AoE hit"), // Done
         new Item("Enchanted", "+33% attack speed to a random axie every level"), // Done
@@ -157,7 +157,7 @@ public static class Level
         new Item("Temporal", "Enemies are 10% slower"), // Done
         new Item("Ceremonial", "Killing an enemy fires a dagger"), // Done
         new Item("Critical", "15% chance for attacks to critically strike, dealing 2x damage"), // Done
-        new Item("Kinetic Strike", "20% chance for attacks to push enemies away with high force"), 
+        //new Item("Kinetic Strike", "20% chance for attacks to push enemies away with high force"), 
         new Item("Stunning", "10% chance for attacks to stun for 2 seconds"), // Done
         new Item("Culling", "Instantly kill enemy if below 20% max HP"), // Done
         new Item("Hardening", "+50% defense to all axies for every an axie dies") // Done

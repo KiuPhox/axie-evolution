@@ -21,11 +21,12 @@ public class Skud : Enemy
 
     private new void Update()
     {
+        FlipBaseOnTargetPos(targetPos);
         if (Time.time > nextMoveTime)
         {
             nextMoveTime = Time.time + moveTime;
             targetPos = new Vector3(Random.Range(-6f, 6f), Random.Range(-3f, 3f), 0);
-            FlipBaseOnTargetPos(targetPos);
+            
             isUsedEffect = false;
             skeletonAnimation.state.SetAnimation(0, "action/move-forward", true);
         }

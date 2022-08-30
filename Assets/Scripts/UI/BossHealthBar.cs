@@ -34,5 +34,9 @@ public class BossHealthBar : MonoBehaviour
             Enemy boss_e = boss.GetComponent<Enemy>();
             bossHealth_i.fillAmount = boss_e.health / boss_e.maxHealth;
         }
+        else
+        {
+            bossHealth_i.fillAmount = 0;
+        }
     }
 }
