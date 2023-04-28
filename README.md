@@ -1,2 +1,2 @@
-# Axie-Game
- A game for Sky Mavis Hackathon using Axie Mixer SDK
+# Axie-Evolution
+ A game for Axie Game Hackathon using Axie Mixer SDK
